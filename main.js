@@ -1,4 +1,4 @@
-/* THE STREAMIC - V7.1 FINAL with Smart Sorting */
+/* THE STREAMIC - V7.1 FINAL */
 (() => {
   const NEWS_FILE = 'data/news.json';
   const CATEGORY_FALLBACKS = {
@@ -196,7 +196,7 @@
   }
 
   function init() {
-    console.log('The Streamic V7.1 - Complete with Footer & Logo');
+    console.log('The Streamic V7.1 - Complete');
     initMobileNav();
     const category = (document.body.dataset.category || '').trim().toLowerCase();
     if (category) loadCategoryPage(category);

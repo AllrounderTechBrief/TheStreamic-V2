@@ -1,19 +1,8 @@
+# Replace "www.yoursite.com" with your actual domain
+
 User-agent: *
 Allow: /
 Disallow: /assets/temp/
 Disallow: /*.json$
 
-Sitemap: https://allroundertechbrief.github.io/TheStreamic-V2/sitemap.xml
-
-# Crawl-delay
-Crawl-delay: 1
-
-# Major search engines
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
+Sitemap: https://www.yoursite.com/sitemap.xml

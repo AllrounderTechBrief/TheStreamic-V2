@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The Streamic - COMPLETE RSS Aggregator with ALL Feeds"""
+"""The Streamic - Complete RSS Aggregator V7.1"""
 import json, time, urllib.request, urllib.error, xml.etree.ElementTree as ET
 from html import unescape, parser as HTMLParser_module
 from datetime import datetime
@@ -38,48 +38,32 @@ FEED_SOURCES = {
         {"url": "https://cloud.google.com/blog/products/media-entertainment/rss", "label": "Google Cloud Media"},
         {"url": "https://azure.microsoft.com/en-us/blog/feed/", "label": "Azure Blog"},
     ],
-    
-    # COMPLETE STREAMING FEEDS - 13 feeds total!
     "streaming": [
-        # StreamingMedia Official (4 feeds)
         {"url": "http://feeds.infotoday.com/StreamingMediaMagazine-FeaturedNews", "label": "Streaming Media News"},
         {"url": "http://feeds.infotoday.com/StreamingMediaMagazine-FeaturedArticles", "label": "Streaming Media Articles"},
         {"url": "http://feeds.infotoday.com/Streaming-Media-Blog", "label": "Streaming Media Blog"},
         {"url": "http://feeds.infotoday.com/StreamingMediaMagazine-IndustryNews", "label": "Streaming Media Industry"},
-        # Professional Tools
         {"url": "https://www.telestream.net/company/press/rss.xml", "label": "Telestream"},
         {"url": "https://www.haivision.com/blog/feed/", "label": "Haivision Blog"},
-        # OTT Engineering
         {"url": "https://ottverse.com/feed/", "label": "OTTVerse"},
-        # CDN / Delivery
         {"url": "https://blog.blazingcdn.com/en-us/feed/", "label": "BlazingCDN"},
-        # OTT Platforms
         {"url": "https://vodlix.com/feed/", "label": "Vodlix"},
-        # Thought Leaders
         {"url": "https://streamingmediablog.com/feed", "label": "Dan Rayburn"},
-        # Enterprise
         {"url": "https://www.globallogic.com/feed/", "label": "GlobalLogic"},
         {"url": "https://bmps.tech/feed/", "label": "BMPS Tech"},
-        # Developer
         {"url": "https://dev.to/feed", "label": "DEV.to"},
     ],
-    
-    # COMPLETE AUDIO-AI FEEDS - 11 feeds total!
     "audio-ai": [
-        # Broadcast Audio (5 feeds)
         {"url": "https://www.redtech.pro/feed/", "label": "RedTech"},
         {"url": "https://www.radioworld.com/rss.xml", "label": "Radio World"},
         {"url": "https://www.waves.com/news-and-events/rss", "label": "Waves Audio"},
         {"url": "https://www.production-expert.com/production-expert-1?format=rss", "label": "Production Expert"},
         {"url": "https://www.avid.com/blog/rss.xml", "label": "Avid Pro Tools"},
-        # AoIP (2 feeds)
         {"url": "https://www.audinate.com/feed", "label": "Audinate Dante"},
         {"url": "https://www.merging.com/rss.xml", "label": "Merging Ravenna"},
-        # Cloud Media (3 feeds)
         {"url": "https://aws.amazon.com/blogs/media/feed/", "label": "AWS Media"},
         {"url": "https://cloud.google.com/blog/products/media-entertainment/rss", "label": "Google Cloud"},
         {"url": "https://azure.microsoft.com/en-us/blog/feed/", "label": "Azure"},
-        # Developer
         {"url": "https://dev.to/feed", "label": "DEV.to"},
     ]
 }
