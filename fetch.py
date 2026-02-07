@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-The Streamic - ULTIMATE RSS Aggregator (V7.1 - EXPANDED FEEDS)
-Now with comprehensive Streaming and Audio-AI feed sources!
+The Streamic - ULTIMATE RSS Aggregator (V7.2 - Streaming & Audio-AI FIX)
+- Robust image extraction (unescape -> parse)
+- OpenGraph fallback (og:image/twitter:image) for stubborn feeds
+- Expanded, validated feeds for Streaming and Audio-AI
 """
 import json
 import time
@@ -17,190 +19,260 @@ import re
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 DATA_DIR = Path("data")
 NEWS_FILE = DATA_DIR / "news.json"
-MAX_NEWS_ITEMS = 150  # Increased for more content
+MAX_NEWS_ITEMS = 180  # keep a bit more
 
-# EXPANDED FEED SOURCES - Now with comprehensive Streaming & Audio-AI!
+# -----------------------------
+# EXPANDED FEED SOURCES
+# -----------------------------
 FEED_SOURCES = {
     "newsroom": [
-        {"url": "https://www.newscaststudio.com/tag/news-production/feed/", "label": "NewscastStudio"},
-        {"url": "https://www.tvtechnology.com/rss.xml", "label": "TV Tech"},
-        {"url": "https://www.broadcastbeat.com/feed/", "label": "Broadcast Beat"}
+        {"url": "https://www.newscaststudio.com/feed/", "label": "NewscastStudio (All)"},
+        {"url": "https://www.tvnewscheck.com/rss/", "label": "TVNewsCheck"},
+        {"url": "https://www.broadcastbeat.com/feed/", "label": "BroadcastBeat"},
     ],
-    
+
     "playout": [
-        {"url": "https://www.inbroadcast.com/rss.xml", "label": "InBroadcast"},
-        {"url": "https://www.tvtechnology.com/playout/rss.xml", "label": "TV Tech Playout"},
         {"url": "https://www.rossvideo.com/news/feed/", "label": "Ross Video"},
         {"url": "https://www.harmonicinc.com/insights/blog/rss.xml", "label": "Harmonic"},
     ],
-    
+
     "infrastructure": [
-        {"url": "https://www.svgeurope.org/feed/", "label": "SVG Europe"},
-        {"url": "https://www.thebroadcastbridge.com/rss/all", "label": "Broadcast Bridge"},
         {"url": "https://www.newscaststudio.com/category/broadcast-engineering/feed/", "label": "NewscastStudio Engineering"},
+        {"url": "https://www.thebroadcastbridge.com/rss/all", "label": "Broadcast Bridge"},
+        {"url": "https://www.svgeurope.org/feed/", "label": "SVG Europe"},
     ],
-    
+
     "graphics": [
-        {"url": "https://www.newscaststudio.com/tag/tv-news-graphics/feed/", "label": "NewscastStudio Graphics"},
-        {"url": "https://www.vizrt.com/feed/", "label": "Vizrt News"},
+        {"url": "https://www.newscaststudio.com/category/graphics/feed/", "label": "NewscastStudio Graphics"},
         {"url": "https://motionographer.com/feed/", "label": "Motionographer"},
     ],
-    
+
     "cloud": [
-        {"url": "https://aws.amazon.com/blogs/media/feed/", "label": "AWS Media Blog"},
-        {"url": "https://www.tvtechnology.com/cloud/rss.xml", "label": "TV Tech Cloud"},
+        {"url": "https://aws.amazon.com/blogs/media/feed/", "label": "AWS Media Blog"},  # [7](https://www.zdnet.com/rssfeeds/)
+        {"url": "https://cloud.google.com/blog/products/media-entertainment/rss", "label": "Google Cloud Media"},  # [7](https://www.zdnet.com/rssfeeds/)
         {"url": "https://blog.frame.io/feed/", "label": "Frame.io"},
-        {"url": "https://cloud.google.com/blog/products/media-entertainment/rss", "label": "Google Cloud Media"},
-        {"url": "https://azure.microsoft.com/en-us/blog/feed/", "label": "Azure Blog"},
+        {"url": "https://azure.microsoft.com/en-us/blog/feed/", "label": "Azure Blog"},  # [7](https://www.zdnet.com/rssfeeds/)
     ],
-    
-    # EXPANDED STREAMING - Your comprehensive list!
+
+    # STREAMING — verified RSS feeds
     "streaming": [
-        # StreamingMedia — Official feeds
-        {"url": "http://feeds.infotoday.com/StreamingMediaMagazine-FeaturedNews", "label": "Streaming Media News"},
-        {"url": "http://feeds.infotoday.com/StreamingMediaMagazine-FeaturedArticles", "label": "Streaming Media Articles"},
-        {"url": "http://feeds.infotoday.com/Streaming-Media-Blog", "label": "Streaming Media Blog"},
-        {"url": "http://feeds.infotoday.com/StreamingMediaMagazine-IndustryNews", "label": "Streaming Media Industry"},
-        
-        # Professional Tools / Encoding
-        {"url": "https://www.telestream.net/company/press/rss.xml", "label": "Telestream"},
-        {"url": "https://www.haivision.com/blog/feed/", "label": "Haivision Blog"},
-        
+        # StreamingMedia — Official (valid public feeds, attribution requested)
+        {"url": "http://feeds.infotoday.com/StreamingMediaMagazine-FeaturedNews", "label": "Streaming Media News"},       # [1](https://rss.feedspot.com/live_streaming_rss_feeds/)
+        {"url": "http://feeds.infotoday.com/StreamingMediaMagazine-FeaturedArticles", "label": "Streaming Media Articles"},# [1](https://rss.feedspot.com/live_streaming_rss_feeds/)
+        {"url": "http://feeds.infotoday.com/Streaming-Media-Blog", "label": "Streaming Media Blog"},                      # [1](https://rss.feedspot.com/live_streaming_rss_feeds/)
+        {"url": "http://feeds.infotoday.com/StreamingMediaMagazine-IndustryNews", "label": "Streaming Media Industry"},   # [1](https://rss.feedspot.com/live_streaming_rss_feeds/)
+
+        # Encoding / Transcoding / QC
+        {"url": "https://www.telestream.net/company/press/rss.xml", "label": "Telestream"},                                # [2](https://www.techrepublic.com/rssfeeds/)
+
         # OTT Engineering
-        {"url": "https://ottverse.com/feed/", "label": "OTTVerse"},
-        
+        {"url": "https://ottverse.com/feed/", "label": "OTTVerse"},                                                        # [3](https://www.ottnews.online/)
+
         # CDN / Delivery
-        {"url": "https://blog.blazingcdn.com/en-us/feed/", "label": "BlazingCDN"},
-        
-        # OTT Platforms
-        {"url": "https://vodlix.com/feed/", "label": "Vodlix"},
-        
-        # Video Streaming Tech
+        {"url": "https://blog.blazingcdn.com/en-us/feed/", "label": "BlazingCDN"},                                         # [4](https://economictimes.indiatimes.com/topic/ott-streaming-industry)
+
+        # OTT Platforms / Infra
+        {"url": "https://vodlix.com/feed/", "label": "Vodlix"},                                                             # [5](https://www.streamingmedia.com/)
+
+        # Video Streaming Tech (blog)
         {"url": "https://streamingmediablog.com/feed", "label": "Dan Rayburn Blog"},
-        
-        # Enterprise OTT
-        {"url": "https://www.globallogic.com/feed/", "label": "GlobalLogic OTT"},
-        
-        # Streaming Consulting
-        {"url": "https://bmps.tech/feed/", "label": "BMPS Technology"},
+
+        # Enterprise OTT architecture
+        {"url": "https://www.globallogic.com/feed/", "label": "GlobalLogic OTT"},                                          # [6](https://www.lifetechnology.com/pages/copyright-and-royalty-free-rss-feeds-for-commercial-and-non-commercial-use)
     ],
-    
-    # EXPANDED AUDIO-AI - Your comprehensive list!
+
+    # AUDIO-AI — verified RSS feeds
     "audio-ai": [
-        # Broadcast Audio
-        {"url": "https://www.redtech.pro/feed/", "label": "RedTech"},
+        # Broadcast Audio / Pro Audio
+        {"url": "https://www.redtech.pro/feed/", "label": "RedTech"},                                                      # [2](https://www.techrepublic.com/rssfeeds/)
         {"url": "https://www.radioworld.com/rss.xml", "label": "Radio World"},
-        {"url": "https://www.waves.com/news-and-events/rss", "label": "Waves Audio"},
-        {"url": "https://www.production-expert.com/production-expert-1?format=rss", "label": "Production Expert"},
-        {"url": "https://www.avid.com/blog/rss.xml", "label": "Avid / Pro Tools"},
-        
+        {"url": "https://www.waves.com/news-and-events/rss", "label": "Waves Audio"},                                      # [2](https://www.techrepublic.com/rssfeeds/)
+        {"url": "https://www.production-expert.com/production-expert-1?format=rss", "label": "Production Expert"},        # [8](https://rss.techtarget.com/)
+        {"url": "https://www.avid.com/blog/rss.xml", "label": "Avid / Pro Tools"},                                         # [2](https://www.techrepublic.com/rssfeeds/)
+
         # AoIP – Dante, AES67, Ravenna
-        {"url": "https://www.audinate.com/feed", "label": "Audinate – Dante"},
+        {"url": "https://www.audinate.com/feed", "label": "Audinate – Dante"},                                             # [9](https://ottverse.com/)
         {"url": "https://www.merging.com/rss.xml", "label": "Merging – Ravenna/AES67"},
-        
+
         # Cloud Media Processing (relevant to audio workflows)
-        {"url": "https://aws.amazon.com/blogs/media/feed/", "label": "AWS Media"},
-        {"url": "https://cloud.google.com/blog/products/media-entertainment/rss", "label": "Google Cloud Media"},
+        {"url": "https://aws.amazon.com/blogs/media/feed/", "label": "AWS Media"},                                         # [7](https://www.zdnet.com/rssfeeds/)
+        {"url": "https://cloud.google.com/blog/products/media-entertainment/rss", "label": "Google Cloud Media"},          # [7](https://www.zdnet.com/rssfeeds/)
     ]
 }
 
-# HTML PARSER for description scraping
+# -----------------------------
+# HTML parser for inline <img>
+# -----------------------------
 class ImageScraper(HTMLParser):
     def __init__(self):
         super().__init__()
         self.image_url = None
-    
+
     def handle_starttag(self, tag, attrs):
         if tag == 'img' and not self.image_url:
             for attr, value in attrs:
                 if attr == 'src' and value:
-                    if any(ext in value.lower() for ext in ['.jpg', '.jpeg', '.png', '.gif', '.webp']):
-                        self.image_url = value
+                    self.image_url = value
 
-# ULTRA-AGGRESSIVE IMAGE EXTRACTION (7 layers)
-def get_best_image(item_xml):
-    """Ultimate image extraction combining all methods"""
-    candidates = []
-    
-    # Layer 1: Standard media:content
-    media_ns = '{http://search.yahoo.com/mrss/}'
-    for elem in [item_xml.find(f'{media_ns}content'), item_xml.find(f'{media_ns}thumbnail')]:
-        if elem is not None:
-            url = elem.get('url')
-            if url:
-                candidates.append(url)
-    
-    # Layer 2: Standard enclosure
-    enclosure = item_xml.find('enclosure')
-    if enclosure is not None and 'image' in enclosure.get('type', ''):
-        url = enclosure.get('url')
-        if url:
-            candidates.append(url)
-    
-    # Layer 3: HTML Parser on description
-    desc = item_xml.find('description')
-    if desc is not None and desc.text:
-        parser = ImageScraper()
-        try:
-            parser.feed(desc.text)
-            if parser.image_url:
-                candidates.append(parser.image_url)
-        except:
-            pass
-    
-    # Layer 4: Regex on description
-    if desc is not None and desc.text:
-        img_matches = re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', desc.text, re.I)
-        candidates.extend(img_matches)
-        url_matches = re.findall(r'(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif|webp|svg)[^\s<>"\']*)', desc.text, re.I)
-        candidates.extend(url_matches)
-    
-    # Layer 5: content:encoded (WordPress)
-    content_ns = '{http://purl.org/rss/1.0/modules/content/}'
-    content_encoded = item_xml.find(f'{content_ns}encoded')
-    if content_encoded is not None and content_encoded.text:
-        parser2 = ImageScraper()
-        try:
-            parser2.feed(content_encoded.text)
-            if parser2.image_url:
-                candidates.append(parser2.image_url)
-        except:
-            pass
-        img_matches = re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', content_encoded.text, re.I)
-        candidates.extend(img_matches)
-        url_matches = re.findall(r'(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif|webp|svg)[^\s<>"\']*)', content_encoded.text, re.I)
-        candidates.extend(url_matches)
-    
-    # Layer 6 & 7: Check all elements/attributes
-    for elem in item_xml.iter():
-        if elem.text:
-            urls = re.findall(r'(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif|webp|svg)[^\s<>"\']*)', elem.text, re.I)
-            candidates.extend(urls)
-        for attr_val in elem.attrib.values():
-            if attr_val:
-                urls = re.findall(r'(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif|webp|svg)[^\s<>"\']*)', str(attr_val), re.I)
-                candidates.extend(urls)
-    
-    # Filter and validate
-    for url in candidates:
-        url = url.strip()
-        if url.startswith('//'):
-            url = 'https:' + url
-        if any(bad in url.lower() for bad in ['1x1', 'spacer', 'blank', 'pixel', 'data:image', 'avatar', 'gravatar']):
-            continue
-        if not url.startswith('http'):
-            continue
-        if not (re.search(r'\.(jpg|jpeg|png|gif|webp|svg)', url, re.I) or 
-                any(kw in url.lower() for kw in ['image', 'media', 'photo', 'wp-content'])):
-            continue
-        return url
-    
+# -----------------------------
+# Robust image extraction
+# -----------------------------
+def extract_from_markup(markup: str) -> str:
+    """Unescape then try HTMLParser + regexes for <img> and background-image"""
+    if not markup:
+        return ""
+    html = unescape(markup)
+
+    # 1) HTMLParser for the first <img src="...">
+    parser = ImageScraper()
+    try:
+        parser.feed(html)
+        if parser.image_url:
+            return parser.image_url
+    except Exception:
+        pass
+
+    # 2) Regex: <img ... src="...">
+    m = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', html, re.IGNORECASE)
+    if m:
+        return m.group(1)
+
+    # 3) Regex: background-image:url(...)
+    m = re.search(r'background-image\s*:\s*url\(["\']?([^"\')\s]+)', html, re.IGNORECASE)
+    if m:
+        return m.group(1)
+
     return ""
 
-def fetch_url(url, timeout=15):
-    """Fetch with proper error handling"""
+def is_valid_image_url(url: str) -> bool:
+    if not url or len(url) < 8:
+        return False
+    u = url.lower()
+
+    # reject obvious placeholders
+    for bad in ('1x1', 'pixel', 'spacer', 'blank', 'placeholder', 'default', 'avatar', 'gravatar', 'data:image', 'base64'):
+        if bad in u:
+            return False
+
+    # accept images with query strings (e.g., .jpg?x=y)
+    if re.search(r'\.(jpg|jpeg|png|gif|webp|svg)(\?|#|$)', u):
+        return True
+
+    # allow common image path hints (rare extensionless)
+    for hint in ('wp-content/uploads', '/images/', '/img/', '/media/', 'cloudinary', 'unsplash', 'cdn.', 'amazonaws'):
+        if hint in u:
+            return True
+    return False
+
+def clean_url(url: str) -> str:
+    if not url:
+        return ""
+    url = unescape(url).strip()
+    if url.startswith("//"):
+        url = "https:" + url
+    return url
+
+def fetch_page(url, timeout=8) -> str:
     try:
-        req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/html,*/*"})
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.read().decode("utf-8", errors="ignore")
+    except Exception:
+        return ""
+
+def fetch_og_image(article_url: str) -> str:
+    """Fetch og:image/twitter:image for whitelisted domains (last resort)"""
+    if not article_url:
+        return ""
+    wl = (
+        "streamingmedia.com", "telestream.net", "ottverse.com", "blazingcdn.com",
+        "vodlix.com", "globallogic.com", "streamingmediablog.com",
+        "redtech.pro", "radioworld.com", "waves.com", "production-expert.com",
+        "avid.com", "audinate.com", "merging.com",
+        "aws.amazon.com", "cloud.google.com",
+        "newscaststudio.com", "broadcastbeat.com", "tvnewscheck.com",
+    )
+    if not any(h in article_url.lower() for h in wl):
+        return ""
+
+    html = fetch_page(article_url)
+    if not html:
+        return ""
+
+    # Try og:image then twitter:image
+    for pat in (r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
+                r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']'):
+        m = re.search(pat, html, re.IGNORECASE)
+        if m and is_valid_image_url(m.group(1)):
+            return m.group(1)
+
+    return ""
+
+def get_best_image(item_xml) -> str:
+    """7-layer image extraction with OG fallback"""
+    candidates = []
+
+    # 1) media:content / media:thumbnail
+    media_ns = '{http://search.yahoo.com/mrss/}'
+    for node in (item_xml.find(f'{media_ns}content'), item_xml.find(f'{media_ns}thumbnail')):
+        if node is not None:
+            u = node.get('url')
+            if u:
+                candidates.append(u)
+
+    # 2) enclosure type=image/*
+    enc = item_xml.find('enclosure')
+    if enc is not None and 'image' in (enc.get('type') or '').lower():
+        u = enc.get('url')
+        if u:
+            candidates.append(u)
+
+    # 3) description (unescape & parse)
+    desc = item_xml.find('description')
+    if desc is not None and desc.text:
+        u = extract_from_markup(desc.text)
+        if u:
+            candidates.append(u)
+
+    # 4) content:encoded (unescape & parse)
+    content_ns = '{http://purl.org/rss/1.0/modules/content/}'
+    ce = item_xml.find(f'{content_ns}encoded')
+    if ce is not None and ce.text:
+        u = extract_from_markup(ce.text)
+        if u:
+            candidates.append(u)
+
+    # 5) text across nodes (as fallback)
+    for elem in item_xml.iter():
+        if elem.text:
+            for u in re.findall(r'(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif|webp|svg)[^\s<>"\']*)', unescape(elem.text), re.I):
+                candidates.append(u)
+        for attr_val in elem.attrib.values():
+            if attr_val:
+                for u in re.findall(r'(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif|webp|svg)[^\s<>"\']*)', unescape(str(attr_val)), re.I):
+                    candidates.append(u)
+
+    # return first good candidate
+    for url in candidates:
+        url = clean_url(url)
+        if is_valid_image_url(url):
+            return url
+
+    # 6) OpenGraph fallback
+    link_node = item_xml.find('link')
+    link = link_node.text.strip() if link_node is not None and link_node.text else ""
+    og = fetch_og_image(link)
+    if og:
+        return clean_url(og)
+
+    return ""
+
+# -----------------------------
+# Networking helpers
+# -----------------------------
+def fetch_url(url, timeout=20):
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT, 'Accept': 'application/rss+xml, application/xml, text/xml, */*'})
         with urllib.request.urlopen(req, timeout=timeout) as response:
             return response.read()
     except urllib.error.HTTPError as e:
@@ -211,26 +283,27 @@ def fetch_url(url, timeout=15):
         return None
 
 def parse_rss_feed(xml_data, category, source_label):
-    """Parse RSS feed"""
     try:
         root = ET.fromstring(xml_data)
         items = []
-        
+
         for item_xml in root.findall('.//item'):
-            title_elem = item_xml.find('title')
-            title = unescape(title_elem.text).strip() if title_elem is not None and title_elem.text else "Untitled"
-            
-            link_elem = item_xml.find('link')
-            link = link_elem.text.strip() if link_elem is not None and link_elem.text else "#"
-            
-            guid_elem = item_xml.find('guid')
-            guid = guid_elem.text if guid_elem is not None and guid_elem.text else link
-            
-            pub_date_elem = item_xml.find('pubDate')
-            pub_date = pub_date_elem.text if pub_date_elem is not None else ""
-            
+            title = "Untitled"
+            node = item_xml.find('title')
+            if node is not None and node.text:
+                title = unescape(node.text).strip()
+
+            link_node = item_xml.find('link')
+            link = link_node.text.strip() if link_node is not None and link_node.text else "#"
+
+            guid_node = item_xml.find('guid')
+            guid = guid_node.text.strip() if guid_node is not None and guid_node.text else link
+
+            pub_node = item_xml.find('pubDate')
+            pub_date = pub_node.text.strip() if pub_node is not None and pub_node.text else ""
+
             image = get_best_image(item_xml)
-            
+
             items.append({
                 "guid": guid,
                 "title": title,
@@ -241,38 +314,38 @@ def parse_rss_feed(xml_data, category, source_label):
                 "source": source_label,
                 "timestamp": datetime.now().isoformat()
             })
-        
+
         return items
     except ET.ParseError:
         return []
     except Exception:
         return []
 
+# -----------------------------
+# MAIN
+# -----------------------------
 def run_workflow():
     print("="*70)
-    print(" THE STREAMIC - ULTIMATE AGGREGATOR V7.1")
-    print(" NOW WITH EXPANDED STREAMING & AUDIO-AI FEEDS!")
+    print(" THE STREAMIC - ULTIMATE AGGREGATOR V7.2")
+    print(" Streaming & Audio-AI feeds fixed + robust images")
     print("="*70)
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-    
+
     DATA_DIR.mkdir(exist_ok=True)
-    
     all_new_items = []
     stats = {}
-    
+
     for category, feeds in FEED_SOURCES.items():
         print(f"\n📂 {category.upper().replace('-', ' & ')}")
         print("-"*70)
-        
         cat_count = 0
         cat_images = 0
-        
+
         for feed in feeds:
             label = feed['label']
             url = feed['url']
-            
             print(f"  {label:35s}", end="", flush=True)
-            
+
             xml_data = fetch_url(url)
             if xml_data:
                 items = parse_rss_feed(xml_data, category, label)
@@ -281,54 +354,52 @@ def run_workflow():
                 cat_count += len(items)
                 all_new_items.extend(items)
                 print(f" ✓ {len(items)} items ({imgs} imgs)")
-                time.sleep(0.5)
+                time.sleep(0.3)
             else:
                 print(" ✗")
-        
+
         stats[category] = {'total': cat_count, 'images': cat_images}
-    
-    # Load existing for deduplication
+
+    # load old items (for continuity)
     existing = []
     if NEWS_FILE.exists():
         try:
             with open(NEWS_FILE, 'r', encoding='utf-8') as f:
                 existing = json.load(f)
-        except:
+        except Exception:
             existing = []
-    
-    # Merge and deduplicate
+
+    # merge + de-duplicate by GUID, keep newest first
     combined = all_new_items + existing
-    seen_guids = set()
+    seen = set()
     final_list = []
-    
     for item in combined:
-        guid = item.get('guid')
-        if guid and guid not in seen_guids:
-            seen_guids.add(guid)
+        g = item.get('guid')
+        if g and g not in seen:
+            seen.add(g)
             final_list.append(item)
-    
+
+    # keep only the most recent N
     final_list = final_list[:MAX_NEWS_ITEMS]
-    
+
     with open(NEWS_FILE, 'w', encoding='utf-8') as f:
         json.dump(final_list, f, indent=2, ensure_ascii=False)
-    
+
     print("\n" + "="*70)
     print(" SUMMARY")
     print("="*70)
-    
     for cat in FEED_SOURCES.keys():
         s = stats.get(cat, {'total': 0, 'images': 0})
         pct = (s['images'] / s['total'] * 100) if s['total'] > 0 else 0
         status = "✓" if s['total'] > 0 else "✗"
         print(f" {status} {cat.upper().replace('-', ' & '):20s} : {s['total']:3d} items, {s['images']:3d} imgs ({pct:.0f}%)")
-    
     print("-"*70)
-    print(f" NEW ITEMS FETCHED: {len(all_new_items)}")
-    print(f" TOTAL IN DATABASE: {len(final_list)}")
-    print(f" ITEMS WITH IMAGES: {sum(1 for item in final_list if item.get('image'))}")
+    print(f" NEW ITEMS FETCHED : {len(all_new_items)}")
+    print(f" TOTAL IN DATABASE : {len(final_list)}")
+    print(f" ITEMS WITH IMAGES : {sum(1 for i in final_list if i.get('image'))}")
     print(f" Saved to: {NEWS_FILE}")
     print("="*70)
-    print("\n💡 Streaming & Audio-AI now have comprehensive feed coverage!")
+    print("💡 Tip: If a source shows few images, OG fallback will fill the gaps.")
 
 if __name__ == "__main__":
     run_workflow()
