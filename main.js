@@ -1,7 +1,9 @@
 /* =========================================================
-   THE STREAMIC - Main JavaScript (FIXED)
-   - No category count in heading
-   - Better fallback image handling
+   THE STREAMIC - Main JavaScript (FULLY FIXED)
+   - Removed HOME page hero
+   - Added "Load More" functionality for newsroom
+   - Fixed audio-ai category naming
+   - Improved image extraction and fallback handling
    - Tiered Bento Grid: Large cards (1-12), List cards (13-20)
 ========================================================= */
 
@@ -9,7 +11,7 @@
   const NEWS_FILE = 'data/news.json';
   const ARCHIVE_FILE = 'data/archive.json';
   
-  // Category-specific fallback images
+  // Category-specific fallback images (fixed audio-ai)
   const CATEGORY_FALLBACKS = {
     'newsroom': 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80',
     'playout': 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80',
@@ -17,12 +19,27 @@
     'graphics': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80',
     'cloud': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80',
     'streaming': 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
-    'audio-ai': 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80'
+    'audio-ai': 'https://images.unsplash.com/photo-1557800636-894a64c1696f?w=800&q=80'
   };
   
   /* ---------- Get Fallback Image for Category ---------- */
   function getFallbackImage(category) {
-    return CATEGORY_FALLBACKS[category] || 'assets/fallback.jpg';
+    return CATEGORY_FALLBACKS[category] || 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80';
+  }
+  
+  /* ---------- Check if Image URL is Valid ---------- */
+  function isValidImageUrl(url) {
+    if (!url || url.includes('fallback.jpg') || url.trim() === '') {
+      return false;
+    }
+    
+    // Reject placeholder or tiny images
+    const rejectPatterns = ['1x1', 'pixel', 'spacer', 'blank.', '/s/', 'placeholder'];
+    if (rejectPatterns.some(pattern => url.toLowerCase().includes(pattern))) {
+      return false;
+    }
+    
+    return true;
   }
   
   /* ---------- Render Large Bento Card (Items 1-12) ---------- */
@@ -43,17 +60,22 @@
     figure.className = 'card-image';
     const img = document.createElement('img');
     
-    // Use category fallback if no image or invalid image
-    const imageUrl = (item.image && !item.image.includes('fallback.jpg')) 
+    // Determine image URL - prefer actual image, fallback if invalid
+    const imageUrl = isValidImageUrl(item.image) 
       ? item.image 
       : getFallbackImage(item.category);
     
     img.src = imageUrl;
     img.alt = item.title || 'Article image';
     img.loading = 'lazy';
+    
+    // Error handler for failed images
     img.addEventListener('error', () => {
-      img.src = getFallbackImage(item.category);
+      if (img.src !== getFallbackImage(item.category)) {
+        img.src = getFallbackImage(item.category);
+      }
     });
+    
     figure.appendChild(img);
     article.appendChild(figure);
     
@@ -85,7 +107,7 @@
     if (item.category) {
       const tag = document.createElement('span');
       tag.className = 'category-tag';
-      tag.textContent = item.category.toUpperCase();
+      tag.textContent = item.category.toUpperCase().replace('-', ' & ');
       meta.appendChild(tag);
     }
     
@@ -95,7 +117,7 @@
     return article;
   }
   
-  /* ---------- Render List Card (Items 13-20) ---------- */
+  /* ---------- Render List Card (Items 13+) ---------- */
   function renderListCard(item) {
     const article = document.createElement('a');
     article.className = 'list-card-horizontal';
@@ -108,7 +130,7 @@
     figure.className = 'card-image';
     const img = document.createElement('img');
     
-    const imageUrl = (item.image && !item.image.includes('fallback.jpg')) 
+    const imageUrl = isValidImageUrl(item.image) 
       ? item.image 
       : getFallbackImage(item.category);
     
@@ -116,7 +138,9 @@
     img.alt = item.title || 'Article image';
     img.loading = 'lazy';
     img.addEventListener('error', () => {
-      img.src = getFallbackImage(item.category);
+      if (img.src !== getFallbackImage(item.category)) {
+        img.src = getFallbackImage(item.category);
+      }
     });
     figure.appendChild(img);
     article.appendChild(figure);
@@ -138,7 +162,7 @@
     
     if (item.category) {
       const tag = document.createElement('span');
-      tag.textContent = ` • ${item.category.toUpperCase()}`;
+      tag.textContent = ` • ${item.category.toUpperCase().replace('-', ' & ')}`;
       meta.appendChild(tag);
     }
     
@@ -148,7 +172,7 @@
     return article;
   }
   
-  /* ---------- Load Homepage ---------- */
+  /* ---------- Load Homepage (NO HERO) ---------- */
   function loadHomepage() {
     const largeGrid = document.getElementById('bentoGridLarge');
     const listGrid = document.getElementById('listGrid');
@@ -188,12 +212,16 @@
       });
   }
   
-  /* ---------- Load Category Page ---------- */
+  /* ---------- Load Category Page with "Load More" ---------- */
   function loadCategoryPage(category) {
     const largeGrid = document.getElementById('bentoGridLarge');
     const listGrid = document.getElementById('listGrid');
     
     if (!largeGrid || !listGrid) return;
+    
+    let allItems = [];
+    let displayedCount = 0;
+    const ITEMS_PER_LOAD = 20;
     
     fetch(NEWS_FILE)
       .then(res => {
@@ -206,35 +234,68 @@
         }
         
         // Filter by category
-        const filtered = items.filter(item => 
-          item.category === category
-        );
+        allItems = items.filter(item => item.category === category);
         
-        if (filtered.length === 0) {
+        if (allItems.length === 0) {
           largeGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #6e6e73; padding: 60px 20px;">No articles in this category yet. Check back soon!</p>';
           return;
         }
         
-        // First 12 in large format
-        filtered.slice(0, 12).forEach(item => {
-          largeGrid.appendChild(renderLargeCard(item));
-        });
+        // Initial load
+        loadMoreItems();
         
-        // Rest in list format
-        filtered.slice(12).forEach(item => {
-          listGrid.appendChild(renderListCard(item));
-        });
-        
-        // DO NOT ADD COUNT TO HEADING - REMOVED THIS CODE
-        // const heading = document.querySelector('.category-heading');
-        // if (heading) {
-        //   heading.textContent += ` (${filtered.length})`;
-        // }
+        // Add "Load More" button if needed
+        if (allItems.length > ITEMS_PER_LOAD) {
+          createLoadMoreButton();
+        }
       })
       .catch(err => {
         console.error('Failed to load category:', err);
         largeGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #6e6e73; padding: 60px 20px;">Failed to load content. Please run the RSS workflow first.</p>';
       });
+    
+    function loadMoreItems() {
+      const nextBatch = allItems.slice(displayedCount, displayedCount + ITEMS_PER_LOAD);
+      
+      nextBatch.forEach((item, index) => {
+        const absoluteIndex = displayedCount + index;
+        
+        // First 12 go to large grid, rest to list grid
+        if (absoluteIndex < 12) {
+          largeGrid.appendChild(renderLargeCard(item));
+        } else {
+          listGrid.appendChild(renderListCard(item));
+        }
+      });
+      
+      displayedCount += nextBatch.length;
+      
+      // Hide load more button if all items displayed
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      if (loadMoreBtn && displayedCount >= allItems.length) {
+        loadMoreBtn.style.display = 'none';
+      }
+    }
+    
+    function createLoadMoreButton() {
+      // Check if button already exists
+      let loadMoreBtn = document.getElementById('loadMoreBtn');
+      if (loadMoreBtn) return;
+      
+      const btnWrap = document.createElement('div');
+      btnWrap.className = 'view-more-wrap';
+      btnWrap.style.marginTop = '48px';
+      
+      loadMoreBtn = document.createElement('button');
+      loadMoreBtn.id = 'loadMoreBtn';
+      loadMoreBtn.className = 'btn-view-more';
+      loadMoreBtn.textContent = 'Load More';
+      
+      loadMoreBtn.addEventListener('click', loadMoreItems);
+      
+      btnWrap.appendChild(loadMoreBtn);
+      listGrid.parentNode.appendChild(btnWrap);
+    }
   }
   
   /* ---------- Mobile Navigation ---------- */
@@ -245,6 +306,13 @@
     if (toggle && links) {
       toggle.addEventListener('click', () => {
         links.classList.toggle('active');
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!toggle.contains(e.target) && !links.contains(e.target)) {
+          links.classList.remove('active');
+        }
       });
     }
   }

@@ -1,6 +1,7 @@
 /* =========================================================
    THE STREAMIC - Apple Bento Grid Design System
    Tiered layout: Large cards (1-12), List cards (13-20)
+   FIXED: No hero on homepage, improved category pages
 ========================================================= */
 
 * {
@@ -64,7 +65,8 @@ body {
   text-decoration: none;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--apple-blue);
 }
 
@@ -81,6 +83,7 @@ body {
     border: none;
     font-size: 24px;
     cursor: pointer;
+    color: var(--deep-black);
   }
   
   .nav-links {
@@ -95,7 +98,7 @@ body {
     gap: 0;
     padding: 12px 0;
     border-bottom: 1px solid var(--border-color);
-    z-index: 9999;  /* HIGH Z-INDEX FOR MOBILE */
+    z-index: 9999;
   }
   
   .nav-links.active {
@@ -108,7 +111,7 @@ body {
   }
 }
 
-/* =========== HERO =========== */
+/* =========== HERO (ONLY FOR CATEGORY PAGES) =========== */
 .page-hero {
   background: linear-gradient(135deg, var(--light-bg) 0%, #fff 100%);
   padding: 70px 22px 50px;
@@ -128,6 +131,11 @@ body {
   font-size: 21px;
   color: var(--slate-gray);
   line-height: 1.4;
+}
+
+/* NO HERO ON HOMEPAGE */
+body.homepage .page-hero {
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -154,6 +162,11 @@ main {
   max-width: 1400px;
   margin: 0 auto;
   padding: 60px 22px;
+}
+
+/* Homepage gets less top padding */
+body.homepage main {
+  padding-top: 40px;
 }
 
 /* =========== TIER 1: LARGE BENTO CARDS (Items 1-12) =========== */
@@ -186,7 +199,7 @@ main {
 .bento-card-large .card-image {
   position: relative;
   width: 100%;
-  height: 280px;  /* FIXED HEIGHT */
+  height: 280px;
   background: var(--light-bg);
   overflow: hidden;
 }
@@ -194,7 +207,7 @@ main {
 .bento-card-large .card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* ENSURE COVER FIT */
+  object-fit: cover;
   transition: transform 0.4s ease;
 }
 
@@ -269,7 +282,7 @@ main {
   }
 }
 
-/* =========== TIER 2: HORIZONTAL LIST CARDS (Items 13-20) =========== */
+/* =========== TIER 2: HORIZONTAL LIST CARDS (Items 13+) =========== */
 .list-grid {
   display: flex;
   flex-direction: column;
@@ -346,7 +359,7 @@ main {
   }
 }
 
-/* =========== VIEW MORE BUTTON =========== */
+/* =========== VIEW MORE / LOAD MORE BUTTON =========== */
 .view-more-wrap {
   text-align: center;
   margin-top: 48px;
@@ -368,6 +381,10 @@ main {
 .btn-view-more:hover {
   background: #0077ED;
   transform: scale(1.03);
+}
+
+.btn-view-more:active {
+  transform: scale(0.98);
 }
 
 /* =========== FOOTER =========== */
@@ -493,4 +510,13 @@ main {
 /* =========== UTILITY =========== */
 .hidden {
   display: none;
+}
+
+/* Empty state styling */
+.empty-state {
+  grid-column: 1/-1;
+  text-align: center;
+  color: var(--slate-gray);
+  padding: 60px 20px;
+  font-size: 16px;
 }
