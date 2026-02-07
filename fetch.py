@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The Streamic - RSS Aggregator V7.1 FINAL"""
+"""The Streamic - COMPLETE RSS Aggregator with ALL Feeds"""
 import json, time, urllib.request, urllib.error, xml.etree.ElementTree as ET
 from html import unescape, parser as HTMLParser_module
 from datetime import datetime
@@ -38,23 +38,49 @@ FEED_SOURCES = {
         {"url": "https://cloud.google.com/blog/products/media-entertainment/rss", "label": "Google Cloud Media"},
         {"url": "https://azure.microsoft.com/en-us/blog/feed/", "label": "Azure Blog"},
     ],
+    
+    # COMPLETE STREAMING FEEDS - 13 feeds total!
     "streaming": [
+        # StreamingMedia Official (4 feeds)
         {"url": "http://feeds.infotoday.com/StreamingMediaMagazine-FeaturedNews", "label": "Streaming Media News"},
         {"url": "http://feeds.infotoday.com/StreamingMediaMagazine-FeaturedArticles", "label": "Streaming Media Articles"},
         {"url": "http://feeds.infotoday.com/Streaming-Media-Blog", "label": "Streaming Media Blog"},
         {"url": "http://feeds.infotoday.com/StreamingMediaMagazine-IndustryNews", "label": "Streaming Media Industry"},
+        # Professional Tools
         {"url": "https://www.telestream.net/company/press/rss.xml", "label": "Telestream"},
         {"url": "https://www.haivision.com/blog/feed/", "label": "Haivision Blog"},
+        # OTT Engineering
         {"url": "https://ottverse.com/feed/", "label": "OTTVerse"},
-        {"url": "https://streamingmediablog.com/feed", "label": "Dan Rayburn Blog"},
+        # CDN / Delivery
+        {"url": "https://blog.blazingcdn.com/en-us/feed/", "label": "BlazingCDN"},
+        # OTT Platforms
+        {"url": "https://vodlix.com/feed/", "label": "Vodlix"},
+        # Thought Leaders
+        {"url": "https://streamingmediablog.com/feed", "label": "Dan Rayburn"},
+        # Enterprise
+        {"url": "https://www.globallogic.com/feed/", "label": "GlobalLogic"},
+        {"url": "https://bmps.tech/feed/", "label": "BMPS Tech"},
+        # Developer
+        {"url": "https://dev.to/feed", "label": "DEV.to"},
     ],
+    
+    # COMPLETE AUDIO-AI FEEDS - 11 feeds total!
     "audio-ai": [
+        # Broadcast Audio (5 feeds)
         {"url": "https://www.redtech.pro/feed/", "label": "RedTech"},
         {"url": "https://www.radioworld.com/rss.xml", "label": "Radio World"},
         {"url": "https://www.waves.com/news-and-events/rss", "label": "Waves Audio"},
-        {"url": "https://www.avid.com/blog/rss.xml", "label": "Avid / Pro Tools"},
-        {"url": "https://www.audinate.com/feed", "label": "Audinate – Dante"},
+        {"url": "https://www.production-expert.com/production-expert-1?format=rss", "label": "Production Expert"},
+        {"url": "https://www.avid.com/blog/rss.xml", "label": "Avid Pro Tools"},
+        # AoIP (2 feeds)
+        {"url": "https://www.audinate.com/feed", "label": "Audinate Dante"},
+        {"url": "https://www.merging.com/rss.xml", "label": "Merging Ravenna"},
+        # Cloud Media (3 feeds)
         {"url": "https://aws.amazon.com/blogs/media/feed/", "label": "AWS Media"},
+        {"url": "https://cloud.google.com/blog/products/media-entertainment/rss", "label": "Google Cloud"},
+        {"url": "https://azure.microsoft.com/en-us/blog/feed/", "label": "Azure"},
+        # Developer
+        {"url": "https://dev.to/feed", "label": "DEV.to"},
     ]
 }
 
@@ -97,7 +123,8 @@ def fetch_url(url, timeout=15):
         req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
         with urllib.request.urlopen(req, timeout=timeout) as response:
             return response.read()
-    except: return None
+    except Exception as e:
+        return None
 
 def parse_rss_feed(xml_data, category, source_label):
     try:
@@ -117,36 +144,51 @@ def parse_rss_feed(xml_data, category, source_label):
     except: return []
 
 def run_workflow():
-    print("="*70, "\n THE STREAMIC - V7.1 FINAL\n", "="*70)
+    print("="*70, "\n THE STREAMIC - COMPLETE WITH ALL FEEDS\n", "="*70)
     DATA_DIR.mkdir(exist_ok=True)
     all_new_items, stats = [], {}
+    
     for category, feeds in FEED_SOURCES.items():
         print(f"\n📂 {category.upper().replace('-', ' & ')}\n" + "-"*70)
         cat_count, cat_images = 0, 0
+        
         for feed in feeds:
-            print(f"  {feed['label']:35s}", end="", flush=True)
-            if (xml_data := fetch_url(feed['url'])):
+            print(f"  {feed['label']:40s}", end="", flush=True)
+            xml_data = fetch_url(feed['url'])
+            if xml_data:
                 items = parse_rss_feed(xml_data, category, feed['label'])
                 imgs = sum(1 for item in items if item['image'])
                 cat_images, cat_count = cat_images + imgs, cat_count + len(items)
                 all_new_items.extend(items)
-                print(f" ✓ {len(items)} items ({imgs} imgs)")
+                print(f" ✓ {len(items):2d} items ({imgs:2d} imgs)")
                 time.sleep(0.5)
-            else: print(" ✗")
+            else:
+                print(" ✗ Failed")
+        
         stats[category] = {'total': cat_count, 'images': cat_images}
+    
     existing = []
     if NEWS_FILE.exists():
         try:
             with open(NEWS_FILE, 'r', encoding='utf-8') as f: existing = json.load(f)
         except: pass
+    
     final_list = list({(item.get('guid') or ""): item for item in (all_new_items + existing) if item.get('guid')}.values())[:MAX_NEWS_ITEMS]
-    with open(NEWS_FILE, 'w', encoding='utf-8') as f: json.dump(final_list, f, indent=2, ensure_ascii=False)
+    
+    with open(NEWS_FILE, 'w', encoding='utf-8') as f:
+        json.dump(final_list, f, indent=2, ensure_ascii=False)
+    
     print("\n" + "="*70 + "\n SUMMARY\n" + "="*70)
     for cat in FEED_SOURCES.keys():
         s = stats.get(cat, {'total': 0, 'images': 0})
         pct = (s['images'] / s['total'] * 100) if s['total'] > 0 else 0
         print(f" {'✓' if s['total'] > 0 else '✗'} {cat.upper().replace('-', ' & '):20s} : {s['total']:3d} items, {s['images']:3d} imgs ({pct:.0f}%)")
-    print("-"*70, f"\n TOTAL: {len(final_list)} items, {sum(1 for item in final_list if item.get('image'))} with images\n", "="*70)
+    
+    print("-"*70)
+    print(f" NEW ITEMS: {len(all_new_items)}")
+    print(f" TOTAL: {len(final_list)}")
+    print(f" WITH IMAGES: {sum(1 for item in final_list if item.get('image'))}")
+    print("="*70)
 
 if __name__ == "__main__":
     run_workflow()
