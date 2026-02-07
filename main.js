@@ -1,13 +1,6 @@
-/* =========================================================
-   THE STREAMIC - Main JavaScript
-   - Smart image fallbacks
-   - Tiered Bento Layout (12 Large, 8 List)
-   - Dynamic Navigation Highlights
-========================================================= */
-
+/* THE STREAMIC - V7 ULTIMATE with Smart Sorting */
 (() => {
   const NEWS_FILE = 'data/news.json';
-  
   const CATEGORY_FALLBACKS = {
     'newsroom': 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80',
     'playout': 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80',
@@ -18,91 +11,203 @@
     'audio-ai': 'https://images.unsplash.com/photo-1557800636-894a64c1696f?w=800&q=80'
   };
 
-  function renderLargeCard(item) {
-    const fallback = CATEGORY_FALLBACKS[item.category] || CATEGORY_FALLBACKS['newsroom'];
-    const displayImg = (item.image && item.image.startsWith('http')) ? item.image : fallback;
-
-    const card = document.createElement('a');
-    card.className = 'bento-card-large';
-    card.href = item.link;
-    card.target = '_blank';
-    card.innerHTML = `
-      <div class="card-image">
-        <img src="${displayImg}" alt="News" onerror="this.src='${fallback}'">
-      </div>
-      <div class="card-body">
-        <div class="card-meta">${item.source || 'BROADCAST HUB'}</div>
-        <h3>${item.title}</h3>
-      </div>
-    `;
-    return card;
+  function getFallbackImage(category) {
+    return CATEGORY_FALLBACKS[category] || CATEGORY_FALLBACKS['newsroom'];
   }
 
-  function renderListItem(item) {
-    const link = document.createElement('a');
-    link.className = 'list-item';
-    link.href = item.link;
-    link.target = '_blank';
-    link.innerHTML = `
-      <h4>${item.title}</h4>
-      <span class="card-meta">${item.source}</span>
-    `;
-    return link;
+  function isValidImageUrl(url) {
+    if (!url || typeof url !== 'string' || url.trim() === '') return false;
+    const u = url.toLowerCase().trim();
+    const rejectPatterns = ['data:image', 'base64', '1x1.', 'spacer.', 'blank.', 'pixel.', 'fallback.jpg', 'avatar', 'gravatar'];
+    if (rejectPatterns.some(p => u.includes(p))) return false;
+    if (!url.startsWith('http')) return false;
+    if (/\.(jpg|jpeg|png|gif|webp|svg|jpe|jfif)/i.test(u)) return true;
+    const imageKeywords = ['image', 'img', 'photo', 'picture', 'thumbnail', 'media', 'cdn', 'wp-content', 'uploads'];
+    return imageKeywords.some(kw => u.includes(kw));
+  }
+
+  function smartSort(items) {
+    const withImages = items.filter(item => isValidImageUrl(item.image));
+    const withoutImages = items.filter(item => !isValidImageUrl(item.image));
+    console.log(`Smart Sort: ${withImages.length} with images, ${withoutImages.length} without`);
+    return [...withImages, ...withoutImages];
+  }
+
+  function renderLargeCard(item) {
+    const article = document.createElement('a');
+    article.className = 'bento-card-large';
+    article.href = item.link || '#';
+    article.target = '_blank';
+    article.rel = 'noopener noreferrer';
+
+    const figure = document.createElement('figure');
+    figure.className = 'card-image';
+    const img = document.createElement('img');
+    const hasRealImage = isValidImageUrl(item.image);
+    const imageUrl = hasRealImage ? item.image : getFallbackImage(item.category);
+    img.src = imageUrl;
+    img.alt = item.title || 'Article image';
+    img.loading = 'lazy';
+    img.addEventListener('error', () => {
+      const fb = getFallbackImage(item.category);
+      if (img.src !== fb) img.src = fb;
+    });
+    figure.appendChild(img);
+    article.appendChild(figure);
+
+    const body = document.createElement('div');
+    body.className = 'card-body';
+    const title = document.createElement('h3');
+    title.textContent = item.title || 'Untitled';
+    body.appendChild(title);
+
+    const meta = document.createElement('div');
+    meta.className = 'card-meta';
+    const source = document.createElement('span');
+    source.className = 'source';
+    source.textContent = item.source || '';
+    meta.appendChild(source);
+    if (item.category) {
+      const tag = document.createElement('span');
+      tag.className = 'category-tag';
+      tag.textContent = item.category.toUpperCase().replace('-', ' & ');
+      meta.appendChild(tag);
+    }
+    body.appendChild(meta);
+    article.appendChild(body);
+    return article;
+  }
+
+  function renderListCard(item) {
+    const article = document.createElement('a');
+    article.className = 'list-card-horizontal';
+    article.href = item.link || '#';
+    article.target = '_blank';
+    article.rel = 'noopener noreferrer';
+
+    const figure = document.createElement('figure');
+    figure.className = 'card-image';
+    const img = document.createElement('img');
+    const hasRealImage = isValidImageUrl(item.image);
+    const imageUrl = hasRealImage ? item.image : getFallbackImage(item.category);
+    img.src = imageUrl;
+    img.alt = item.title || 'Article image';
+    img.loading = 'lazy';
+    img.addEventListener('error', () => {
+      const fb = getFallbackImage(item.category);
+      if (img.src !== fb) img.src = fb;
+    });
+    figure.appendChild(img);
+    article.appendChild(figure);
+
+    const body = document.createElement('div');
+    body.className = 'card-body';
+    const title = document.createElement('h3');
+    title.textContent = item.title || 'Untitled';
+    body.appendChild(title);
+
+    const meta = document.createElement('div');
+    meta.className = 'card-meta';
+    const source = document.createElement('span');
+    source.textContent = item.source || '';
+    meta.appendChild(source);
+    if (item.category) {
+      const tag = document.createElement('span');
+      tag.textContent = ` • ${item.category.toUpperCase().replace('-', ' & ')}`;
+      meta.appendChild(tag);
+    }
+    body.appendChild(meta);
+    article.appendChild(body);
+    return article;
   }
 
   function loadCategoryPage(category) {
     const largeGrid = document.getElementById('bentoGridLarge');
     const listGrid = document.getElementById('listGrid');
-    
-    if (!largeGrid) return;
+    if (!largeGrid || !listGrid) return;
+
+    let allItems = [];
+    let displayedCount = 0;
+    const ITEMS_PER_LOAD = 20;
 
     fetch(NEWS_FILE)
-      .then(res => res.json())
-      .then(data => {
-        const filtered = data.filter(i => i.category === category);
-        
-        largeGrid.innerHTML = '';
-        if (listGrid) listGrid.innerHTML = '';
-
-        // Cards 1-12 go into the Bento Grid
-        filtered.slice(0, 12).forEach(item => {
-          largeGrid.appendChild(renderLargeCard(item));
-        });
-
-        // Cards 13-20 go into the List Grid
-        if (listGrid && filtered.length > 12) {
-          filtered.slice(12, 20).forEach(item => {
-            listGrid.appendChild(renderListItem(item));
-          });
+      .then(res => res.ok ? res.json() : Promise.reject(`HTTP ${res.status}`))
+      .then(items => {
+        if (!Array.isArray(items)) throw new Error('Invalid data');
+        const cat = category.trim().toLowerCase();
+        let filteredItems = items.filter(it => (it.category || '').toLowerCase() === cat);
+        if (filteredItems.length === 0) {
+          largeGrid.innerHTML = `<p class="empty-state">No articles yet. Run fetch.py to populate.</p>`;
+          return;
         }
+        allItems = smartSort(filteredItems);
+        loadMoreItems();
+        if (allItems.length > ITEMS_PER_LOAD) createLoadMoreButton();
       })
-      .catch(err => console.error("Could not load news:", err));
+      .catch(err => {
+        console.error('Load error:', err);
+        largeGrid.innerHTML = '<p class="empty-state">Failed to load. Ensure fetch.py has run.</p>';
+      });
+
+    function loadMoreItems() {
+      const next = allItems.slice(displayedCount, displayedCount + ITEMS_PER_LOAD);
+      next.forEach((item, index) => {
+        const absoluteIndex = displayedCount + index;
+        if (absoluteIndex < 12) {
+          largeGrid.appendChild(renderLargeCard(item));
+        } else {
+          listGrid.appendChild(renderListCard(item));
+        }
+      });
+      displayedCount += next.length;
+      const btn = document.getElementById('loadMoreBtn');
+      if (btn && displayedCount >= allItems.length) btn.parentElement.style.display = 'none';
+    }
+
+    function createLoadMoreButton() {
+      if (document.getElementById('loadMoreBtn')) return;
+      const mainContent = document.querySelector('.category-content') || document.querySelector('main');
+      if (!mainContent) return;
+      const wrap = document.createElement('div');
+      wrap.className = 'view-more-wrap';
+      wrap.style.marginTop = '48px';
+      const btn = document.createElement('button');
+      btn.id = 'loadMoreBtn';
+      btn.className = 'btn-view-more';
+      btn.textContent = 'Load More';
+      btn.addEventListener('click', () => loadMoreItems());
+      wrap.appendChild(btn);
+      mainContent.appendChild(wrap);
+    }
+  }
+
+  function initMobileNav() {
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    if (!toggle || !links) return;
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      links.classList.toggle('active');
+    });
+    document.addEventListener('click', (e) => {
+      if (links.classList.contains('active') && !toggle.contains(e.target) && !links.contains(e.target)) {
+        links.classList.remove('active');
+      }
+    });
+    links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => links.classList.remove('active')));
   }
 
   function init() {
-    // 1. Highlight the current active link in navigation
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      if (link.getAttribute('href') === currentPath) {
-        link.classList.add('active');
-      }
-    });
-
-    // 2. Load content based on body data-category
-    const category = document.body.dataset.category;
-    if (category) {
-      loadCategoryPage(category);
-    }
-    
-    // 3. Mobile Nav Toggle
-    const toggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('.nav-links');
-    if (toggle) {
-      toggle.addEventListener('click', () => {
-        nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-      });
-    }
+    console.log('The Streamic V7 - Ultimate with Smart Sorting');
+    initMobileNav();
+    const category = (document.body.dataset.category || '').trim().toLowerCase();
+    if (category) loadCategoryPage(category);
   }
 
-  document.addEventListener('DOMContentLoaded', init);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  window.loadCategory = loadCategoryPage;
 })();
