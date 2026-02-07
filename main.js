@@ -1,13 +1,13 @@
-/* ==================================================================
-   THE STREAMIC - Main JavaScript (V4 - FINAL FIX)
-   - Fixed image validation (accepts query strings)
-   - Load More works on ALL pages including newsroom
-   - Proper category matching
-================================================================== */
+/* =========================================================
+   THE STREAMIC - Main JavaScript
+   - Smart image fallbacks
+   - Tiered Bento Layout (12 Large, 8 List)
+   - Dynamic Navigation Highlights
+========================================================= */
 
 (() => {
   const NEWS_FILE = 'data/news.json';
-
+  
   const CATEGORY_FALLBACKS = {
     'newsroom': 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80',
     'playout': 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80',
@@ -18,278 +18,91 @@
     'audio-ai': 'https://images.unsplash.com/photo-1557800636-894a64c1696f?w=800&q=80'
   };
 
-  function getFallbackImage(category) {
-    return CATEGORY_FALLBACKS[category] || CATEGORY_FALLBACKS['newsroom'];
-  }
-
-  /**
-   * CRITICAL FIX: Accept images with query strings
-   * Images like "image.jpg?w=800&q=80" are VALID
-   */
-  function isValidImageUrl(url) {
-    if (!url || url.trim() === '' || url.includes('fallback.jpg')) {
-      return false;
-    }
-
-    const rejectPatterns = ['1x1', 'pixel', 'spacer', 'blank', 'placeholder', 'default', 'avatar', 'gravatar', 'data:image', 'base64'];
-    const u = url.toLowerCase();
-    
-    if (rejectPatterns.some(p => u.includes(p))) {
-      return false;
-    }
-
-    // FIXED: Accept images even with query strings (?w=800&q=80)
-    // This matches .jpg, .png, etc. followed by ?, #, or end of string
-    const hasImageExtension = /\.(jpg|jpeg|png|gif|webp|svg)(\?|#|$)/i.test(u);
-    if (hasImageExtension) {
-      return true;
-    }
-
-    // Accept common image hosting patterns
-    const imageHosts = ['wp-content/uploads', 'images/', '/img/', '/media/', 'cloudinary', 'unsplash', 'cdn.', 'amazonaws'];
-    return imageHosts.some(h => u.includes(h));
-  }
-
   function renderLargeCard(item) {
-    const article = document.createElement('a');
-    article.className = 'bento-card-large';
-    article.href = item.link || '#';
-    article.target = '_blank';
-    article.rel = 'noopener noreferrer';
+    const fallback = CATEGORY_FALLBACKS[item.category] || CATEGORY_FALLBACKS['newsroom'];
+    const displayImg = (item.image && item.image.startsWith('http')) ? item.image : fallback;
 
-    if (item.isVlog) article.classList.add('vlog-card');
-
-    const figure = document.createElement('figure');
-    figure.className = 'card-image';
-    const img = document.createElement('img');
-
-    const imageUrl = isValidImageUrl(item.image) ? item.image : getFallbackImage(item.category);
-    img.src = imageUrl;
-    img.alt = item.title || 'Article image';
-    img.loading = 'lazy';
-    
-    img.addEventListener('error', () => {
-      const fb = getFallbackImage(item.category);
-      if (img.src !== fb) {
-        img.src = fb;
-      }
-    });
-
-    figure.appendChild(img);
-    article.appendChild(figure);
-
-    const body = document.createElement('div');
-    body.className = 'card-body';
-
-    const title = document.createElement('h3');
-    title.textContent = item.title || 'Untitled';
-    body.appendChild(title);
-
-    if (item.summary) {
-      const summary = document.createElement('p');
-      summary.className = 'card-summary';
-      summary.textContent = item.summary;
-      body.appendChild(summary);
-    }
-
-    const meta = document.createElement('div');
-    meta.className = 'card-meta';
-
-    const source = document.createElement('span');
-    source.className = 'source';
-    source.textContent = item.source || '';
-    meta.appendChild(source);
-
-    if (item.category) {
-      const tag = document.createElement('span');
-      tag.className = 'category-tag';
-      tag.textContent = item.category.toUpperCase().replace('-', ' & ');
-      meta.appendChild(tag);
-    }
-
-    body.appendChild(meta);
-    article.appendChild(body);
-    return article;
+    const card = document.createElement('a');
+    card.className = 'bento-card-large';
+    card.href = item.link;
+    card.target = '_blank';
+    card.innerHTML = `
+      <div class="card-image">
+        <img src="${displayImg}" alt="News" onerror="this.src='${fallback}'">
+      </div>
+      <div class="card-body">
+        <div class="card-meta">${item.source || 'BROADCAST HUB'}</div>
+        <h3>${item.title}</h3>
+      </div>
+    `;
+    return card;
   }
 
-  function renderListCard(item) {
-    const article = document.createElement('a');
-    article.className = 'list-card-horizontal';
-    article.href = item.link || '#';
-    article.target = '_blank';
-    article.rel = 'noopener noreferrer';
-
-    const figure = document.createElement('figure');
-    figure.className = 'card-image';
-    const img = document.createElement('img');
-
-    const imageUrl = isValidImageUrl(item.image) ? item.image : getFallbackImage(item.category);
-    img.src = imageUrl;
-    img.alt = item.title || 'Article image';
-    img.loading = 'lazy';
-    
-    img.addEventListener('error', () => {
-      const fb = getFallbackImage(item.category);
-      if (img.src !== fb) {
-        img.src = fb;
-      }
-    });
-    
-    figure.appendChild(img);
-    article.appendChild(figure);
-
-    const body = document.createElement('div');
-    body.className = 'card-body';
-    
-    const title = document.createElement('h3');
-    title.textContent = item.title || 'Untitled';
-    body.appendChild(title);
-
-    const meta = document.createElement('div');
-    meta.className = 'card-meta';
-    
-    const source = document.createElement('span');
-    source.textContent = item.source || '';
-    meta.appendChild(source);
-
-    if (item.category) {
-      const tag = document.createElement('span');
-      tag.textContent = ` • ${item.category.toUpperCase().replace('-', ' & ')}`;
-      meta.appendChild(tag);
-    }
-
-    body.appendChild(meta);
-    article.appendChild(body);
-    return article;
+  function renderListItem(item) {
+    const link = document.createElement('a');
+    link.className = 'list-item';
+    link.href = item.link;
+    link.target = '_blank';
+    link.innerHTML = `
+      <h4>${item.title}</h4>
+      <span class="card-meta">${item.source}</span>
+    `;
+    return link;
   }
 
   function loadCategoryPage(category) {
     const largeGrid = document.getElementById('bentoGridLarge');
     const listGrid = document.getElementById('listGrid');
     
-    if (!largeGrid || !listGrid) {
-      console.error('Grid containers not found');
-      return;
-    }
-
-    let allItems = [];
-    let displayedCount = 0;
-    const ITEMS_PER_LOAD = 20;
+    if (!largeGrid) return;
 
     fetch(NEWS_FILE)
-      .then(res => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
-      .then(items => {
-        if (!Array.isArray(items)) throw new Error('Invalid data');
+      .then(res => res.json())
+      .then(data => {
+        const filtered = data.filter(i => i.category === category);
+        
+        largeGrid.innerHTML = '';
+        if (listGrid) listGrid.innerHTML = '';
 
-        const cat = (category || '').toString().trim().toLowerCase();
-        allItems = items.filter(it => (it.category || '').toLowerCase() === cat);
-
-        console.log(`Category: ${cat}, Found: ${allItems.length} items`);
-
-        if (allItems.length === 0) {
-          largeGrid.innerHTML = `<p class="empty-state">No articles in this category yet. Run fetch.py to populate content.</p>`;
-          return;
-        }
-
-        // Initial load
-        loadMoreItems();
-
-        // Add Load More button if needed
-        if (allItems.length > ITEMS_PER_LOAD) {
-          createLoadMoreButton();
-        }
-      })
-      .catch(err => {
-        console.error('Failed to load category:', err);
-        largeGrid.innerHTML = '<p class="empty-state">Failed to load content. Ensure fetch.py has been run and data/news.json exists.</p>';
-      });
-
-    function loadMoreItems() {
-      const next = allItems.slice(displayedCount, displayedCount + ITEMS_PER_LOAD);
-      
-      next.forEach((item, index) => {
-        const absoluteIndex = displayedCount + index;
-        if (absoluteIndex < 12) {
+        // Cards 1-12 go into the Bento Grid
+        filtered.slice(0, 12).forEach(item => {
           largeGrid.appendChild(renderLargeCard(item));
-        } else {
-          listGrid.appendChild(renderListCard(item));
+        });
+
+        // Cards 13-20 go into the List Grid
+        if (listGrid && filtered.length > 12) {
+          filtered.slice(12, 20).forEach(item => {
+            listGrid.appendChild(renderListItem(item));
+          });
         }
-      });
-
-      displayedCount += next.length;
-
-      const btn = document.getElementById('loadMoreBtn');
-      if (btn && displayedCount >= allItems.length) {
-        btn.parentElement.style.display = 'none';
-      }
-    }
-
-    function createLoadMoreButton() {
-      if (document.getElementById('loadMoreBtn')) return;
-      
-      const mainContent = document.querySelector('.category-content') || document.querySelector('main');
-      if (!mainContent) return;
-
-      const wrap = document.createElement('div');
-      wrap.className = 'view-more-wrap';
-      wrap.style.marginTop = '48px';
-
-      const btn = document.createElement('button');
-      btn.id = 'loadMoreBtn';
-      btn.className = 'btn-view-more';
-      btn.textContent = 'Load More';
-      btn.addEventListener('click', () => loadMoreItems());
-
-      wrap.appendChild(btn);
-      mainContent.appendChild(wrap);
-    }
-  }
-
-  function initMobileNav() {
-    const toggle = document.querySelector('.nav-toggle');
-    const links = document.querySelector('.nav-links');
-    if (!toggle || !links) return;
-
-    toggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      links.classList.toggle('active');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (links.classList.contains('active') && !toggle.contains(e.target) && !links.contains(e.target)) {
-        links.classList.remove('active');
-      }
-    });
-
-    links.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => links.classList.remove('active'));
-    });
+      })
+      .catch(err => console.error("Could not load news:", err));
   }
 
   function init() {
-    console.log('The Streamic V4 - Initializing...');
-    
-    initMobileNav();
+    // 1. Highlight the current active link in navigation
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('active');
+      }
+    });
 
-    const body = document.body;
-    const category = (body.dataset.category || '').trim().toLowerCase();
-    
+    // 2. Load content based on body data-category
+    const category = document.body.dataset.category;
     if (category) {
-      console.log(`Loading category page: ${category}`);
       loadCategoryPage(category);
-    } else {
-      console.warn('No category detected');
+    }
+    
+    // 3. Mobile Nav Toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav-links');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+      });
     }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-
-  window.loadCategory = loadCategoryPage;
+  document.addEventListener('DOMContentLoaded', init);
 })();
