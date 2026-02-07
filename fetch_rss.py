@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3 catagory
 """
 The Streamic RSS Aggregator
 - Category-based feed tagging
