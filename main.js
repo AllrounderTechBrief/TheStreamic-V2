@@ -1,14 +1,6 @@
-/* ==================================================================
-   THE STREAMIC - Main JavaScript (V4.1)
-   - Proper, clean JS (removed broken backslashes)
-   - Accept images with query strings (?w=800&q=80)
-   - Category loader with larger initial batch for fuller pages
-================================================================== */
-
+/* THE STREAMIC - V7 ULTIMATE with Smart Sorting */
 (() => {
   const NEWS_FILE = 'data/news.json';
-
-  // Category-specific fallbacks
   const CATEGORY_FALLBACKS = {
     'newsroom': 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80',
     'playout': 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80',
@@ -23,19 +15,22 @@
     return CATEGORY_FALLBACKS[category] || CATEGORY_FALLBACKS['newsroom'];
   }
 
-  // Accept images even with query strings (e.g., .jpg?auto=webp)
   function isValidImageUrl(url) {
-    if (!url || url.trim() === '' || url.includes('fallback.jpg')) return false;
+    if (!url || typeof url !== 'string' || url.trim() === '') return false;
+    const u = url.toLowerCase().trim();
+    const rejectPatterns = ['data:image', 'base64', '1x1.', 'spacer.', 'blank.', 'pixel.', 'fallback.jpg', 'avatar', 'gravatar'];
+    if (rejectPatterns.some(p => u.includes(p))) return false;
+    if (!url.startsWith('http')) return false;
+    if (/\.(jpg|jpeg|png|gif|webp|svg|jpe|jfif)/i.test(u)) return true;
+    const imageKeywords = ['image', 'img', 'photo', 'picture', 'thumbnail', 'media', 'cdn', 'wp-content', 'uploads'];
+    return imageKeywords.some(kw => u.includes(kw));
+  }
 
-    const reject = ['1x1', 'pixel', 'spacer', 'blank', 'placeholder', 'default', 'avatar', 'gravatar', 'data:image', 'base64'];
-    const u = url.toLowerCase();
-    if (reject.some(p => u.includes(p))) return false;
-
-    if (/\.(jpg|jpeg|png|gif|webp|svg)(\?|#|$)/i.test(u)) return true;
-
-    // rare cases without explicit extension
-    const hosts = ['wp-content/uploads', '/images/', '/img/', '/media/', 'cloudinary', 'unsplash', 'cdn.', 'amazonaws'];
-    return hosts.some(h => u.includes(h));
+  function smartSort(items) {
+    const withImages = items.filter(item => isValidImageUrl(item.image));
+    const withoutImages = items.filter(item => !isValidImageUrl(item.image));
+    console.log(`Smart Sort: ${withImages.length} with images, ${withoutImages.length} without`);
+    return [...withImages, ...withoutImages];
   }
 
   function renderLargeCard(item) {
@@ -45,13 +40,11 @@
     article.target = '_blank';
     article.rel = 'noopener noreferrer';
 
-    if (item.isVlog) article.classList.add('vlog-card');
-
     const figure = document.createElement('figure');
     figure.className = 'card-image';
     const img = document.createElement('img');
-    const imageUrl = isValidImageUrl(item.image) ? item.image : getFallbackImage(item.category);
-
+    const hasRealImage = isValidImageUrl(item.image);
+    const imageUrl = hasRealImage ? item.image : getFallbackImage(item.category);
     img.src = imageUrl;
     img.alt = item.title || 'Article image';
     img.loading = 'lazy';
@@ -64,33 +57,22 @@
 
     const body = document.createElement('div');
     body.className = 'card-body';
-
     const title = document.createElement('h3');
     title.textContent = item.title || 'Untitled';
     body.appendChild(title);
 
-    if (item.summary) {
-      const summary = document.createElement('p');
-      summary.className = 'card-summary';
-      summary.textContent = item.summary;
-      body.appendChild(summary);
-    }
-
     const meta = document.createElement('div');
     meta.className = 'card-meta';
-
     const source = document.createElement('span');
     source.className = 'source';
     source.textContent = item.source || '';
     meta.appendChild(source);
-
     if (item.category) {
       const tag = document.createElement('span');
       tag.className = 'category-tag';
-      tag.textContent = (item.category || '').toUpperCase().replace('-', ' & ');
+      tag.textContent = item.category.toUpperCase().replace('-', ' & ');
       meta.appendChild(tag);
     }
-
     body.appendChild(meta);
     article.appendChild(body);
     return article;
@@ -106,8 +88,8 @@
     const figure = document.createElement('figure');
     figure.className = 'card-image';
     const img = document.createElement('img');
-    const imageUrl = isValidImageUrl(item.image) ? item.image : getFallbackImage(item.category);
-
+    const hasRealImage = isValidImageUrl(item.image);
+    const imageUrl = hasRealImage ? item.image : getFallbackImage(item.category);
     img.src = imageUrl;
     img.alt = item.title || 'Article image';
     img.loading = 'lazy';
@@ -129,13 +111,11 @@
     const source = document.createElement('span');
     source.textContent = item.source || '';
     meta.appendChild(source);
-
     if (item.category) {
       const tag = document.createElement('span');
-      tag.textContent = ` • ${(item.category || '').toUpperCase().replace('-', ' & ')}`;
+      tag.textContent = ` • ${item.category.toUpperCase().replace('-', ' & ')}`;
       meta.appendChild(tag);
     }
-
     body.appendChild(meta);
     article.appendChild(body);
     return article;
@@ -144,45 +124,35 @@
   function loadCategoryPage(category) {
     const largeGrid = document.getElementById('bentoGridLarge');
     const listGrid = document.getElementById('listGrid');
-    if (!largeGrid || !listGrid) {
-      console.error('Grid containers not found');
-      return;
-    }
+    if (!largeGrid || !listGrid) return;
 
     let allItems = [];
     let displayedCount = 0;
-    const ITEMS_PER_LOAD = 36; // fuller first load
+    const ITEMS_PER_LOAD = 20;
 
     fetch(NEWS_FILE)
-      .then(res => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+      .then(res => res.ok ? res.json() : Promise.reject(`HTTP ${res.status}`))
       .then(items => {
         if (!Array.isArray(items)) throw new Error('Invalid data');
-        const cat = (category || '').toString().trim().toLowerCase();
-        allItems = items.filter(it => (it.category || '').toLowerCase() === cat);
-
-        if (allItems.length === 0) {
-          largeGrid.innerHTML = `<p class="empty-state">No articles in this category yet. Run fetch.py to populate content.</p>`;
+        const cat = category.trim().toLowerCase();
+        let filteredItems = items.filter(it => (it.category || '').toLowerCase() === cat);
+        if (filteredItems.length === 0) {
+          largeGrid.innerHTML = `<p class="empty-state">No articles yet. Run fetch.py to populate.</p>`;
           return;
         }
-
-        // initial paint (two batches for a fuller look if available)
+        allItems = smartSort(filteredItems);
         loadMoreItems();
-        if (allItems.length > ITEMS_PER_LOAD) loadMoreItems();
-
-        if (allItems.length > displayedCount) createLoadMoreButton();
+        if (allItems.length > ITEMS_PER_LOAD) createLoadMoreButton();
       })
       .catch(err => {
-        console.error('Failed to load category:', err);
-        largeGrid.innerHTML = '<p class="empty-state">Failed to load content. Please ensure fetch.py has been run and data/news.json exists.</p>';
+        console.error('Load error:', err);
+        largeGrid.innerHTML = '<p class="empty-state">Failed to load. Ensure fetch.py has run.</p>';
       });
 
     function loadMoreItems() {
       const next = allItems.slice(displayedCount, displayedCount + ITEMS_PER_LOAD);
-      next.forEach((item, idx) => {
-        const absoluteIndex = displayedCount + idx;
+      next.forEach((item, index) => {
+        const absoluteIndex = displayedCount + index;
         if (absoluteIndex < 12) {
           largeGrid.appendChild(renderLargeCard(item));
         } else {
@@ -190,29 +160,22 @@
         }
       });
       displayedCount += next.length;
-
       const btn = document.getElementById('loadMoreBtn');
-      if (btn && displayedCount >= allItems.length) {
-        btn.parentElement.style.display = 'none';
-      }
+      if (btn && displayedCount >= allItems.length) btn.parentElement.style.display = 'none';
     }
 
     function createLoadMoreButton() {
       if (document.getElementById('loadMoreBtn')) return;
-
       const mainContent = document.querySelector('.category-content') || document.querySelector('main');
       if (!mainContent) return;
-
       const wrap = document.createElement('div');
       wrap.className = 'view-more-wrap';
       wrap.style.marginTop = '48px';
-
       const btn = document.createElement('button');
       btn.id = 'loadMoreBtn';
       btn.className = 'btn-view-more';
       btn.textContent = 'Load More';
       btn.addEventListener('click', () => loadMoreItems());
-
       wrap.appendChild(btn);
       mainContent.appendChild(wrap);
     }
@@ -222,31 +185,23 @@
     const toggle = document.querySelector('.nav-toggle');
     const links = document.querySelector('.nav-links');
     if (!toggle || !links) return;
-
     toggle.addEventListener('click', (e) => {
       e.stopPropagation();
       links.classList.toggle('active');
     });
-
     document.addEventListener('click', (e) => {
       if (links.classList.contains('active') && !toggle.contains(e.target) && !links.contains(e.target)) {
         links.classList.remove('active');
       }
     });
-
-    links.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => links.classList.remove('active'));
-    });
+    links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => links.classList.remove('active')));
   }
 
   function init() {
+    console.log('The Streamic V7 - Ultimate with Smart Sorting');
     initMobileNav();
     const category = (document.body.dataset.category || '').trim().toLowerCase();
-    if (category) {
-      loadCategoryPage(category);
-    } else {
-      console.warn('No category detected on <body>. Set data-category="newsroom" or similar.');
-    }
+    if (category) loadCategoryPage(category);
   }
 
   if (document.readyState === 'loading') {
@@ -254,7 +209,5 @@
   } else {
     init();
   }
-
-  // expose loader if needed
   window.loadCategory = loadCategoryPage;
 })();
