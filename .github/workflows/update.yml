@@ -1,37 +1,27 @@
 name: Update RSS Feeds
 
 on:
-  # Run every 6 hours
   schedule:
-    - cron: '0 */6 * * *'
-  # Allow manual trigger
+    - cron: '*/30 * * * *'  # Every 30 minutes
   workflow_dispatch:
 
 jobs:
-  update:
+  update-feeds:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.x'
       
-      - name: Fetch RSS feeds
-        run: |
-          python fetch_rss.py
+      - name: Fetch RSS Feeds
+        run: python3 fetch.py  # ← Make sure this is correct
       
-      - name: Configure Git
+      - name: Commit and Push
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-      
-      - name: Commit and push changes
-        run: |
-          git add data/*.json
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/news.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update RSS feeds - $(date -u +'%Y-%m-%d %H:%M UTC')" && git push)
