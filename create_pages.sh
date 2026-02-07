@@ -1,29 +1,36 @@
+#!/bin/bash
+
+create_page() {
+  local page="$1"
+  local title="$2"
+  local desc="$3"
+  local meta_desc="$4"
+  
+cat > "${page}.html" << EOF
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Latest news on Newsroom Computer Systems (NRCS), studio automation, and production workflows. Real-time broadcast technology updates.">
-  <meta name="keywords" content="newsroom, NRCS, studio automation, broadcast technology, production workflows">
+  <meta name="description" content="${meta_desc}">
+  <meta name="keywords" content="${page}, broadcast technology, media infrastructure, professional video">
   <meta name="author" content="The Streamic">
-  <link rel="canonical" href="https://allroundertechbrief.github.io/TheStreamic-V2/newsroom.html">
-  
+  <link rel="canonical" href="https://allroundertechbrief.github.io/TheStreamic-V2/${page}.html">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://allroundertechbrief.github.io/TheStreamic-V2/newsroom.html">
-  <meta property="og:title" content="Newsroom - The Streamic">
-  <meta property="og:description" content="Latest broadcast newsroom technology updates">
-  
-  <title>Newsroom - The Streamic | Broadcast Technology News</title>
+  <meta property="og:url" content="https://allroundertechbrief.github.io/TheStreamic-V2/${page}.html">
+  <meta property="og:title" content="${title} - The Streamic">
+  <meta property="og:description" content="${meta_desc}">
+  <title>${title} - The Streamic | Broadcast Technology News</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body data-category="newsroom">
+<body data-category="${page}">
   
   <nav class="site-nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">THE STREAMIC</a>
       <button class="nav-toggle" aria-label="Toggle menu">☰</button>
       <ul class="nav-links">
-        <li><a href="newsroom.html" class="active">NEWSROOM</a></li>
+        <li><a href="newsroom.html">NEWSROOM</a></li>
         <li><a href="playout.html">PLAYOUT</a></li>
         <li><a href="infrastructure.html">INFRASTRUCTURE</a></li>
         <li><a href="graphics.html">GRAPHICS</a></li>
@@ -36,8 +43,8 @@
 
   <header class="page-hero">
     <div class="hero-inner">
-      <h1 class="category-heading">Newsroom</h1>
-      <p>Studio cameras, robotic systems, prompters, and newsroom technology</p>
+      <h1 class="category-heading">${title}</h1>
+      <p>${desc}</p>
     </div>
   </header>
 
@@ -95,3 +102,19 @@
   <script src="main.js"></script>
 </body>
 </html>
+EOF
+}
+
+create_page "playout" "Playout" "Master control, channel automation, and playout systems" "Latest playout automation, master control, and channel management technology for broadcast operations."
+
+create_page "infrastructure" "Infrastructure" "IP networking, ST 2110, NDI, switching, and broadcast infrastructure" "Broadcast infrastructure news covering ST 2110, NDI, IP networking, and professional video transport."
+
+create_page "graphics" "Graphics" "Broadcast graphics, virtual sets, AR/VR, and motion graphics systems" "Real-time broadcast graphics, virtual production, AR/VR technology, and motion design innovations."
+
+create_page "cloud" "Cloud" "Cloud production, remote workflows, and virtualized infrastructure" "Cloud-based production workflows, remote collaboration, and virtualized broadcast infrastructure."
+
+create_page "streaming" "Streaming" "OTT platforms, streaming protocols, CDN, and video delivery" "Streaming media technology, OTT platforms, CDN solutions, and online video delivery systems."
+
+create_page "audio-ai" "Audio & AI" "Audio technology, Dante/AES67, and AI/ML in broadcast" "Professional audio technology, AoIP systems (Dante/AES67), and AI/ML applications in broadcasting."
+
+echo "✅ All category pages created with complete footer structure!"

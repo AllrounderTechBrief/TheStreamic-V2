@@ -1,4 +1,4 @@
-/* THE STREAMIC - V7 ULTIMATE with Smart Sorting */
+/* THE STREAMIC - V7.1 FINAL with Smart Sorting */
 (() => {
   const NEWS_FILE = 'data/news.json';
   const CATEGORY_FALLBACKS = {
@@ -43,8 +43,7 @@
     const figure = document.createElement('figure');
     figure.className = 'card-image';
     const img = document.createElement('img');
-    const hasRealImage = isValidImageUrl(item.image);
-    const imageUrl = hasRealImage ? item.image : getFallbackImage(item.category);
+    const imageUrl = isValidImageUrl(item.image) ? item.image : getFallbackImage(item.category);
     img.src = imageUrl;
     img.alt = item.title || 'Article image';
     img.loading = 'lazy';
@@ -88,8 +87,7 @@
     const figure = document.createElement('figure');
     figure.className = 'card-image';
     const img = document.createElement('img');
-    const hasRealImage = isValidImageUrl(item.image);
-    const imageUrl = hasRealImage ? item.image : getFallbackImage(item.category);
+    const imageUrl = isValidImageUrl(item.image) ? item.image : getFallbackImage(item.category);
     img.src = imageUrl;
     img.alt = item.title || 'Article image';
     img.loading = 'lazy';
@@ -198,7 +196,7 @@
   }
 
   function init() {
-    console.log('The Streamic V7 - Ultimate with Smart Sorting');
+    console.log('The Streamic V7.1 - Complete with Footer & Logo');
     initMobileNav();
     const category = (document.body.dataset.category || '').trim().toLowerCase();
     if (category) loadCategoryPage(category);
