@@ -1,10 +1,11 @@
-#!/usr/bin/env python3 catagory
+#!/usr/bin/env python3
 """
-The Streamic RSS Aggregator
+The Streamic RSS Aggregator - FIXED VERSION
+- Professional broadcast tech RSS feeds (no Hall of Fame headshots)
 - Category-based feed tagging
 - GUID-based deduplication
 - Automatic archiving (30 days / 100 items cap)
-- AI summary placeholder support
+- Enhanced image extraction
 """
 
 import json
@@ -13,8 +14,10 @@ import urllib.request
 import urllib.error
 import xml.etree.ElementTree as ET
 from html import unescape
+from html.parser import HTMLParser
 from datetime import datetime, timedelta
 from pathlib import Path
+import re
 
 USER_AGENT = "Mozilla/5.0 (compatible; StreamicBot/1.0)"
 DATA_DIR = Path("data")
@@ -23,38 +26,73 @@ ARCHIVE_FILE = DATA_DIR / "archive.json"
 MAX_NEWS_ITEMS = 100
 ARCHIVE_DAYS = 30
 
-# ========== CATEGORY-SPECIFIC RSS SOURCES ==========
+# ========== PROFESSIONAL RSS SOURCES (NO HALL OF FAME) ==========
 
 FEED_SOURCES = {
     "newsroom": [
         {"url": "https://www.tvtechnology.com/rss.xml", "label": "TV Technology"},
         {"url": "https://www.broadcastingcable.com/feeds/all", "label": "Broadcasting & Cable"},
+        {"url": "https://www.sportsvideo.org/feed/", "label": "Sports Video Group"},
     ],
     "playout": [
         {"url": "https://www.tvtechnology.com/rss.xml", "label": "TV Technology"},
         {"url": "https://www.broadcastingcable.com/feeds/all", "label": "Broadcasting & Cable"},
+        {"url": "https://www.ibc.org/rss", "label": "IBC"},
     ],
     "infrastructure": [
         {"url": "https://www.tvtechnology.com/rss.xml", "label": "TV Technology"},
         {"url": "https://www.sportsvideo.org/feed/", "label": "Sports Video Group"},
+        {"url": "https://www.ibc.org/rss", "label": "IBC"},
     ],
     "graphics": [
         {"url": "https://www.tvtechnology.com/rss.xml", "label": "TV Technology"},
         {"url": "https://www.sportsvideo.org/feed/", "label": "Sports Video Group"},
+        {"url": "https://www.newscaststudio.com/feed/", "label": "NewscastStudio"},
     ],
     "cloud": [
         {"url": "https://www.tvtechnology.com/rss.xml", "label": "TV Technology"},
         {"url": "https://www.broadcastingcable.com/feeds/all", "label": "Broadcasting & Cable"},
+        {"url": "https://www.streamingmedia.com/RSS/RSSFeed.aspx", "label": "Streaming Media"},
     ],
     "streaming": [
         {"url": "https://www.streamingmedia.com/RSS/RSSFeed.aspx", "label": "Streaming Media"},
         {"url": "https://www.tvtechnology.com/rss.xml", "label": "TV Technology"},
+        {"url": "https://www.broadcastingcable.com/feeds/all", "label": "Broadcasting & Cable"},
     ],
     "audio-ai": [
         {"url": "https://www.tvtechnology.com/rss.xml", "label": "TV Technology"},
+        {"url": "https://www.sportsvideo.org/feed/", "label": "Sports Video Group"},
         {"url": "https://www.prosoundnetwork.com/feed", "label": "Pro Sound Network"},
     ]
 }
+
+# Category-specific fallback images (high quality Unsplash)
+CATEGORY_FALLBACKS = {
+    "newsroom": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80",
+    "playout": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80",
+    "infrastructure": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+    "graphics": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80",
+    "cloud": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
+    "streaming": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+    "audio-ai": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80"
+}
+
+class ImageExtractor(HTMLParser):
+    """Enhanced HTML parser to extract images from descriptions"""
+    def __init__(self):
+        super().__init__()
+        self.images = []
+    
+    def handle_starttag(self, tag, attrs):
+        if tag == 'img':
+            attrs_dict = dict(attrs)
+            if 'src' in attrs_dict:
+                src = attrs_dict['src']
+                # Filter out tracking pixels, small images, and person photos
+                if (src and 
+                    not any(x in src.lower() for x in ['1x1', 'pixel', 'tracker', 'headshot', 'portrait', 'person']) and
+                    not src.endswith('.gif')):
+                    self.images.append(src)
 
 def fetch_url(url, timeout=20):
     """Fetch URL with error handling"""
@@ -71,40 +109,81 @@ def extract_text(node, path, default=""):
     el = node.find(path)
     return (el.text or "").strip() if el is not None and el.text else default
 
-def extract_image(item):
-    """Extract image URL from RSS item"""
+def extract_image(item, category="newsroom"):
+    """Extract image URL from RSS item with enhanced detection"""
     # Try media:thumbnail
     media_ns = "{http://search.yahoo.com/mrss/}"
     thumb = item.find(f"{media_ns}thumbnail")
     if thumb is not None and thumb.get("url"):
-        return thumb.get("url")
+        url = thumb.get("url")
+        if is_valid_image(url):
+            return url
     
     # Try media:content
-    content = item.find(f"{media_ns}content")
-    if content is not None and content.get("url"):
-        if content.get("type", "").startswith("image/"):
-            return content.get("url")
+    for content in item.findall(f"{media_ns}content"):
+        url = content.get("url", "")
+        if url and content.get("medium") == "image" and is_valid_image(url):
+            return url
     
     # Try enclosure
     enc = item.find("enclosure")
-    if enc is not None and enc.get("type", "").startswith("image/"):
-        return enc.get("url")
+    if enc is not None:
+        url = enc.get("url", "")
+        if url and enc.get("type", "").startswith("image/") and is_valid_image(url):
+            return url
     
-    # Parse description for img tags
+    # Parse content:encoded for images
+    content_encoded = item.find("{http://purl.org/rss/1.0/modules/content/}encoded")
+    if content_encoded is not None and content_encoded.text:
+        img_url = extract_image_from_html(content_encoded.text)
+        if img_url and is_valid_image(img_url):
+            return img_url
+    
+    # Parse description for images
     desc = extract_text(item, "description", "")
     if desc:
-        desc = unescape(desc)
-        idx = desc.lower().find("<img ")
-        if idx != -1:
-            src_idx = desc.lower().find("src=", idx)
-            if src_idx != -1:
-                quote = desc[src_idx+4:src_idx+5]
-                if quote in "\"'":
-                    end_idx = desc.find(quote, src_idx+5)
-                    if end_idx != -1:
-                        return desc[src_idx+5:end_idx]
+        img_url = extract_image_from_html(desc)
+        if img_url and is_valid_image(img_url):
+            return img_url
     
-    return ""
+    # Return category-specific fallback
+    return CATEGORY_FALLBACKS.get(category, "assets/fallback.jpg")
+
+def extract_image_from_html(html_content):
+    """Extract first valid image from HTML content"""
+    parser = ImageExtractor()
+    try:
+        parser.feed(unescape(html_content))
+        if parser.images:
+            return parser.images[0]
+    except:
+        pass
+    return None
+
+def is_valid_image(url):
+    """Check if image URL is valid (not a person photo or tracking pixel)"""
+    if not url:
+        return False
+    
+    url_lower = url.lower()
+    
+    # Reject tracking pixels and tiny images
+    if any(x in url_lower for x in ['1x1', 'pixel', 'tracker', 'beacon']):
+        return False
+    
+    # Reject person/headshot photos
+    if any(x in url_lower for x in ['headshot', 'portrait', 'person', 'face', 'avatar', 'profile']):
+        return False
+    
+    # Reject gifs (often logos or tracking)
+    if url_lower.endswith('.gif'):
+        return False
+    
+    # Accept valid image extensions
+    if any(url_lower.endswith(ext) for ext in ['.jpg', '.jpeg', '.png', '.webp']):
+        return True
+    
+    return False
 
 def extract_guid(item):
     """Extract unique identifier (GUID or link)"""
@@ -113,14 +192,38 @@ def extract_guid(item):
         return guid_elem.text.strip()
     
     link = extract_text(item, "link", "")
-    return link if link else str(time.time())
+    return link if link else f"temp-{time.time()}"
+
+def extract_description(item):
+    """Extract and clean description for summary"""
+    # Try content:encoded first
+    content = item.find("{http://purl.org/rss/1.0/modules/content/}encoded")
+    if content is not None and content.text:
+        text = content.text
+    else:
+        text = extract_text(item, "description", "")
+    
+    if text:
+        # Strip HTML tags
+        text = re.sub(r'<[^>]+>', '', unescape(text))
+        # Clean whitespace
+        text = ' '.join(text.split())
+        # Limit to 2 sentences (approximately)
+        sentences = re.split(r'[.!?]+\s+', text)
+        summary = '. '.join(sentences[:2])
+        if summary and not summary.endswith('.'):
+            summary += '.'
+        return summary[:200]  # Max 200 chars
+    
+    return ""
 
 def parse_rss_feed(xml_data, category):
     """Parse RSS/Atom feed and tag with category"""
     items = []
     try:
         root = ET.fromstring(xml_data)
-    except ET.ParseError:
+    except ET.ParseError as e:
+        print(f"  ✗ Parse error: {e}")
         return items
 
     # RSS 2.0
@@ -133,10 +236,10 @@ def parse_rss_feed(xml_data, category):
                 "title": extract_text(item, "title", "Untitled"),
                 "link": extract_text(item, "link", ""),
                 "source": source_title,
-                "image": extract_image(item),
+                "image": extract_image(item, category),
                 "category": category,
                 "timestamp": datetime.now().isoformat(),
-                "summary": ""  # Placeholder for AI summary
+                "summary": extract_description(item)
             })
     
     # Atom feeds
@@ -149,15 +252,21 @@ def parse_rss_feed(xml_data, category):
                 link_elem = entry.find(f"{atom_ns}link")
             link = link_elem.get("href", "") if link_elem is not None else ""
             
+            # Get summary from Atom
+            summary_elem = entry.find(f"{atom_ns}summary")
+            summary = ""
+            if summary_elem is not None and summary_elem.text:
+                summary = re.sub(r'<[^>]+>', '', summary_elem.text)[:200]
+            
             items.append({
                 "guid": extract_text(entry, f"{atom_ns}id", link),
                 "title": extract_text(entry, f"{atom_ns}title", "Untitled"),
                 "link": link,
                 "source": source_title,
-                "image": "",
+                "image": CATEGORY_FALLBACKS.get(category, "assets/fallback.jpg"),
                 "category": category,
                 "timestamp": datetime.now().isoformat(),
-                "summary": ""
+                "summary": summary
             })
     
     return items
@@ -231,7 +340,7 @@ def archive_old_items(items):
 def fetch_all_feeds():
     """Fetch and aggregate all RSS feeds"""
     print("=" * 70)
-    print("THE STREAMIC - RSS Aggregator")
+    print("THE STREAMIC - RSS Aggregator (FIXED)")
     print("=" * 70 + "\n")
     
     all_items = []
