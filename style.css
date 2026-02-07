@@ -1,8 +1,9 @@
-/* =========================================================
-   THE STREAMIC - Apple Bento Grid Design System
-   Tiered layout: Large cards (1-12), List cards (13-20)
-   FIXED: No hero on homepage, improved category pages
-========================================================= */
+/* ================================================================
+   THE STREAMIC - Apple Bento Grid Design System (V3)
+   - Homepage has NO hero
+   - Category pages HAVE hero
+   - Tiered layout: Large cards (1-12), List cards (13+)
+================================================================ */
 
 * {
   margin: 0;
@@ -27,9 +28,10 @@ body {
   background: #fff;
   line-height: 1.47059;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
 }
 
-/* =========== CENTERED NAVIGATION =========== */
+/* ========== NAVIGATION ========== */
 .site-nav {
   background: rgba(255,255,255,0.95);
   backdrop-filter: saturate(180%) blur(20px);
@@ -108,15 +110,21 @@ body {
   .nav-links a {
     padding: 12px 22px;
     display: block;
+    width: 100%;
   }
 }
 
-/* =========== HERO (ONLY FOR CATEGORY PAGES) =========== */
+/* ========== HERO (CATEGORY PAGES ONLY) ========== */
 .page-hero {
   background: linear-gradient(135deg, var(--light-bg) 0%, #fff 100%);
   padding: 70px 22px 50px;
   text-align: center;
   border-bottom: 1px solid var(--border-color);
+}
+
+/* CRITICAL: Hide hero on homepage */
+body.homepage .page-hero {
+  display: none !important;
 }
 
 .hero-inner h1 {
@@ -133,11 +141,6 @@ body {
   line-height: 1.4;
 }
 
-/* NO HERO ON HOMEPAGE */
-body.homepage .page-hero {
-  display: none;
-}
-
 @media (max-width: 768px) {
   .page-hero {
     padding: 50px 22px 40px;
@@ -150,26 +153,26 @@ body.homepage .page-hero {
   .hero-inner p {
     font-size: 18px;
   }
-  
-  /* Mobile category heading */
-  .category-heading {
-    font-size: 28px !important;
-  }
 }
 
-/* =========== MAIN CONTAINER =========== */
+/* ========== MAIN CONTAINER ========== */
 main {
   max-width: 1400px;
   margin: 0 auto;
   padding: 60px 22px;
 }
 
-/* Homepage gets less top padding */
+/* Homepage gets less top padding since no hero */
 body.homepage main {
   padding-top: 40px;
 }
 
-/* =========== TIER 1: LARGE BENTO CARDS (Items 1-12) =========== */
+.main-content,
+.category-content {
+  width: 100%;
+}
+
+/* ========== TIER 1: LARGE BENTO CARDS (1-12) ========== */
 .bento-grid-large {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -217,6 +220,9 @@ body.homepage main {
 
 .bento-card-large .card-body {
   padding: 24px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
 }
 
 .bento-card-large .card-body h3 {
@@ -226,6 +232,7 @@ body.homepage main {
   margin-bottom: 12px;
   color: var(--deep-black);
   letter-spacing: -0.02em;
+  flex-grow: 1;
 }
 
 .bento-card-large .card-summary {
@@ -243,7 +250,8 @@ body.homepage main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 14px;
+  margin-top: auto;
+  padding-top: 14px;
   font-size: 13px;
   color: var(--slate-gray);
 }
@@ -262,7 +270,6 @@ body.homepage main {
   letter-spacing: 0.5px;
 }
 
-/* Vlog gold border */
 .bento-card-large.vlog-card {
   border: 3px solid var(--gold-accent);
 }
@@ -282,7 +289,7 @@ body.homepage main {
   }
 }
 
-/* =========== TIER 2: HORIZONTAL LIST CARDS (Items 13+) =========== */
+/* ========== TIER 2: LIST CARDS (13+) ========== */
 .list-grid {
   display: flex;
   flex-direction: column;
@@ -306,6 +313,7 @@ body.homepage main {
 .list-card-horizontal:hover {
   transform: translateX(4px);
   box-shadow: var(--card-hover-shadow);
+  border-color: var(--border-color);
 }
 
 .list-card-horizontal .card-image {
@@ -313,6 +321,7 @@ body.homepage main {
   min-width: 180px;
   height: 120px;
   background: var(--light-bg);
+  flex-shrink: 0;
 }
 
 .list-card-horizontal .card-image img {
@@ -327,6 +336,7 @@ body.homepage main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 0;
 }
 
 .list-card-horizontal .card-body h3 {
@@ -347,6 +357,7 @@ body.homepage main {
   display: flex;
   gap: 12px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 640px) {
@@ -359,7 +370,7 @@ body.homepage main {
   }
 }
 
-/* =========== VIEW MORE / LOAD MORE BUTTON =========== */
+/* ========== LOAD MORE / VIEW MORE BUTTON ========== */
 .view-more-wrap {
   text-align: center;
   margin-top: 48px;
@@ -374,7 +385,7 @@ body.homepage main {
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   font-family: inherit;
 }
 
@@ -387,7 +398,17 @@ body.homepage main {
   transform: scale(0.98);
 }
 
-/* =========== FOOTER =========== */
+/* ========== EMPTY STATE ========== */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--slate-gray);
+  padding: 80px 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ========== FOOTER ========== */
 .site-footer {
   background: var(--light-bg);
   border-top: 1px solid var(--border-color);
@@ -416,6 +437,12 @@ body.homepage main {
   margin-bottom: 16px;
 }
 
+.foot-col p {
+  font-size: 14px;
+  color: var(--slate-gray);
+  line-height: 1.6;
+}
+
 .foot-col a {
   display: block;
   font-size: 14px;
@@ -442,6 +469,7 @@ body.homepage main {
   font-size: 14px;
   color: var(--slate-gray);
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 .footer-links a:hover {
@@ -461,12 +489,7 @@ body.homepage main {
   }
 }
 
-/* =========== CATEGORY PAGE SPECIFIC =========== */
-.category-content {
-  margin-top: 40px;
-}
-
-/* =========== EDITOR'S DESK (VLOG) =========== */
+/* ========== EDITOR'S DESK (VLOG) ========== */
 .vlog-container {
   max-width: 880px;
   margin: 0 auto;
@@ -507,16 +530,7 @@ body.homepage main {
   color: #424245;
 }
 
-/* =========== UTILITY =========== */
+/* ========== UTILITY ========== */
 .hidden {
-  display: none;
-}
-
-/* Empty state styling */
-.empty-state {
-  grid-column: 1/-1;
-  text-align: center;
-  color: var(--slate-gray);
-  padding: 60px 20px;
-  font-size: 16px;
+  display: none !important;
 }
