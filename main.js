@@ -1,15 +1,13 @@
 /* ==================================================================
-   THE STREAMIC - Main JavaScript (V3.1 - FIXES)
-   - Homepage removed (index redirects to newsroom)
-   - Category loader hardened (trim/lowercase)
-   - Image handling: better acceptance of querystring images
-   - Tiered Bento Grid: Large cards (1-12), List cards (13+)
+   THE STREAMIC - Main JavaScript (V4 - FINAL FIX)
+   - Fixed image validation (accepts query strings)
+   - Load More works on ALL pages including newsroom
+   - Proper category matching
 ================================================================== */
 
 (() => {
   const NEWS_FILE = 'data/news.json';
 
-  // Category-specific fallback images
   const CATEGORY_FALLBACKS = {
     'newsroom': 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80',
     'playout': 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80',
@@ -24,20 +22,32 @@
     return CATEGORY_FALLBACKS[category] || CATEGORY_FALLBACKS['newsroom'];
   }
 
-  // Accepts images that include an extension even with params, or a known CDN path pattern.
+  /**
+   * CRITICAL FIX: Accept images with query strings
+   * Images like "image.jpg?w=800&q=80" are VALID
+   */
   function isValidImageUrl(url) {
-    if (!url || url.trim() === '' || url.includes('fallback.jpg')) return false;
+    if (!url || url.trim() === '' || url.includes('fallback.jpg')) {
+      return false;
+    }
 
     const rejectPatterns = ['1x1', 'pixel', 'spacer', 'blank', 'placeholder', 'default', 'avatar', 'gravatar', 'data:image', 'base64'];
     const u = url.toLowerCase();
-    if (rejectPatterns.some(p => u.includes(p))) return false;
+    
+    if (rejectPatterns.some(p => u.includes(p))) {
+      return false;
+    }
 
-    const hasExt = /\.(jpg|jpeg|png|gif|webp|svg)(\?|#|$)/i.test(u);
-    if (hasExt) return true;
+    // FIXED: Accept images even with query strings (?w=800&q=80)
+    // This matches .jpg, .png, etc. followed by ?, #, or end of string
+    const hasImageExtension = /\.(jpg|jpeg|png|gif|webp|svg)(\?|#|$)/i.test(u);
+    if (hasImageExtension) {
+      return true;
+    }
 
-    // Some WP/CDN paths hide extension but still serve images (rare). Allow common image/CDN hints.
-    const indicators = ['wp-content/uploads', 'images/', '/img/', '/media/', 'cloudinary', 'unsplash', 'cdn.'];
-    return indicators.some(h => u.includes(h));
+    // Accept common image hosting patterns
+    const imageHosts = ['wp-content/uploads', 'images/', '/img/', '/media/', 'cloudinary', 'unsplash', 'cdn.', 'amazonaws'];
+    return imageHosts.some(h => u.includes(h));
   }
 
   function renderLargeCard(item) {
@@ -57,9 +67,12 @@
     img.src = imageUrl;
     img.alt = item.title || 'Article image';
     img.loading = 'lazy';
+    
     img.addEventListener('error', () => {
       const fb = getFallbackImage(item.category);
-      if (img.src !== fb) img.src = fb;
+      if (img.src !== fb) {
+        img.src = fb;
+      }
     });
 
     figure.appendChild(img);
@@ -114,21 +127,27 @@
     img.src = imageUrl;
     img.alt = item.title || 'Article image';
     img.loading = 'lazy';
+    
     img.addEventListener('error', () => {
       const fb = getFallbackImage(item.category);
-      if (img.src !== fb) img.src = fb;
+      if (img.src !== fb) {
+        img.src = fb;
+      }
     });
+    
     figure.appendChild(img);
     article.appendChild(figure);
 
     const body = document.createElement('div');
     body.className = 'card-body';
+    
     const title = document.createElement('h3');
     title.textContent = item.title || 'Untitled';
     body.appendChild(title);
 
     const meta = document.createElement('div');
     meta.className = 'card-meta';
+    
     const source = document.createElement('span');
     source.textContent = item.source || '';
     meta.appendChild(source);
@@ -147,6 +166,7 @@
   function loadCategoryPage(category) {
     const largeGrid = document.getElementById('bentoGridLarge');
     const listGrid = document.getElementById('listGrid');
+    
     if (!largeGrid || !listGrid) {
       console.error('Grid containers not found');
       return;
@@ -158,33 +178,38 @@
 
     fetch(NEWS_FILE)
       .then(res => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}: Failed to fetch news`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
       })
       .then(items => {
-        if (!Array.isArray(items)) throw new Error('Invalid data format');
+        if (!Array.isArray(items)) throw new Error('Invalid data');
 
         const cat = (category || '').toString().trim().toLowerCase();
         allItems = items.filter(it => (it.category || '').toLowerCase() === cat);
+
+        console.log(`Category: ${cat}, Found: ${allItems.length} items`);
 
         if (allItems.length === 0) {
           largeGrid.innerHTML = `<p class="empty-state">No articles in this category yet. Run fetch.py to populate content.</p>`;
           return;
         }
 
+        // Initial load
         loadMoreItems();
 
+        // Add Load More button if needed
         if (allItems.length > ITEMS_PER_LOAD) {
           createLoadMoreButton();
         }
       })
       .catch(err => {
         console.error('Failed to load category:', err);
-        largeGrid.innerHTML = '<p class="empty-state">Failed to load content. Please ensure fetch.py has been run and data/news.json exists.</p>';
+        largeGrid.innerHTML = '<p class="empty-state">Failed to load content. Ensure fetch.py has been run and data/news.json exists.</p>';
       });
 
     function loadMoreItems() {
       const next = allItems.slice(displayedCount, displayedCount + ITEMS_PER_LOAD);
+      
       next.forEach((item, index) => {
         const absoluteIndex = displayedCount + index;
         if (absoluteIndex < 12) {
@@ -204,7 +229,9 @@
 
     function createLoadMoreButton() {
       if (document.getElementById('loadMoreBtn')) return;
+      
       const mainContent = document.querySelector('.category-content') || document.querySelector('main');
+      if (!mainContent) return;
 
       const wrap = document.createElement('div');
       wrap.className = 'view-more-wrap';
@@ -237,19 +264,24 @@
       }
     });
 
-    links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => links.classList.remove('active')));
+    links.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => links.classList.remove('active'));
+    });
   }
 
   function init() {
+    console.log('The Streamic V4 - Initializing...');
+    
     initMobileNav();
 
     const body = document.body;
     const category = (body.dataset.category || '').trim().toLowerCase();
+    
     if (category) {
+      console.log(`Loading category page: ${category}`);
       loadCategoryPage(category);
     } else {
-      // There is no homepage anymore (index redirects)
-      console.warn('No category detected. If this is intentional, ensure body[data-category] is set.');
+      console.warn('No category detected');
     }
   }
 
@@ -261,4 +293,3 @@
 
   window.loadCategory = loadCategoryPage;
 })();
-``
