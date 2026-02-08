@@ -1,6 +1,8 @@
-/* THE STREAMIC - V7.1 FINAL */
+/* THE STREAMIC - Final main.js (cache-busting + tolerant image check + diversity) */
 (() => {
-  const NEWS_FILE = 'data/news.json';
+  // Always fetch the latest JSON (avoid CDN/browser cache issues)
+  const NEWS_FILE = 'data/news.json?v=' + Date.now();
+
   const CATEGORY_FALLBACKS = {
     'newsroom': 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80',
     'playout': 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80',
@@ -15,22 +17,38 @@
     return CATEGORY_FALLBACKS[category] || CATEGORY_FALLBACKS['newsroom'];
   }
 
+  // ✅ Tolerant image URL check (allow CDN links without extensions)
   function isValidImageUrl(url) {
-    if (!url || typeof url !== 'string' || url.trim() === '') return false;
-    const u = url.toLowerCase().trim();
-    const rejectPatterns = ['data:image', 'base64', '1x1.', 'spacer.', 'blank.', 'pixel.', 'fallback.jpg', 'avatar', 'gravatar'];
+    if (!url || typeof url !== 'string') return false;
+    const u = url.trim().toLowerCase();
+    if (!u.startsWith('http')) return false;
+    const rejectPatterns = ['data:image', 'base64', '1x1', 'spacer', 'blank', 'pixel', 'fallback.jpg', 'avatar', 'gravatar'];
     if (rejectPatterns.some(p => u.includes(p))) return false;
-    if (!url.startsWith('http')) return false;
-    if (/\.(jpg|jpeg|png|gif|webp|svg|jpe|jfif)/i.test(u)) return true;
-    const imageKeywords = ['image', 'img', 'photo', 'picture', 'thumbnail', 'media', 'cdn', 'wp-content', 'uploads'];
-    return imageKeywords.some(kw => u.includes(kw));
+    // Accept extension-less URLs (browser + onerror will handle bad ones)
+    return true;
+  }
+
+  // (Optional) light cap so one source doesn't flood a page
+  function capPerSource(items, perSource = 6) {
+    const counts = new Map();
+    const out = [];
+    for (const it of items) {
+      const src = (it.source || '').trim().toLowerCase();
+      const c = counts.get(src) || 0;
+      if (c < perSource) {
+        out.push(it);
+        counts.set(src, c + 1);
+      }
+    }
+    return out;
   }
 
   function smartSort(items) {
     const withImages = items.filter(item => isValidImageUrl(item.image));
     const withoutImages = items.filter(item => !isValidImageUrl(item.image));
+    const diversified = capPerSource(withImages, 6);
     console.log(`Smart Sort: ${withImages.length} with images, ${withoutImages.length} without`);
-    return [...withImages, ...withoutImages];
+    return [...diversified, ...withoutImages];
   }
 
   function renderLargeCard(item) {
@@ -66,12 +84,14 @@
     source.className = 'source';
     source.textContent = item.source || '';
     meta.appendChild(source);
+
     if (item.category) {
       const tag = document.createElement('span');
       tag.className = 'category-tag';
       tag.textContent = item.category.toUpperCase().replace('-', ' & ');
       meta.appendChild(tag);
     }
+
     body.appendChild(meta);
     article.appendChild(body);
     return article;
@@ -109,11 +129,13 @@
     const source = document.createElement('span');
     source.textContent = item.source || '';
     meta.appendChild(source);
+
     if (item.category) {
       const tag = document.createElement('span');
       tag.textContent = ` • ${item.category.toUpperCase().replace('-', ' & ')}`;
       meta.appendChild(tag);
     }
+
     body.appendChild(meta);
     article.appendChild(body);
     return article;
@@ -132,12 +154,19 @@
       .then(res => res.ok ? res.json() : Promise.reject(`HTTP ${res.status}`))
       .then(items => {
         if (!Array.isArray(items)) throw new Error('Invalid data');
-        const cat = category.trim().toLowerCase();
-        let filteredItems = items.filter(it => (it.category || '').toLowerCase() === cat);
+        const cat = (category || '').trim().toLowerCase();
+        // Flexible mapping for audio-ai
+        let filteredItems = items.filter(it => {
+          const c = (it.category || '').toLowerCase();
+          if (cat === 'audio-ai') return c === 'audio-ai' || c === 'audio' || c === 'ai';
+          return c === cat;
+        });
+
         if (filteredItems.length === 0) {
           largeGrid.innerHTML = `<p class="empty-state">No articles yet. Run fetch.py to populate.</p>`;
           return;
         }
+
         allItems = smartSort(filteredItems);
         loadMoreItems();
         if (allItems.length > ITEMS_PER_LOAD) createLoadMoreButton();
@@ -166,14 +195,17 @@
       if (document.getElementById('loadMoreBtn')) return;
       const mainContent = document.querySelector('.category-content') || document.querySelector('main');
       if (!mainContent) return;
+
       const wrap = document.createElement('div');
       wrap.className = 'view-more-wrap';
       wrap.style.marginTop = '48px';
+
       const btn = document.createElement('button');
       btn.id = 'loadMoreBtn';
       btn.className = 'btn-view-more';
       btn.textContent = 'Load More';
       btn.addEventListener('click', () => loadMoreItems());
+
       wrap.appendChild(btn);
       mainContent.appendChild(wrap);
     }
@@ -183,20 +215,23 @@
     const toggle = document.querySelector('.nav-toggle');
     const links = document.querySelector('.nav-links');
     if (!toggle || !links) return;
+
     toggle.addEventListener('click', (e) => {
       e.stopPropagation();
       links.classList.toggle('active');
     });
+
     document.addEventListener('click', (e) => {
       if (links.classList.contains('active') && !toggle.contains(e.target) && !links.contains(e.target)) {
         links.classList.remove('active');
       }
     });
+
     links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => links.classList.remove('active')));
   }
 
   function init() {
-    console.log('The Streamic V7.1 - Complete');
+    console.log('The Streamic - final main.js loaded');
     initMobileNav();
     const category = (document.body.dataset.category || '').trim().toLowerCase();
     if (category) loadCategoryPage(category);
@@ -207,5 +242,7 @@
   } else {
     init();
   }
+
+  // Expose for debugging
   window.loadCategory = loadCategoryPage;
 })();
