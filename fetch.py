@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """
-The Streamic - RSS Aggregator (Cloudflare + Fast + Fail-safe)
-- Fetches all feeds via Cloudflare Worker proxy
-- Caps items per feed (fast)
-- Article-page fetch for OG/Twitter images is OFF by default (no stalls)
-- Short timeouts in CI
+The Streamic - RSS Aggregator (Cloudflare + Direct Fallback + Fast + Fail-safe)
+- Worker for most feeds; direct fetch for specific hosts (InBroadcast, Imagine)
+- Encodes feed URL when calling Worker (?url=...)
+- Caps items per feed, short timeouts (fast)
 - Balanced categories, atomic write, validation
-- Fail-safe: never publish a blank site, even if validation fails on a first run
+- Fail-safe: never publish a blank site on first run
 """
 
 import json
@@ -22,32 +21,39 @@ from datetime import datetime
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 from collections import defaultdict
+from urllib.parse import urlparse, quote
 
 # ------------------ SETTINGS ------------------
 
-# Your Cloudflare Worker passthrough (XML)
-WORKER_BASE = "https://broken-king-b4dc.itabmum.workers.dev/?url="  # change only if your Worker URL changes
+WORKER_BASE = "https://broken-king-b4dc.itabmum.workers.dev/?url="  # only change if Worker URL changes
+
+# Hosts to fetch DIRECTLY (bypass Worker)
+HOSTS_DIRECT = {
+    "www.inbroadcast.com", "inbroadcast.com",
+    "www.imaginecommunications.com", "imaginecommunications.com",
+}
 
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 DATA_DIR = Path("data")
 NEWS_FILE = DATA_DIR / "news.json"
 ARCHIVE_FILE = DATA_DIR / "archive.json"
 
-# Total items to keep in news.json
 MAX_NEWS_ITEMS = 300
 
-# Balancing/validation (slightly looser to avoid blank sections)
+# Balance/validation
 MIN_PER_CATEGORY = 18
 REQUIRED_CATEGORIES = {"newsroom", "playout", "infrastructure", "graphics", "cloud", "streaming", "audio-ai"}
 MIN_REQUIRED_EACH = 3
 
-# --- Fast & Stable knobs ---
-MAX_ITEMS_PER_FEED = 20      # parse at most N items per feed
-FEED_FETCH_TIMEOUT = 12      # seconds per RSS fetch via Worker
-ARTICLE_FETCH_TIMEOUT = 5    # seconds per article HTML fetch (if enabled)
-MAX_ARTICLE_FETCHES = 0      # 0 = OFF (safest). Later, try 4–8 for richer thumbnails.
+# Fast & stable knobs
+MAX_ITEMS_PER_FEED = 20
+FEED_FETCH_TIMEOUT = 12
+ARTICLE_FETCH_TIMEOUT = 5
+MAX_ARTICLE_FETCHES = 0  # 0 = OFF (enable later if needed)
+ARTICLE_FETCH_COUNT = 0
 
-ARTICLE_FETCH_COUNT = 0  # global counter (do not edit)
+# Optional one-time override from CI:
+FORCE_SAVE = os.getenv("FORCE_SAVE", "0") == "1"
 
 # ------------------ FEED SOURCES ------------------
 FEED_SOURCES = {
@@ -110,22 +116,26 @@ class ImageScraper(HTMLParser):
                     self.image_url = v
 
 def try_extract_image_from_text(html_text: str) -> str:
-    if not html_text:
-        return ""
+    if not html_text: return ""
     m = re.search(r'(https?://[^\s"<>]+\.(?:jpg|jpeg|png|gif|webp))', html_text, re.IGNORECASE)
     return m.group(1) if m else ""
 
 def fetch_url(url: str, timeout: int):
     """HTTP GET with UA and timeout; returns bytes or None."""
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        req = urllib.request.Request(
+            url,
+            headers={
+                "User-Agent": USER_AGENT,
+                "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.8",
+            }
+        )
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             return resp.read()
     except (urllib.error.HTTPError, urllib.error.URLError, Exception):
         return None
 
 def fetch_html(url: str, timeout: int) -> str:
-    """Fetch article HTML (short timeout)."""
     try:
         req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
         with urllib.request.urlopen(req, timeout=timeout) as r:
@@ -134,22 +144,16 @@ def fetch_html(url: str, timeout: int) -> str:
         return ""
 
 def get_og_twitter_image(html: str) -> str:
-    """Extract og:image or twitter:image via regex (no DOM)."""
-    if not html:
-        return ""
-    # Simple patterns; enough for many sites (MAX_ARTICLE_FETCHES is off by default)
+    if not html: return ""
     patterns = [
-        r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
-        r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']',
-        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
-        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+name=["\']twitter:image["\']',
+        r'<meta[^>]+content=["\'](https?://[^"\']+)["\'][^>]+property=["\']og:image["\']',
+        r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\'](https?://[^"\']+)["\']',
+        r'<meta[^>]+content=["\'](https?://[^"\']+)["\'][^>]+name=["\']twitter:image["\']',
+        r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\'](https?://[^"\']+)["\']',
     ]
     for pat in patterns:
         m = re.search(pat, html, re.I)
-        if m:
-            u = m.group(1).strip()
-            if u.startswith("http://") or u.startswith("https://"):
-                return u
+        if m: return m.group(1).strip()
     return ""
 
 def good_img_url(url: str) -> bool:
@@ -161,27 +165,20 @@ def good_img_url(url: str) -> bool:
     return not any(r in u.lower() for r in reject)
 
 def get_best_image(item_xml) -> str:
-    """
-    1) RSS media:content / media:thumbnail / enclosure
-    2) <img> inside description/content
-    3) (CAPPED/OFF) article HTML for og:image / twitter:image
-    """
+    """1) media:content/thumbnail/enclosure; 2) <img> in description; 3) (OFF by default) article HTML."""
     global ARTICLE_FETCH_COUNT
 
     candidates = []
     media_ns = "{http://search.yahoo.com/mrss/}"
 
-    # media:content / media:thumbnail
     for elem in [item_xml.find(f"{media_ns}content"), item_xml.find(f"{media_ns}thumbnail")]:
         if elem is not None and elem.get("url"):
             candidates.append(elem.get("url"))
 
-    # enclosure
     enc = item_xml.find("enclosure")
     if enc is not None and "image" in (enc.get("type", "") or "") and enc.get("url"):
         candidates.append(enc.get("url"))
 
-    # description & content:encoded
     for tag_name in ["description", "{http://purl.org/rss/1.0/modules/content/}encoded"]:
         elem = item_xml.find(tag_name)
         if elem is not None and elem.text:
@@ -196,12 +193,11 @@ def get_best_image(item_xml) -> str:
             if rx:
                 candidates.append(rx)
 
-    # pick first good
     for url in candidates:
         if good_img_url(url):
             return url.strip()
 
-    # FINAL: article HTML (only if enabled)
+    # (Optional) last resort: fetch article HTML for OG/Twitter (disabled by default)
     link_elem = item_xml.find("link")
     link_url = (link_elem.text or "").strip() if link_elem is not None and link_elem.text else ""
     if link_url and MAX_ARTICLE_FETCHES > 0 and ARTICLE_FETCH_COUNT < MAX_ARTICLE_FETCHES:
@@ -214,23 +210,21 @@ def get_best_image(item_xml) -> str:
     return ""
 
 def parse_rss_feed(xml_data: bytes, category: str, source_label: str):
-    """Parse RSS XML into a list of items (capped)."""
+    """Parse RSS XML into item list (capped)."""
     items = []
-    if not xml_data:
-        return items
+    if not xml_data: return items
     try:
         root = ET.fromstring(xml_data)
         count = 0
         for item in root.findall(".//item"):
-            if count >= MAX_ITEMS_PER_FEED:
-                break
+            if count >= MAX_ITEMS_PER_FEED: break
             title_elem = item.find("title")
-            link_elem = item.find("link")
-            guid_elem = item.find("guid")
+            link_elem  = item.find("link")
+            guid_elem  = item.find("guid")
 
             title = unescape(title_elem.text).strip() if title_elem is not None and title_elem.text else "Untitled"
-            link = (link_elem.text or "").strip() if link_elem is not None and link_elem.text else "#"
-            guid = guid_elem.text if guid_elem is not None and guid_elem.text else link
+            link  = (link_elem.text or "").strip() if link_elem is not None and link_elem.text else "#"
+            guid  = guid_elem.text if guid_elem is not None and guid_elem.text else link
 
             items.append({
                 "guid": guid,
@@ -247,30 +241,26 @@ def parse_rss_feed(xml_data: bytes, category: str, source_label: str):
         return []
 
 def balance_by_category(items: list, max_total: int, min_per_cat: int):
-    """Guarantee min_per_cat items/category, then fill by global recency."""
     by_cat = defaultdict(list)
     for it in items:
         c = (it.get("category") or "").lower()
         by_cat[c].append(it)
     for c in by_cat:
-        by_cat[c].sort(key=lambda x: x.get("timestamp", ""), reverse=True)
+        by_cat[c].sort(key=lambda x: x.get("timestamp",""), reverse=True)
 
     picked = []
-    # baseline per category
     for c, arr in by_cat.items():
         picked.extend(arr[:min_per_cat])
 
-    # remaining by recency
     remaining = []
     for c, arr in by_cat.items():
         remaining.extend(arr[min_per_cat:])
-    remaining.sort(key=lambda x: x.get("timestamp", ""), reverse=True)
+    remaining.sort(key=lambda x: x.get("timestamp",""), reverse=True)
 
     remaining_slots = max_total - len(picked)
     if remaining_slots > 0:
         picked.extend(remaining[:remaining_slots])
 
-    # dedupe by GUID
     seen, final = set(), []
     for it in picked:
         gid = it.get("guid")
@@ -280,7 +270,6 @@ def balance_by_category(items: list, max_total: int, min_per_cat: int):
     return final[:max_total]
 
 def atomic_write_json(path: Path, data: list):
-    """Atomic write to avoid partial/corrupted files."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with NamedTemporaryFile('w', delete=False, dir=str(path.parent), encoding='utf-8') as tmp:
         json.dump(data, tmp, indent=2, ensure_ascii=False)
@@ -288,13 +277,22 @@ def atomic_write_json(path: Path, data: list):
     os.replace(tmp_name, str(path))
 
 def validate_categories(items: list, required: set, min_each: int):
-    """Return list of categories missing or below min_each."""
     counts = defaultdict(int)
     for it in items:
         c = (it.get("category") or "").lower()
         counts[c] += 1
     missing = [c for c in sorted(required) if counts.get(c, 0) < min_each]
     return missing, counts
+
+# ------------------ URL selection ------------------
+
+def build_fetch_url(feed_url: str) -> str:
+    """Choose Worker or direct fetch based on host, and encode for Worker."""
+    host = (urlparse(feed_url).hostname or "").lower()
+    if host in HOSTS_DIRECT or not WORKER_BASE:
+        return feed_url  # direct
+    # encode the feed URL for ?url=
+    return WORKER_BASE + quote(feed_url, safe="")
 
 # ------------------ WORKFLOW ------------------
 
@@ -303,35 +301,43 @@ def run_workflow():
     ARTICLE_FETCH_COUNT = 0
 
     print("=" * 70)
-    print(" THE STREAMIC — Cloudflare + Fast + Fail-safe ")
+    print(" THE STREAMIC — Worker + Direct Fallback + Fast + Fail-safe ")
     print("=" * 70)
 
     DATA_DIR.mkdir(exist_ok=True)
 
     all_new_items = []
-    per_feed_stats = []
 
-    # 1) Fetch all feeds via Cloudflare Worker
     for category, feeds in FEED_SOURCES.items():
         print(f"\n▶ {category.upper()}\n" + "-" * 70)
         for fd in feeds:
             label = fd["label"]
             feed_url = fd["url"]
-            proxy = (WORKER_BASE or "") + feed_url if WORKER_BASE else feed_url
+
+            # 1) Preferred URL (Worker or direct depending on host)
+            primary = build_fetch_url(feed_url)
 
             print(f"{label:40s}", end="", flush=True)
-            xml = fetch_url(proxy, timeout=FEED_FETCH_TIMEOUT)
-            if not xml:
+            xml = fetch_url(primary, timeout=FEED_FETCH_TIMEOUT)
+
+            # 2) If primary failed and we used Worker, try direct once
+            if not xml and primary != feed_url:
+                xml = fetch_url(feed_url, timeout=FEED_FETCH_TIMEOUT)
+                if xml:
+                    print(" ✓ direct")
+                else:
+                    print(" ✗ failed")
+                    continue
+            elif not xml:
                 print(" ✗ failed")
                 continue
 
             items = parse_rss_feed(xml, category, label)
             print(f" ✓ {len(items):2d} items (cap {MAX_ITEMS_PER_FEED})")
             all_new_items.extend(items)
-            per_feed_stats.append((label, len(items)))
-            time.sleep(0.05)  # brief pause
+            time.sleep(0.05)
 
-    # 2) Load existing for fallback/validation
+    # Load existing for fallback
     existing = []
     if NEWS_FILE.exists():
         try:
@@ -340,14 +346,14 @@ def run_workflow():
         except Exception:
             existing = []
 
-    # 3) Merge, newest-first
+    # Merge newest-first
     merged = all_new_items + existing
-    merged.sort(key=lambda x: x.get("timestamp", ""), reverse=True)
+    merged.sort(key=lambda x: x.get("timestamp",""), reverse=True)
 
-    # 4) Balance categories
+    # Balance categories
     final_list = balance_by_category(merged, max_total=MAX_NEWS_ITEMS, min_per_cat=MIN_PER_CATEGORY)
 
-    # 5) Validate before publishing
+    # Validate
     missing, counts = validate_categories(final_list, REQUIRED_CATEGORIES, MIN_REQUIRED_EACH)
 
     print("\nSUMMARY (post-balance):")
@@ -355,8 +361,7 @@ def run_workflow():
         print(f"  {c:16s}: {counts[c]:3d}")
     print(f"\nArticle fetch attempts (OG images): {ARTICLE_FETCH_COUNT}/{MAX_ARTICLE_FETCHES}")
 
-    # ---- FAIL-SAFE ----
-    # If validation failed and there's NO existing news.json, publish a usable file anyway
+    # ---- FAIL-SAFE / FORCE-SAVE ----
     if missing and not existing:
         print("\n⚠ Validation failed & no existing news.json; writing unbalanced dataset to avoid blank site.")
         atomic_write_json(NEWS_FILE, merged[:MAX_NEWS_ITEMS])
@@ -364,13 +369,12 @@ def run_workflow():
         print("=" * 70)
         return
 
-    # If validation failed but we HAVE an existing file, keep existing (avoid regressions)
-    if missing and existing:
+    if missing and existing and not FORCE_SAVE:
         print("\n✗ Validation failed. Keeping existing news.json to avoid blank sections.")
         print("=" * 70)
         return
 
-    # 6) Optional backup
+    # Optional backup
     try:
         if NEWS_FILE.exists():
             old = []
@@ -386,7 +390,7 @@ def run_workflow():
     except Exception as e:
         print("Backup skipped:", e)
 
-    # 7) Atomic write
+    # Save final
     atomic_write_json(NEWS_FILE, final_list)
     print(f"\n✔ Saved {len(final_list)} items to {NEWS_FILE}")
     print("=" * 70)
