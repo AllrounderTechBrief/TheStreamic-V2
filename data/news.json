@@ -1,1020 +1,408 @@
 [
   {
-    "guid": "https://www.newscaststudio.com/?p=149830",
-    "title": "OBS open for Milano Cortina blends Olympic motion with Italian visual heritage",
-    "link": "https://www.newscaststudio.com/2026/02/07/olympic-broadcasting-services-opening-sequence-milano-cortina-olympics-main-titles/",
-    "category": "newsroom",
-    "image": "https://media0.giphy.com/media/Mbwdi9bplI3CM2bqbz/giphy.gif",
-    "source": "NewscastStudio (All)",
-    "timestamp": "2026-02-08T09:01:41.518362"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=150071",
-    "title": "NBC kicks off 100th anniversary celebration with promos, ‘A Century Together’ tagline",
-    "link": "https://www.newscaststudio.com/2026/02/06/nbc-kicks-off-100th-anniversary-celebration-with-promos-a-century-together-tagline/",
-    "category": "newsroom",
-    "image": "",
-    "source": "NewscastStudio (All)",
-    "timestamp": "2026-02-08T09:01:41.519917"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=150062",
-    "title": "Scripps reiterates commitment to press freedom in message to employees",
-    "link": "https://www.newscaststudio.com/2026/02/06/scripps-reiterates-commitment-to-press-freedom-in-message-to-employees/",
-    "category": "newsroom",
-    "image": "",
-    "source": "NewscastStudio (All)",
-    "timestamp": "2026-02-08T09:01:41.521129"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=150043",
-    "title": "Telemundo releases teaser for its 2026 FIFA World Cup campaign",
-    "link": "https://www.newscaststudio.com/2026/02/06/telemundo-world-cup-teaser-owen-wilson/",
-    "category": "newsroom",
-    "image": "",
-    "source": "NewscastStudio (All)",
-    "timestamp": "2026-02-08T09:01:41.522361"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=149819",
-    "title": "Why ad measurement is becoming the real battleground in OTT advertising",
-    "link": "https://www.newscaststudio.com/2026/02/06/why-ad-measurement-is-vital-for-ott/",
-    "category": "newsroom",
-    "image": "",
-    "source": "NewscastStudio (All)",
-    "timestamp": "2026-02-08T09:01:41.524034"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=150013",
-    "title": "Live NFL coverage fuels sign-ups across streaming platforms",
-    "link": "https://www.newscaststudio.com/2026/02/06/live-nfl-coverage-fuels-sign-ups-across-streaming-platforms/",
-    "category": "newsroom",
-    "image": "",
-    "source": "NewscastStudio (All)",
-    "timestamp": "2026-02-08T09:01:41.525245"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=149972",
-    "title": "CNN announces coverage of the 2026 Milan Cortina Winter Olympics",
-    "link": "https://www.newscaststudio.com/2026/02/05/cnn-2026-winter-olympics-coverage/",
-    "category": "newsroom",
-    "image": "",
-    "source": "NewscastStudio (All)",
-    "timestamp": "2026-02-08T09:01:41.526436"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=149955",
-    "title": "NEP Group deploys major global broadcast operation for February events",
-    "link": "https://www.newscaststudio.com/2026/02/05/nep-group-deploys-major-global-broadcast-operation-for-february-events/",
-    "category": "newsroom",
-    "image": "https://www.newscaststudio.com/wp-content/uploads/2026/02/nbc-milan-cortina-olympics-262x140.jpg",
-    "source": "NewscastStudio (All)",
-    "timestamp": "2026-02-08T09:01:41.527680"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=149938",
-    "title": "Dalet updates Flex platform with semantic search and AI services",
-    "link": "https://www.newscaststudio.com/2026/02/05/dalet-updates-flex-platform-with-semantic-search-and-ai-services/",
-    "category": "newsroom",
-    "image": "",
-    "source": "NewscastStudio (All)",
-    "timestamp": "2026-02-08T09:01:41.528858"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=149933",
-    "title": "Bitfocus partners with JB&A to expand U.S. presence in AV market",
-    "link": "https://www.newscaststudio.com/2026/02/05/bitfocus-partners-with-jba-to-expand-u-s-presence-in-av-market/",
-    "category": "newsroom",
-    "image": "",
-    "source": "NewscastStudio (All)",
-    "timestamp": "2026-02-08T09:01:41.530007"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371769",
-    "title": "Savannah Guthrie Says They Received Message From Mother’s Suspected Kidnappers",
-    "link": "https://tvnewscheck.com/people/article/savannah-guthrie-says-they-received-message-from-mothers-suspected-kidnappers/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.611481"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371766",
-    "title": "Washington Post Publisher Will Lewis Resigns",
-    "link": "https://tvnewscheck.com/journalism/article/washington-post-publisher-will-lewis-resigns/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.611680"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371763",
-    "title": "Trump Praises Nexstar-Tegna Deal He Once Opposed",
-    "link": "https://tvnewscheck.com/business/article/trump-praises-nexstar-tegna-deal-he-once-opposed/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.612017"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371758",
-    "title": "Dow Rallies 1,207, S&P Climbs 491, S&P 500 Jumps 134",
-    "link": "https://tvnewscheck.com/business/article/dow-rallies-1207-sp-climbs-491-sp-500-jumps-134/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.612576"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371756",
-    "title": "Court TV & Scripps News To Air ‘Where Is Nancy Guthrie?’ Feb. 6",
-    "link": "https://tvnewscheck.com/journalism/article/court-tv-scripps-news-to-air-where-is-nancy-guthrie-feb-6/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.612836"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371753",
-    "title": "Timothy Busfield Is Indicted On Charges Of Child Sexual Abuse",
-    "link": "https://www.nytimes.com/2026/02/06/arts/television/timothy-busfield-indicted-child-sexual-abuse.html",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.612963"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371750",
-    "title": "Justice Dept. Casts Wide Net On Netflix’s Business Practices In Merger Probe",
-    "link": "https://tvnewscheck.com/business/article/justice-dept-casts-wide-net-on-netflixs-business-practices-in-merger-probe/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.613105"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371748",
-    "title": "BBC License Fee To Rise A Year Starting In April",
-    "link": "https://www.theguardian.com/media/2026/feb/06/bbc-licence-fee-to-rise-from-april",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.613217"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371745",
-    "title": "Eric Graves Named KMBC Weekend Morning Anchor",
-    "link": "https://tvnewscheck.com/journalism/article/eric-graves-named-kmbc-weekend-morning-anchor/",
-    "category": "newsroom",
-    "image": "https://tvnewscheck.com/wp-content/uploads/2026/02/Graves_Eric_2026.jpg",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.613532"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371743",
-    "title": "‘Schitt’s Creek’ To Stream All Six Seasons On HBO Max",
-    "link": "https://deadline.com/2026/02/schitts-creek-streaming-hbo-max-catherine-ohara-1236711200/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.613677"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371741",
-    "title": "Frederick King Keller Dies: ‘The Pretender’, ‘Blue Bloods’ Producer-Director Was 75",
-    "link": "https://deadline.com/2026/02/frederick-king-keller-dead-1236711198/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.613797"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371737",
-    "title": "CBS Moves Up 2026-27 Schedule Reveal To April 15",
-    "link": "https://tvnewscheck.com/programming/article/cbs-moves-up-2026-27-schedule-reveal-to-april-15/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.613939"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371733",
-    "title": "NBC To Unveil New 100th Anniversary Branding Spots & Tagline During Super Bowl & Winter Olympics This Weekend",
-    "link": "https://tvnewscheck.com/promotion/article/nbc-to-unveil-new-100th-anniversary-branding-spots-tagline-during-super-bowl-winter-olympics-this-weekend/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.614101"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371730",
-    "title": "How Roku’s New Head Of Content Thinks About Originals, The Growth of FAST",
-    "link": "https://tvnewscheck.com/programming/article/how-rokus-new-head-of-content-thinks-about-originals-the-growth-of-fast/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.614245"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371727",
-    "title": "Legislators Call For Employment Commitments From Netflix and Paramount As They Seek To Merge With Warner Bros.",
-    "link": "https://tvnewscheck.com/business/article/legislators-call-for-employment-commitments-from-netflix-and-paramount-as-they-seek-to-merge-with-warner-bros/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.614391"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371724",
-    "title": "Will Sony Exit The TV Business Following TCL Deal?",
-    "link": "https://tvnewscheck.com/tech/article/will-sony-exit-the-tv-business-following-tcl-deal/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.614516"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371722",
-    "title": "AIMS Announces Certification Of First 48 IPMX Products",
-    "link": "https://www.tvtechnology.com/standards/aims-announces-certification-of-first-48-ipmx-products",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.614674"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371719",
-    "title": "This Year’s Super Bowl Commercials Feature AI, Weight-Loss Drugs And Celebrities Galore",
-    "link": "https://tvnewscheck.com/business/article/this-years-super-bowl-commercials-feature-ai-weight-loss-drugs-and-celebrities-galore/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.615552"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371716",
-    "title": "NFL Teams Make 8% Sponsorship Revenue Gains To $2.7B",
-    "link": "https://tvnewscheck.com/business/article/nfl-teams-make-8-sponsorship-revenue-gains-to-2-7b/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.615706"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371714",
-    "title": "Sony Tech To Power Super Bowl With New Headsets, Tracking & 175+ Cameras",
-    "link": "https://tvnewscheck.com/tech/article/sony-tech-to-power-super-bowl-with-new-headsets-tracking-175-cameras/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.616147"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371711",
-    "title": "Net Insight Names Chris Myers SVP Of Sales Americas",
-    "link": "https://tvnewscheck.com/tech/article/net-insight-names-chris-myers-svp-of-sales-americas/",
-    "category": "newsroom",
-    "image": "https://tvnewscheck.com/wp-content/uploads/2026/02/Myers_Chris_2026.jpg",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.616450"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371709",
-    "title": "Free TV Networks Expands Its Multi-Platform Distribution",
-    "link": "https://tvnewscheck.com/programming/article/free-tv-networks-expands-its-multi-platform-distribution/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.616910"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371706",
-    "title": "Dalet Flex LTS Adds Smarter Search, Faster Editing & AI Features for Media Workflows",
-    "link": "https://tvnewscheck.com/tech/article/dalet-flex-lts-adds-smarter-search-faster-editing-ai-features-for-media-workflows/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.617364"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371704",
-    "title": "NextTrip Expands Media Footprint With Acquisition Of GoUSA TV Assets",
-    "link": "https://tvnewscheck.com/business/article/nexttrip-expands-media-footprint-with-acquisition-of-gousa-tv-assets/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.617632"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371700",
-    "title": "ShareBuilders CRM Integrates With Waymark To Launch AI-Powered Spec Spot Video Generation Directly From CRM",
-    "link": "https://tvnewscheck.com/tech/article/sharebuilders-crm-integrates-with-waymark-to-launch-ai-powered-spec-spot-video-generation-directly-from-crm/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.618142"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371698",
-    "title": "Big Tech To Spend $650 Billion This Year As AI Race Intensifies",
-    "link": "https://www.bloomberg.com/news/articles/2026-02-06/how-much-is-big-tech-spending-on-ai-computing-a-staggering-650-billion-in-2026?srnd=homepage-americas",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.618282"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371696",
-    "title": "Appear Names Simon Frost Chief Marketing Officer to Drive Global Growth",
-    "link": "https://tvnewscheck.com/tech/article/appear-names-simon-frost-chief-marketing-officer-to-drive-global-growth/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.618510"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371693",
-    "title": "Trump And The NFL — Why It’s Complicated",
-    "link": "https://tvnewscheck.com/business/article/trump-and-the-nfl-why-its-complicated/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.618698"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371690",
-    "title": "Can The Super Bowl Set A Ratings Record Again Without The Chiefs (Or Taylor Swift)?",
-    "link": "https://tvnewscheck.com/programming/article/can-the-super-bowl-set-a-ratings-record-again-without-the-chiefs-or-taylor-swift/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.618848"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371688",
-    "title": "Mariah Carey, Andrea Bocelli, 3,500 Athletes, 1,300 Performers, 3 ICE Agents & Maybe Tom Cruise? What To Expect At The Winter Olympics Opening Ceremony",
-    "link": "https://deadline.com/2026/02/2026-winter-olympics-opening-cermony-what-to-expect-1236708858/?utm_source=Poynter+Institute&utm_campaign=2af0c52515-02062026_ThePoynterReport&utm_medium=email&utm_term=0_26742a15dc-2af0c52515-390905140&mc_cid=2af0c52515&mc_eid=b345a4f857",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.619115"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371685",
-    "title": "News Corp. Revenue Rises On Growth At Dow Jones, Real Estate Divisions",
-    "link": "https://tvnewscheck.com/business/article/news-corp-revenue-rises-on-growth-at-dow-jones-real-estate-divisions/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.619254"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371682",
-    "title": "Threads Brings Creators To NFL Media Center Ahead Of Big Game",
-    "link": "https://tvnewscheck.com/digital/article/threads-brings-creators-to-nfl-media-center-ahead-of-big-game/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.619382"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371680",
-    "title": "Charles C. Stevenson Dies: ‘Will & Grace’ & ‘Ghost World’ Actor Was 95",
-    "link": "https://deadline.com/2026/02/charles-c-stevenson-dies-95-1236710858/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.619514"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371676",
-    "title": "Streaming-Only Super Bowl Commercials Open New Tier For Marketers With Fewer Dollars For Big Game",
-    "link": "https://tvnewscheck.com/business/article/streaming-only-super-bowl-commercials-open-new-tier-for-marketers-with-fewer-dollars-for-big-game/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.619684"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371673",
-    "title": "Snoop Meets Tucci In Milan: Behind NBCU’s Creator Blitz At The Winter Olympics",
-    "link": "https://tvnewscheck.com/programming/article/snoop-meets-tucci-in-milan-behind-nbcus-creator-blitz-at-the-winter-olympics/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.619826"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371670",
-    "title": "Lionsgate Quarterly Losses Widen After Starz Spinoff",
-    "link": "https://tvnewscheck.com/business/article/lionsgate-quarterly-losses-widen-after-starz-spinoff/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.619953"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371667",
-    "title": "‘The Wizard of Oz’ Will Air On Broadcast TV For First Time In 30 Years",
-    "link": "https://tvnewscheck.com/programming/article/the-wizard-of-oz-will-air-on-broadcast-tv-for-first-time-in-30-years/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.620111"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371664",
-    "title": "‘Today’ Show Gets Extra Security Amid Nancy Guthrie Suspected Kidnapping",
-    "link": "https://tvnewscheck.com/journalism/article/today-show-gets-extra-security-amid-nancy-guthrie-suspected-kidnapping/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.620265"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371660",
-    "title": "Streaming Ratings: ‘The Pitt’ Begins Season 2 With Series High",
-    "link": "https://tvnewscheck.com/programming/article/streaming-ratings-the-pitt-begins-season-2-with-series-high/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.620420"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371656",
-    "title": "Mike Tirico’s Unprecedented February: Super Bowl & Olympics Host",
-    "link": "https://tvnewscheck.com/journalism/article/mike-tiricos-unprecedented-february-super-bowl-olympics-host/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.620969"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371649",
-    "title": "Have a Federal Registration Number? Better Update It Now",
-    "link": "https://tvnewscheck.com/regulation/article/have-a-federal-registration-number-better-update-it-now/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.621114"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371646",
-    "title": "Lionsgate Names Kathleen Grace As Studio’s First Chief AI Officer",
-    "link": "https://tvnewscheck.com/ai/article/lionsgate-names-kathleen-grace-as-studios-first-chief-ai-officer/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.621273"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371643",
-    "title": "Amazon Shares Plunge After Q4 Earnings Results And Aggressive 2026 AI Spending Forecast",
-    "link": "https://tvnewscheck.com/business/article/amazon-shares-plunge-after-q4-earnings-results-and-aggressive-2026-ai-spending-forecast/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.621422"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371639",
-    "title": "Dow Drops 593, Nasdaq Sinks 364, S&P 500 Falls 84",
-    "link": "https://tvnewscheck.com/business/article/dow-drops-593-nasdaq-sinks-364-sp-500-falls-84/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.622154"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371636",
-    "title": "Tubi Expands Nielsen Deal, Now Accounts For 6.2% Of Ad-Supported Streaming",
-    "link": "https://tvnewscheck.com/business/article/tubi-expands-nielsen-deal-now-accounts-for-6-2-of-ad-supported-streaming/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.622302"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371634",
-    "title": "David E. Kelley Productions Ups Shelby Leshine To EVP Development",
-    "link": "https://deadline.com/2026/02/david-e-kelley-productions-shelby-leshine-evp-development-1236709657/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.622416"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371632",
-    "title": "Bill Nye To Receive Lifetime Achievement Honor At The 4th Annual Children’s & Family Emmy Awards",
-    "link": "https://variety.com/2026/tv/news/bill-nye-lifetime-achievement-childrens-family-emmys-1236652661/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.622554"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371629",
-    "title": "SiriusXM In Neutral: Audio Giant Ends Year At 33M Subs, Revenue Declines",
-    "link": "https://tvnewscheck.com/business/article/siriusxm-in-neutral-audio-giant-ends-year-at-33m-subs-revenue-declines/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.622704"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371625",
-    "title": "‘Dark Winds’ Scores Early Season 5 Renewal At AMC",
-    "link": "https://tvnewscheck.com/programming/article/dark-winds-scores-early-season-5-renewal-at-amc/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.622836"
-  },
-  {
-    "guid": "https://tvnewscheck.com/?p=371621",
-    "title": "TV Ratings: ‘High Potential’ Scores A Series Best in Cross-Platform Numbers",
-    "link": "https://tvnewscheck.com/programming/article/tv-ratings-high-potential-scores-a-series-best-in-cross-platform-numbers/",
-    "category": "newsroom",
-    "image": "",
-    "source": "TVNewsCheck",
-    "timestamp": "2026-02-08T09:01:42.623016"
-  },
-  {
-    "guid": "https://www.broadcastbeat.com/?p=208636",
-    "title": "MNC Software Launches Tapestry Orchestration Platform at NAB Show 2026",
-    "link": "https://www.broadcastbeat.com/mnc-software-launches-tapestry-orchestration-platform-at-nab-show-2026/",
-    "category": "newsroom",
-    "image": "",
-    "source": "BroadcastBeat",
-    "timestamp": "2026-02-08T09:01:50.379232"
-  },
-  {
-    "guid": "https://www.broadcastbeat.com/?p=208626",
-    "title": "Hippotizer MX Series Drives 52TB of ‘Magical’ Junior Eurovision Video",
-    "link": "https://www.broadcastbeat.com/tbilisi-georgia-february-5-2026-the-annual-junior-eurovision-song-contest-arrived-at-tbilisis-gymnastic-hall-in-olympic-city-presenting-an-international-stage-for-young-talent-w/",
-    "category": "newsroom",
-    "image": "",
-    "source": "BroadcastBeat",
-    "timestamp": "2026-02-08T09:01:50.379310"
-  },
-  {
-    "guid": "https://www.broadcastbeat.com/?p=208621",
-    "title": "Sonnet Technologies at the 2026 NAB Show",
-    "link": "https://www.broadcastbeat.com/sonnet-technologies-at-the-2026-nab-show/",
-    "category": "newsroom",
-    "image": "",
-    "source": "BroadcastBeat",
-    "timestamp": "2026-02-08T09:01:50.379373"
-  },
-  {
-    "guid": "https://www.broadcastbeat.com/?p=208616",
-    "title": "AIMS Announces Certification of First 48 IPMX Products",
-    "link": "https://www.broadcastbeat.com/aims-announces-certification-of-first-48-ipmx-products/",
-    "category": "newsroom",
-    "image": "",
-    "source": "BroadcastBeat",
-    "timestamp": "2026-02-08T09:01:50.379436"
-  },
-  {
-    "guid": "https://www.broadcastbeat.com/?p=208607",
-    "title": "Dalet Flex LTS Delivers Smarter Search, Faster Editing, and an AI-Ready Foundation for Modern Media",
-    "link": "https://www.broadcastbeat.com/dalet-flex-lts-delivers-smarter-search-faster-editing-and-an-ai-ready-foundation-for-modern-media/",
-    "category": "newsroom",
-    "image": "",
-    "source": "BroadcastBeat",
-    "timestamp": "2026-02-08T09:01:50.379485"
-  },
-  {
-    "guid": "https://www.broadcastbeat.com/?p=208600",
-    "title": "Bitfocus brings on JB&A to boost the US market",
-    "link": "https://www.broadcastbeat.com/bitfocus-brings-on-jba-to-boost-the-us-market/",
-    "category": "newsroom",
-    "image": "",
-    "source": "BroadcastBeat",
-    "timestamp": "2026-02-08T09:01:50.379665"
-  },
-  {
-    "guid": "https://www.broadcastbeat.com/?p=208595",
-    "title": "1001 Selects Bitmovin Player to Elevate its Video Streaming Capabilities",
-    "link": "https://www.broadcastbeat.com/1001-selects-bitmovin-player-to-elevate-its-video-streaming-capabilities/",
-    "category": "newsroom",
-    "image": "",
-    "source": "BroadcastBeat",
-    "timestamp": "2026-02-08T09:01:50.379722"
-  },
-  {
-    "guid": "https://www.broadcastbeat.com/?p=208591",
-    "title": "Appear Appoints Simon Frost as Chief Marketing Officer to Accelerate Global Expansion and Customer Engagement",
-    "link": "https://www.broadcastbeat.com/appear-appoints-simon-frost-as-chief-marketing-officer-to-accelerate-global-expansion-and-customer-engagement/",
-    "category": "newsroom",
-    "image": "",
-    "source": "BroadcastBeat",
-    "timestamp": "2026-02-08T09:01:50.379769"
-  },
-  {
-    "guid": "https://www.broadcastbeat.com/?p=208586",
-    "title": "Astera Releases QuikBeam: Versatile, 200W Equivalent LED Spotlight with Swappable Battery",
-    "link": "https://www.broadcastbeat.com/astera-releases-quikbeam-versatile-200w-equivalent-led-spotlight-with-swappable-battery/",
-    "category": "newsroom",
-    "image": "",
-    "source": "BroadcastBeat",
-    "timestamp": "2026-02-08T09:01:50.379828"
-  },
-  {
-    "guid": "https://www.broadcastbeat.com/?p=208581",
-    "title": "Noah Chamis, ICLS Illuminates “Only Murders in the Building” with Astera",
-    "link": "https://www.broadcastbeat.com/noah-chamis-icls-illuminates-only-murders-in-the-building-with-astera/",
-    "category": "newsroom",
-    "image": "",
-    "source": "BroadcastBeat",
-    "timestamp": "2026-02-08T09:01:50.379890"
-  },
-  {
-    "guid": "https://www.broadcastbeat.com/?p=208575",
-    "title": "Advanced Systems Group Appoints Industry Veteran Derek Pezzotti to Lead Sports and Venue Market Growth",
-    "link": "https://www.broadcastbeat.com/208575-2/",
-    "category": "newsroom",
-    "image": "",
-    "source": "BroadcastBeat",
-    "timestamp": "2026-02-08T09:01:50.379930"
-  },
-  {
-    "guid": "https://www.broadcastbeat.com/?p=208570",
-    "title": "Taurus Technologies Elevates Podcast Production with Brightline AV/720 Low Voltage Lighting and Control",
-    "link": "https://www.broadcastbeat.com/taurus-technologies-elevates-podcast-production-with-brightline-av-720-low-voltage-lighting-and-control/",
-    "category": "newsroom",
-    "image": "",
-    "source": "BroadcastBeat",
-    "timestamp": "2026-02-08T09:01:50.379974"
-  },
-  {
-    "guid": "https://www.broadcastbeat.com/?p=208563",
-    "title": "Atomos Unveils All New Shogun AV-19",
-    "link": "https://www.broadcastbeat.com/atomos-unveils-all-new-shogun-av-19/",
-    "category": "newsroom",
-    "image": "",
-    "source": "BroadcastBeat",
-    "timestamp": "2026-02-08T09:01:50.380026"
-  },
-  {
-    "guid": "https://www.broadcastbeat.com/?p=208555",
-    "title": "Stephen Arnold Music Creates Sonic Branding for Two New NewsNation Primetime Programs",
-    "link": "https://www.broadcastbeat.com/stephen-arnold-music-creates-sonic-branding-for-two-new-newsnation-primetime-programs/",
-    "category": "newsroom",
-    "image": "",
-    "source": "BroadcastBeat",
-    "timestamp": "2026-02-08T09:01:50.380071"
+    "guid": "0613b45847cde663a3852048114dd3300d72d19d",
+    "title": "Recording mobile video to Amazon S3 using Amazon Kinesis Video Streams",
+    "link": "https://aws.amazon.com/blogs/media/recording-mobile-video-to-amazon-s3-using-amazon-kinesis-video-streams/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/10/06/AKVS-Image-1-1.png",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.505715"
+  },
+  {
+    "guid": "b2c06a9b360f613f0fc5abde60d18aea64c6fd81",
+    "title": "Hawk-Eye Innovations Powers Real-Time Sports Data with Flink and Amazon MSK",
+    "link": "https://aws.amazon.com/blogs/media/hawk-eye-innovations-powers-real-time-sports-data-with-flink-and-amazon-msk/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/10/06/HE-Image-1-1.jpg",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.503748"
+  },
+  {
+    "guid": "4f86a047d9536e98dcc688c5858949c2cef1d719",
+    "title": "Build an intelligent video streaming monitoring solution with CMCD and MCP",
+    "link": "https://aws.amazon.com/blogs/media/build-an-intelligent-video-streaming-monitoring-solution-with-cmcd-and-mcp/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/10/03/CMCD-Image-1.jpg",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.502899"
+  },
+  {
+    "guid": "6f77f45383978317bfbeb75a14dc07fabee75f60",
+    "title": "Warner Bros. Discovery Sports engages fans using scaled audio data analysis on AWS",
+    "link": "https://aws.amazon.com/blogs/media/warner-bros-discovery-sports-engages-fans-using-scaled-audio-data-analysis-on-aws/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/09/22/WBDDA-Image-1.png",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.502392"
+  },
+  {
+    "guid": "88bd0dbe99d9fe0537aeca87454405f3f2af2017",
+    "title": "PBS enhances search on digital platforms using Amazon Bedrock",
+    "link": "https://aws.amazon.com/blogs/media/pbs-enhances-search-on-digital-platforms-using-amazon-bedrock/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/10/20/PBS-Metadata-for-Search-Fire-TV-and-mobile.jpg",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.501342"
+  },
+  {
+    "guid": "03bef85d5e23388a5c93a84e925ce8d14795cb0f",
+    "title": "Democratizing VFX bidding: Amazon Q Business transforms cost estimation",
+    "link": "https://aws.amazon.com/blogs/media/democratizing-vfx-bidding-amazon-q-business-transforms-cost-estimation/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/10/14/AQ-Image-1.png",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.500954"
+  },
+  {
+    "guid": "031c6c725de8a1cc18024e988fd50df4f910c65a",
+    "title": "France Télévisions prepared for 2024 Olympic Games with AWS Countdown Premium",
+    "link": "https://aws.amazon.com/blogs/media/france-televisions-prepared-for-2024-olympic-games-with-aws-countdown-premium/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/10/27/AWS-countdown.png",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.498216"
+  },
+  {
+    "guid": "389627025b90b2e73a319d55b55ce68f30b0410d",
+    "title": "France Télévisions transformed Paris 2024 Olympic Games advertising using AWS",
+    "link": "https://aws.amazon.com/blogs/media/france-televisions-transformed-paris-2024-olympic-games-advertising-using-aws/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/11/04/FTAD-Image-1-2.png",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.497601"
+  },
+  {
+    "guid": "4be6b14840f1c0e86171d5f83e03c4e6fa1b16d6",
+    "title": "Optimizing TV and radio media buying using SmartSpot360 on AWS",
+    "link": "https://aws.amazon.com/blogs/media/optimizing-tv-and-radio-media-buying-using-smartspot360-on-aws/",
+    "category": "audio-ai",
+    "image": "https://s.w.org/images/core/emoji/14.0.0/72x72/2122.png",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.497019"
+  },
+  {
+    "guid": "016bd623a7315b0f540c361748b60bbf07136c9e",
+    "title": "ARD ensures content provenance with C2PA and AWS",
+    "link": "https://aws.amazon.com/blogs/media/ard-ensures-content-provenance-with-c2pa-and-aws/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/11/04/ARD-Image-1.png",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.496103"
+  },
+  {
+    "guid": "8203c0c1c4992a2e630a953fcd34e0d0e2295326",
+    "title": "Agentic AI headlines AWS re:Invent 2025 across Media and Entertainment",
+    "link": "https://aws.amazon.com/blogs/media/agentic-ai-headlines-aws-reinvent-2025-across-media-and-entertainment/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/11/18/reInvent_Banner_2000x246_no-date.png",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.495440"
+  },
+  {
+    "guid": "2df94f0a889f7e24f8f9f15b926ccab6807f37ec",
+    "title": "Holstein Kiel transforms scouting with OpenAI models on Amazon Bedrock",
+    "link": "https://aws.amazon.com/blogs/media/holstein-kiel-transforms-scouting-with-openai-models-on-amazon-bedrock/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/11/18/HK-Image-1.png",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.494525"
+  },
+  {
+    "guid": "c735fc2475ad5a1bcb6ae3e2095780598c00c85c",
+    "title": "Warner Bros. Discovery reinvents linear television advertising with AWS",
+    "link": "https://aws.amazon.com/blogs/media/warner-bros-discovery-reinvents-linear-television-advertising-with-aws/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/12/08/MediaTailor-SSAI-WBD-EMEA.png",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.493711"
+  },
+  {
+    "guid": "c9f4d5b6fca3e4e1ece7ae63b0835a1611f1024b",
+    "title": "Introducing the expanded AWS Well-Architected Video Streaming Advertising Lens",
+    "link": "https://aws.amazon.com/blogs/media/introducing-the-expanded-aws-well-architected-video-streaming-advertising-lens/",
+    "category": "audio-ai",
+    "image": "",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.493218"
+  },
+  {
+    "guid": "c1d8e3a4ecceaba6166acfaff17f552772c9ab58",
+    "title": "Accelerating creative workflows with the AWS Creative Innovation Hub in London",
+    "link": "https://aws.amazon.com/blogs/media/accelerating-creative-workflows-with-the-aws-creative-innovation-hub-in-london/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/12/02/London-Hub-Image-1.png",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.492840"
   },
   {
     "guid": "https://www.broadcastbeat.com/?p=208551",
     "title": "Riedel Connects Live Surgery and Medical Professionals at VISAR 2025",
     "link": "https://www.broadcastbeat.com/riedel-connects-live-surgery-and-medical-professionals-at-visar-2025/",
-    "category": "newsroom",
+    "category": "streaming",
     "image": "",
-    "source": "BroadcastBeat",
-    "timestamp": "2026-02-08T09:01:50.380118"
+    "source": "Broadcast Beat",
+    "timestamp": "2026-02-08T09:48:20.664551"
   },
   {
-    "guid": "https://www.harmonicinc.com/insights/blog/pushing-the-boundaries-of-video-innovation-through-the-power-of-collaboration",
-    "title": "Pushing the Boundaries of Video Innovation Through the Power of Collaboration",
-    "link": "https://www.harmonicinc.com/insights/blog/pushing-the-boundaries-of-video-innovation-through-the-power-of-collaboration",
-    "category": "playout",
-    "image": "https://www.harmonicinc.com/hubfs/2025_Blog_Main_Image_Video_Innovation_Harmonic_Akamai_NVIDIA_VB_V1.png",
-    "source": "Harmonic",
-    "timestamp": "2026-02-08T09:01:51.212880"
-  },
-  {
-    "guid": "https://www.harmonicinc.com/insights/blog/brownfield-mdu-broadband-unlocking-revenue-with-existing-infrastructure",
-    "title": "Brownfield MDU Broadband: Unlocking Revenue with Existing Infrastructure",
-    "link": "https://www.harmonicinc.com/insights/blog/brownfield-mdu-broadband-unlocking-revenue-with-existing-infrastructure",
-    "category": "playout",
-    "image": "https://www.harmonicinc.com/hubfs/2025_Blog_Main_Image_MDU_Unlock_Harmonic_BB_vf-2.png",
-    "source": "Harmonic",
-    "timestamp": "2026-02-08T09:01:51.213143"
-  },
-  {
-    "guid": "https://www.harmonicinc.com/insights/blog/the-economics-of-hybrid-streaming-architectures",
-    "title": "The Economics of Hybrid Streaming Architectures",
-    "link": "https://www.harmonicinc.com/insights/blog/the-economics-of-hybrid-streaming-architectures",
-    "category": "playout",
-    "image": "https://www.harmonicinc.com/hubfs/video-streaming/vos-media-software-image.jpg",
-    "source": "Harmonic",
-    "timestamp": "2026-02-08T09:01:51.213368"
-  },
-  {
-    "guid": "https://www.harmonicinc.com/insights/blog/the-everything-era-what-nab-2025-really-told-us-about-streamings-future",
-    "title": "The Everything Era: What NAB 2025 Really Told Us About Streaming’s Future",
-    "link": "https://www.harmonicinc.com/insights/blog/the-everything-era-what-nab-2025-really-told-us-about-streamings-future",
-    "category": "playout",
-    "image": "https://www.harmonicinc.com/hubfs/video-streaming/services/Harmonic-video-service-tools.webp",
-    "source": "Harmonic",
-    "timestamp": "2026-02-08T09:01:51.214725"
-  },
-  {
-    "guid": "https://www.harmonicinc.com/insights/blog/unified-docsis-4-0-simplifying-broadband-network-evolution/",
-    "title": "Unified DOCSIS 4.0",
-    "link": "https://www.harmonicinc.com/insights/blog/unified-docsis-4-0-simplifying-broadband-network-evolution/",
-    "category": "playout",
-    "image": "https://www.harmonicinc.com/hubfs/DOCSIS_40_Blog_Image.png",
-    "source": "Harmonic",
-    "timestamp": "2026-02-08T09:01:51.215034"
-  },
-  {
-    "guid": "https://www.harmonicinc.com/insights/blog/ont-interoperability-open-ont-onu",
-    "title": "OLT and ONT Interoperability: A New Path Forward",
-    "link": "https://www.harmonicinc.com/insights/blog/ont-interoperability-open-ont-onu",
-    "category": "playout",
-    "image": "https://www.harmonicinc.com/hubfs/Blog_Open_ONU_Harmonic_2025_Linkedin_Article.png",
-    "source": "Harmonic",
-    "timestamp": "2026-02-08T09:01:51.215333"
-  },
-  {
-    "guid": "https://www.harmonicinc.com/insights/blog/harmonic-leads-broadband-industry-transformation",
-    "title": "Harmonic Leads Broadband Industry Transformation",
-    "link": "https://www.harmonicinc.com/insights/blog/harmonic-leads-broadband-industry-transformation",
-    "category": "playout",
-    "image": "https://www.harmonicinc.com/hubfs/harmonic-leader-cos-image-blog-article.jpg",
-    "source": "Harmonic",
-    "timestamp": "2026-02-08T09:01:51.215548"
-  },
-  {
-    "guid": "https://www.harmonicinc.com/insights/blog/cloud-based-playout-delivery-cost-efficiency/",
-    "title": "How Cloud-Based Playout-to-Delivery Drives Cost Efficiency",
-    "link": "https://www.harmonicinc.com/insights/blog/cloud-based-playout-delivery-cost-efficiency/",
-    "category": "playout",
-    "image": "https://www.harmonicinc.com/hubfs/blog-how-cloud-based-playout-to-delivery-drives-cost-efficiency.png",
-    "source": "Harmonic",
-    "timestamp": "2026-02-08T09:01:51.215773"
-  },
-  {
-    "guid": "https://www.harmonicinc.com/insights/blog/broadband-operators-vcmts-daa-adoption",
-    "title": "Broadband Operators Pick up the Pace with vCMTS and DAA Adoption",
-    "link": "https://www.harmonicinc.com/insights/blog/broadband-operators-vcmts-daa-adoption",
-    "category": "playout",
-    "image": "https://www.harmonicinc.com/hubfs/broadband%20operators%20vcmts%20daa.jpg",
-    "source": "Harmonic",
-    "timestamp": "2026-02-08T09:01:51.215978"
-  },
-  {
-    "guid": "https://www.harmonicinc.com/insights/blog/srt-primary-distribution/",
-    "title": "How Harmonic's Customer Migrated Seamlessly from Satellite to SRT Distribution",
-    "link": "https://www.harmonicinc.com/insights/blog/srt-primary-distribution/",
-    "category": "playout",
-    "image": "https://www.harmonicinc.com/hubfs/Blog_Main_Image_SRT_Distribution.png",
-    "source": "Harmonic",
-    "timestamp": "2026-02-08T09:01:51.216172"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=149429",
-    "title": "5G broadcast proof of concept demonstrated in São Paulo",
-    "link": "https://www.newscaststudio.com/2026/01/26/5g-broadcast-proof-of-concept-demonstrated-in-sao-paulo/",
-    "category": "infrastructure",
+    "guid": "https://www.broadcastbeat.com/?p=208555",
+    "title": "Stephen Arnold Music Creates Sonic Branding for Two New NewsNation Primetime Programs",
+    "link": "https://www.broadcastbeat.com/stephen-arnold-music-creates-sonic-branding-for-two-new-newsnation-primetime-programs/",
+    "category": "streaming",
     "image": "",
-    "source": "NewscastStudio Engineering",
-    "timestamp": "2026-02-08T09:01:51.571457"
+    "source": "Broadcast Beat",
+    "timestamp": "2026-02-08T09:48:20.664543"
   },
   {
-    "guid": "https://www.newscaststudio.com/?p=148489",
-    "title": "Modernizing video workflows with end-to-end IP solutions",
-    "link": "https://www.newscaststudio.com/2026/01/23/modernizing-video-workflows-with-end-to-end-ip-solutions/",
-    "category": "infrastructure",
+    "guid": "https://www.broadcastbeat.com/?p=208563",
+    "title": "Atomos Unveils All New Shogun AV-19",
+    "link": "https://www.broadcastbeat.com/atomos-unveils-all-new-shogun-av-19/",
+    "category": "streaming",
     "image": "",
-    "source": "NewscastStudio Engineering",
-    "timestamp": "2026-02-08T09:01:51.571998"
+    "source": "Broadcast Beat",
+    "timestamp": "2026-02-08T09:48:20.664535"
   },
   {
-    "guid": "https://www.newscaststudio.com/?p=149450",
-    "title": "AIMS to launch fully certified IPMX standard at ISE 2026",
-    "link": "https://www.newscaststudio.com/2026/01/22/aims-to-launch-fully-certified-ipmx-standard-at-ise-2026/",
-    "category": "infrastructure",
+    "guid": "https://www.broadcastbeat.com/?p=208570",
+    "title": "Taurus Technologies Elevates Podcast Production with Brightline AV/720 Low Voltage Lighting and Control",
+    "link": "https://www.broadcastbeat.com/taurus-technologies-elevates-podcast-production-with-brightline-av-720-low-voltage-lighting-and-control/",
+    "category": "streaming",
     "image": "",
-    "source": "NewscastStudio Engineering",
-    "timestamp": "2026-02-08T09:01:51.572292"
+    "source": "Broadcast Beat",
+    "timestamp": "2026-02-08T09:48:20.664526"
   },
   {
-    "guid": "https://www.newscaststudio.com/?p=149447",
-    "title": "Public Media Management introduces cloud-based master control for public television",
-    "link": "https://www.newscaststudio.com/2026/01/22/public-media-management-introduces-cloud-based-master-control-for-public-television/",
-    "category": "infrastructure",
+    "guid": "https://www.broadcastbeat.com/?p=208575",
+    "title": "Advanced Systems Group Appoints Industry Veteran Derek Pezzotti to Lead Sports and Venue Market Growth",
+    "link": "https://www.broadcastbeat.com/208575-2/",
+    "category": "streaming",
     "image": "",
-    "source": "NewscastStudio Engineering",
-    "timestamp": "2026-02-08T09:01:51.572656"
+    "source": "Broadcast Beat",
+    "timestamp": "2026-02-08T09:48:20.664517"
   },
   {
-    "guid": "https://www.newscaststudio.com/?p=149177",
-    "title": "Industry Insights: How infrastructure choices shape media economics",
-    "link": "https://www.newscaststudio.com/2026/01/22/industry-insights-how-infrastructure-choices-shape-media-economics/",
-    "category": "infrastructure",
+    "guid": "https://www.broadcastbeat.com/?p=208581",
+    "title": "Noah Chamis, ICLS Illuminates “Only Murders in the Building” with Astera",
+    "link": "https://www.broadcastbeat.com/noah-chamis-icls-illuminates-only-murders-in-the-building-with-astera/",
+    "category": "streaming",
     "image": "",
-    "source": "NewscastStudio Engineering",
-    "timestamp": "2026-02-08T09:01:51.574785"
+    "source": "Broadcast Beat",
+    "timestamp": "2026-02-08T09:48:20.664508"
   },
   {
-    "guid": "https://www.newscaststudio.com/?p=149414",
-    "title": "Major station groups push for mandatory ATSC 3.0 transition date in new FCC filings",
-    "link": "https://www.newscaststudio.com/2026/01/21/major-station-groups-push-for-mandatory-atsc-3-0-transition-date-in-new-filings/",
-    "category": "infrastructure",
-    "image": "https://www.newscaststudio.com/wp-content/uploads/2025/10/atsc-nextgen-tv-television-abstract-262x140.jpg",
-    "source": "NewscastStudio Engineering",
-    "timestamp": "2026-02-08T09:01:51.575724"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=149408",
-    "title": "CTA urges FCC to reject ATSC 3.0 tuner mandate in new filing",
-    "link": "https://www.newscaststudio.com/2026/01/21/cta-urges-fcc-to-reject-atsc-3-0-tuner-mandate-in-new-filing/",
-    "category": "infrastructure",
-    "image": "https://www.newscaststudio.com/wp-content/uploads/2026/01/nextgen-tv-black-262x140.png",
-    "source": "NewscastStudio Engineering",
-    "timestamp": "2026-02-08T09:01:51.576438"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=149383",
-    "title": "NBC 5, Telemundo Chicago move into unified newsroom following four-year, $70M project",
-    "link": "https://www.newscaststudio.com/2026/01/21/nbc-5-chicago-telemundo-chicago-broadcast-facility-newsroom/",
-    "category": "infrastructure",
-    "image": "https://www.newscaststudio.com/wp-content/uploads/2026/01/nbc-chicago-facility_050.jpg",
-    "source": "NewscastStudio Engineering",
-    "timestamp": "2026-02-08T09:01:51.577267"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=149363",
-    "title": "NAB pushes FCC for date-certain end to ATSC 1.0 in latest regulatory filing",
-    "link": "https://www.newscaststudio.com/2026/01/20/nab-pushes-fcc-for-date-certain-end-to-atsc-1-0-in-latest-regulatory-filing/",
-    "category": "infrastructure",
-    "image": "https://www.newscaststudio.com/wp-content/uploads/2025/10/television-abstract-262x140.jpg",
-    "source": "NewscastStudio Engineering",
-    "timestamp": "2026-02-08T09:01:51.577970"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=148862",
-    "title": "Industry Insights: Where power is shifting in the new media economy",
-    "link": "https://www.newscaststudio.com/2026/01/20/industry-insights-where-power-is-shifting-in-the-new-media-economy/",
-    "category": "infrastructure",
+    "guid": "https://www.broadcastbeat.com/?p=208586",
+    "title": "Astera Releases QuikBeam: Versatile, 200W Equivalent LED Spotlight with Swappable Battery",
+    "link": "https://www.broadcastbeat.com/astera-releases-quikbeam-versatile-200w-equivalent-led-spotlight-with-swappable-battery/",
+    "category": "streaming",
     "image": "",
-    "source": "NewscastStudio Engineering",
-    "timestamp": "2026-02-08T09:01:51.579360"
+    "source": "Broadcast Beat",
+    "timestamp": "2026-02-08T09:48:20.664495"
   },
   {
-    "guid": "https://www.newscaststudio.com/?p=148834",
-    "title": "Latest version of the ‘CBS Evening News’ gets off to bumpy start with nods to its past",
-    "link": "https://www.newscaststudio.com/2026/01/07/cbs-evening-news-dokoupil-set-graphics/",
-    "category": "graphics",
-    "image": "https://www.newscaststudio.com/wp-content/uploads/2026/01/NCS_cbs-evening-news_Tony-Dokoupil_132-262x140.jpg",
-    "source": "NewscastStudio Graphics",
-    "timestamp": "2026-02-08T09:01:52.556373"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=148584",
-    "title": "‘CBS Evening News’ returns to Didot era with new logo design",
-    "link": "https://www.newscaststudio.com/2025/12/30/cbs-evening-news-logo-design-tony-dokoupil/",
-    "category": "graphics",
-    "image": "https://www.newscaststudio.com/wp-content/uploads/2025/12/tony-dokoupil-262x140.jpg",
-    "source": "NewscastStudio Graphics",
-    "timestamp": "2026-02-08T09:01:52.557154"
-  },
-  {
-    "guid": "https://www.newscaststudio.com/?p=148305",
-    "title": "CNBC debuts new logo on-air",
-    "link": "https://www.newscaststudio.com/2025/12/15/cnbc-new-logo-opens/",
-    "category": "graphics",
+    "guid": "https://www.broadcastbeat.com/?p=208591",
+    "title": "Appear Appoints Simon Frost as Chief Marketing Officer to Accelerate Global Expansion and Customer Engagement",
+    "link": "https://www.broadcastbeat.com/appear-appoints-simon-frost-as-chief-marketing-officer-to-accelerate-global-expansion-and-customer-engagement/",
+    "category": "streaming",
     "image": "",
-    "source": "NewscastStudio Graphics",
-    "timestamp": "2026-02-08T09:01:52.557482"
+    "source": "Broadcast Beat",
+    "timestamp": "2026-02-08T09:48:20.664485"
   },
   {
-    "guid": "https://www.newscaststudio.com/?p=147958",
-    "title": "CNBC’s new logo points to future while integrating into current design",
-    "link": "https://www.newscaststudio.com/2025/12/04/cnbc-logo-design-rebrand-2025-versant/",
-    "category": "graphics",
-    "image": "https://www.newscaststudio.com/wp-content/uploads/2025/12/cnbc_logo-design.png",
-    "source": "NewscastStudio Graphics",
-    "timestamp": "2026-02-08T09:01:52.558360"
+    "guid": "https://www.broadcastbeat.com/?p=208595",
+    "title": "1001 Selects Bitmovin Player to Elevate its Video Streaming Capabilities",
+    "link": "https://www.broadcastbeat.com/1001-selects-bitmovin-player-to-elevate-its-video-streaming-capabilities/",
+    "category": "streaming",
+    "image": "",
+    "source": "Broadcast Beat",
+    "timestamp": "2026-02-08T09:48:20.664476"
   },
   {
-    "guid": "https://www.newscaststudio.com/?p=147982",
-    "title": "CBS streamer launches its version of ‘Mornings’ broadcast from Studio 47",
-    "link": "https://www.newscaststudio.com/2025/12/04/cbs-news-247-mornings-set-graphics/",
-    "category": "graphics",
-    "image": "https://www.newscaststudio.com/wp-content/uploads/2025/12/cbs-news-247-mornings-anchor.jpg",
-    "source": "NewscastStudio Graphics",
-    "timestamp": "2026-02-08T09:01:52.559296"
+    "guid": "https://www.broadcastbeat.com/?p=208600",
+    "title": "Bitfocus brings on JB&A to boost the US market",
+    "link": "https://www.broadcastbeat.com/bitfocus-brings-on-jba-to-boost-the-us-market/",
+    "category": "streaming",
+    "image": "",
+    "source": "Broadcast Beat",
+    "timestamp": "2026-02-08T09:48:20.664466"
   },
   {
-    "guid": "https://www.newscaststudio.com/?p=147905",
-    "title": "CNBC set for rebrand on Dec. 13",
-    "link": "https://www.newscaststudio.com/2025/12/02/cnbc-set-for-rebrand-on-dec-13/",
-    "category": "graphics",
-    "image": "https://www.newscaststudio.com/wp-content/uploads/2025/12/cnbc_048-262x140.jpg",
-    "source": "NewscastStudio Graphics",
-    "timestamp": "2026-02-08T09:01:52.559965"
+    "guid": "https://www.broadcastbeat.com/?p=208607",
+    "title": "Dalet Flex LTS Delivers Smarter Search, Faster Editing, and an AI-Ready Foundation for Modern Media",
+    "link": "https://www.broadcastbeat.com/dalet-flex-lts-delivers-smarter-search-faster-editing-and-an-ai-ready-foundation-for-modern-media/",
+    "category": "streaming",
+    "image": "",
+    "source": "Broadcast Beat",
+    "timestamp": "2026-02-08T09:48:20.664450"
   },
   {
-    "guid": "https://www.newscaststudio.com/?p=147394",
-    "title": "MS NOW channels its fluttering flag icon in new motion graphics package",
-    "link": "https://www.newscaststudio.com/2025/11/17/ms-now-graphics/",
-    "category": "graphics",
-    "image": "https://www.newscaststudio.com/wp-content/uploads/2025/11/NCS_MS-NOW-STUDIO-A_2025_002-1-262x140.jpeg",
-    "source": "NewscastStudio Graphics",
-    "timestamp": "2026-02-08T09:01:52.562232"
+    "guid": "https://www.broadcastbeat.com/?p=208616",
+    "title": "AIMS Announces Certification of First 48 IPMX Products",
+    "link": "https://www.broadcastbeat.com/aims-announces-certification-of-first-48-ipmx-products/",
+    "category": "streaming",
+    "image": "",
+    "source": "Broadcast Beat",
+    "timestamp": "2026-02-08T09:48:20.664440"
   },
   {
-    "guid": "https://www.newscaststudio.com/?p=147162",
-    "title": "Apple TV debuts vibrant rainbow logo animation with Finneas-composed mnemonic following rebrand",
-    "link": "https://www.newscaststudio.com/2025/11/04/apple-tv-debuts-vibrant-rainbow-logo-animation-with-finneas-composed-mnemonic-following-rebrand/",
-    "category": "graphics",
-    "image": "https://media0.giphy.com/media/8pHYxCg6ySPQqDyRJM/giphy.gif",
-    "source": "NewscastStudio Graphics",
-    "timestamp": "2026-02-08T09:01:52.562809"
+    "guid": "https://www.broadcastbeat.com/?p=208621",
+    "title": "Sonnet Technologies at the 2026 NAB Show",
+    "link": "https://www.broadcastbeat.com/sonnet-technologies-at-the-2026-nab-show/",
+    "category": "streaming",
+    "image": "",
+    "source": "Broadcast Beat",
+    "timestamp": "2026-02-08T09:48:20.664429"
   },
   {
-    "guid": "https://www.newscaststudio.com/?p=147118",
-    "title": "Key art updates may provide hints at MS NOW’s graphics package",
-    "link": "https://www.newscaststudio.com/2025/11/01/ms-now-graphics-preview/",
-    "category": "graphics",
-    "image": "https://www.newscaststudio.com/wp-content/uploads/2021/03/msnbc-reports-3d-1-262x140.jpg",
-    "source": "NewscastStudio Graphics",
-    "timestamp": "2026-02-08T09:01:52.563504"
+    "guid": "https://www.broadcastbeat.com/?p=208626",
+    "title": "Hippotizer MX Series Drives 52TB of ‘Magical’ Junior Eurovision Video",
+    "link": "https://www.broadcastbeat.com/tbilisi-georgia-february-5-2026-the-annual-junior-eurovision-song-contest-arrived-at-tbilisis-gymnastic-hall-in-olympic-city-presenting-an-international-stage-for-young-talent-w/",
+    "category": "streaming",
+    "image": "",
+    "source": "Broadcast Beat",
+    "timestamp": "2026-02-08T09:48:20.664414"
   },
   {
-    "guid": "https://motionographer.com/?post_type=news&p=89671",
-    "title": "Experimental MV: Pixel Art ‘Fake Gameplay’ Traverses Eerie Liminal Spaces in Song Yeongnam’s [PO WAH BUILDING]",
-    "link": "https://motionographer.com/news/experimental-mv-pixel-art-fake-gameplay-traverses-eerie-liminal-spaces-in-song-yeongnams-po-wah-building/",
-    "category": "graphics",
-    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/powahbuilding-700x467.jpg",
-    "source": "Motionographer",
-    "timestamp": "2026-02-08T09:01:52.938238"
+    "guid": "https://www.broadcastbeat.com/?p=208636",
+    "title": "MNC Software Launches Tapestry Orchestration Platform at NAB Show 2026",
+    "link": "https://www.broadcastbeat.com/mnc-software-launches-tapestry-orchestration-platform-at-nab-show-2026/",
+    "category": "streaming",
+    "image": "",
+    "source": "Broadcast Beat",
+    "timestamp": "2026-02-08T09:48:20.664389"
   },
   {
-    "guid": "https://motionographer.com/?post_type=quickie&p=89681",
-    "title": "Happy Holidays 2025 | Ambient Press",
-    "link": "https://motionographer.com/quickie/happy-holidays-2025-ambient-press/",
-    "category": "graphics",
-    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/5AP2504_Still_4-700x394.png",
-    "source": "Motionographer",
-    "timestamp": "2026-02-08T09:01:52.938283"
+    "guid": "https://blog.frame.io/?p=206",
+    "title": "Finally! Frame.io Is Launching March 31st",
+    "link": "https://blog.frame.io/2015/03/06/finally-frame-io-is-launching-march-31st/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939593"
   },
   {
-    "guid": "https://motionographer.com/?post_type=quickie&p=89633",
-    "title": "Sakura Gansha | Sijin Liu",
-    "link": "https://motionographer.com/quickie/sakura-gansha-sijin-liu/",
-    "category": "graphics",
-    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/ezgif-39b7a64b96b05ef0-700x394.jpg",
-    "source": "Motionographer",
-    "timestamp": "2026-02-08T09:01:52.938315"
+    "guid": "https://blog.frame.io/?p=137",
+    "title": "Frame.io Launch Report Card",
+    "link": "https://blog.frame.io/2015/04/07/frame-io-launch-report-card/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939589"
   },
   {
-    "guid": "https://motionographer.com/?post_type=quickie&p=89628",
-    "title": "Plastic Horse Showreel | Plastic Horse",
-    "link": "https://motionographer.com/quickie/plastic-horse-showreel-plastic-horse/",
-    "category": "graphics",
-    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/PH-REEL-2025-0-00-07-02-700x394.jpg",
-    "source": "Motionographer",
-    "timestamp": "2026-02-08T09:01:52.938346"
+    "guid": "https://blog.frame.io/?p=148",
+    "title": "Frame.io NAB Highlights",
+    "link": "https://blog.frame.io/2015/04/24/frame-io-nab-highlights/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939584"
   },
   {
-    "guid": "https://motionographer.com/?post_type=quickie&p=89620",
-    "title": "A Director’s Study in AI Cinematic Design | 1984 London / Chris Jarrett",
-    "link": "https://motionographer.com/quickie/a-directors-study-in-ai-cinematic-design-1984-london-chris-jarrett/",
-    "category": "graphics",
-    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/ezgif-3149486e46d1762b-700x394.png",
-    "source": "Motionographer",
-    "timestamp": "2026-02-08T09:01:52.938377"
+    "guid": "https://blog.frame.io/?p=166",
+    "title": "Over 25 improvements in Frame.io",
+    "link": "https://blog.frame.io/2015/05/18/over-25-improvements-in-frame-io/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939580"
   },
   {
-    "guid": "https://motionographer.com/?post_type=news&p=89304",
-    "title": "A Tiny Stop-Motion World with a Big New Year’s Heart for the Dutch State Lottery",
-    "link": "https://motionographer.com/news/a-tiny-stop-motion-world-with-a-big-new-years-heart-for-the-dutch-state-lottery/",
-    "category": "graphics",
-    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/01/luckfeatureimage-700x467.png",
-    "source": "Motionographer",
-    "timestamp": "2026-02-08T09:01:52.938421"
+    "guid": "https://blog.frame.io/?p=170",
+    "title": "Seamless integration with Final Cut Pro X is here",
+    "link": "https://blog.frame.io/2015/06/30/seamless-integration-with-final-cut-pro-x-is-here/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939575"
   },
   {
-    "guid": "https://motionographer.com/?post_type=quickie&p=89613",
-    "title": "ADO | Anna Chocholi",
-    "link": "https://motionographer.com/quickie/ado-anna-chocholi/",
-    "category": "graphics",
-    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/Ado_11-700x392.jpg",
-    "source": "Motionographer",
-    "timestamp": "2026-02-08T09:01:52.938450"
+    "guid": "https://blog.frame.io/?p=179",
+    "title": "50,000 users and 100 new features and improvements",
+    "link": "https://blog.frame.io/2015/08/19/50000-users-and-100-new-features-and-improvements/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939571"
   },
   {
-    "guid": "https://motionographer.com/?p=89552",
-    "title": "The Sticky Quarter and the Ghost of the Future: George R.R. Martin on the World of Howard Waldrop",
-    "link": "https://motionographer.com/2026/01/30/the-sticky-quarter-and-the-ghost-of-the-future-george-r-r-martin-on-the-world-of-howard-waldrop/",
-    "category": "graphics",
-    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/01/ezgif.com-optimize-700x298.gif",
-    "source": "Motionographer",
-    "timestamp": "2026-02-08T09:01:52.938496"
+    "guid": "https://blog.frame.io/?p=590",
+    "title": "Frame.io raises $2.2M from Accel Partners, Jared Leto & more",
+    "link": "https://blog.frame.io/2015/10/07/frame-io-raises-2-2m-from-accel-partners-jared-leto-more/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939566"
   },
   {
-    "guid": "https://motionographer.com/?post_type=quickie&p=89502",
-    "title": "F451 | WA Visual Company / Seiji Anderson + David Weinstock",
-    "link": "https://motionographer.com/quickie/f451-wa-visual-company-seiji-anderson-david-weinstock/",
-    "category": "graphics",
-    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/01/Screenshot-2026-01-25-at-7.45.17-PM-700x292.png",
-    "source": "Motionographer",
-    "timestamp": "2026-02-08T09:01:52.938527"
+    "guid": "https://blog.frame.io/?p=635",
+    "title": "New player, faster playback",
+    "link": "https://blog.frame.io/2015/11/17/new-player-faster-playback/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939561"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=646",
+    "title": "Firefox, welcome to the family.",
+    "link": "https://blog.frame.io/2015/11/23/firefox-welcome-to-the-family/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939556"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=603",
+    "title": "7 amazing books you’ll never read in film school",
+    "link": "https://blog.frame.io/2015/12/21/7-amazing-books-youll-never-read-film-school/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939551"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=614",
+    "title": "5 compelling ways color can impact your story",
+    "link": "https://blog.frame.io/2015/12/24/5-steps-tell-story-color/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939547"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=683",
+    "title": "How to launch your career with a jaw dropping spec piece",
+    "link": "https://blog.frame.io/2015/12/28/how-to-launch-your-career-with-a-jaw-dropping-spec-piece/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939542"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=697",
+    "title": "Say yes to vertical video",
+    "link": "https://blog.frame.io/2015/12/31/say-yes-to-vertical-video/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939537"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=703",
+    "title": "4 essential principles you can use to become a better filmmaker in 2016",
+    "link": "https://blog.frame.io/2016/01/04/set-goals-become-better-filmmaker-2016/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939532"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=653",
+    "title": "All new ways to express yourself in Frame.io ???",
+    "link": "https://blog.frame.io/2016/01/06/all-new-ways-to-express-yourself-in-frame-io/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939525"
   },
   {
     "guid": "https://motionographer.com/?post_type=quickie&p=89495",
@@ -1023,600 +411,1932 @@
     "category": "graphics",
     "image": "https://s35726.pcdn.co/wp-content/uploads/2026/01/Extraviado-Screenshots1-700x394.png",
     "source": "Motionographer",
-    "timestamp": "2026-02-08T09:01:52.938555"
+    "timestamp": "2026-02-08T09:47:52.506481"
   },
   {
-    "guid": "91f700dff792b13b2173f27ccc76c9268ad907c7",
-    "title": "How DoveRunner Multi-DRM Cloud integrates with AWS media services",
-    "link": "https://aws.amazon.com/blogs/media/how-doverunner-multi-drm-cloud-integrates-with-aws-media-services/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/16/DR-Image-1.png",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.358943"
+    "guid": "https://motionographer.com/?post_type=quickie&p=89502",
+    "title": "F451 | WA Visual Company / Seiji Anderson + David Weinstock",
+    "link": "https://motionographer.com/quickie/f451-wa-visual-company-seiji-anderson-david-weinstock/",
+    "category": "graphics",
+    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/01/Screenshot-2026-01-25-at-7.45.17-PM-700x292.png",
+    "source": "Motionographer",
+    "timestamp": "2026-02-08T09:47:52.506476"
   },
   {
-    "guid": "58d7c6174eedd08208e441a0b21dda5f20e0ccde",
-    "title": "Cosm scales high-resolution Shared Reality experiences with AWS",
-    "link": "https://aws.amazon.com/blogs/media/cosm-scales-high-resolution-shared-reality-experiences-with-aws/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/22/1762310948716.jpeg",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.359677"
+    "guid": "https://motionographer.com/?p=89552",
+    "title": "The Sticky Quarter and the Ghost of the Future: George R.R. Martin on the World of Howard Waldrop",
+    "link": "https://motionographer.com/2026/01/30/the-sticky-quarter-and-the-ghost-of-the-future-george-r-r-martin-on-the-world-of-howard-waldrop/",
+    "category": "graphics",
+    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/01/ezgif.com-optimize-700x298.gif",
+    "source": "Motionographer",
+    "timestamp": "2026-02-08T09:47:52.506470"
   },
   {
-    "guid": "34e3b4a810d43809c528652337d845a65fa43079",
-    "title": "How the NBA and AWS built an AI system to measure what actually wins basketball games",
-    "link": "https://aws.amazon.com/blogs/media/how-the-nba-and-aws-built-an-ai-system-to-measure-what-actually-wins-basketball-games/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/21/Group-1739331902.png",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.360978"
+    "guid": "https://motionographer.com/?post_type=quickie&p=89613",
+    "title": "ADO | Anna Chocholi",
+    "link": "https://motionographer.com/quickie/ado-anna-chocholi/",
+    "category": "graphics",
+    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/Ado_11-700x392.jpg",
+    "source": "Motionographer",
+    "timestamp": "2026-02-08T09:47:52.506460"
   },
   {
-    "guid": "9ab6a7e5daf8a8d0fbffaca6b3ee38cc9586ecdb",
-    "title": "Schedule AWS Elemental MediaLive channel operations with AWS EventBridge",
-    "link": "https://aws.amazon.com/blogs/media/schedule-aws-elemental-medialive-channel-operations-with-aws-eventbridge/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/14/MLEB-Image-1.png",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.363233"
+    "guid": "https://motionographer.com/?post_type=news&p=89304",
+    "title": "A Tiny Stop-Motion World with a Big New Year’s Heart for the Dutch State Lottery",
+    "link": "https://motionographer.com/news/a-tiny-stop-motion-world-with-a-big-new-years-heart-for-the-dutch-state-lottery/",
+    "category": "graphics",
+    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/01/luckfeatureimage-700x467.png",
+    "source": "Motionographer",
+    "timestamp": "2026-02-08T09:47:52.506455"
+  },
+  {
+    "guid": "https://motionographer.com/?post_type=quickie&p=89620",
+    "title": "A Director’s Study in AI Cinematic Design | 1984 London / Chris Jarrett",
+    "link": "https://motionographer.com/quickie/a-directors-study-in-ai-cinematic-design-1984-london-chris-jarrett/",
+    "category": "graphics",
+    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/ezgif-3149486e46d1762b-700x394.png",
+    "source": "Motionographer",
+    "timestamp": "2026-02-08T09:47:52.506446"
+  },
+  {
+    "guid": "https://motionographer.com/?post_type=quickie&p=89628",
+    "title": "Plastic Horse Showreel | Plastic Horse",
+    "link": "https://motionographer.com/quickie/plastic-horse-showreel-plastic-horse/",
+    "category": "graphics",
+    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/PH-REEL-2025-0-00-07-02-700x394.jpg",
+    "source": "Motionographer",
+    "timestamp": "2026-02-08T09:47:52.506441"
+  },
+  {
+    "guid": "https://motionographer.com/?post_type=quickie&p=89633",
+    "title": "Sakura Gansha | Sijin Liu",
+    "link": "https://motionographer.com/quickie/sakura-gansha-sijin-liu/",
+    "category": "graphics",
+    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/ezgif-39b7a64b96b05ef0-700x394.jpg",
+    "source": "Motionographer",
+    "timestamp": "2026-02-08T09:47:52.506436"
+  },
+  {
+    "guid": "https://motionographer.com/?post_type=quickie&p=89681",
+    "title": "Happy Holidays 2025 | Ambient Press",
+    "link": "https://motionographer.com/quickie/happy-holidays-2025-ambient-press/",
+    "category": "graphics",
+    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/5AP2504_Still_4-700x394.png",
+    "source": "Motionographer",
+    "timestamp": "2026-02-08T09:47:52.506430"
+  },
+  {
+    "guid": "https://motionographer.com/?post_type=news&p=89671",
+    "title": "Experimental MV: Pixel Art ‘Fake Gameplay’ Traverses Eerie Liminal Spaces in Song Yeongnam’s [PO WAH BUILDING]",
+    "link": "https://motionographer.com/news/experimental-mv-pixel-art-fake-gameplay-traverses-eerie-liminal-spaces-in-song-yeongnams-po-wah-building/",
+    "category": "graphics",
+    "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/powahbuilding-700x467.jpg",
+    "source": "Motionographer",
+    "timestamp": "2026-02-08T09:47:52.506414"
+  },
+  {
+    "guid": "https://routing.vizrt.com/?p=72153",
+    "title": "Vizrt at World Skills Café: Investing in Media’s Next Generation",
+    "link": "https://routing.vizrt.com/community/blog/vizrt-at-world-skills-cafe-investing-in-medias-next-generation/",
+    "category": "graphics",
+    "image": "https://routing.vizrt.com/wp-content/uploads/2025/09/Screenshot-2025-09-30-at-10.53.38.png",
+    "source": "Vizrt News",
+    "timestamp": "2026-02-08T09:47:52.067776"
+  },
+  {
+    "guid": "https://routing.vizrt.com/?p=71401",
+    "title": "Ask the Experts: Building Your Own Professional Studio on a Budget",
+    "link": "https://routing.vizrt.com/community/blog/ask-the-experts-building-your-own-professional-studio-on-a-budget/",
+    "category": "graphics",
+    "image": "",
+    "source": "Vizrt News",
+    "timestamp": "2026-02-08T09:47:52.064996"
+  },
+  {
+    "guid": "https://routing.vizrt.com/?p=72543",
+    "title": "How Vizrt Education Solutions Prepare Students for Real-World Media Careers",
+    "link": "https://routing.vizrt.com/community/blog/how-vizrt-education-solutions-prepare-students-for-real-world-media-careers/",
+    "category": "graphics",
+    "image": "",
+    "source": "Vizrt News",
+    "timestamp": "2026-02-08T09:47:52.059237"
+  },
+  {
+    "guid": "https://routing.vizrt.com/?p=73296",
+    "title": "On Air 2025: A Global Broadcast Powered by Students and Vizrt",
+    "link": "https://routing.vizrt.com/community/blog/on-air-2025-a-global-broadcast-powered-by-students-and-vizrt/",
+    "category": "graphics",
+    "image": "https://routing.vizrt.com/wp-content/uploads/Viz-Engine-centered-transparent-logo.png",
+    "source": "Vizrt News",
+    "timestamp": "2026-02-08T09:47:52.055201"
+  },
+  {
+    "guid": "https://routing.vizrt.com/?p=68366",
+    "title": "Why now is the time to migrate from Viz Pilot News to Viz Pilot Edge",
+    "link": "https://routing.vizrt.com/community/blog/why-migrate-to-viz-pilot-edge/",
+    "category": "graphics",
+    "image": "https://routing.vizrt.com/wp-content/uploads/2024/12/Viz-Pilot-Edge-Icon-L.png?resize=1024,867",
+    "source": "Vizrt News",
+    "timestamp": "2026-02-08T09:47:52.051136"
+  },
+  {
+    "guid": "https://www.newscaststudio.com/?p=148862",
+    "title": "Industry Insights: Where power is shifting in the new media economy",
+    "link": "https://www.newscaststudio.com/2026/01/20/industry-insights-where-power-is-shifting-in-the-new-media-economy/",
+    "category": "infrastructure",
+    "image": "",
+    "source": "NewscastStudio Engineering",
+    "timestamp": "2026-02-08T09:47:49.377558"
+  },
+  {
+    "guid": "https://www.newscaststudio.com/?p=149363",
+    "title": "NAB pushes FCC for date-certain end to ATSC 1.0 in latest regulatory filing",
+    "link": "https://www.newscaststudio.com/2026/01/20/nab-pushes-fcc-for-date-certain-end-to-atsc-1-0-in-latest-regulatory-filing/",
+    "category": "infrastructure",
+    "image": "https://www.newscaststudio.com/wp-content/uploads/2025/10/television-abstract-262x140.jpg",
+    "source": "NewscastStudio Engineering",
+    "timestamp": "2026-02-08T09:47:49.376669"
+  },
+  {
+    "guid": "https://www.newscaststudio.com/?p=149383",
+    "title": "NBC 5, Telemundo Chicago move into unified newsroom following four-year, $70M project",
+    "link": "https://www.newscaststudio.com/2026/01/21/nbc-5-chicago-telemundo-chicago-broadcast-facility-newsroom/",
+    "category": "infrastructure",
+    "image": "https://www.newscaststudio.com/wp-content/uploads/2026/01/nbc-chicago-facility_050.jpg",
+    "source": "NewscastStudio Engineering",
+    "timestamp": "2026-02-08T09:47:49.376207"
+  },
+  {
+    "guid": "https://www.newscaststudio.com/?p=149408",
+    "title": "CTA urges FCC to reject ATSC 3.0 tuner mandate in new filing",
+    "link": "https://www.newscaststudio.com/2026/01/21/cta-urges-fcc-to-reject-atsc-3-0-tuner-mandate-in-new-filing/",
+    "category": "infrastructure",
+    "image": "https://www.newscaststudio.com/wp-content/uploads/2026/01/nextgen-tv-black-262x140.png",
+    "source": "NewscastStudio Engineering",
+    "timestamp": "2026-02-08T09:47:49.375694"
+  },
+  {
+    "guid": "https://www.newscaststudio.com/?p=149414",
+    "title": "Major station groups push for mandatory ATSC 3.0 transition date in new FCC filings",
+    "link": "https://www.newscaststudio.com/2026/01/21/major-station-groups-push-for-mandatory-atsc-3-0-transition-date-in-new-filings/",
+    "category": "infrastructure",
+    "image": "https://www.newscaststudio.com/wp-content/uploads/2025/10/atsc-nextgen-tv-television-abstract-262x140.jpg",
+    "source": "NewscastStudio Engineering",
+    "timestamp": "2026-02-08T09:47:49.375206"
+  },
+  {
+    "guid": "https://www.newscaststudio.com/?p=149177",
+    "title": "Industry Insights: How infrastructure choices shape media economics",
+    "link": "https://www.newscaststudio.com/2026/01/22/industry-insights-how-infrastructure-choices-shape-media-economics/",
+    "category": "infrastructure",
+    "image": "",
+    "source": "NewscastStudio Engineering",
+    "timestamp": "2026-02-08T09:47:49.374605"
+  },
+  {
+    "guid": "https://www.newscaststudio.com/?p=149447",
+    "title": "Public Media Management introduces cloud-based master control for public television",
+    "link": "https://www.newscaststudio.com/2026/01/22/public-media-management-introduces-cloud-based-master-control-for-public-television/",
+    "category": "infrastructure",
+    "image": "",
+    "source": "NewscastStudio Engineering",
+    "timestamp": "2026-02-08T09:47:49.373364"
+  },
+  {
+    "guid": "https://www.newscaststudio.com/?p=149450",
+    "title": "AIMS to launch fully certified IPMX standard at ISE 2026",
+    "link": "https://www.newscaststudio.com/2026/01/22/aims-to-launch-fully-certified-ipmx-standard-at-ise-2026/",
+    "category": "infrastructure",
+    "image": "",
+    "source": "NewscastStudio Engineering",
+    "timestamp": "2026-02-08T09:47:49.373177"
+  },
+  {
+    "guid": "https://www.newscaststudio.com/?p=148489",
+    "title": "Modernizing video workflows with end-to-end IP solutions",
+    "link": "https://www.newscaststudio.com/2026/01/23/modernizing-video-workflows-with-end-to-end-ip-solutions/",
+    "category": "infrastructure",
+    "image": "",
+    "source": "NewscastStudio Engineering",
+    "timestamp": "2026-02-08T09:47:49.373006"
+  },
+  {
+    "guid": "https://www.newscaststudio.com/?p=149429",
+    "title": "5G broadcast proof of concept demonstrated in São Paulo",
+    "link": "https://www.newscaststudio.com/2026/01/26/5g-broadcast-proof-of-concept-demonstrated-in-sao-paulo/",
+    "category": "infrastructure",
+    "image": "",
+    "source": "NewscastStudio Engineering",
+    "timestamp": "2026-02-08T09:47:49.372686"
+  },
+  {
+    "guid": "https://www.harmonicinc.com/insights/blog/srt-primary-distribution/",
+    "title": "How Harmonic's Customer Migrated Seamlessly from Satellite to SRT Distribution",
+    "link": "https://www.harmonicinc.com/insights/blog/srt-primary-distribution/",
+    "category": "playout",
+    "image": "https://www.harmonicinc.com/hubfs/Blog_Main_Image_SRT_Distribution.png",
+    "source": "Harmonic",
+    "timestamp": "2026-02-08T09:47:47.766492"
+  },
+  {
+    "guid": "https://www.harmonicinc.com/insights/blog/broadband-operators-vcmts-daa-adoption",
+    "title": "Broadband Operators Pick up the Pace with vCMTS and DAA Adoption",
+    "link": "https://www.harmonicinc.com/insights/blog/broadband-operators-vcmts-daa-adoption",
+    "category": "playout",
+    "image": "https://www.harmonicinc.com/hubfs/broadband%20operators%20vcmts%20daa.jpg",
+    "source": "Harmonic",
+    "timestamp": "2026-02-08T09:47:47.766370"
+  },
+  {
+    "guid": "https://www.harmonicinc.com/insights/blog/cloud-based-playout-delivery-cost-efficiency/",
+    "title": "How Cloud-Based Playout-to-Delivery Drives Cost Efficiency",
+    "link": "https://www.harmonicinc.com/insights/blog/cloud-based-playout-delivery-cost-efficiency/",
+    "category": "playout",
+    "image": "https://www.harmonicinc.com/hubfs/blog-how-cloud-based-playout-to-delivery-drives-cost-efficiency.png",
+    "source": "Harmonic",
+    "timestamp": "2026-02-08T09:47:47.766244"
+  },
+  {
+    "guid": "https://www.harmonicinc.com/insights/blog/harmonic-leads-broadband-industry-transformation",
+    "title": "Harmonic Leads Broadband Industry Transformation",
+    "link": "https://www.harmonicinc.com/insights/blog/harmonic-leads-broadband-industry-transformation",
+    "category": "playout",
+    "image": "https://www.harmonicinc.com/hubfs/harmonic-leader-cos-image-blog-article.jpg",
+    "source": "Harmonic",
+    "timestamp": "2026-02-08T09:47:47.766115"
+  },
+  {
+    "guid": "https://www.harmonicinc.com/insights/blog/ont-interoperability-open-ont-onu",
+    "title": "OLT and ONT Interoperability: A New Path Forward",
+    "link": "https://www.harmonicinc.com/insights/blog/ont-interoperability-open-ont-onu",
+    "category": "playout",
+    "image": "https://www.harmonicinc.com/hubfs/Blog_Open_ONU_Harmonic_2025_Linkedin_Article.png",
+    "source": "Harmonic",
+    "timestamp": "2026-02-08T09:47:47.765985"
+  },
+  {
+    "guid": "https://www.harmonicinc.com/insights/blog/unified-docsis-4-0-simplifying-broadband-network-evolution/",
+    "title": "Unified DOCSIS 4.0",
+    "link": "https://www.harmonicinc.com/insights/blog/unified-docsis-4-0-simplifying-broadband-network-evolution/",
+    "category": "playout",
+    "image": "https://www.harmonicinc.com/hubfs/DOCSIS_40_Blog_Image.png",
+    "source": "Harmonic",
+    "timestamp": "2026-02-08T09:47:47.765785"
+  },
+  {
+    "guid": "https://www.harmonicinc.com/insights/blog/the-everything-era-what-nab-2025-really-told-us-about-streamings-future",
+    "title": "The Everything Era: What NAB 2025 Really Told Us About Streaming’s Future",
+    "link": "https://www.harmonicinc.com/insights/blog/the-everything-era-what-nab-2025-really-told-us-about-streamings-future",
+    "category": "playout",
+    "image": "https://www.harmonicinc.com/hubfs/video-streaming/services/Harmonic-video-service-tools.webp",
+    "source": "Harmonic",
+    "timestamp": "2026-02-08T09:47:47.765575"
+  },
+  {
+    "guid": "https://www.harmonicinc.com/insights/blog/the-economics-of-hybrid-streaming-architectures",
+    "title": "The Economics of Hybrid Streaming Architectures",
+    "link": "https://www.harmonicinc.com/insights/blog/the-economics-of-hybrid-streaming-architectures",
+    "category": "playout",
+    "image": "https://www.harmonicinc.com/hubfs/video-streaming/vos-media-software-image.jpg",
+    "source": "Harmonic",
+    "timestamp": "2026-02-08T09:47:47.764685"
+  },
+  {
+    "guid": "https://www.harmonicinc.com/insights/blog/brownfield-mdu-broadband-unlocking-revenue-with-existing-infrastructure",
+    "title": "Brownfield MDU Broadband: Unlocking Revenue with Existing Infrastructure",
+    "link": "https://www.harmonicinc.com/insights/blog/brownfield-mdu-broadband-unlocking-revenue-with-existing-infrastructure",
+    "category": "playout",
+    "image": "https://www.harmonicinc.com/hubfs/2025_Blog_Main_Image_MDU_Unlock_Harmonic_BB_vf-2.png",
+    "source": "Harmonic",
+    "timestamp": "2026-02-08T09:47:47.764523"
+  },
+  {
+    "guid": "https://www.harmonicinc.com/insights/blog/pushing-the-boundaries-of-video-innovation-through-the-power-of-collaboration",
+    "title": "Pushing the Boundaries of Video Innovation Through the Power of Collaboration",
+    "link": "https://www.harmonicinc.com/insights/blog/pushing-the-boundaries-of-video-innovation-through-the-power-of-collaboration",
+    "category": "playout",
+    "image": "https://www.harmonicinc.com/hubfs/2025_Blog_Main_Image_Video_Innovation_Harmonic_Akamai_NVIDIA_VB_V1.png",
+    "source": "Harmonic",
+    "timestamp": "2026-02-08T09:47:47.764342"
   },
   {
     "guid": "dd8840a526712735920e2a5f5f04aa0b3e539801",
     "title": "From flat to full immersion: The AWS path to Dolby Vision and Dolby Atmos",
     "link": "https://aws.amazon.com/blogs/media/from-flat-to-full-immersion-the-aws-path-to-dolby-vision-and-dolby-atmos/",
-    "category": "cloud",
+    "category": "audio-ai",
     "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/06/Dolby-Image-1.jpg",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.366819"
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.492134"
   },
   {
-    "guid": "c1d8e3a4ecceaba6166acfaff17f552772c9ab58",
-    "title": "Accelerating creative workflows with the AWS Creative Innovation Hub in London",
-    "link": "https://aws.amazon.com/blogs/media/accelerating-creative-workflows-with-the-aws-creative-innovation-hub-in-london/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/12/02/London-Hub-Image-1.png",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.367855"
+    "guid": "9ab6a7e5daf8a8d0fbffaca6b3ee38cc9586ecdb",
+    "title": "Schedule AWS Elemental MediaLive channel operations with AWS EventBridge",
+    "link": "https://aws.amazon.com/blogs/media/schedule-aws-elemental-medialive-channel-operations-with-aws-eventbridge/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/14/MLEB-Image-1.png",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.489513"
   },
   {
-    "guid": "c9f4d5b6fca3e4e1ece7ae63b0835a1611f1024b",
-    "title": "Introducing the expanded AWS Well-Architected Video Streaming Advertising Lens",
-    "link": "https://aws.amazon.com/blogs/media/introducing-the-expanded-aws-well-architected-video-streaming-advertising-lens/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/12/03/Introducing-the-expanded-AWS-Well-Architected-Video-Streaming-Advertising-Lens-Featured-Image-1120x630.png",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.463916"
+    "guid": "34e3b4a810d43809c528652337d845a65fa43079",
+    "title": "How the NBA and AWS built an AI system to measure what actually wins basketball games",
+    "link": "https://aws.amazon.com/blogs/media/how-the-nba-and-aws-built-an-ai-system-to-measure-what-actually-wins-basketball-games/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/21/Group-1739331902.png",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.487889"
   },
   {
-    "guid": "c735fc2475ad5a1bcb6ae3e2095780598c00c85c",
-    "title": "Warner Bros. Discovery reinvents linear television advertising with AWS",
-    "link": "https://aws.amazon.com/blogs/media/warner-bros-discovery-reinvents-linear-television-advertising-with-aws/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/12/08/MediaTailor-SSAI-WBD-EMEA.png",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.464767"
+    "guid": "58d7c6174eedd08208e441a0b21dda5f20e0ccde",
+    "title": "Cosm scales high-resolution Shared Reality experiences with AWS",
+    "link": "https://aws.amazon.com/blogs/media/cosm-scales-high-resolution-shared-reality-experiences-with-aws/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/22/1762310948716.jpeg",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.486990"
   },
   {
-    "guid": "2df94f0a889f7e24f8f9f15b926ccab6807f37ec",
-    "title": "Holstein Kiel transforms scouting with OpenAI models on Amazon Bedrock",
-    "link": "https://aws.amazon.com/blogs/media/holstein-kiel-transforms-scouting-with-openai-models-on-amazon-bedrock/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/11/18/HK-Image-1.png",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.466025"
+    "guid": "91f700dff792b13b2173f27ccc76c9268ad907c7",
+    "title": "How DoveRunner Multi-DRM Cloud integrates with AWS media services",
+    "link": "https://aws.amazon.com/blogs/media/how-doverunner-multi-drm-cloud-integrates-with-aws-media-services/",
+    "category": "audio-ai",
+    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/16/DR-Image-1.png",
+    "source": "AWS Media",
+    "timestamp": "2026-02-08T09:48:35.486558"
   },
   {
-    "guid": "8203c0c1c4992a2e630a953fcd34e0d0e2295326",
-    "title": "Agentic AI headlines AWS re:Invent 2025 across Media and Entertainment",
-    "link": "https://aws.amazon.com/blogs/media/agentic-ai-headlines-aws-reinvent-2025-across-media-and-entertainment/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/11/18/reInvent_Banner_2000x246_no-date.png",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.467458"
+    "guid": "https://www.newscaststudio.com/?p=99960",
+    "title": "Industry Insights: The future of audio mixing in broadcasting",
+    "link": "https://www.newscaststudio.com/2021/05/10/future-audio-mixing-broadcasting/",
+    "category": "audio-ai",
+    "image": "https://www.newscaststudio.com/wp-content/uploads/2021/04/NCS_industry-insights_broadcast-intercom-262x140.jpg",
+    "source": "NewscastStudio Audio",
+    "timestamp": "2026-02-08T09:48:34.912333"
   },
   {
-    "guid": "016bd623a7315b0f540c361748b60bbf07136c9e",
-    "title": "ARD ensures content provenance with C2PA and AWS",
-    "link": "https://aws.amazon.com/blogs/media/ard-ensures-content-provenance-with-c2pa-and-aws/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/11/04/ARD-Image-1.png",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.468482"
+    "guid": "https://www.newscaststudio.com/?p=100386",
+    "title": "Telestream updates Prism monitoring tool with new audio options",
+    "link": "https://www.newscaststudio.com/2021/05/10/telestream-updates-prism-monitoring-tool-with-new-audio-options/",
+    "category": "audio-ai",
+    "image": "",
+    "source": "NewscastStudio Audio",
+    "timestamp": "2026-02-08T09:48:34.911888"
   },
   {
-    "guid": "4be6b14840f1c0e86171d5f83e03c4e6fa1b16d6",
-    "title": "Optimizing TV and radio media buying using SmartSpot360 on AWS",
-    "link": "https://aws.amazon.com/blogs/media/optimizing-tv-and-radio-media-buying-using-smartspot360-on-aws/",
-    "category": "cloud",
-    "image": "https://s.w.org/images/core/emoji/14.0.0/72x72/2122.png",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.469821"
+    "guid": "https://www.newscaststudio.com/?p=107054",
+    "title": "Sportsnet facility equipped with Calrec IP audio solutions",
+    "link": "https://www.newscaststudio.com/2022/01/10/sportsnet-facility-equipped-with-calrec-ip-audio-solutions/",
+    "category": "audio-ai",
+    "image": "https://www.newscaststudio.com/wp-content/uploads/2021/10/sportsnet-studios_004-262x140.jpg",
+    "source": "NewscastStudio Audio",
+    "timestamp": "2026-02-08T09:48:34.911707"
   },
   {
-    "guid": "389627025b90b2e73a319d55b55ce68f30b0410d",
-    "title": "France Télévisions transformed Paris 2024 Olympic Games advertising using AWS",
-    "link": "https://aws.amazon.com/blogs/media/france-televisions-transformed-paris-2024-olympic-games-advertising-using-aws/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/11/04/FTAD-Image-1-2.png",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.470773"
+    "guid": "https://www.newscaststudio.com/?p=109153",
+    "title": "NAB Show 2022: Nugen Audio showing lineup of audio plugins",
+    "link": "https://www.newscaststudio.com/2022/03/10/nab-show-2022-nugen-audio-showing-lineup-of-audio-plugins/",
+    "category": "audio-ai",
+    "image": "",
+    "source": "NewscastStudio Audio",
+    "timestamp": "2026-02-08T09:48:34.911434"
   },
   {
-    "guid": "031c6c725de8a1cc18024e988fd50df4f910c65a",
-    "title": "France Télévisions prepared for 2024 Olympic Games with AWS Countdown Premium",
-    "link": "https://aws.amazon.com/blogs/media/france-televisions-prepared-for-2024-olympic-games-with-aws-countdown-premium/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/10/27/AWS-countdown.png",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.471733"
+    "guid": "https://www.newscaststudio.com/?p=109159",
+    "title": "NAB Show 2022: Calrec focused on remote production, flexible workflows",
+    "link": "https://www.newscaststudio.com/2022/03/11/nab-show-2022-calrec-focused-on-remote-production-flexible-workflows/",
+    "category": "audio-ai",
+    "image": "",
+    "source": "NewscastStudio Audio",
+    "timestamp": "2026-02-08T09:48:34.911318"
   },
   {
-    "guid": "03bef85d5e23388a5c93a84e925ce8d14795cb0f",
-    "title": "Democratizing VFX bidding: Amazon Q Business transforms cost estimation",
-    "link": "https://aws.amazon.com/blogs/media/democratizing-vfx-bidding-amazon-q-business-transforms-cost-estimation/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/10/14/AQ-Image-1.png",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.475519"
+    "guid": "https://www.newscaststudio.com/?p=118177",
+    "title": "NUGEN Audio releases Jotter, audio mixing collaboration add-on",
+    "link": "https://www.newscaststudio.com/2023/04/05/nugen-audio-releases-jotter-plug-in/",
+    "category": "audio-ai",
+    "image": "",
+    "source": "NewscastStudio Audio",
+    "timestamp": "2026-02-08T09:48:34.911033"
   },
   {
-    "guid": "88bd0dbe99d9fe0537aeca87454405f3f2af2017",
-    "title": "PBS enhances search on digital platforms using Amazon Bedrock",
-    "link": "https://aws.amazon.com/blogs/media/pbs-enhances-search-on-digital-platforms-using-amazon-bedrock/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/10/20/PBS-Metadata-for-Search-Fire-TV-and-mobile.jpg",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.476154"
+    "guid": "https://www.newscaststudio.com/?p=127343",
+    "title": "Tascam to debut the IF-ST2110 Broadcast Expansion Card during NAB",
+    "link": "https://www.newscaststudio.com/2024/04/09/tascam-to-debut-the-if-st2110-broadcast-expansion-card-during-nab/",
+    "category": "audio-ai",
+    "image": "",
+    "source": "NewscastStudio Audio",
+    "timestamp": "2026-02-08T09:48:34.910893"
   },
   {
-    "guid": "6f77f45383978317bfbeb75a14dc07fabee75f60",
-    "title": "Warner Bros. Discovery Sports engages fans using scaled audio data analysis on AWS",
-    "link": "https://aws.amazon.com/blogs/media/warner-bros-discovery-sports-engages-fans-using-scaled-audio-data-analysis-on-aws/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/09/22/WBDDA-Image-1.png",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.477704"
+    "guid": "https://www.newscaststudio.com/?p=134091",
+    "title": "Audio over IP: New workflows gain traction in broadcast production",
+    "link": "https://www.newscaststudio.com/2024/09/13/broadcast-audio-over-ip-workflows/",
+    "category": "audio-ai",
+    "image": "https://www.newscaststudio.com/wp-content/uploads/2024/08/broadcast-audio-262x140.jpg",
+    "source": "NewscastStudio Audio",
+    "timestamp": "2026-02-08T09:48:34.910756"
   },
   {
-    "guid": "4f86a047d9536e98dcc688c5858949c2cef1d719",
-    "title": "Build an intelligent video streaming monitoring solution with CMCD and MCP",
-    "link": "https://aws.amazon.com/blogs/media/build-an-intelligent-video-streaming-monitoring-solution-with-cmcd-and-mcp/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/10/03/CMCD-Image-1.jpg",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.478488"
+    "guid": "https://www.newscaststudio.com/?p=134445",
+    "title": "Dante’s Will Waters on expanding ecosystem, embracing cloud and IP",
+    "link": "https://www.newscaststudio.com/2024/09/24/dante-will-waters-ecosystem-ip-production/",
+    "category": "audio-ai",
+    "image": "https://www.newscaststudio.com/wp-content/uploads/2024/09/audio-cables-abstract-262x140.jpg",
+    "source": "NewscastStudio Audio",
+    "timestamp": "2026-02-08T09:48:34.910218"
   },
   {
-    "guid": "b2c06a9b360f613f0fc5abde60d18aea64c6fd81",
-    "title": "Hawk-Eye Innovations Powers Real-Time Sports Data with Flink and Amazon MSK",
-    "link": "https://aws.amazon.com/blogs/media/hawk-eye-innovations-powers-real-time-sports-data-with-flink-and-amazon-msk/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/10/06/HE-Image-1-1.jpg",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.479758"
+    "guid": "https://www.newscaststudio.com/?p=147515",
+    "title": "How sound quality shapes authority in corporate communication",
+    "link": "https://www.newscaststudio.com/2025/11/26/how-sound-quality-shapes-authority-in-corporate-communication/",
+    "category": "audio-ai",
+    "image": "https://www.newscaststudio.com/wp-content/uploads/2025/11/NCS_professional-essentials_corproate_part-three_cover.png",
+    "source": "NewscastStudio Audio",
+    "timestamp": "2026-02-08T09:48:34.909767"
   },
   {
-    "guid": "0613b45847cde663a3852048114dd3300d72d19d",
-    "title": "Recording mobile video to Amazon S3 using Amazon Kinesis Video Streams",
-    "link": "https://aws.amazon.com/blogs/media/recording-mobile-video-to-amazon-s3-using-amazon-kinesis-video-streams/",
-    "category": "cloud",
-    "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2025/10/06/AKVS-Image-1-1.png",
-    "source": "AWS Media Blog",
-    "timestamp": "2026-02-08T09:01:53.483165"
-  },
-  {
-    "guid": "https://blog.frame.io/?p=38025",
-    "title": "Watermarking: You Don’t Think About It—Until You Need It",
-    "link": "https://blog.frame.io/2026/02/02/watermarking-you-dont-think-about-it-until-you-need-it/",
+    "guid": "https://blog.frame.io/?p=704",
+    "title": "How Three Directors Went From Short Film to Hollywood",
+    "link": "https://blog.frame.io/2016/01/07/how-these-three-directors-went-from-short-film-to-hollywood/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364100"
+    "timestamp": "2026-02-08T09:48:03.939518"
   },
   {
-    "guid": "https://blog.frame.io/?p=37968",
-    "title": "New in Frame.io: Interactive ZIPs, Access Requests, and a Faster Way to Get Around",
-    "link": "https://blog.frame.io/2026/01/08/new-in-frame-io-interactive-zips-access-requests-and-a-faster-way-to-get-around/",
+    "guid": "https://blog.frame.io/?p=713",
+    "title": "8 viral ads that won 2015",
+    "link": "https://blog.frame.io/2016/01/11/8-viral-ads-that-won-2015/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364159"
+    "timestamp": "2026-02-08T09:48:03.939513"
   },
   {
-    "guid": "https://blog.frame.io/?p=37881",
-    "title": "October + November Product Releases: Closing Out the Fall of Features",
-    "link": "https://blog.frame.io/2025/12/09/october-november-2025-product-releases/",
+    "guid": "https://blog.frame.io/?p=719",
+    "title": "6 steps to writing powerful loglines",
+    "link": "https://blog.frame.io/2016/01/18/6-steps-to-writing-powerful-loglines/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364195"
+    "timestamp": "2026-02-08T09:48:03.939508"
   },
   {
-    "guid": "https://blog.frame.io/?p=37809",
-    "title": "The Ultimate Guide to the New Frame.io Search Experience",
-    "link": "https://blog.frame.io/2025/12/01/the-ultimate-guide-to-the-new-frame-io-search-experience/",
+    "guid": "https://blog.frame.io/?p=730",
+    "title": "6 Photographers Who Will Make You a Better Filmmaker",
+    "link": "https://blog.frame.io/2016/01/25/6-photographers-who-will-make-you-a-better-filmmaker/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364233"
+    "timestamp": "2026-02-08T09:48:03.939503"
   },
   {
-    "guid": "https://blog.frame.io/?p=37697",
-    "title": "Frame.io at Adobe MAX 2025: Connected Creativity for Modern Content Production",
-    "link": "https://blog.frame.io/2025/10/28/adobe-max-2025-connected-creativity-for-modern-content-production/",
+    "guid": "https://blog.frame.io/?p=739",
+    "title": "How to make great storyboards, even if you can’t draw",
+    "link": "https://blog.frame.io/2016/01/28/how-to-make-great-storyboards-even-if-you-cant-draw/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364279"
+    "timestamp": "2026-02-08T09:48:03.939498"
   },
   {
-    "guid": "https://blog.frame.io/?p=37638",
-    "title": "August + September Product Releases: Welcome to the Fall of Features",
-    "link": "https://blog.frame.io/2025/10/02/august-september-product-releases-welcome-to-the-fall-of-features/",
+    "guid": "https://blog.frame.io/?p=746",
+    "title": "Cast great actors by holding better auditions",
+    "link": "https://blog.frame.io/2016/02/04/cast-great-actors-by-holding-better-auditions/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364317"
+    "timestamp": "2026-02-08T09:48:03.939493"
   },
   {
-    "guid": "https://blog.frame.io/?p=37555",
-    "title": "Own Your Creative Workflow: See What’s New at IBC 2025",
-    "link": "https://blog.frame.io/2025/09/09/own-your-creative-workflow-see-whats-new-at-ibc-2025/",
+    "guid": "https://blog.frame.io/?p=760",
+    "title": "90,000 users and 75 new features and improvements",
+    "link": "https://blog.frame.io/2016/04/05/90000-users-75-new-features-improvements/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364378"
+    "timestamp": "2026-02-08T09:48:03.939488"
   },
   {
-    "guid": "https://blog.frame.io/?p=37499",
-    "title": "How The Editors Behind Emmy-Nominated Chimp Crazy Used Frame.io for HBO’s Wildest Doc",
-    "link": "https://blog.frame.io/2025/08/22/how-the-editors-behind-emmy-nominated-chimp-crazy-used-frame-io-for-hbos-wildest-doc/",
+    "guid": "https://blog.frame.io/?p=766",
+    "title": "Introducing Frame.io for Adobe Premiere Pro CC",
+    "link": "https://blog.frame.io/2016/04/11/frameio-for-premiere/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364422"
+    "timestamp": "2026-02-08T09:48:03.939483"
   },
   {
-    "guid": "https://blog.frame.io/?p=37446",
-    "title": "Fast, Fun, and Fully Connected: Supporting The Outbound Life with Camera to Cloud in Nashville",
-    "link": "https://blog.frame.io/2025/08/18/fast-fun-and-fully-connected-supporting-the-outbound-life-with-camera-to-cloud-in-nashville/",
+    "guid": "https://blog.frame.io/?p=775",
+    "title": "Introducing Frame.io for iOS",
+    "link": "https://blog.frame.io/2016/06/02/frameio-for-ios/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364468"
+    "timestamp": "2026-02-08T09:48:03.939479"
   },
   {
-    "guid": "https://blog.frame.io/?p=37357",
-    "title": "July Product Releases Recap: The Summer of Shipping Continues",
-    "link": "https://blog.frame.io/2025/08/07/july-product-releases-recap-the-summer-of-shipping-continues/",
+    "guid": "https://blog.frame.io/?p=788",
+    "title": "Frame.io for iPhone is a 2016 Apple Design Award winner",
+    "link": "https://blog.frame.io/2016/06/14/frame-io-iphone-2016-apple-design-award-winner/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364505"
+    "timestamp": "2026-02-08T09:48:03.939474"
   },
   {
-    "guid": "https://blog.frame.io/?p=37285",
-    "title": "June Updates: Share Activity, Transcription Speaker ID, and More",
-    "link": "https://blog.frame.io/2025/07/10/june-updates-share-activity-transcription-speaker-id-and-more/",
+    "guid": "https://blog.frame.io/?p=787",
+    "title": "Master Frame.io in under 2 hours with Lynda.com",
+    "link": "https://blog.frame.io/2016/07/07/frame-io-on-lynda-com/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364547"
+    "timestamp": "2026-02-08T09:48:03.939470"
   },
   {
-    "guid": "https://blog.frame.io/?p=37264",
-    "title": "What’s New in May: API Early Access, Editable Transcripts, and Quality of Life Improvements",
-    "link": "https://blog.frame.io/2025/06/05/whats-new-in-may-api-early-access-editable-transcripts-and-quality-of-life-improvements/",
+    "guid": "https://blog.frame.io/?p=848",
+    "title": "Behind the scenes: 6 Below",
+    "link": "https://blog.frame.io/2016/07/22/inside-filmmaking-6below/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364594"
+    "timestamp": "2026-02-08T09:48:03.939465"
   },
   {
-    "guid": "https://blog.frame.io/?p=37252",
-    "title": "Frame.io Ecosystem and Integrations: Powering Creative Workflows Across APIs",
-    "link": "https://blog.frame.io/2025/06/03/frame-io-ecosystem-and-integrations-powering-creative-workflows-across-apis/",
+    "guid": "https://blog.frame.io/?p=889",
+    "title": "How to use slow motion for maximum impact",
+    "link": "https://blog.frame.io/2016/07/26/one-essential-principle-create-indelible-slow-motion/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364633"
+    "timestamp": "2026-02-08T09:48:03.939460"
   },
   {
-    "guid": "https://blog.frame.io/?p=37229",
-    "title": "What’s New in Frame.io: April 2025 Releases",
-    "link": "https://blog.frame.io/2025/05/12/whats-new-in-frame-io-april-2025-releases/",
+    "guid": "https://blog.frame.io/?p=917",
+    "title": "When to break the 180-degree rule",
+    "link": "https://blog.frame.io/2016/08/01/180-degree-rule-and-when-to-break-it/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364670"
+    "timestamp": "2026-02-08T09:48:03.939454"
   },
   {
-    "guid": "https://blog.frame.io/?p=37195",
-    "title": "Enhanced Storage, Transcription, Text Markup Tools and More Available Now in Frame.io Version 4",
-    "link": "https://blog.frame.io/2025/04/02/frame-io-version-4-nab-2025-releases/",
+    "guid": "https://blog.frame.io/?p=937",
+    "title": "12 steps to make After Effects faster",
+    "link": "https://blog.frame.io/2016/08/05/12-steps-to-make-after-effects-faster/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364709"
+    "timestamp": "2026-02-08T09:48:03.939449"
   },
   {
-    "guid": "https://blog.frame.io/?p=37131",
-    "title": "What’s New in Frame.io Version 4: February 2025 Releases",
-    "link": "https://blog.frame.io/2025/03/11/whats-new-in-frame-io-version-4-february-2025-releases/",
+    "guid": "https://blog.frame.io/?p=982",
+    "title": "How to Improve Visual Storytelling Daily",
+    "link": "https://blog.frame.io/2016/08/12/improve-visual-storytelling-daily/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364751"
+    "timestamp": "2026-02-08T09:48:03.939443"
   },
   {
-    "guid": "https://blog.frame.io/?p=35999",
-    "title": "Insider Tips: Resolve’s Active Playhead",
-    "link": "https://blog.frame.io/2024/10/23/insider-tips-resolve-active-playhead/",
+    "guid": "https://blog.frame.io/?p=984",
+    "title": "What was the last Best Picture not to use visual effects?",
+    "link": "https://blog.frame.io/2016/08/16/last-best-picture-without-visual-effects/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364787"
+    "timestamp": "2026-02-08T09:48:03.939438"
   },
   {
-    "guid": "https://blog.frame.io/?p=36924",
-    "title": "How a Pro Colorist Maximizes Color Separation",
-    "link": "https://blog.frame.io/2024/10/21/how-a-pro-colorist-maximizes-color-separation/",
+    "guid": "https://blog.frame.io/?p=1004",
+    "title": "Introducing Frame.io + Slack ❤️",
+    "link": "https://blog.frame.io/2016/08/17/introducing-frame-io-slack/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364827"
+    "timestamp": "2026-02-08T09:48:03.939433"
   },
   {
-    "guid": "https://blog.frame.io/?p=35818",
-    "title": "Insider Tips: Backtime a Three-Point Edit in Final Cut Pro",
-    "link": "https://blog.frame.io/2024/10/16/insider-tips-backtime-three-point-edit-final-cut-pro-fcpx/",
+    "guid": "https://blog.frame.io/?p=1012",
+    "title": "How to move everything but the camera",
+    "link": "https://blog.frame.io/2016/08/18/how-to-move-everything-but-the-camera/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364861"
+    "timestamp": "2026-02-08T09:48:03.939428"
   },
   {
-    "guid": "https://blog.frame.io/?p=36833",
-    "title": "Frame.io V4: The Fully Reimagined Platform is Now Available for All",
-    "link": "https://blog.frame.io/2024/10/14/frame-io-v4-the-fully-reimagined-platform-is-now-available-for-all/",
+    "guid": "https://blog.frame.io/?p=1027",
+    "title": "VR for the novice: what the storyteller needs to know",
+    "link": "https://blog.frame.io/2016/08/23/vr-novice-storyteller-needs-know/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364898"
+    "timestamp": "2026-02-08T09:48:03.939423"
   },
   {
-    "guid": "https://blog.frame.io/?p=36780",
-    "title": "Princess Cruise Lines’ Wildly Successful Remote Workflow",
-    "link": "https://blog.frame.io/2024/10/14/princess-cruise-lines-wildly-successful-remote-workflow/",
+    "guid": "https://blog.frame.io/?p=1037",
+    "title": "The number 1 skill you can learn to become a great compositor: color matching",
+    "link": "https://blog.frame.io/2016/08/25/first-essential-vfx-compositing-matching/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364929"
+    "timestamp": "2026-02-08T09:48:03.939416"
   },
   {
-    "guid": "https://blog.frame.io/?p=35978",
-    "title": "Insider Tips: Get Better Results from Premiere Pro Auto Reframe",
-    "link": "https://blog.frame.io/2024/10/09/insider-tips-better-results-premiere-pro-auto-reframe/",
+    "guid": "https://blog.frame.io/?p=1041",
+    "title": "Frame.io Cribs: Framestore, Los Angeles",
+    "link": "https://blog.frame.io/2016/08/30/crib-framestore-los-angeles/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364965"
+    "timestamp": "2026-02-08T09:48:03.939411"
   },
   {
-    "guid": "https://blog.frame.io/?p=36552",
-    "title": "Should You Use Resolve Color Management or CSTs?",
-    "link": "https://blog.frame.io/2024/10/07/should-you-use-resolve-color-management-or-color-space-transforms-csts/",
+    "guid": "https://blog.frame.io/?p=1062",
+    "title": "How to use a dolly shot to transform a simple scene",
+    "link": "https://blog.frame.io/2016/09/01/how-to-use-a-dolly-shot-to-transform-a-simple-scene/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.364996"
+    "timestamp": "2026-02-08T09:48:03.939406"
   },
   {
-    "guid": "https://blog.frame.io/?p=35827",
-    "title": "Insider Tips: Using Timeline Clip Notes for More Avid Efficiency",
-    "link": "https://blog.frame.io/2024/10/02/insider-tips-avid-timeline-clip-notes/",
+    "guid": "https://blog.frame.io/?p=1100",
+    "title": "How to Make a Bland Image Cinematic: Take Things Away",
+    "link": "https://blog.frame.io/2016/09/08/make-bland-image-cinematic-take-things-away/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365031"
+    "timestamp": "2026-02-08T09:48:03.939400"
   },
   {
-    "guid": "https://blog.frame.io/?p=36736",
-    "title": "The Ultimate Guide to Premiere Pro Productions",
-    "link": "https://blog.frame.io/2024/09/30/ultimate-guide-to-premiere-pro-productions/",
+    "guid": "https://blog.frame.io/?p=1184",
+    "title": "How to recognize and fix 11 common problems in Final Cut Pro X",
+    "link": "https://blog.frame.io/2016/09/13/recognize-fix-common-problems-fcpx/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365060"
+    "timestamp": "2026-02-08T09:48:03.939394"
   },
   {
-    "guid": "https://blog.frame.io/?p=36743",
-    "title": "“Greedy People.” Cutting a Million-Dollar Murder",
-    "link": "https://blog.frame.io/2024/09/26/greedy-people-cutting-million-dollar-murder/",
+    "guid": "https://blog.frame.io/?p=1212",
+    "title": "Our $10M Series A",
+    "link": "https://blog.frame.io/2016/09/14/series-a-announcement/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365090"
+    "timestamp": "2026-02-08T09:48:03.939389"
   },
   {
-    "guid": "https://blog.frame.io/?p=35822",
-    "title": "Insider Tips: Export with Alpha Transparency from Resolve",
-    "link": "https://blog.frame.io/2024/09/25/insider-tips-export-with-alpha-davinci-resolve/",
+    "guid": "https://blog.frame.io/?p=1117",
+    "title": "Frame.io Cribs: Picrow (Hollywood, California)",
+    "link": "https://blog.frame.io/2016/09/16/frame-io-cribs-picrow/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365127"
+    "timestamp": "2026-02-08T09:48:03.939384"
   },
   {
-    "guid": "https://blog.frame.io/?p=35279",
-    "title": "Editing a Quest for Justice and Healing in “Black Box Diaries”",
-    "link": "https://blog.frame.io/2024/09/23/black-box-diaries-editing-a-quest-for-justice-and-healing/",
+    "guid": "https://blog.frame.io/?p=1228",
+    "title": "5 ways to make Final Cut Pro X faster",
+    "link": "https://blog.frame.io/2016/09/21/5-ways-make-final-cut-pro-x-faster/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365159"
+    "timestamp": "2026-02-08T09:48:03.939379"
   },
   {
-    "guid": "https://blog.frame.io/?p=36524",
-    "title": "How Editor Kelly Lyon, ACE, Built Her Emmy-nominated Projects",
-    "link": "https://blog.frame.io/2024/09/19/how-editor-kelly-lyon-ace-built-her-emmy-nominated-projects/",
+    "guid": "https://blog.frame.io/?p=1278",
+    "title": "Winning at Independent Filmmaking",
+    "link": "https://blog.frame.io/2016/09/27/independent-filmmaking/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365195"
+    "timestamp": "2026-02-08T09:48:03.939374"
   },
   {
-    "guid": "https://blog.frame.io/?p=35812",
-    "title": "Insider Tips: Quickly Reframe Vertical Video in Final Cut",
-    "link": "https://blog.frame.io/2024/09/18/insidert-tips-reframe-vertical-video-in-final-cut-pro-fcpx/",
+    "guid": "https://blog.frame.io/?p=1293",
+    "title": "How to set your shot on fire without getting burned",
+    "link": "https://blog.frame.io/2016/09/29/composite-fire/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365229"
+    "timestamp": "2026-02-08T09:48:03.939369"
   },
   {
-    "guid": "https://blog.frame.io/?p=36442",
-    "title": "What is Rolloff? A Pro Colorist Explains",
-    "link": "https://blog.frame.io/2024/09/16/what-is-rolloff-a-pro-colorist-explains/",
+    "guid": "https://blog.frame.io/?p=1306",
+    "title": "Make the most of FCP X:  6 ways to maximize Multicam",
+    "link": "https://blog.frame.io/2016/10/06/6-ways-to-maximize-multicam-fcpx/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365263"
+    "timestamp": "2026-02-08T09:48:03.939364"
   },
   {
-    "guid": "https://blog.frame.io/?p=36730",
-    "title": "New at IBC 2024",
-    "link": "https://blog.frame.io/2024/09/13/new-at-ibc-2024/",
+    "guid": "https://blog.frame.io/?p=1406",
+    "title": "Make the most of FCP X: Log interviews better (part 1)",
+    "link": "https://blog.frame.io/2016/10/18/make-fcp-x-log-better-1/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365291"
+    "timestamp": "2026-02-08T09:48:03.939358"
   },
   {
-    "guid": "https://blog.frame.io/?p=36233",
-    "title": "How LCAD Uses Frame.io to Give Students Real-World Experience",
-    "link": "https://blog.frame.io/2024/09/12/how-lcad-uses-frame-io-to-give-students-real-world-experience/",
+    "guid": "https://blog.frame.io/?p=1438",
+    "title": "5 excellent reasons to choose silence over sound",
+    "link": "https://blog.frame.io/2016/10/21/silence-over-sound/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365323"
+    "timestamp": "2026-02-08T09:48:03.939351"
   },
   {
-    "guid": "https://blog.frame.io/?p=35690",
-    "title": "Insider Tips: Fix Premiere Pro MOGRT Rescaling Issues",
-    "link": "https://blog.frame.io/2024/09/11/insider-tips-fix-premiere-pro-mogrt-rescaling-issues/",
+    "guid": "https://blog.frame.io/?p=1465",
+    "title": "Make the most of FCP X: Log interviews better (part 2)",
+    "link": "https://blog.frame.io/2016/11/02/make-fcp-x-log-better-2/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365354"
+    "timestamp": "2026-02-08T09:48:03.939344"
   },
   {
-    "guid": "https://blog.frame.io/?p=36425",
-    "title": "The Cinematographer’s Guide to “Deadpool & Wolverine”",
-    "link": "https://blog.frame.io/2024/09/09/deadpool-and-wolverine-cinematography/",
+    "guid": "https://blog.frame.io/?p=1469",
+    "title": "Introducing Frame.io for Adobe After Effects CC",
+    "link": "https://blog.frame.io/2016/11/07/introducing-frame-io-for-adobe-after-effects-cc/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365389"
+    "timestamp": "2026-02-08T09:48:03.939334"
   },
   {
-    "guid": "https://blog.frame.io/?p=36588",
-    "title": "Dog Breath Photography on Their Greatest Adventure",
-    "link": "https://blog.frame.io/2024/09/05/dog-breath-photography-on-their-greatest-adventure/",
+    "guid": "https://blog.frame.io/?p=1485",
+    "title": "How Team Projects changes the way you work",
+    "link": "https://blog.frame.io/2016/11/11/team-project/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365419"
+    "timestamp": "2026-02-08T09:48:03.939324"
   },
   {
-    "guid": "https://blog.frame.io/?p=35687",
-    "title": "Insider Tips: Fix Problems By Rebuilding Your Avid User Profile",
-    "link": "https://blog.frame.io/2024/09/04/insider-tips-fix-avid-user-profile/",
+    "guid": "https://blog.frame.io/?p=1499",
+    "title": "How to fascinate an audience by playing with time",
+    "link": "https://blog.frame.io/2016/11/15/fascinate-audience-playing-time/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365454"
+    "timestamp": "2026-02-08T09:48:03.939313"
   },
   {
-    "guid": "https://blog.frame.io/?p=35947",
-    "title": "What is Gamma? And How Does a Pro Colorist Use It?",
-    "link": "https://blog.frame.io/2024/09/02/what-is-gamma-a-pro-colorist-explains/",
+    "guid": "https://blog.frame.io/?p=1494",
+    "title": "Plan ahead to easily sell a screen replacement shot",
+    "link": "https://blog.frame.io/2016/11/17/screen-replacement-after-effects/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365483"
+    "timestamp": "2026-02-08T09:48:03.939306"
   },
   {
-    "guid": "https://blog.frame.io/?p=35856",
-    "title": "How an Emmy-Winning Cinematographer Preps His Films",
-    "link": "https://blog.frame.io/2024/08/29/how-should-a-cinematographer-prepare-for-a-shoot/",
+    "guid": "https://blog.frame.io/?p=1405",
+    "title": "How IFC’s ‘Documentary Now’ Crushes Collaboration",
+    "link": "https://blog.frame.io/2016/12/01/documentary-now/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365520"
+    "timestamp": "2026-02-08T09:48:03.939299"
   },
   {
-    "guid": "https://blog.frame.io/?p=35673",
-    "title": "Insider Tips: How to Use Resolve’s Object Removal Tool",
-    "link": "https://blog.frame.io/2024/08/28/insider-tips-resolve-object-removal-tool/",
+    "guid": "https://blog.frame.io/?p=1562",
+    "title": "Five shooting situations that require a specific camera",
+    "link": "https://blog.frame.io/2016/12/06/shooting-situations/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365571"
+    "timestamp": "2026-02-08T09:48:03.939291"
   },
   {
-    "guid": "https://blog.frame.io/?p=36370",
-    "title": "The Frame.io Insider Recommends the Insider’s Guide to Marketing Videos",
-    "link": "https://blog.frame.io/2024/08/27/the-frame-io-insider-recommends-the-insiders-guide-to-marketing-videos/",
+    "guid": "https://blog.frame.io/?p=1576",
+    "title": "How Frame.io helped make Brown Nation a Netflix hit",
+    "link": "https://blog.frame.io/2016/12/08/brown-nation-netflix/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365606"
+    "timestamp": "2026-02-08T09:48:03.939282"
   },
   {
-    "guid": "https://blog.frame.io/?p=36003",
-    "title": "The Complete 2024 Premiere Pro Color Correction Guide",
-    "link": "https://blog.frame.io/2024/08/25/complete-2024-premiere-pro-color-correction-guide/",
+    "guid": "https://blog.frame.io/?p=1615",
+    "title": "Frame.io Insider Manifesto",
+    "link": "https://blog.frame.io/2017/02/09/manifesto/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365638"
+    "timestamp": "2026-02-08T09:48:03.939272"
   },
   {
-    "guid": "https://blog.frame.io/?p=36323",
-    "title": "See You at IBC 2024",
-    "link": "https://blog.frame.io/2024/08/22/see-you-at-ibc-2024/",
+    "guid": "https://blog.frame.io/?p=1624",
+    "title": "Compare 50 Intermediate Codecs on One Page",
+    "link": "https://blog.frame.io/2017/02/13/compare-50-intermediate-codecs/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365668"
+    "timestamp": "2026-02-08T09:48:03.939266"
   },
   {
-    "guid": "https://blog.frame.io/?p=35663",
-    "title": "Insider Tips: Five Tricks for Faster After Effects Previews",
-    "link": "https://blog.frame.io/2024/08/21/insider-tips-faster-after-effects-preview-renders/",
+    "guid": "https://blog.frame.io/?p=1630",
+    "title": "How to Choose the Right Codec for Every Project",
+    "link": "https://blog.frame.io/2017/02/15/choose-the-right-codec/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365705"
+    "timestamp": "2026-02-08T09:48:03.939258"
   },
   {
-    "guid": "https://blog.frame.io/?p=35423",
-    "title": "Scaling Your Cinematography (Up or Down)",
-    "link": "https://blog.frame.io/2024/08/19/scaling-your-cinematography-up-or-down/",
+    "guid": "https://blog.frame.io/?p=1665",
+    "title": "The Simple Formula to Calculate Video Bitrates",
+    "link": "https://blog.frame.io/2017/03/06/calculate-video-bitrates/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365735"
+    "timestamp": "2026-02-08T09:48:03.939250"
   },
   {
-    "guid": "https://blog.frame.io/?p=35648",
-    "title": "An Even Faster Route from Capture to Completion",
-    "link": "https://blog.frame.io/2024/08/19/camera-to-cloud-integration-with-adobe-lightroom/",
+    "guid": "https://blog.frame.io/?p=1676",
+    "title": "The Editor’s Guide to Skin Tones in FCP X",
+    "link": "https://blog.frame.io/2017/03/13/editors-guide-to-fixing-skin-tones-in-fcp-x/",
     "category": "cloud",
     "image": "",
     "source": "Frame.io",
-    "timestamp": "2026-02-08T09:01:55.365765"
+    "timestamp": "2026-02-08T09:48:03.939243"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=1703",
+    "title": "Seamless Proxy Workflow in Premiere Pro",
+    "link": "https://blog.frame.io/2017/03/20/using-premiere-pro-proxy-workflows/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939238"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=1823",
+    "title": "Why SNL Editor Adam Epstein Recommends Setting Insane Deadlines",
+    "link": "https://blog.frame.io/2017/03/27/snl-editor-adam-epstein-recommends-insane-deadlines/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939233"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=1830",
+    "title": "9 Principles For a Long Career as a Video Creative",
+    "link": "https://blog.frame.io/2017/03/31/9-principles-for-a-long-career-as-a-video-creative/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939228"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=1841",
+    "title": "Introducing Frame.io 2",
+    "link": "https://blog.frame.io/2017/04/10/introducing-frame-io-2/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939224"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=1862",
+    "title": "How to Keep Your Sound Editor Happy (According to a Sound Editor)",
+    "link": "https://blog.frame.io/2017/04/10/how-to-keep-your-sound-editor-happy/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939220"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=1870",
+    "title": "Hang out with Frame.io at NAB 2017",
+    "link": "https://blog.frame.io/2017/04/20/hang-out-with-frame-io-at-nab/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939215"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=1887",
+    "title": "What 15 Years of Writing Videography Contracts Has Taught Me",
+    "link": "https://blog.frame.io/2017/04/21/what-years-of-writing-videography-contracts-has-taught-me/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939205"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=1903",
+    "title": "Frame.io Takes NAB 2017 Best of Show Award",
+    "link": "https://blog.frame.io/2017/05/04/frame-io-takes-nab-2017-best-show-award/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939201"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=1961",
+    "title": "How To Edit With Silence, From TV Editor Chris McCaleb",
+    "link": "https://blog.frame.io/2017/05/08/edit-with-silence/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939196"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2050",
+    "title": "The Ultimate Guide to FCP X Proxies: Make Final Cut Faster",
+    "link": "https://blog.frame.io/2017/05/11/ultimate-guide-to-fcp-x-proxies/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939192"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2079",
+    "title": "Why DaVinci Resolve is the Ultimate (Free) Tool to Sync Clips",
+    "link": "https://blog.frame.io/2017/05/15/sync-clips-in-davinci-resolve/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939187"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2089",
+    "title": "How Taylor Tracy Left Corporate Video to Cut A-List Music Videos",
+    "link": "https://blog.frame.io/2017/05/18/how-taylor-tracy-left-corporate-video-for-music-videos/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939182"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2100",
+    "title": "4 Keys to a Fulfilling Editing Career From a Veteran Editor",
+    "link": "https://blog.frame.io/2017/05/22/4-keys-fulfilling-editing-career-veteran-editor/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939178"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2112",
+    "title": "How the Doctor Strange Co-Editors Built a Team Dynamic",
+    "link": "https://blog.frame.io/2017/05/25/doctor-strange-co-editors-team-dynamic/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939172"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2139",
+    "title": "How to Match a Film Look with Basic Color Correction Tools",
+    "link": "https://blog.frame.io/2017/05/30/emulate-any-film-look-with-basic-color-correction/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939167"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2146",
+    "title": "Announcing Frame.io Version 1.4 for iOS!",
+    "link": "https://blog.frame.io/2017/05/31/ios-version-1-4/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939163"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2123",
+    "title": "How to Get Hired (and Rehired) as an Editor",
+    "link": "https://blog.frame.io/2017/06/01/how-i-hire-a-film-editor/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939158"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2165",
+    "title": "FRONTLINE Documentary Editor Steve Audette on Engaging Your Audience",
+    "link": "https://blog.frame.io/2017/06/02/frontline-editor-engaging-the-audience/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939154"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2189",
+    "title": "Better Call Saul Editor Chris McCaleb Welcomes Mistakes",
+    "link": "https://blog.frame.io/2017/06/07/better-call-saul-editor-mistakes/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939149"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2207",
+    "title": "Jump from Assistant to Lead Editor, from the Co-editor of Dr. Strange",
+    "link": "https://blog.frame.io/2017/06/12/making-jump-assistant-to-lead-editor/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939145"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2238",
+    "title": "Working with Proxy Media in Avid",
+    "link": "https://blog.frame.io/2017/06/14/proxy-media-avid/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939140"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2265",
+    "title": "Finding the Flow: A Musical Approach to Cutting Documentaries",
+    "link": "https://blog.frame.io/2017/06/19/a-musical-approach-to-cutting-documentaries/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939135"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2270",
+    "title": "Introducing Frame.io Enterprise",
+    "link": "https://blog.frame.io/2017/06/20/frame-io-enterprise/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939131"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2254",
+    "title": "The 3 Principles Behind a Story-Driven PBS Documentary",
+    "link": "https://blog.frame.io/2017/06/21/3-principals-story-driven-pbs-documentary/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939124"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2308",
+    "title": "Oscar-Winning Hacksaw Ridge Editor Tells Us His Editing Secrets",
+    "link": "https://blog.frame.io/2017/06/26/oscar-winning-editor-john-gilbert-interview/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939119"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2317",
+    "title": "How to Not Break Up With Your Director: The Editor’s Guide",
+    "link": "https://blog.frame.io/2017/06/28/working-with-a-director/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939114"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2372",
+    "title": "Six Tips for a Successful Test Screening",
+    "link": "https://blog.frame.io/2017/07/06/successful-test-screening-tips/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939110"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2393",
+    "title": "Black, Blonde, and Bold. Making it in Hollywood When You Don’t Fit the Mold.",
+    "link": "https://blog.frame.io/2017/07/10/black-blonde-bold-in-hollywood/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939105"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2462",
+    "title": "Timecode and Frame Rates: Everything You Need to Know",
+    "link": "https://blog.frame.io/2017/07/17/timecode-and-frame-rates/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939098"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2491",
+    "title": "5 Essential Strategies to Cut the Fat and Tighten Your Edit",
+    "link": "https://blog.frame.io/2017/07/24/tighten-your-edit/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939094"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2559",
+    "title": "The Missing Details of Baby Driver’s Crazy Workflow",
+    "link": "https://blog.frame.io/2017/07/31/baby-driver-workflow/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939089"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2580",
+    "title": "Why ProRes on Windows is Still Not a Good Option for Editors",
+    "link": "https://blog.frame.io/2017/08/07/prores-on-windows/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939085"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2602",
+    "title": "5 Broadcast Audio Specs Every Editor Must Understand",
+    "link": "https://blog.frame.io/2017/08/09/audio-spec-sheet/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939078"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2628",
+    "title": "“Empire” Editor Has 7 Steps to Network Successfully in Hollywood",
+    "link": "https://blog.frame.io/2017/08/14/networking-in-hollywood/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939073"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2697",
+    "title": "Transcoding Footage to a Higher Bit Depth Won’t Increase Quality",
+    "link": "https://blog.frame.io/2017/08/16/increasing-bit-depth/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939069"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2733",
+    "title": "HBO’s The Defiant Ones and the Trend of Editor As Writer",
+    "link": "https://blog.frame.io/2017/08/21/editor-as-writer/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939064"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2751",
+    "title": "4 Editing Insights from Laughter, Love, and Loneliness",
+    "link": "https://blog.frame.io/2017/08/23/editing-laughter-love-loneliness/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939059"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2790",
+    "title": "22 Success Tips for Women Filmmakers in a Male-Dominated Industry",
+    "link": "https://blog.frame.io/2017/08/28/tips-for-women-filmmakers/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939054"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2819",
+    "title": "The Ultimate Guide to Fair Use and Copyrights for Filmmakers",
+    "link": "https://blog.frame.io/2017/08/30/copyrights-and-fair-use-for-filmmakers/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939050"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2837",
+    "title": "Hang out with Frame.io at IBC 2017",
+    "link": "https://blog.frame.io/2017/09/05/ibc-2017/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939044"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2905",
+    "title": "Why DaVinci Resolve May Be the Single Most Powerful Tool in Post",
+    "link": "https://blog.frame.io/2017/09/06/davinci-resolve-may-be-most-powerful/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939032"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2936",
+    "title": "4 Tricks to Make Premiere Pro Exports Faster [Video]",
+    "link": "https://blog.frame.io/2017/09/11/how-to-speed-up-premiere-pro-exports/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939028"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=2995",
+    "title": "If You Gave Up on FCP X, It’s Time For a Second Look",
+    "link": "https://blog.frame.io/2017/09/13/give-fcpx-second-look/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939023"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3021",
+    "title": "5 Reasons to Work for Free",
+    "link": "https://blog.frame.io/2017/09/18/5-reasons-to-work-for-free/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939018"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3095",
+    "title": "A Beginner’s Guide to Curves for Color Correction",
+    "link": "https://blog.frame.io/2017/09/20/beginners-guide-to-color-curves/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939014"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3127",
+    "title": "10 Strategies to Maintain Work-Life Balance When Working Remotely",
+    "link": "https://blog.frame.io/2017/09/25/remote-work-life-balance-strategies/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939009"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3169",
+    "title": "How to Use and Read Lumetri’s Four Primary Video Scopes",
+    "link": "https://blog.frame.io/2017/09/27/introduction-to-video-scopes/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.939004"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3200",
+    "title": "Speed up Your Edit with Stringouts and Keyboard Maestro",
+    "link": "https://blog.frame.io/2017/10/02/speeding-up-stringouts-keyboard-maestro/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938999"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3183",
+    "title": "Our $20M Series B",
+    "link": "https://blog.frame.io/2017/10/03/frameio-20m-series-b/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938994"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3250",
+    "title": "Turbo Charge Your FCP X Workflow with DaVinci Resolve",
+    "link": "https://blog.frame.io/2017/10/04/turbo-charge-fcpx-workflow-davinci-resolve/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938987"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3292",
+    "title": "Prepping Horizontal, Square and Vertical Video for Social Media",
+    "link": "https://blog.frame.io/2017/10/09/prepping-social-media-video/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938982"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3324",
+    "title": "A Faster, More Efficient Way to Work with Audio in Premiere",
+    "link": "https://blog.frame.io/2017/10/11/better-audio-in-premiere/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938978"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3389",
+    "title": "How the Magnetic Timeline Keeps You Focused on the Story",
+    "link": "https://blog.frame.io/2017/10/16/fcpx-magnetic-timeline/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938972"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3436",
+    "title": "7 Prep Mistakes To Avoid When Delivering to a Post House",
+    "link": "https://blog.frame.io/2017/10/23/7-prep-mistakes-to-avoid/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938967"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3470",
+    "title": "Win the $62,000 Frame.io Dreamstation Giveaway – CLOSED",
+    "link": "https://blog.frame.io/2017/10/24/dreamstation-giveaway/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938963"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3570",
+    "title": "Use This Technique From Reality TV to Heighten Drama In Your Edit",
+    "link": "https://blog.frame.io/2017/10/25/4-reality-tv-editing-techniques/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938958"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3628",
+    "title": "The Pros and Cons of Cutting a Film in DaVinci Resolve",
+    "link": "https://blog.frame.io/2017/10/30/cutting-a-film-davinci-resolve/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938953"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3656",
+    "title": "The Simple Explanation of Blend Modes We’ve All Been Waiting For",
+    "link": "https://blog.frame.io/2017/11/01/how-to-use-blend-modes/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938948"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3719",
+    "title": "Advanced Curves Techniques Every Video Editor Should Know",
+    "link": "https://blog.frame.io/2017/11/06/advanced-curves-techniques/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938944"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3751",
+    "title": "A Quick Way to Make Any Music Track Fit Your Video",
+    "link": "https://blog.frame.io/2017/11/08/make-music-fit-your-video/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938937"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3772",
+    "title": "The 9 Most Common Crashes in Premiere Pro, and How to Fix Them",
+    "link": "https://blog.frame.io/2017/11/13/common-premiere-pro-crashes/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938932"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3797",
+    "title": "The Beginner’s Guide to Working in 3D Space in Adobe After Effects",
+    "link": "https://blog.frame.io/2017/11/15/working-in-after-effects-3d/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938928"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3833",
+    "title": "How Templates Can Actually Enhance Your Creativity",
+    "link": "https://blog.frame.io/2017/11/20/templates-boost-creativity/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938923"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3865",
+    "title": "9 Things You Didn’t Know You Could Do in Adobe Media Encoder",
+    "link": "https://blog.frame.io/2017/11/22/9-premiere-pro-export-settings/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938918"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3919",
+    "title": "How to Avoid Timeline Chaos in Avid and Premiere With Sync Locks",
+    "link": "https://blog.frame.io/2017/11/28/sync-locks-avid-premiere/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938913"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3963",
+    "title": "The Secret Power of FCPX Roles And A Trackless Future",
+    "link": "https://blog.frame.io/2017/11/30/fcpx-roles/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938909"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=3992",
+    "title": "How to Make Lower Third Titles That Don’t Suck",
+    "link": "https://blog.frame.io/2017/12/04/create-lower-thirds-titles-that-dont-suck/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938904"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4031",
+    "title": "Behind the Scenes of a Google Branding Video",
+    "link": "https://blog.frame.io/2017/12/06/google-branding-video/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938899"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4076",
+    "title": "8 Fonts From Iconic Sci-Fi Films (and How to Choose Your Own)",
+    "link": "https://blog.frame.io/2017/12/11/iconic-sci-fi-fonts-movies/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938894"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4096",
+    "title": "Behind the Scenes: Making a Graphics Package for Nickelodeon",
+    "link": "https://blog.frame.io/2017/12/13/making-a-graphics-package/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938890"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4128",
+    "title": "How to Determine Your Rate as a Video Editor",
+    "link": "https://blog.frame.io/2017/12/18/rates-how-much-should-video-editors-charge/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938885"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4153",
+    "title": "Essential Organization Habits for The Successful Editor",
+    "link": "https://blog.frame.io/2017/12/20/essential-organization-habits/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938879"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4175",
+    "title": "The 11 Biggest Backup Mistakes That Editors Make",
+    "link": "https://blog.frame.io/2018/01/03/11-biggest-backup-mistakes/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938874"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4192",
+    "title": "4 Ways to Take Your Editing to the Next Level with After Effects",
+    "link": "https://blog.frame.io/2018/01/08/advanced-editing-after-effects/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938870"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4266",
+    "title": "FCPX 10.4’s Color Grading Tools Are a Game Changer",
+    "link": "https://blog.frame.io/2018/01/10/fcpx-color-grading-tools-game-changer/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938865"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4285",
+    "title": "3 Real-world Examples of a Remote Dailies Workflow",
+    "link": "https://blog.frame.io/2018/01/17/remote-dailies-workflow/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938860"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4320",
+    "title": "These Premiere Pro Audio Tools Will Make You A Mix Master",
+    "link": "https://blog.frame.io/2018/01/22/premiere-pro-audio-tools/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938856"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4352",
+    "title": "The Mechanics of Pitching an Agency For an Ad Contract",
+    "link": "https://blog.frame.io/2018/01/24/pitching-an-agency/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938851"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4372",
+    "title": "Perfect Your Dialogue Scenes with the “Fincher Effect”",
+    "link": "https://blog.frame.io/2018/01/26/perfect-dialog-with-fincher-effect/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938846"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4442",
+    "title": "Edit Faster and More Efficiently with FCP X’s Metadata",
+    "link": "https://blog.frame.io/2018/01/31/fcpx-metadata/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938841"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4451",
+    "title": "Introducing a Redesigned Player Experience",
+    "link": "https://blog.frame.io/2018/02/02/a-redesigned-player-experience/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938837"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4467",
+    "title": "Tips for Discovering, Developing, and Enhancing Your Editorial Style",
+    "link": "https://blog.frame.io/2018/02/07/editorial-style/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938832"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4559",
+    "title": "Power Up Your Graphics With Animated Masks in After Effects",
+    "link": "https://blog.frame.io/2018/02/12/animated-masks-after-effects/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938828"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4567",
+    "title": "A Word On Security From Frame.io",
+    "link": "https://blog.frame.io/2018/02/14/a-word-on-security/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938823"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4599",
+    "title": "6 Troubleshooting Tips For Avid Media Composer Errors",
+    "link": "https://blog.frame.io/2018/02/19/avid-media-composer-troubleshooting-tips/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938819"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4634",
+    "title": "Made in Frame: The Oscar-Winning “Get Out”",
+    "link": "https://blog.frame.io/2018/02/26/made-in-frame-get-out/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938814"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4659",
+    "title": "Workflow Breakdown of Every Best Picture and Best Editing 2018 Oscars Nominee",
+    "link": "https://blog.frame.io/2018/03/05/oscar-2018-workflows/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938809"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4744",
+    "title": "Editing Insights and Analysis of Six Masterpieces",
+    "link": "https://blog.frame.io/2018/03/12/studying-6-editing-masterpieces/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938805"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4782",
+    "title": "John Wick 2 Editor Shares His Top Career Strategies",
+    "link": "https://blog.frame.io/2018/03/19/evan-schiff-renaissance-editor/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938800"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4807",
+    "title": "Frame.io On The Road: See You At NAB!",
+    "link": "https://blog.frame.io/2018/03/21/nab-2018/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938796"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4843",
+    "title": "Made in Frame – New Balance “Fearlessly Independent”",
+    "link": "https://blog.frame.io/2018/03/26/made-in-frame-new-balance-fearlessly-independent/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938791"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4759",
+    "title": "The All New Frame.io Is Coming…",
+    "link": "https://blog.frame.io/2018/03/27/all-new-frame-io/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938784"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=5012",
+    "title": "Mastering an Arri Workflow in Adobe Premiere Pro",
+    "link": "https://blog.frame.io/2018/04/02/arri-workflow-premiere/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938772"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=4757",
+    "title": "Introducing Frame.io Watch Folders for macOS",
+    "link": "https://blog.frame.io/2018/04/09/watch-folders/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938768"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=5093",
+    "title": "What Makes A True Game-Changer? Twelve Film Industry Leaders Weigh In.",
+    "link": "https://blog.frame.io/2018/04/16/game-changers/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938763"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=5150",
+    "title": "Complete Guide to RED Workflows: Premiere, FCP X and Resolve",
+    "link": "https://blog.frame.io/2018/04/30/red-workflows/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938759"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=5223",
+    "title": "Made In Frame: Harry Styles’ “Kiwi” Music Video",
+    "link": "https://blog.frame.io/2018/05/07/madeinframe-kiwi/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938754"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=5276",
+    "title": "How to Batch Sync Audio in Adobe Premiere Pro in Five Easy Steps",
+    "link": "https://blog.frame.io/2018/05/14/how-to-batch-sync-audio-in-premiere-pro/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938749"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=5469",
+    "title": "Made in Frame: The Conan O’Brien Show",
+    "link": "https://blog.frame.io/2018/05/29/made-in-frame-conan-obrien/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938744"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=5490",
+    "title": "Introducing Frame.io Image Review",
+    "link": "https://blog.frame.io/2018/05/30/image-review/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938739"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=5673",
+    "title": "The Most Iconic Movie Title Sequences of All Time. And Why They Work",
+    "link": "https://blog.frame.io/2018/06/04/iconic-movie-title-sequences/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938734"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=5712",
+    "title": "Everything You Need to Know About ADR in Film (and Didn’t Know to Ask)",
+    "link": "https://blog.frame.io/2018/06/11/adr-film-primer/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938730"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=5734",
+    "title": "Announcing Presence, View History, and Asset Search",
+    "link": "https://blog.frame.io/2018/06/13/presence-search-history/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938725"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=5816",
+    "title": "Incredibles 2 and an Inside Look at the Secret to Pixar’s Success",
+    "link": "https://blog.frame.io/2018/06/18/making-incredibles-2/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938721"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=5849",
+    "title": "Made in Frame: Hereditary",
+    "link": "https://blog.frame.io/2018/06/25/made-in-frame-hereditary/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938714"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=5954",
+    "title": "Edit like a Master Chef: Hotel Artemis’ Secret Recipe",
+    "link": "https://blog.frame.io/2018/07/02/bts-hotel-artemis/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938709"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=6035",
+    "title": "How to Conceive and Create an Iconic TV Title Sequence",
+    "link": "https://blog.frame.io/2018/07/09/iconic-tv-title-sequences/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938704"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=5916",
+    "title": "Delivering on Our Security Promise",
+    "link": "https://blog.frame.io/2018/07/10/delivering-on-our-security-promise/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938699"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=6135",
+    "title": "Made in Frame: Film Riot and Ryan Connolly’s BALLiSTIC",
+    "link": "https://blog.frame.io/2018/07/16/made-in-frame-film-riot/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938695"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=6153",
+    "title": "Turn Boring into Brilliant: Tips for Editing with Little or No Coverage",
+    "link": "https://blog.frame.io/2018/07/23/tips-for-no-coverage/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938688"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=6216",
+    "title": "The Editorial Process and Philosophy Behind Mission: Impossible – Fallout",
+    "link": "https://blog.frame.io/2018/07/30/inside-mission-impossible-fallout/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938684"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=6297",
+    "title": "5 Things Every Editor Can Do To Build Trust and Keep Clients",
+    "link": "https://blog.frame.io/2018/08/06/build-trust-keep-clients/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938679"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=6333",
+    "title": "Passion Is Not Enough: 4 Keys to Getting Paid for Your Art",
+    "link": "https://blog.frame.io/2018/08/13/how-to-get-paid-for-your-art/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938674"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=6374",
+    "title": "4 Ways to Maximize Creative Fulfillment and Still Make a Living",
+    "link": "https://blog.frame.io/2018/08/20/maximize-creative-fulfillment/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938670"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=6437",
+    "title": "A Deep Dive Into the Hidden FCPX Audio Tools",
+    "link": "https://blog.frame.io/2018/08/27/deep-dive-fcpx-audio-tools/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938665"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=6511",
+    "title": "Design for the Edges: Video for the Blind and Deaf",
+    "link": "https://blog.frame.io/2018/09/04/creating-video-for-blind-and-deaf/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938660"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=6559",
+    "title": "Made in Frame: Cutting the Thriller “Searching” in Adobe Premiere Pro",
+    "link": "https://blog.frame.io/2018/09/10/made-in-frame-searching/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938656"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=6629",
+    "title": "Frame.io Has Completed TPN Assessment",
+    "link": "https://blog.frame.io/2018/09/12/tpn-compliant/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938650"
+  },
+  {
+    "guid": "https://blog.frame.io/?p=6625",
+    "title": "Edit At The Speed of Thought With Final Cut Pro Shortcuts",
+    "link": "https://blog.frame.io/2018/09/17/fcpx-final-cut-pro-shortcuts/",
+    "category": "cloud",
+    "image": "",
+    "source": "Frame.io",
+    "timestamp": "2026-02-08T09:48:03.938643"
   }
 ]
