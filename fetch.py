@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-The Streamic - RSS Aggregator (Balanced + Atomic + Validated + OG/Twitter image)
+The Streamic - RSS Aggregator (Cloudflare + Balanced + Atomic + Validated + OG/Twitter image)
+- Fetches all feeds via Cloudflare Worker proxy
 - Guarantees every category appears (incl. 'streaming' and 'audio-ai')
 - Sorts by recency before capping
 - Atomic write to prevent corrupted JSON
@@ -22,6 +23,11 @@ from tempfile import NamedTemporaryFile
 from collections import defaultdict
 
 # ------------------ SETTINGS ------------------
+
+# 1) Set this to your Cloudflare Worker URL (include ?url= at the end)
+# Example: "https://broken-king-b4dc.itabmum.workers.dev/?url="
+WORKER_BASE = "https://broken-king-b4dc.itabmum.workers.dev/?url="  # <-- EDIT THIS LINE IF YOUR URL CHANGES
+
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 DATA_DIR = Path("data")
 NEWS_FILE = DATA_DIR / "news.json"
@@ -38,7 +44,7 @@ MIN_PER_CATEGORY = 15
 REQUIRED_CATEGORIES = {"newsroom", "playout", "infrastructure", "graphics", "cloud", "streaming", "audio-ai"}
 MIN_REQUIRED_EACH = 5
 
-# ------------------ FEED SOURCES (UNCHANGED) ------------------
+# ------------------ FEED SOURCES ------------------
 FEED_SOURCES = {
     "newsroom": [
         {"url": "https://www.newscaststudio.com/tag/news-production/feed/", "label": "NewscastStudio"},
@@ -97,7 +103,7 @@ class ImageScraper(HTMLParser_module.HTMLParser):
 def try_extract_image_from_text(html_text: str) -> str:
     if not html_text:
         return ""
-    m = re.search(r'(https?://[^\s"<>\']+\.(?:jpg|jpeg|png|gif|webp))', html_text, re.IGNORECASE)
+    m = re.search(r'(https?://[^\s"<>]+\.(?:jpg|jpeg|png|gif|webp))', html_text, re.IGNORECASE)
     return m.group(1) if m else ""
 
 def fetch_url(url: str, timeout: int = 20):
@@ -119,22 +125,22 @@ def fetch_html(url: str, timeout: int = 15) -> str:
         return ""
 
 def get_og_twitter_image(html: str) -> str:
-    """Extract og:image or twitter:image from HTML."""
+    """Extract og:image or twitter:image from HTML (regex-only; Workers-safe too)."""
     if not html:
         return ""
-    # og:image (property then content)
+    # og:image (content attr)
     m = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', html, re.I)
     if m and m.group(1).strip().startswith(("http://", "https://")):
         return m.group(1).strip()
-    # og:image (content first)
+    # og:image (prop after content)
     m = re.search(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']', html, re.I)
     if m and m.group(1).strip().startswith(("http://", "https://")):
         return m.group(1).strip()
-    # twitter:image (name then content)
+    # twitter:image (content attr)
     m = re.search(r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']', html, re.I)
     if m and m.group(1).strip().startswith(("http://", "https://")):
         return m.group(1).strip()
-    # twitter:image (content first)
+    # twitter:image (name after content)
     m = re.search(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+name=["\']twitter:image["\']', html, re.I)
     if m and m.group(1).strip().startswith(("http://", "https://")):
         return m.group(1).strip()
@@ -184,7 +190,7 @@ def get_best_image(item_xml) -> str:
     link_elem = item_xml.find("link")
     link_url = (link_elem.text or "").strip() if link_elem is not None and link_elem.text else ""
 
-    # Clean and pick
+    # Pick first good from candidates
     for url in candidates:
         if good_img_url(url):
             return url.strip()
@@ -283,24 +289,29 @@ def validate_categories(items: list, required: set, min_each: int):
 # ------------------ WORKFLOW ------------------
 def run_workflow():
     print("=" * 70)
-    print(" THE STREAMIC — Balanced Feeds, Atomic Write, Validation, Better Thumbnails ")
+    print(" THE STREAMIC — Cloudflare Proxy, Balanced, Atomic, Validation, Better Thumbnails ")
     print("=" * 70)
 
     DATA_DIR.mkdir(exist_ok=True)
 
     all_new_items = []
 
-    # 1) Fetch all feeds
+    # 1) Fetch all feeds (via Cloudflare Worker)
     for category, feeds in FEED_SOURCES.items():
         print(f"\n▶ {category.upper()}\n" + "-" * 70)
         for fd in feeds:
             label = fd["label"]
-            url = fd["url"]
+            feed_url = fd["url"]
+
+            # Route through Worker (fallback to direct if WORKER_BASE is empty)
+            proxy = (WORKER_BASE or "") + feed_url if WORKER_BASE else feed_url
+
             print(f"{label:40s}", end="")
-            xml = fetch_url(url)
+            xml = fetch_url(proxy)
             if not xml:
                 print(" ✗ failed")
                 continue
+
             items = parse_rss_feed(xml, category, label)
             print(f" ✓ {len(items)} items")
             all_new_items.extend(items)
