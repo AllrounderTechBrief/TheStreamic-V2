@@ -2,9 +2,9 @@
 """
 The Streamic - RSS Aggregator (Cloudflare + Fast + Fail-safe)
 - Fetches all feeds via Cloudflare Worker proxy
-- Caps items/ feed (fast)
-- Optional (capped) article-page fetch for OG/Twitter image (OFF by default to avoid stalls)
-- Short timeouts to prevent hanging in CI
+- Caps items per feed (fast)
+- Article-page fetch for OG/Twitter images is OFF by default (no stalls)
+- Short timeouts in CI
 - Balanced categories, atomic write, validation
 - Fail-safe: never publish a blank site, even if validation fails on a first run
 """
@@ -36,23 +36,18 @@ ARCHIVE_FILE = DATA_DIR / "archive.json"
 # Total items to keep in news.json
 MAX_NEWS_ITEMS = 300
 
-# Min per category (balanced output)
-MIN_PER_CATEGORY = 15
-
-# Validation: categories that must be present (threshold below)
-REQUIRED_CATEGORIES = {
-    "newsroom", "playout", "infrastructure", "graphics", "cloud", "streaming", "audio-ai"
-}
-MIN_REQUIRED_EACH = 5
+# Balancing/validation (slightly looser to avoid blank sections)
+MIN_PER_CATEGORY = 18
+REQUIRED_CATEGORIES = {"newsroom", "playout", "infrastructure", "graphics", "cloud", "streaming", "audio-ai"}
+MIN_REQUIRED_EACH = 3
 
 # --- Fast & Stable knobs ---
-MAX_ITEMS_PER_FEED = 15      # parse at most N items per feed (fast)
+MAX_ITEMS_PER_FEED = 20      # parse at most N items per feed
 FEED_FETCH_TIMEOUT = 12      # seconds per RSS fetch via Worker
-ARTICLE_FETCH_TIMEOUT = 5    # seconds per article HTML fetch (for OG image)
-MAX_ARTICLE_FETCHES = 0      # <-- 0 = OFF (safest). Later, set 4..8 if you want better thumbnails.
+ARTICLE_FETCH_TIMEOUT = 5    # seconds per article HTML fetch (if enabled)
+MAX_ARTICLE_FETCHES = 0      # 0 = OFF (safest). Later, try 4–8 for richer thumbnails.
 
-# Global counter for article fetches (do not edit)
-ARTICLE_FETCH_COUNT = 0
+ARTICLE_FETCH_COUNT = 0  # global counter (do not edit)
 
 # ------------------ FEED SOURCES ------------------
 FEED_SOURCES = {
@@ -66,6 +61,9 @@ FEED_SOURCES = {
         {"url": "https://www.tvtechnology.com/playout/rss.xml", "label": "TV Tech Playout"},
         {"url": "https://www.rossvideo.com/news/feed/", "label": "Ross Video"},
         {"url": "https://www.harmonicinc.com/insights/blog/rss.xml", "label": "Harmonic"},
+        # Additions:
+        {"url": "https://www.evertz.com/news/rss", "label": "Evertz News"},
+        {"url": "https://www.imaginecommunications.com/news/rss.xml", "label": "Imagine Communications"},
     ],
     "infrastructure": [
         {"url": "https://www.svgeurope.org/feed/", "label": "SVG Europe"},
@@ -139,10 +137,11 @@ def get_og_twitter_image(html: str) -> str:
     """Extract og:image or twitter:image via regex (no DOM)."""
     if not html:
         return ""
+    # Simple patterns; enough for many sites (MAX_ARTICLE_FETCHES is off by default)
     patterns = [
         r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
-        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
         r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']',
+        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
         r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+name=["\']twitter:image["\']',
     ]
     for pat in patterns:
@@ -165,7 +164,7 @@ def get_best_image(item_xml) -> str:
     """
     1) RSS media:content / media:thumbnail / enclosure
     2) <img> inside description/content
-    3) (CAPPED) article HTML for og:image / twitter:image
+    3) (CAPPED/OFF) article HTML for og:image / twitter:image
     """
     global ARTICLE_FETCH_COUNT
 
@@ -202,7 +201,7 @@ def get_best_image(item_xml) -> str:
         if good_img_url(url):
             return url.strip()
 
-    # FINAL: article HTML (only a few per run; OFF by default)
+    # FINAL: article HTML (only if enabled)
     link_elem = item_xml.find("link")
     link_url = (link_elem.text or "").strip() if link_elem is not None and link_elem.text else ""
     if link_url and MAX_ARTICLE_FETCHES > 0 and ARTICLE_FETCH_COUNT < MAX_ARTICLE_FETCHES:
