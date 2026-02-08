@@ -4,17 +4,21 @@
   const NEWS_FILE = 'data/news.json?v=' + Date.now();
 
   const CATEGORY_FALLBACKS = {
-    'newsroom': 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80',
-    'playout': 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80',
-    'infrastructure': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80',
-    'graphics': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80',
-    'cloud': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80',
-    'streaming': 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
-    'audio-ai': 'https://images.unsplash.com/photo-1557800636-894a64c1696f?w=800&q=80'
+    'featured': 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80&fm=webp',
+    'playout': 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80&fm=webp',
+    'infrastructure': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80&fm=webp',
+    'graphics': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80&fm=webp',
+    'cloud-production': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80&fm=webp',
+    'streaming': 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80&fm=webp',
+    'audio-ai': 'https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=800&q=80&fm=webp'
   };
 
   function getFallbackImage(category) {
-    return CATEGORY_FALLBACKS[category] || CATEGORY_FALLBACKS['newsroom'];
+    // Normalize category names
+    const cat = (category || '').toLowerCase().trim();
+    if (cat === 'cloud') return CATEGORY_FALLBACKS['cloud-production'];
+    if (cat === 'newsroom') return CATEGORY_FALLBACKS['featured'];
+    return CATEGORY_FALLBACKS[cat] || CATEGORY_FALLBACKS['featured'];
   }
 
   // ✅ Tolerant image URL check (allow CDN links without extensions)
@@ -155,12 +159,30 @@
       .then(items => {
         if (!Array.isArray(items)) throw new Error('Invalid data');
         const cat = (category || '').trim().toLowerCase();
-        // Flexible mapping for audio-ai
-        let filteredItems = items.filter(it => {
-          const c = (it.category || '').toLowerCase();
-          if (cat === 'audio-ai') return c === 'audio-ai' || c === 'audio' || c === 'ai';
-          return c === cat;
-        });
+        
+        let filteredItems;
+        if (cat === 'featured') {
+          // FEATURED page shows ALL articles from all categories
+          filteredItems = items;
+        } else if (cat === 'audio-ai') {
+          // Audio-AI: Only show audio and AI content, exclude streaming-specific articles
+          filteredItems = items.filter(it => {
+            const c = (it.category || '').toLowerCase();
+            return c === 'audio-ai' || c === 'audio' || c === 'ai';
+          });
+        } else if (cat === 'cloud-production' || cat === 'cloud') {
+          // Handle both cloud and cloud-production
+          filteredItems = items.filter(it => {
+            const c = (it.category || '').toLowerCase();
+            return c === 'cloud' || c === 'cloud-production';
+          });
+        } else {
+          // Standard category filtering
+          filteredItems = items.filter(it => {
+            const c = (it.category || '').toLowerCase();
+            return c === cat;
+          });
+        }
 
         if (filteredItems.length === 0) {
           largeGrid.innerHTML = `<p class="empty-state">No articles yet. Run fetch.py to populate.</p>`;
