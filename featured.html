@@ -183,7 +183,7 @@
           <h4>Stay Connected</h4>
           <a href="https://twitter.com/thestreamic" target="_blank" rel="noopener">Twitter</a>
           <a href="https://linkedin.com/company/thestreamic" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="/cdn-cgi/l/email-protection#6c05020a032c1804091f181e090d01050f420502">Email Us</a>
+          <a href="/cdn-cgi/l/email-protection#cda4a3aba28db9a5a8beb9bfa8aca0a4aee3a4a3">Email Us</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -305,4 +305,12 @@
 
     // Close modal on ESC key
     document.addEventListener('keydown', function(e) {
-   
+      if (e.key === 'Escape') {
+        closeSubscribeModal();
+      }
+    });
+  </script>
+
+  <script src="main.js?v=20260209"></script>
+</body>
+</html>
