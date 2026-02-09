@@ -1,3 +1,34 @@
+#!/bin/bash
+
+# Create all category pages with header subscribe button and lighter grey nav
+
+declare -a pages=(
+  "infrastructure.html|Infrastructure|Network infrastructure, servers, storage, and connectivity"
+  "graphics.html|Graphics|Real-time graphics, motion graphics, and visual technology"
+  "cloud.html|Cloud Production|Cloud-based production, remote workflows, and SaaS platforms"
+  "streaming.html|Streaming|OTT platforms, video delivery, and streaming technology"
+  "audio-ai.html|Audio & AI|Audio technology, AI tools, and machine learning"
+  "playout.html|Playout|Master control, channel automation, and playout systems"
+  "newsroom.html|Newsroom|Newsroom systems, automation, and editorial workflows"
+)
+
+for page_info in "${pages[@]}"; do
+  IFS='|' read -r filename title description <<< "$page_info"
+  category=$(echo "$filename" | sed 's/.html//')
+  
+  # Determine active link
+  active_link=""
+  case "$category" in
+    "infrastructure") active_link="infrastructure.html" ;;
+    "graphics") active_link="graphics.html" ;;
+    "cloud") active_link="cloud.html" ;;
+    "streaming") active_link="streaming.html" ;;
+    "audio-ai") active_link="audio-ai.html" ;;
+    "playout") active_link="playout.html" ;;
+    "newsroom") active_link="newsroom.html" ;;
+  esac
+
+cat > "/mnt/user-data/outputs/TheStreamic-CORRECTED/$filename" << EOFILE
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,18 +49,18 @@
   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cloud-based production, remote workflows, and SaaS platforms">
-  <meta name="keywords" content="cloud, broadcast technology, media infrastructure, professional video">
+  <meta name="description" content="$description">
+  <meta name="keywords" content="$category, broadcast technology, media infrastructure, professional video">
   <meta name="author" content="The Streamic">
-  <link rel="canonical" href="https://www.yoursite.com/cloud.html">
+  <link rel="canonical" href="https://www.yoursite.com/$filename">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.yoursite.com/cloud.html">
-  <meta property="og:title" content="Cloud Production - The Streamic">
-  <meta property="og:description" content="Cloud-based production, remote workflows, and SaaS platforms">
-  <title>Cloud Production - The Streamic | Broadcast Technology News</title>
+  <meta property="og:url" content="https://www.yoursite.com/$filename">
+  <meta property="og:title" content="$title - The Streamic">
+  <meta property="og:description" content="$description">
+  <title>$title - The Streamic | Broadcast Technology News</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body data-category="cloud">
+<body data-category="$category">
   
   <nav class="site-nav">
     <div class="nav-inner">
@@ -37,12 +68,12 @@
       <button class="nav-toggle" aria-label="Toggle menu">☰</button>
       <ul class="nav-links">
         <li><a href="featured.html">FEATURED</a></li>
-        <li><a href="infrastructure.html" >INFRASTRUCTURE</a></li>
-        <li><a href="graphics.html" >GRAPHICS</a></li>
-        <li><a href="cloud.html" class="active">CLOUD PRODUCTION</a></li>
-        <li><a href="streaming.html" >STREAMING</a></li>
-        <li><a href="audio-ai.html" >AUDIO & AI</a></li>
-        <li><a href="playout.html" >PLAYOUT</a></li>
+        <li><a href="infrastructure.html" $([ "$active_link" = "infrastructure.html" ] && echo 'class="active"')>INFRASTRUCTURE</a></li>
+        <li><a href="graphics.html" $([ "$active_link" = "graphics.html" ] && echo 'class="active"')>GRAPHICS</a></li>
+        <li><a href="cloud.html" $([ "$active_link" = "cloud.html" ] && echo 'class="active"')>CLOUD PRODUCTION</a></li>
+        <li><a href="streaming.html" $([ "$active_link" = "streaming.html" ] && echo 'class="active"')>STREAMING</a></li>
+        <li><a href="audio-ai.html" $([ "$active_link" = "audio-ai.html" ] && echo 'class="active"')>AUDIO & AI</a></li>
+        <li><a href="playout.html" $([ "$active_link" = "playout.html" ] && echo 'class="active"')>PLAYOUT</a></li>
       </ul>
       
       <!-- Subscribe Button in Header -->
@@ -54,8 +85,8 @@
 
   <header class="page-hero">
     <div class="hero-inner">
-      <h1 class="category-heading">Cloud Production</h1>
-      <p>Cloud-based production, remote workflows, and SaaS platforms</p>
+      <h1 class="category-heading">$title</h1>
+      <p>$description</p>
     </div>
   </header>
 
@@ -98,7 +129,7 @@
           <h4>Stay Connected</h4>
           <a href="https://twitter.com/thestreamic" target="_blank" rel="noopener">Twitter</a>
           <a href="https://linkedin.com/company/thestreamic" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="/cdn-cgi/l/email-protection#c2abaca4ad82b6aaa7b1b6b0a7a3afaba1ecabac">Email Us</a>
+          <a href="mailto:info@thestreamic.in">Email Us</a>
         </div>
       </div>
       
@@ -145,7 +176,7 @@
     </div>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // Cookie Consent Functions
     function acceptCookies() {
       gtag('consent', 'update', {
@@ -221,4 +252,17 @@
 
     // Close modal on ESC key
     document.addEventListener('keydown', function(e) {
-   
+      if (e.key === 'Escape') {
+        closeSubscribeModal();
+      }
+    });
+  </script>
+
+  <script src="main.js?v=20260209"></script>
+</body>
+</html>
+EOFILE
+
+done
+
+echo "Created all category pages with header subscribe button!"

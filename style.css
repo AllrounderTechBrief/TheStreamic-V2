@@ -1,6 +1,5 @@
 /* =========================================================
    THE STREAMIC - Apple Bento Grid Design System
-   Tiered layout: Large cards (1-12), List cards (13-20)
    Enhanced with Awwward-style Premium Typography
 ========================================================= */
 
@@ -19,7 +18,7 @@
   --gold-accent: #FFD700;
   --card-shadow: 0 2px 12px rgba(0,0,0,0.06);
   --card-hover-shadow: 0 8px 32px rgba(0,0,0,0.12);
-  --nav-grey: #4a5568;
+  --nav-grey: #8b95a5;  /* Lighter grey */
 }
 
 body {
@@ -31,10 +30,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* =========== GREY NAVIGATION WITH LEFT-ALIGNED LINKS =========== */
+/* =========== LIGHTER GREY NAVIGATION WITH HEADER SUBSCRIBE =========== */
 .site-nav {
-  background: linear-gradient(135deg, #4a5568 0%, #5a6c7d 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, #8b95a5 0%, #9ba5b3 100%);  /* Much lighter grey */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -90,6 +89,29 @@ body {
   color: #FFD700;
 }
 
+/* Header Subscribe Button */
+.header-subscribe {
+  margin-left: auto;
+}
+
+.header-subscribe-btn {
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+.header-subscribe-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+}
+
 .nav-toggle {
   display: none;
 }
@@ -115,11 +137,11 @@ body {
     top: 52px;
     left: 0;
     right: 0;
-    background: linear-gradient(135deg, #4a5568 0%, #5a6c7d 100%);
+    background: linear-gradient(135deg, #8b95a5 0%, #9ba5b3 100%);
     flex-direction: column;
     gap: 0;
     padding: 12px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     z-index: 9999;
   }
   
@@ -132,9 +154,221 @@ body {
     display: block;
     width: 100%;
   }
+  
+  .header-subscribe {
+    position: absolute;
+    right: 60px;
+    top: 10px;
+  }
 }
 
-/* =========== HERO - AWWWARD STYLE PREMIUM TYPOGRAPHY =========== */
+/* =========== SUBSCRIBE MODAL =========== */
+.subscribe-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10001;
+  justify-content: center;
+  align-items: center;
+}
+
+.subscribe-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.subscribe-modal-content {
+  position: relative;
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subscribe-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #6e6e73;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.subscribe-modal-close:hover {
+  color: #1d1d1f;
+}
+
+.subscribe-modal-content h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #1d1d1f;
+}
+
+.subscribe-modal-content p {
+  font-size: 16px;
+  color: #6e6e73;
+  margin-bottom: 24px;
+}
+
+.subscribe-modal-input {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 16px;
+  border: 2px solid #d2d2d7;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  transition: all 0.2s;
+}
+
+.subscribe-modal-input:focus {
+  outline: none;
+  border-color: #FFD700;
+  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1);
+}
+
+.subscribe-modal-btn {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.subscribe-modal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+.subscribe-success {
+  text-align: center;
+  padding: 30px;
+  background: rgba(0, 255, 0, 0.05);
+  border-radius: 12px;
+  border: 2px solid rgba(0, 255, 0, 0.2);
+}
+
+.subscribe-success p {
+  color: #059669;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* =========== COOKIE CONSENT BANNER =========== */
+.cookie-consent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  color: white;
+  padding: 24px;
+  z-index: 10000;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.cookie-consent-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cookie-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.cookie-text p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.cookie-btn {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.cookie-decline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.cookie-decline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cookie-accept {
+  background: #0071e3;
+  color: white;
+}
+
+.cookie-accept:hover {
+  background: #0077ed;
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.4);
+}
+
+/* =========== HERO =========== */
 .page-hero {
   background: linear-gradient(135deg, var(--light-bg) 0%, #fff 100%);
   padding: 90px 22px 70px;
@@ -159,7 +393,6 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* Premium category heading style */
 .category-heading {
   font-size: 72px !important;
   font-weight: 700 !important;
@@ -180,7 +413,6 @@ body {
     font-size: 20px;
   }
   
-  /* Mobile category heading */
   .category-heading {
     font-size: 44px !important;
   }
@@ -193,7 +425,7 @@ main {
   padding: 60px 22px;
 }
 
-/* =========== TIER 1: LARGE BENTO CARDS (Items 1-12) =========== */
+/* =========== TIER 1: LARGE BENTO CARDS =========== */
 .bento-grid-large {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -223,7 +455,7 @@ main {
 .bento-card-large .card-image {
   position: relative;
   width: 100%;
-  height: 280px;  /* FIXED HEIGHT */
+  height: 280px;
   background: var(--light-bg);
   overflow: hidden;
 }
@@ -231,7 +463,7 @@ main {
 .bento-card-large .card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* ENSURE COVER FIT */
+  object-fit: cover;
   transition: transform 0.4s ease;
 }
 
@@ -286,7 +518,6 @@ main {
   letter-spacing: 0.5px;
 }
 
-/* Vlog gold border */
 .bento-card-large.vlog-card {
   border: 3px solid var(--gold-accent);
 }
@@ -306,7 +537,7 @@ main {
   }
 }
 
-/* =========== TIER 2: HORIZONTAL LIST CARDS (Items 13-20) =========== */
+/* =========== TIER 2: LIST CARDS =========== */
 .list-grid {
   display: flex;
   flex-direction: column;
@@ -383,31 +614,7 @@ main {
   }
 }
 
-/* =========== VIEW MORE BUTTON =========== */
-.view-more-wrap {
-  text-align: center;
-  margin-top: 48px;
-}
-
-.btn-view-more {
-  background: var(--apple-blue);
-  color: #fff;
-  border: none;
-  border-radius: 980px;
-  padding: 14px 36px;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: inherit;
-}
-
-.btn-view-more:hover {
-  background: #0077ED;
-  transform: scale(1.03);
-}
-
-/* =========== FOOTER WITH SUBSCRIBE BOX =========== */
+/* =========== FOOTER =========== */
 .site-footer {
   background: #f5f5f7;
   border-top: 1px solid var(--border-color);
@@ -454,75 +661,6 @@ main {
   color: var(--apple-blue);
 }
 
-/* Footer Subscribe Form Styling */
-.footer-subscribe-form {
-  display: flex;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.footer-subscribe-input {
-  flex: 1;
-  padding: 12px 16px;
-  font-size: 14px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 215, 0, 0.3);
-  border-radius: 24px;
-  outline: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
-}
-
-.footer-subscribe-input:focus {
-  border-color: #FFD700;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-  background: white;
-}
-
-.footer-subscribe-btn {
-  padding: 12px 20px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #000;
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-  border: none;
-  border-radius: 24px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
-}
-
-.footer-subscribe-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
-}
-
-.footer-links {
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-  padding: 20px 0;
-  border-top: 1px solid var(--border-color);
-  margin-bottom: 12px;
-}
-
-.footer-links a {
-  font-size: 14px;
-  color: var(--slate-gray);
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  color: var(--apple-blue);
-}
-
-.footer-note {
-  text-align: center;
-  font-size: 13px;
-  color: var(--slate-gray);
-}
-
 .footer-tagline {
   font-style: italic;
   font-size: 13px;
@@ -559,14 +697,6 @@ main {
   .site-footer {
     padding: 40px 16px 20px;
   }
-  
-  .footer-subscribe-form {
-    flex-direction: column;
-  }
-  
-  .footer-subscribe-btn {
-    width: 100%;
-  }
 }
 
 @media (max-width: 480px) {
@@ -575,12 +705,7 @@ main {
   }
 }
 
-/* =========== CATEGORY PAGE SPECIFIC =========== */
-.category-content {
-  margin-top: 40px;
-}
-
-/* =========== EDITOR'S DESK (VLOG) =========== */
+/* =========== EDITOR'S DESK =========== */
 .vlog-container {
   max-width: 880px;
   margin: 0 auto;
@@ -624,4 +749,8 @@ main {
 /* =========== UTILITY =========== */
 .hidden {
   display: none;
+}
+
+.category-content {
+  margin-top: 40px;
 }

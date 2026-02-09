@@ -37,13 +37,18 @@
       <button class="nav-toggle" aria-label="Toggle menu">☰</button>
       <ul class="nav-links">
         <li><a href="featured.html">FEATURED</a></li>
-        <li><a href="infrastructure.html">INFRASTRUCTURE</a></li>
-        <li><a href="graphics.html">GRAPHICS</a></li>
-        <li><a href="cloud.html">CLOUD PRODUCTION</a></li>
-        <li><a href="streaming.html">STREAMING</a></li>
-        <li><a href="audio-ai.html">AUDIO & AI</a></li>
-        <li><a href="playout.html">PLAYOUT</a></li>
+        <li><a href="infrastructure.html" >INFRASTRUCTURE</a></li>
+        <li><a href="graphics.html" class="active">GRAPHICS</a></li>
+        <li><a href="cloud.html" >CLOUD PRODUCTION</a></li>
+        <li><a href="streaming.html" >STREAMING</a></li>
+        <li><a href="audio-ai.html" >AUDIO & AI</a></li>
+        <li><a href="playout.html" >PLAYOUT</a></li>
       </ul>
+      
+      <!-- Subscribe Button in Header -->
+      <div class="header-subscribe">
+        <button onclick="showSubscribeModal()" class="header-subscribe-btn">Subscribe</button>
+      </div>
     </div>
   </nav>
 
@@ -93,21 +98,7 @@
           <h4>Stay Connected</h4>
           <a href="https://twitter.com/thestreamic" target="_blank" rel="noopener">Twitter</a>
           <a href="https://linkedin.com/company/thestreamic" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="mailto:info@thestreamic.in">Email Us</a>
-          
-          <!-- Footer Subscribe Box -->
-          <div style="margin-top: 20px;" id="footerSubscribe">
-            <form class="footer-subscribe-form" id="footerSubscribeForm" onsubmit="return handleSubscribe(event, 'footer')">
-              <input 
-                type="email" 
-                class="footer-subscribe-input" 
-                placeholder="Your email"
-                required
-                id="footerEmail"
-              >
-              <button type="submit" class="footer-subscribe-btn">→</button>
-            </form>
-          </div>
+          <a href="/cdn-cgi/l/email-protection#b4dddad2dbf4c0dcd1c7c0c6d1d5d9ddd79addda">Email Us</a>
         </div>
       </div>
       
@@ -118,20 +109,44 @@
     </div>
   </footer>
 
-  <!-- Cookie Consent Banner -->
-  <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px); color: white; padding: 24px; z-index: 10000; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-    <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
-      <div style="flex: 1; min-width: 280px;">
-        <p style="font-size: 15px; line-height: 1.5; margin: 0;">We use cookies to personalize content and ads, and to analyze our traffic. By clicking "Accept", you consent to our use of cookies.</p>
-      </div>
-      <div style="display: flex; gap: 12px;">
-        <button onclick="declineCookies()" style="padding: 12px 24px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.3); color: white; border-radius: 980px; cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.2s;">Decline</button>
-        <button onclick="acceptCookies()" style="padding: 12px 32px; background: #0071e3; border: none; color: white; border-radius: 980px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.2s;">Accept</button>
+  <!-- Subscribe Modal -->
+  <div id="subscribeModal" class="subscribe-modal" style="display: none;">
+    <div class="subscribe-modal-overlay" onclick="closeSubscribeModal()"></div>
+    <div class="subscribe-modal-content">
+      <button class="subscribe-modal-close" onclick="closeSubscribeModal()">&times;</button>
+      <h2>Join the Future of Broadcast</h2>
+      <p>Get the latest technology insights delivered to your inbox</p>
+      <form id="subscribeForm" onsubmit="return handleSubscribe(event)">
+        <input 
+          type="email" 
+          class="subscribe-modal-input" 
+          placeholder="Enter your email"
+          required
+          id="subscribeEmail"
+        >
+        <button type="submit" class="subscribe-modal-btn">Subscribe</button>
+      </form>
+      <div id="subscribeSuccess" class="subscribe-success" style="display: none;">
+        <p>✓ Welcome to the Future of Broadcast. You are subscribed!</p>
       </div>
     </div>
   </div>
 
-  <script>
+  <!-- Cookie Consent Banner -->
+  <div id="cookieConsent" class="cookie-consent" style="display: none;">
+    <div class="cookie-consent-content">
+      <div class="cookie-text">
+        <p>We use cookies to personalize content and ads, and to analyze our traffic. By clicking "Accept", you consent to our use of cookies.</p>
+      </div>
+      <div class="cookie-buttons">
+        <button onclick="declineCookies()" class="cookie-btn cookie-decline">Decline</button>
+        <button onclick="acceptCookies()" class="cookie-btn cookie-accept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Cookie Consent Functions
     function acceptCookies() {
       gtag('consent', 'update', {
         'ad_storage': 'granted',
@@ -148,21 +163,36 @@
       document.getElementById('cookieConsent').style.display = 'none';
     }
 
+    // Show cookie banner if user hasn't made a choice
     window.addEventListener('DOMContentLoaded', function() {
       const consent = localStorage.getItem('cookieConsent');
       if (!consent) {
         document.getElementById('cookieConsent').style.display = 'block';
       } else if (consent === 'accepted') {
-        acceptCookies();
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
       }
     });
 
-    // Google Form Subscribe Handler
-    function handleSubscribe(event, location) {
+    // Subscribe Modal Functions
+    function showSubscribeModal() {
+      document.getElementById('subscribeModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSubscribeModal() {
+      document.getElementById('subscribeModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function handleSubscribe(event) {
       event.preventDefault();
       
-      const emailInput = document.getElementById('footerEmail');
-      const email = emailInput.value.trim();
+      const email = document.getElementById('subscribeEmail').value.trim();
       
       if (!email.includes('@') || !email.includes('.')) {
         alert('Please enter a valid email address');
@@ -177,15 +207,18 @@
         mode: 'no-cors',
         body: formData
       }).then(() => {
-        document.getElementById('footerSubscribe').innerHTML = '<div style="padding: 12px; background: rgba(0, 255, 0, 0.1); border: 1px solid rgba(0, 255, 0, 0.3); border-radius: 12px; color: #059669; font-size: 14px; text-align: center;">Welcome to the Future of Broadcast. You are subscribed!</div>';
+        document.getElementById('subscribeForm').style.display = 'none';
+        document.getElementById('subscribeSuccess').style.display = 'block';
+        setTimeout(closeSubscribeModal, 3000);
       }).catch(() => {
-        document.getElementById('footerSubscribe').innerHTML = '<div style="padding: 12px; background: rgba(0, 255, 0, 0.1); border: 1px solid rgba(0, 255, 0, 0.3); border-radius: 12px; color: #059669; font-size: 14px; text-align: center;">Welcome to the Future of Broadcast. You are subscribed!</div>';
+        document.getElementById('subscribeForm').style.display = 'none';
+        document.getElementById('subscribeSuccess').style.display = 'block';
+        setTimeout(closeSubscribeModal, 3000);
       });
       
       return false;
     }
-  </script>
 
-  <script src="main.js?v=20260208"></script>
-</body>
-</html>
+    // Close modal on ESC key
+    document.addEventListener('keydown', function(e) {
+   
