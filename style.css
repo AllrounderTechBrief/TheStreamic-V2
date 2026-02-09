@@ -1,6 +1,7 @@
 /* =========================================================
    THE STREAMIC - Apple Bento Grid Design System
    Tiered layout: Large cards (1-12), List cards (13-20)
+   Enhanced with Awwward-style Premium Typography
 ========================================================= */
 
 * {
@@ -26,6 +27,7 @@ body {
   background: #fff;
   line-height: 1.47059;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* =========== CENTERED NAVIGATION =========== */
@@ -108,44 +110,55 @@ body {
   }
 }
 
-/* =========== HERO =========== */
+/* =========== HERO - AWWWARD STYLE PREMIUM TYPOGRAPHY =========== */
 .page-hero {
   background: linear-gradient(135deg, var(--light-bg) 0%, #fff 100%);
-  padding: 70px 22px 50px;
+  padding: 90px 22px 70px;
   text-align: center;
   border-bottom: 1px solid var(--border-color);
 }
 
 .hero-inner h1 {
-  font-size: 52px;
+  font-size: 72px;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 14px;
+  letter-spacing: -0.035em;
+  margin-bottom: 18px;
   color: var(--deep-black);
+  line-height: 1.05;
 }
 
 .hero-inner p {
-  font-size: 21px;
+  font-size: 24px;
   color: var(--slate-gray);
   line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Premium category heading style */
+.category-heading {
+  font-size: 72px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.05 !important;
 }
 
 @media (max-width: 768px) {
   .page-hero {
-    padding: 50px 22px 40px;
+    padding: 60px 22px 50px;
   }
   
   .hero-inner h1 {
-    font-size: 36px;
+    font-size: 44px;
   }
   
   .hero-inner p {
-    font-size: 18px;
+    font-size: 20px;
   }
   
   /* Mobile category heading */
   .category-heading {
-    font-size: 28px !important;
+    font-size: 44px !important;
   }
 }
 

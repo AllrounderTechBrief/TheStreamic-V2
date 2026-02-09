@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Consent Mode v2 - Default Denied -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+  </script>
+  
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8033069131874524" crossorigin="anonymous"></script>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="About The Streamic - Independent broadcast technology news aggregator">
@@ -14,12 +29,12 @@
       <ul class="nav-links">
         <li><a href="index.html">HOME</a></li>
         <li><a href="featured.html">FEATURED</a></li>
-        <li><a href="playout.html">PLAYOUT</a></li>
         <li><a href="infrastructure.html">INFRASTRUCTURE</a></li>
         <li><a href="graphics.html">GRAPHICS</a></li>
         <li><a href="cloud.html">CLOUD PRODUCTION</a></li>
         <li><a href="streaming.html">STREAMING</a></li>
         <li><a href="audio-ai.html">AUDIO & AI</a></li>
+        <li><a href="playout.html">PLAYOUT</a></li>
       </ul>
     </div>
   </nav>
@@ -69,6 +84,55 @@
       <p class="footer-note">© 2026 The Streamic</p>
     </div>
   </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px); color: white; padding: 24px; z-index: 10000; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+    <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 280px;">
+        <p style="font-size: 15px; line-height: 1.5; margin: 0;">
+          We use cookies to personalize content and ads, and to analyze our traffic. By clicking "Accept", you consent to our use of cookies.
+        </p>
+      </div>
+      <div style="display: flex; gap: 12px;">
+        <button onclick="declineCookies()" style="padding: 12px 24px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.3); color: white; border-radius: 980px; cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.2s;">
+          Decline
+        </button>
+        <button onclick="acceptCookies()" style="padding: 12px 32px; background: #0071e3; border: none; color: white; border-radius: 980px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.2s;">
+          Accept
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Cookie Consent Functions
+    function acceptCookies() {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+      localStorage.setItem('cookieConsent', 'accepted');
+      document.getElementById('cookieConsent').style.display = 'none';
+    }
+
+    function declineCookies() {
+      localStorage.setItem('cookieConsent', 'declined');
+      document.getElementById('cookieConsent').style.display = 'none';
+    }
+
+    // Show banner if user hasn't made a choice
+    window.addEventListener('DOMContentLoaded', function() {
+      const consent = localStorage.getItem('cookieConsent');
+      if (!consent) {
+        document.getElementById('cookieConsent').style.display = 'block';
+      } else if (consent === 'accepted') {
+        acceptCookies();
+      }
+    });
+  </script>
+
   <script>document.querySelector('.nav-toggle')?.addEventListener('click', () => document.querySelector('.nav-links').classList.toggle('active'));</script>
 </body>
 </html>

@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Consent Mode v2 - Default Denied -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+  </script>
+  
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8033069131874524" crossorigin="anonymous"></script>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contact The Streamic">
@@ -14,40 +29,74 @@
       <ul class="nav-links">
         <li><a href="index.html">HOME</a></li>
         <li><a href="featured.html">FEATURED</a></li>
-        <li><a href="playout.html">PLAYOUT</a></li>
         <li><a href="infrastructure.html">INFRASTRUCTURE</a></li>
         <li><a href="graphics.html">GRAPHICS</a></li>
         <li><a href="cloud.html">CLOUD PRODUCTION</a></li>
         <li><a href="streaming.html">STREAMING</a></li>
         <li><a href="audio-ai.html">AUDIO & AI</a></li>
+        <li><a href="playout.html">PLAYOUT</a></li>
       </ul>
     </div>
   </nav>
-  <header class="page-hero">
-    <div class="hero-inner">
-      <h1>Contact</h1>
-      <p>Get in touch with us</p>
+  <div class="vlog-container" style="max-width: 700px; text-align: center;">
+    <h1 style="font-size: 48px; margin-bottom: 20px;">Get In Touch</h1>
+    <p style="font-size: 21px; color: #6e6e73; margin-bottom: 50px;">We'd love to hear from you</p>
+    <div style="text-align: left; max-width: 500px; margin: 0 auto;">
+      <p style="font-size: 17px; margin-bottom: 20px;"><strong>Email:</strong> <a href="mailto:info@thestreamic.in" style="color: #0071e3;">info@thestreamic.in</a></p>
+      <p style="font-size: 17px; margin-bottom: 20px;"><strong>Twitter:</strong> <a href="https://twitter.com/thestreamic" target="_blank" rel="noopener" style="color: #0071e3;">@thestreamic</a></p>
+      <p style="font-size: 17px; margin-bottom: 20px;"><strong>LinkedIn:</strong> <a href="https://linkedin.com/company/thestreamic" target="_blank" rel="noopener" style="color: #0071e3;">The Streamic</a></p>
     </div>
-  </header>
-  <main style="max-width: 680px; margin: 60px auto; padding: 0 22px;">
-    <div style="background: #fff; border: 1px solid #d2d2d7; border-radius: 18px; padding: 40px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
-      <h2 style="font-size: 32px; margin-bottom: 16px;">📧 Email</h2>
-      <p style="font-size: 17px; color: #6e6e73; margin-bottom: 24px;">Found a broken link? Want to suggest a feed? Have feedback?</p>
-      <a href="/cdn-cgi/l/email-protection#07746e73626e6362663147606a666e6b2964686a" style="display: inline-flex; align-items: center; gap: 8px; background: #0071e3; color: #fff; padding: 14px 28px; border-radius: 980px; font-size: 17px; font-weight: 500; text-decoration: none; transition: all 0.2s;">
-        ✉ <span class="__cf_email__" data-cfemail="7a09130e1f131e1f1b4c3a1d171b131654191517">[email&#160;protected]</span>
-      </a>
-    </div>
-    <div style="text-align: center; margin-top: 40px; color: #6e6e73; font-size: 15px;">
-      <p>We typically respond within 24-48 hours. For collaboration opportunities, industry partnerships, or technical feedback, we'd love to hear from you.</p>
-    </div>
-  </main>
+  </div>
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-links">
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        </div>
+      </div>
       <p class="footer-note">© 2026 The Streamic</p>
     </div>
   </footer>
-  <script data-cfasync="false" src="/
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px); color: white; padding: 24px; z-index: 10000; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+    <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 280px;">
+        <p style="font-size: 15px; line-height: 1.5; margin: 0;">We use cookies to personalize content and ads, and to analyze our traffic. By clicking "Accept", you consent to our use of cookies.</p>
+      </div>
+      <div style="display: flex; gap: 12px;">
+        <button onclick="declineCookies()" style="padding: 12px 24px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.3); color: white; border-radius: 980px; cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.2s;">Decline</button>
+        <button onclick="acceptCookies()" style="padding: 12px 32px; background: #0071e3; border: none; color: white; border-radius: 980px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.2s;">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function acceptCookies() {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+      localStorage.setItem('cookieConsent', 'accepted');
+      document.getElementById('cookieConsent').style.display = 'none';
+    }
+
+    function declineCookies() {
+      localStorage.setItem('cookieConsent', 'declined');
+      document.getElementById('cookieConsent').style.display = 'none';
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      const consent = localStorage.getItem('cookieConsent');
+      if (!consent) {
+        document.getElementById('cookieConsent').style.display = 'block';
+      } else if (consent === 'accepted') {
+        acceptCookies();
+      }
+    });
+  </script>
+
+  <script>document.querySelector('.nav-toggle')?.addEventListener('click', () => document.querySelector('.nav-links').classList.toggle('active'));</script>
+</body>
+</html>

@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Consent Mode v2 - Default Denied -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+  </script>
+  
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8033069131874524" crossorigin="anonymous"></script>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="The Streamic - Your source for broadcast technology news, covering newsroom systems, playout automation, infrastructure, graphics, cloud, streaming, and audio technology.">
@@ -12,72 +27,168 @@
   <meta property="og:title" content="The Streamic - Broadcast Technology News">
   <meta property="og:description" content="Real-time broadcast technology insights and industry news">
   <title>The Streamic - Broadcast Technology News Hub</title>
-  <meta http-equiv="refresh" content="0; url=featured.html">
   <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    .hero-2039 {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
+      background: #000;
+      overflow: hidden;
     }
-    .redirect-container {
+    
+    .hero-2039-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    
+    .hero-2039-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
+    }
+    
+    .hero-2039-content {
+      position: relative;
+      z-index: 2;
       text-align: center;
-      padding: 40px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      font-size: 48px;
-      margin: 0 0 20px;
-      font-weight: 700;
-    }
-    p {
-      font-size: 18px;
-      margin: 0 0 30px;
-      opacity: 0.9;
-    }
-    a {
       color: white;
-      text-decoration: none;
-      padding: 12px 30px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
+      max-width: 1200px;
+      padding: 40px 20px;
+    }
+    
+    .hero-2039-title {
+      font-size: 96px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      line-height: 1;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(135deg, #fff 0%, #FFD700 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-2039-subtitle {
+      font-size: 32px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+      color: #FFD700;
+    }
+    
+    .hero-2039-tagline {
+      font-size: 21px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 800px;
+      margin: 0 auto 48px;
+    }
+    
+    .hero-2039-cta {
       display: inline-block;
-      transition: all 0.3s ease;
+      padding: 16px 48px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #000;
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      border-radius: 980px;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 32px rgba(255, 215, 0, 0.4);
     }
-    a:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
+    
+    .hero-2039-cta:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 48px rgba(255, 215, 0, 0.6);
     }
-    .spinner {
-      margin: 20px auto;
-      width: 40px;
-      height: 40px;
-      border: 4px solid rgba(255, 255, 255, 0.3);
-      border-top-color: white;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+    
+    @media (max-width: 768px) {
+      .hero-2039-title {
+        font-size: 48px;
+      }
+      
+      .hero-2039-subtitle {
+        font-size: 24px;
+      }
+      
+      .hero-2039-tagline {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="redirect-container">
-    <h1>THE STREAMIC</h1>
-    <p>Redirecting to Featured Stories...</p>
-    <div class="spinner"></div>
-    <p style="font-size: 14px; margin-top: 20px;">If not redirected automatically,<br>
-    <a href="featured.html">click here to continue</a></p>
+  <section class="hero-2039">
+    <img src="assets/hero-2039.png" alt="The Streamic 2039 Broadcast Studio" class="hero-2039-image">
+    <div class="hero-2039-overlay"></div>
+    <div class="hero-2039-content">
+      <h1 class="hero-2039-title">THE STREAMIC</h1>
+      <p class="hero-2039-subtitle">Broadcasting the Future</p>
+      <p class="hero-2039-tagline">Pioneering broadcast technology news from newsroom systems to AI-driven production. Experience the 2039 vision of media innovation.</p>
+      <a href="featured.html" class="hero-2039-cta">Explore Featured Stories</a>
+    </div>
+  </section>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px); color: white; padding: 24px; z-index: 10000; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+    <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 280px;">
+        <p style="font-size: 15px; line-height: 1.5; margin: 0;">
+          We use cookies to personalize content and ads, and to analyze our traffic. By clicking "Accept", you consent to our use of cookies.
+        </p>
+      </div>
+      <div style="display: flex; gap: 12px;">
+        <button onclick="declineCookies()" style="padding: 12px 24px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.3); color: white; border-radius: 980px; cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.2s;">
+          Decline
+        </button>
+        <button onclick="acceptCookies()" style="padding: 12px 32px; background: #0071e3; border: none; color: white; border-radius: 980px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.2s;">
+          Accept
+        </button>
+      </div>
+    </div>
   </div>
-  <script>window.location.replace('featured.html');</script>
+
+  <script>
+    // Cookie Consent Functions
+    function acceptCookies() {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+      localStorage.setItem('cookieConsent', 'accepted');
+      document.getElementById('cookieConsent').style.display = 'none';
+    }
+
+    function declineCookies() {
+      localStorage.setItem('cookieConsent', 'declined');
+      document.getElementById('cookieConsent').style.display = 'none';
+    }
+
+    // Show banner if user hasn't made a choice
+    window.addEventListener('DOMContentLoaded', function() {
+      const consent = localStorage.getItem('cookieConsent');
+      if (!consent) {
+        document.getElementById('cookieConsent').style.display = 'block';
+      } else if (consent === 'accepted') {
+        acceptCookies();
+      }
+    });
+  </script>
 </body>
 </html>
