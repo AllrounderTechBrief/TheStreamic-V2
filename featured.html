@@ -27,6 +27,173 @@
   <meta property="og:description" content="Latest broadcast technology updates across all categories">
   <title>Featured - The Streamic | Broadcast Technology News</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .hero-2039 {
+      position: relative;
+      width: 100%;
+      padding: 90px 22px 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .hero-2039-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    
+    .hero-2039-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
+    }
+    
+    .hero-2039-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      max-width: 1200px;
+      padding: 40px 20px;
+    }
+    
+    .hero-2039-title {
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      line-height: 1;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(135deg, #fff 0%, #FFD700 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-2039-subtitle {
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+      color: #FFD700;
+    }
+    
+    .hero-2039-tagline {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 800px;
+      margin: 0 auto 48px;
+    }
+    
+    /* Futuristic Subscribe Form in Hero */
+    .hero-subscribe {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .subscribe-form {
+      display: flex;
+      gap: 12px;
+      align-items: stretch;
+    }
+    
+    .subscribe-input {
+      flex: 1;
+      padding: 16px 24px;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 215, 0, 0.3);
+      border-radius: 50px;
+      color: white;
+      outline: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    }
+    
+    .subscribe-input::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .subscribe-input:focus {
+      border-color: #FFD700;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .subscribe-btn {
+      padding: 16px 40px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 24px rgba(255, 215, 0, 0.4);
+      white-space: nowrap;
+    }
+    
+    .subscribe-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(255, 215, 0, 0.6);
+      animation: pulse 1.5s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 12px 32px rgba(255, 215, 0, 0.6); }
+      50% { box-shadow: 0 12px 40px rgba(255, 215, 0, 0.9); }
+    }
+    
+    .subscribe-success {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(0, 255, 0, 0.5);
+      border-radius: 20px;
+      color: white;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 500;
+      box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+    }
+    
+    @media (max-width: 768px) {
+      .hero-2039-title {
+        font-size: 44px;
+      }
+      
+      .hero-2039-subtitle {
+        font-size: 22px;
+      }
+      
+      .hero-2039-tagline {
+        font-size: 18px;
+      }
+      
+      .subscribe-form {
+        flex-direction: column;
+      }
+      
+      .subscribe-btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body data-category="featured">
   
@@ -46,12 +213,28 @@
     </div>
   </nav>
 
-  <header class="page-hero">
-    <div class="hero-inner">
-      <h1 class="category-heading">Featured Stories</h1>
-      <p>Latest broadcast technology news from all categories</p>
+  <section class="hero-2039">
+    <img src="assets/hero-2039.png" alt="The Streamic 2039 Broadcast Studio" class="hero-2039-image">
+    <div class="hero-2039-overlay"></div>
+    <div class="hero-2039-content">
+      <h1 class="hero-2039-title">THE STREAMIC</h1>
+      <p class="hero-2039-subtitle">Broadcasting the Future</p>
+      <p class="hero-2039-tagline">Pioneering broadcast technology news from newsroom systems to AI-driven production. Experience the 2039 vision of media innovation.</p>
+      
+      <div class="hero-subscribe" id="heroSubscribe">
+        <form class="subscribe-form" id="heroSubscribeForm" onsubmit="return handleSubscribe(event, 'hero')">
+          <input 
+            type="email" 
+            class="subscribe-input" 
+            placeholder="Enter your email to join the future"
+            required
+            id="heroEmail"
+          >
+          <button type="submit" class="subscribe-btn">Subscribe</button>
+        </form>
+      </div>
     </div>
-  </header>
+  </section>
 
   <main class="category-content">
     <div id="bentoGridLarge" class="bento-grid-large"></div>
@@ -86,10 +269,24 @@
           <a href="rss-policy.html">RSS Policy</a>
         </div>
         <div class="foot-col">
-          <h4>Connect</h4>
+          <h4>Stay Connected</h4>
           <a href="https://twitter.com/thestreamic" target="_blank" rel="noopener">Twitter</a>
           <a href="https://linkedin.com/company/thestreamic" target="_blank" rel="noopener">LinkedIn</a>
           <a href="mailto:info@thestreamic.in">Email Us</a>
+          
+          <!-- Footer Subscribe Box -->
+          <div style="margin-top: 20px;" id="footerSubscribe">
+            <form class="footer-subscribe-form" id="footerSubscribeForm" onsubmit="return handleSubscribe(event, 'footer')">
+              <input 
+                type="email" 
+                class="footer-subscribe-input" 
+                placeholder="Your email"
+                required
+                id="footerEmail"
+              >
+              <button type="submit" class="footer-subscribe-btn">→</button>
+            </form>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
@@ -145,6 +342,50 @@
         acceptCookies();
       }
     });
+
+    // Google Form Subscribe Handler
+    function handleSubscribe(event, location) {
+      event.preventDefault();
+      
+      const emailInput = location === 'hero' ? 
+        document.getElementById('heroEmail') : 
+        document.getElementById('footerEmail');
+      
+      const email = emailInput.value.trim();
+      
+      // Validate email
+      if (!email.includes('@') || !email.includes('.')) {
+        alert('Please enter a valid email address');
+        return false;
+      }
+      
+      // Prepare form data
+      const formData = new FormData();
+      formData.append('entry.592345898', email);
+      
+      // Silent submission to Google Forms
+      fetch('https://docs.google.com/forms/d/e/1FAIpQLSdbeoEH4KHqRG7jFWMB4u8cEH27AMPAmPYEuYKtrn9sDewG2A/formResponse', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      }).then(() => {
+        // Show success message
+        const container = location === 'hero' ? 
+          document.getElementById('heroSubscribe') : 
+          document.getElementById('footerSubscribe');
+        
+        container.innerHTML = '<div class="subscribe-success">Welcome to the Future of Broadcast. You are subscribed!</div>';
+      }).catch(() => {
+        // Even on error, show success (no-cors doesn't return response)
+        const container = location === 'hero' ? 
+          document.getElementById('heroSubscribe') : 
+          document.getElementById('footerSubscribe');
+        
+        container.innerHTML = '<div class="subscribe-success">Welcome to the Future of Broadcast. You are subscribed!</div>';
+      });
+      
+      return false;
+    }
   </script>
 
   <script src="main.js?v=20260208"></script>

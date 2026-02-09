@@ -19,14 +19,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Audio technology, AI tools, and machine learning">
-  <meta name="keywords" content="audio ai, broadcast technology, media infrastructure, professional video">
+  <meta name="keywords" content="audio-ai, broadcast technology, media infrastructure, professional video">
   <meta name="author" content="The Streamic">
   <link rel="canonical" href="https://www.yoursite.com/audio-ai.html">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.yoursite.com/audio-ai.html">
-  <meta property="og:title" content="Audio & AI - The Streamic">
+  <meta property="og:title" content="Audio TITLE_PLACEHOLDER AI - The Streamic">
   <meta property="og:description" content="Audio technology, AI tools, and machine learning">
-  <title>Audio & AI - The Streamic | Broadcast Technology News</title>
+  <title>Audio TITLE_PLACEHOLDER AI - The Streamic | Broadcast Technology News</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body data-category="audio-ai">
@@ -49,7 +49,7 @@
 
   <header class="page-hero">
     <div class="hero-inner">
-      <h1 class="category-heading">Audio & AI</h1>
+      <h1 class="category-heading">Audio TITLE_PLACEHOLDER AI</h1>
       <p>Audio technology, AI tools, and machine learning</p>
     </div>
   </header>
@@ -90,10 +90,24 @@
         </div>
         
         <div class="foot-col">
-          <h4>Connect</h4>
+          <h4>Stay Connected</h4>
           <a href="https://twitter.com/thestreamic" target="_blank" rel="noopener">Twitter</a>
           <a href="https://linkedin.com/company/thestreamic" target="_blank" rel="noopener">LinkedIn</a>
           <a href="mailto:info@thestreamic.in">Email Us</a>
+          
+          <!-- Footer Subscribe Box -->
+          <div style="margin-top: 20px;" id="footerSubscribe">
+            <form class="footer-subscribe-form" id="footerSubscribeForm" onsubmit="return handleSubscribe(event, 'footer')">
+              <input 
+                type="email" 
+                class="footer-subscribe-input" 
+                placeholder="Your email"
+                required
+                id="footerEmail"
+              >
+              <button type="submit" class="footer-subscribe-btn">→</button>
+            </form>
+          </div>
         </div>
       </div>
       
@@ -108,23 +122,16 @@
   <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px); color: white; padding: 24px; z-index: 10000; border-top: 1px solid rgba(255, 255, 255, 0.1);">
     <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 280px;">
-        <p style="font-size: 15px; line-height: 1.5; margin: 0;">
-          We use cookies to personalize content and ads, and to analyze our traffic. By clicking "Accept", you consent to our use of cookies.
-        </p>
+        <p style="font-size: 15px; line-height: 1.5; margin: 0;">We use cookies to personalize content and ads, and to analyze our traffic. By clicking "Accept", you consent to our use of cookies.</p>
       </div>
       <div style="display: flex; gap: 12px;">
-        <button onclick="declineCookies()" style="padding: 12px 24px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.3); color: white; border-radius: 980px; cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.2s;">
-          Decline
-        </button>
-        <button onclick="acceptCookies()" style="padding: 12px 32px; background: #0071e3; border: none; color: white; border-radius: 980px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.2s;">
-          Accept
-        </button>
+        <button onclick="declineCookies()" style="padding: 12px 24px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.3); color: white; border-radius: 980px; cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.2s;">Decline</button>
+        <button onclick="acceptCookies()" style="padding: 12px 32px; background: #0071e3; border: none; color: white; border-radius: 980px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.2s;">Accept</button>
       </div>
     </div>
   </div>
 
   <script>
-    // Cookie Consent Functions
     function acceptCookies() {
       gtag('consent', 'update', {
         'ad_storage': 'granted',
@@ -141,7 +148,6 @@
       document.getElementById('cookieConsent').style.display = 'none';
     }
 
-    // Show banner if user hasn't made a choice
     window.addEventListener('DOMContentLoaded', function() {
       const consent = localStorage.getItem('cookieConsent');
       if (!consent) {
@@ -150,6 +156,34 @@
         acceptCookies();
       }
     });
+
+    // Google Form Subscribe Handler
+    function handleSubscribe(event, location) {
+      event.preventDefault();
+      
+      const emailInput = document.getElementById('footerEmail');
+      const email = emailInput.value.trim();
+      
+      if (!email.includes('@') || !email.includes('.')) {
+        alert('Please enter a valid email address');
+        return false;
+      }
+      
+      const formData = new FormData();
+      formData.append('entry.592345898', email);
+      
+      fetch('https://docs.google.com/forms/d/e/1FAIpQLSdbeoEH4KHqRG7jFWMB4u8cEH27AMPAmPYEuYKtrn9sDewG2A/formResponse', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      }).then(() => {
+        document.getElementById('footerSubscribe').innerHTML = '<div style="padding: 12px; background: rgba(0, 255, 0, 0.1); border: 1px solid rgba(0, 255, 0, 0.3); border-radius: 12px; color: #059669; font-size: 14px; text-align: center;">Welcome to the Future of Broadcast. You are subscribed!</div>';
+      }).catch(() => {
+        document.getElementById('footerSubscribe').innerHTML = '<div style="padding: 12px; background: rgba(0, 255, 0, 0.1); border: 1px solid rgba(0, 255, 0, 0.3); border-radius: 12px; color: #059669; font-size: 14px; text-align: center;">Welcome to the Future of Broadcast. You are subscribed!</div>';
+      });
+      
+      return false;
+    }
   </script>
 
   <script src="main.js?v=20260208"></script>
