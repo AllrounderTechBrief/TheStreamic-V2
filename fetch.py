@@ -30,8 +30,31 @@ MIN_PER_CATEGORY = 18
 MIN_REQUIRED_EACH = 3
 MAX_NEWS_ITEMS = 300
 
-# Direct fetch domains (skip worker)
-DIRECT_FETCH_DOMAINS = ['inbroadcast.com', 'imaginecommunications.com']
+# ===== DIRECT FETCH FEEDS (Bypass Cloudflare Worker) =====
+DIRECT_FEEDS = [
+    # Streaming category
+    'https://www.streamingmediablog.com/feed',
+    'https://www.dacast.com/feed',
+    'https://onthefly.stream/blog/feed',
+    'https://yololiv.com/blog/feed',
+    'https://techcrunch.com/feed',
+    'https://www.engadget.com/rss.xml',
+    'https://www.wired.com/feed/rss',
+    'https://www.broadcastnow.co.uk/full-rss/',
+    # Infrastructure category - MAM/PAM
+    'https://chesa.com/feed',
+    'https://cloudinary.com/blog/feed',
+    # Infrastructure category - Storage
+    'https://www.studionetworksolutions.com/feed',
+    'https://openrss.org/https://scalelogicinc.com/blog/protecting-valuable-media-assets/',
+    'https://openrss.org/https://qsan.io/solutions/media-production/',
+    'https://openrss.org/https://www.keycodemedia.com/capabilities/media-shared-storage-cloud-storage/',
+    # Infrastructure category - Production Ops
+    'https://www.processexcellencenetwork.com/rss-feeds',
+    # Legacy direct fetch
+    'https://www.inbroadcast.com/rss.xml',
+    'https://www.imaginecommunications.com/news/rss.xml'
+]
 
 # ===== FEED GROUPS =====
 FEED_GROUPS = {
@@ -61,7 +84,17 @@ FEED_GROUPS = {
         'https://www.securityweek.com/feed/',
         'https://feeds.feedburner.com/TheHackerNews',
         'https://cloud.google.com/blog/topics/security/rss/',
-        'https://www.microsoft.com/en-us/security/blog/feed/'
+        'https://www.microsoft.com/en-us/security/blog/feed/',
+        # MAM/PAM
+        'https://chesa.com/feed',
+        'https://cloudinary.com/blog/feed',
+        # Storage
+        'https://www.studionetworksolutions.com/feed',
+        'https://openrss.org/https://scalelogicinc.com/blog/protecting-valuable-media-assets/',
+        'https://openrss.org/https://qsan.io/solutions/media-production/',
+        'https://openrss.org/https://www.keycodemedia.com/capabilities/media-shared-storage-cloud-storage/',
+        # Production Ops
+        'https://www.processexcellencenetwork.com/rss-feeds'
     ],
     'graphics': [
         'https://www.thebroadcastbridge.com/rss/graphics',
@@ -78,7 +111,16 @@ FEED_GROUPS = {
     ],
     'streaming': [
         'https://www.thebroadcastbridge.com/rss/streaming',
-        'https://www.tvtechnology.com/streaming/rss.xml'
+        'https://www.tvtechnology.com/streaming/rss.xml',
+        # Direct fetch streaming feeds
+        'https://www.streamingmediablog.com/feed',
+        'https://www.dacast.com/feed',
+        'https://onthefly.stream/blog/feed',
+        'https://yololiv.com/blog/feed',
+        'https://techcrunch.com/feed',
+        'https://www.engadget.com/rss.xml',
+        'https://www.wired.com/feed/rss',
+        'https://www.broadcastnow.co.uk/full-rss/'
     ],
     'audio-ai': [
         'https://www.thebroadcastbridge.com/rss/audio',
@@ -91,14 +133,14 @@ FEED_GROUPS = {
 # ===== HELPER FUNCTIONS =====
 
 def should_use_direct_fetch(feed_url):
-    """Check if feed should bypass worker"""
-    return any(domain in feed_url for domain in DIRECT_FETCH_DOMAINS)
+    """Check if feed should bypass Cloudflare Worker"""
+    return feed_url in DIRECT_FEEDS
 
 def fetch_feed_via_worker(feed_url):
     """Fetch feed through Cloudflare Worker"""
     try:
         encoded_url = quote(feed_url, safe='')
-        worker_url = f"{CLOUDFLARE_WORKER}?url={encoded_url}"
+        worker_url = f"{CLOUDFLARE_WORKER}/?url={encoded_url}"
         
         response = requests.get(
             worker_url,
@@ -110,100 +152,85 @@ def fetch_feed_via_worker(feed_url):
             return feedparser.parse(response.content)
         return None
     except Exception as e:
-        print(f"  ⚠ Worker fetch failed: {e}")
+        print(f"  ⚠ Worker error for {feed_url[:50]}: {e}")
         return None
 
 def fetch_feed_direct(feed_url):
-    """Fetch feed directly"""
+    """Fetch feed directly without worker"""
     try:
         response = requests.get(
             feed_url,
             timeout=FEED_FETCH_TIMEOUT,
-            headers={
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-                'Accept': 'application/rss+xml, application/xml, text/xml, */*'
-            }
+            headers={'User-Agent': 'Mozilla/5.0 (compatible; TheStreamic/1.0)'}
         )
         
         if response.status_code == 200:
             return feedparser.parse(response.content)
         return None
     except Exception as e:
-        print(f"  ⚠ Direct fetch failed: {e}")
+        print(f"  ⚠ Direct fetch error for {feed_url[:50]}: {e}")
         return None
 
-def fetch_feed(feed_url, category):
-    """Fetch feed with Worker + Direct fallback logic"""
-    print(f"  Fetching {feed_url[:60]}...")
-    
+def fetch_feed_with_fallback(feed_url):
+    """Fetch feed with worker or direct based on configuration"""
     if should_use_direct_fetch(feed_url):
-        print(f"    → Direct fetch (bypassing worker)")
+        print(f"  → Direct fetch: {feed_url[:60]}")
         feed = fetch_feed_direct(feed_url)
+        if feed:
+            return feed
+        print(f"  ⚠ Direct fetch failed")
+        return None
     else:
-        print(f"    → Via worker")
         feed = fetch_feed_via_worker(feed_url)
-        
-        if not feed or not feed.entries:
-            print(f"    → Worker failed, trying direct")
-            feed = fetch_feed_direct(feed_url)
-    
-    if not feed or not feed.entries:
-        print(f"    ✗ Failed")
-        return []
-    
-    print(f"    ✓ Got {len(feed.entries)} entries")
-    return feed.entries[:MAX_ITEMS_PER_FEED]
-
-def parse_pubdate(entry):
-    """Parse publication date from entry"""
-    if hasattr(entry, 'published_parsed') and entry.published_parsed:
-        try:
-            dt = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
-            return dt.isoformat()
-        except:
-            pass
-    
-    if hasattr(entry, 'updated_parsed') and entry.updated_parsed:
-        try:
-            dt = datetime(*entry.updated_parsed[:6], tzinfo=timezone.utc)
-            return dt.isoformat()
-        except:
-            pass
-    
-    # Fallback to now
-    return datetime.now(timezone.utc).isoformat()
+        if feed:
+            return feed
+        print(f"  → Fallback to direct fetch")
+        return fetch_feed_direct(feed_url)
 
 def extract_image_from_entry(entry):
-    """Extract image URL from feed entry"""
+    """Extract image URL with multiple fallback strategies"""
     # 1. media:content
-    if hasattr(entry, 'media_content') and entry.media_content:
+    if hasattr(entry, 'media_content'):
         for media in entry.media_content:
-            if 'url' in media and media.get('medium') in [None, 'image']:
+            if media.get('url'):
                 return media['url']
     
     # 2. media:thumbnail
-    if hasattr(entry, 'media_thumbnail') and entry.media_thumbnail:
-        return entry.media_thumbnail[0].get('url')
+    if hasattr(entry, 'media_thumbnail'):
+        for thumb in entry.media_thumbnail:
+            if thumb.get('url'):
+                return thumb['url']
     
     # 3. enclosure
-    if hasattr(entry, 'enclosures') and entry.enclosures:
+    if hasattr(entry, 'enclosures'):
         for enc in entry.enclosures:
             if enc.get('type', '').startswith('image/'):
-                return enc.get('href')
+                return enc.get('href') or enc.get('url')
     
-    # 4. <img> in description
-    if hasattr(entry, 'summary'):
-        img_match = re.search(r'<img[^>]+src=["\'](https?://[^"\']+)["\']', entry.summary)
+    # 4. Extract from description/summary HTML
+    description = entry.get('description', '') or entry.get('summary', '')
+    if description:
+        img_match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', description, re.IGNORECASE)
         if img_match:
             img_url = img_match.group(1)
-            # Skip obvious tracking pixels
             if not any(x in img_url.lower() for x in ['1x1', 'pixel', 'tracker', 'spacer']):
                 return img_url
+    
+    # 5. Try lower quality image parameters if available
+    if hasattr(entry, 'media_content'):
+        for media in entry.media_content:
+            url = media.get('url', '')
+            if url and ('w=' in url or 'width=' in url):
+                # Try reducing quality parameters
+                low_quality_url = re.sub(r'(w|width)=\d+', r'\1=400', url)
+                low_quality_url = re.sub(r'(h|height)=\d+', r'\1=300', low_quality_url)
+                low_quality_url = re.sub(r'(q|quality)=\d+', r'\1=60', low_quality_url)
+                return low_quality_url
     
     return None
 
 def extract_og_image(article_url, timeout=ARTICLE_FETCH_TIMEOUT):
-    """Extract OG/Twitter image from article HTML using regex"""
+    """Extract OG/Twitter image from article HTML"""
     try:
         response = requests.get(
             article_url,
@@ -214,17 +241,26 @@ def extract_og_image(article_url, timeout=ARTICLE_FETCH_TIMEOUT):
         if response.status_code != 200:
             return None
         
-        html = response.text[:50000]  # First 50KB only
+        html = response.text[:50000]
         
         # Try og:image
-        og_match = re.search(r'<meta\s+property=["\'"]og:image["\'"][^>]+content=["\'"]([^"\']+)["\']', html, re.IGNORECASE)
+        og_match = re.search(r'<meta\s+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', html, re.IGNORECASE)
         if og_match:
-            return og_match.group(1)
+            img_url = og_match.group(1)
+            # Try lower quality version
+            if 'w=' in img_url or 'width=' in img_url:
+                img_url = re.sub(r'(w|width)=\d+', r'\1=400', img_url)
+                img_url = re.sub(r'(h|height)=\d+', r'\1=300', img_url)
+            return img_url
         
         # Try twitter:image
-        tw_match = re.search(r'<meta\s+name=["\'"]twitter:image["\'"][^>]+content=["\'"]([^"\']+)["\']', html, re.IGNORECASE)
+        tw_match = re.search(r'<meta\s+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']', html, re.IGNORECASE)
         if tw_match:
-            return tw_match.group(1)
+            img_url = tw_match.group(1)
+            if 'w=' in img_url or 'width=' in img_url:
+                img_url = re.sub(r'(w|width)=\d+', r'\1=400', img_url)
+                img_url = re.sub(r'(h|height)=\d+', r'\1=300', img_url)
+            return img_url
         
         return None
     except:
@@ -233,10 +269,10 @@ def extract_og_image(article_url, timeout=ARTICLE_FETCH_TIMEOUT):
 def process_entries(entries, category, source_name):
     """Process feed entries into standardized items"""
     items = []
+    article_fetch_count = 0
     
     for entry in entries:
         try:
-            # Required fields
             title = entry.get('title', '').strip()
             link = entry.get('link', '').strip()
             guid = entry.get('id', link)
@@ -247,8 +283,27 @@ def process_entries(entries, category, source_name):
             # Extract image
             image = extract_image_from_entry(entry)
             
+            # If no image, try OG image (limited attempts)
+            if not image and article_fetch_count < MAX_ARTICLE_FETCHES:
+                image = extract_og_image(link)
+                article_fetch_count += 1
+            
             # Parse pubDate
-            pub_date = parse_pubdate(entry)
+            pub_date = None
+            if hasattr(entry, 'published_parsed') and entry.published_parsed:
+                try:
+                    pub_date = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc).isoformat()
+                except:
+                    pass
+            
+            if not pub_date and hasattr(entry, 'updated_parsed') and entry.updated_parsed:
+                try:
+                    pub_date = datetime(*entry.updated_parsed[:6], tzinfo=timezone.utc).isoformat()
+                except:
+                    pass
+            
+            if not pub_date:
+                pub_date = datetime.now(timezone.utc).isoformat()
             
             items.append({
                 'title': title,
@@ -262,37 +317,19 @@ def process_entries(entries, category, source_name):
             })
             
         except Exception as e:
-            print(f"    ⚠ Error processing entry: {e}")
+            print(f"  ⚠ Error processing entry: {e}")
             continue
     
     return items
 
-def fetch_missing_images(items, max_fetches=MAX_ARTICLE_FETCHES):
-    """Fetch OG images for items without images (limited)"""
-    fetched_count = 0
-    
-    for item in items:
-        if fetched_count >= max_fetches:
-            break
-        
-        if not item.get('image'):
-            print(f"    Fetching OG image for: {item['title'][:50]}...")
-            og_image = extract_og_image(item['link'])
-            if og_image:
-                item['image'] = og_image
-                print(f"      ✓ Found OG image")
-                fetched_count += 1
-    
-    print(f"  ✓ Fetched {fetched_count} OG images")
-
 def get_source_name(feed_url):
-    """Extract source name from feed URL"""
+    """Extract human-readable source name from feed URL"""
     if 'newscaststudio' in feed_url:
-        return 'Newscast Studio'
+        return 'NewscastStudio'
     elif 'tvtechnology' in feed_url:
         return 'TV Technology'
     elif 'broadcastbeat' in feed_url:
-        return 'Broadcast Beat'
+        return 'BroadcastBeat'
     elif 'svgeurope' in feed_url:
         return 'SVG Europe'
     elif 'inbroadcast' in feed_url:
@@ -305,7 +342,7 @@ def get_source_name(feed_url):
         return 'Evertz'
     elif 'imaginecommunications' in feed_url:
         return 'Imagine Communications'
-    elif 'thebroadcastbridge' in feed_url or 'broadcastbridge' in feed_url:
+    elif 'broadcastbridge' in feed_url or 'thebroadcastbridge' in feed_url:
         return 'The Broadcast Bridge'
     elif 'vizrt' in feed_url:
         return 'Vizrt'
@@ -329,6 +366,36 @@ def get_source_name(feed_url):
         return 'Google Cloud'
     elif 'microsoft.com' in feed_url:
         return 'Microsoft Security'
+    elif 'streamingmediablog' in feed_url:
+        return 'Streaming Media Blog'
+    elif 'dacast' in feed_url:
+        return 'Dacast'
+    elif 'onthefly.stream' in feed_url:
+        return 'OnTheFly'
+    elif 'yololiv' in feed_url:
+        return 'YoloLiv'
+    elif 'techcrunch' in feed_url:
+        return 'TechCrunch'
+    elif 'engadget' in feed_url:
+        return 'Engadget'
+    elif 'wired.com' in feed_url:
+        return 'WIRED'
+    elif 'broadcastnow' in feed_url:
+        return 'Broadcast Now'
+    elif 'chesa.com' in feed_url:
+        return 'Chesa'
+    elif 'cloudinary' in feed_url:
+        return 'Cloudinary'
+    elif 'studionetworksolutions' in feed_url:
+        return 'Studio Network Solutions'
+    elif 'scalelogicinc' in feed_url:
+        return 'ScaleLogic'
+    elif 'qsan.io' in feed_url:
+        return 'QSAN'
+    elif 'keycodemedia' in feed_url:
+        return 'Keycode Media'
+    elif 'processexcellencenetwork' in feed_url:
+        return 'Process Excellence Network'
     else:
         return 'Technology News'
 
@@ -345,7 +412,6 @@ def validate_news_data(items):
         status = "✓" if count >= MIN_REQUIRED_EACH else "⚠"
         print(f"  {status} {cat}: {count} items")
     
-    # Check if any category is below minimum
     failed_categories = [cat for cat, count in category_counts.items() if count < MIN_REQUIRED_EACH]
     
     if failed_categories:
@@ -370,34 +436,28 @@ def deduplicate_by_guid(items):
 
 def balance_categories(all_items):
     """Balance items across categories"""
-    # First, deduplicate by GUID
     all_items = deduplicate_by_guid(all_items)
     
     category_items = {}
     
-    # Group by category
     for item in all_items:
         cat = item['category']
         if cat not in category_items:
             category_items[cat] = []
         category_items[cat].append(item)
     
-    # Sort each category by pubDate (newest first)
     for cat in category_items:
         category_items[cat].sort(
             key=lambda x: x.get('pubDate', ''),
             reverse=True
         )
     
-    # Take top items from each category
     balanced = []
     for cat, items in category_items.items():
         balanced.extend(items[:MIN_PER_CATEGORY])
     
-    # Sort all by pubDate
     balanced.sort(key=lambda x: x.get('pubDate', ''), reverse=True)
     
-    # Limit total
     return balanced[:MAX_NEWS_ITEMS]
 
 def save_json_atomically(data, filepath):
@@ -409,76 +469,66 @@ def save_json_atomically(data, filepath):
     
     temp_file.replace(filepath)
 
-# ===== MAIN EXECUTION =====
-
 def main():
-    print("=" * 70)
-    print("THE STREAMIC - RSS Feed Aggregator")
-    print("=" * 70)
+    """Main aggregation function"""
+    print("🚀 Starting The Streamic RSS Aggregator\n")
     
-    # Ensure data directory exists
     DATA_DIR.mkdir(exist_ok=True)
     
     all_items = []
     
-    # Fetch all feeds
-    for category, feeds in FEED_GROUPS.items():
-        print(f"\n📡 Category: {category.upper()}")
-        category_items = []
+    for category, feed_urls in FEED_GROUPS.items():
+        print(f"\n📰 Processing {category.upper()} ({len(feed_urls)} feeds)")
         
-        for feed_url in feeds:
-            source_name = get_source_name(feed_url)
-            entries = fetch_feed(feed_url, category)
-            
-            if entries:
+        for feed_url in feed_urls:
+            try:
+                feed = fetch_feed_with_fallback(feed_url)
+                
+                if not feed or not feed.entries:
+                    print(f"  ⚠ No entries from {feed_url[:60]}")
+                    continue
+                
+                entries = feed.entries[:MAX_ITEMS_PER_FEED]
+                source_name = get_source_name(feed_url)
+                
                 items = process_entries(entries, category, source_name)
-                category_items.extend(items)
-                print(f"    → Processed {len(items)} items from {source_name}")
-        
-        print(f"  ✓ Total for {category}: {len(category_items)} items")
-        all_items.extend(category_items)
+                all_items.extend(items)
+                
+                print(f"  ✓ {source_name}: {len(items)} items")
+                
+            except Exception as e:
+                print(f"  ✗ Error with {feed_url[:60]}: {e}")
+                continue
     
     print(f"\n📦 Total items collected: {len(all_items)}")
     
-    # Fetch missing images (limited to MAX_ARTICLE_FETCHES)
-    print(f"\n🖼 Fetching missing images (max {MAX_ARTICLE_FETCHES})...")
-    fetch_missing_images(all_items)
+    if not all_items:
+        print("❌ No items collected. Exiting.")
+        return
     
-    # Balance categories
-    print("\n⚖ Balancing categories...")
     balanced_items = balance_categories(all_items)
-    print(f"  ✓ Balanced to {len(balanced_items)} items")
     
-    # Validate
-    print("\n✅ Validating...")
-    is_valid = validate_news_data(balanced_items)
+    print(f"⚖️  Balanced to: {len(balanced_items)} items")
     
-    # Backup existing file
+    validation_passed = validate_news_data(balanced_items)
+    
     if OUTPUT_FILE.exists():
-        print(f"\n💾 Backing up to {ARCHIVE_FILE}...")
-        with open(OUTPUT_FILE, 'r') as f:
-            old_data = json.load(f)
-        save_json_atomically(old_data, ARCHIVE_FILE)
-    
-    # Save strategy
-    if is_valid or not OUTPUT_FILE.exists():
-        # Save new data
-        print(f"\n💾 Saving to {OUTPUT_FILE}...")
-        save_json_atomically(balanced_items, OUTPUT_FILE)
-        print(f"  ✓ Saved {len(balanced_items)} items")
-    else:
-        # Keep existing file if validation failed
-        print("\n⚠ Validation failed - keeping existing file")
-        if OUTPUT_FILE.exists():
-            print("  ✓ Existing file preserved")
+        if validation_passed:
+            if ARCHIVE_FILE.exists():
+                ARCHIVE_FILE.unlink()
+            OUTPUT_FILE.rename(ARCHIVE_FILE)
+            print(f"\n💾 Backed up existing data to {ARCHIVE_FILE}")
         else:
-            # No existing file, save anyway
-            print("  ⚠ No existing file - saving anyway with warnings")
-            save_json_atomically(balanced_items, OUTPUT_FILE)
+            print(f"\n⚠️  Validation failed. Keeping existing {OUTPUT_FILE}")
+            return
+    else:
+        if not validation_passed:
+            print("\n⚠️  Validation failed but no existing file. Saving anyway.")
     
-    print("\n" + "=" * 70)
-    print("✅ AGGREGATION COMPLETE")
-    print("=" * 70)
+    save_json_atomically(balanced_items, OUTPUT_FILE)
+    
+    print(f"✅ Saved {len(balanced_items)} items to {OUTPUT_FILE}")
+    print("\n🎉 Aggregation complete!")
 
 if __name__ == "__main__":
     main()
