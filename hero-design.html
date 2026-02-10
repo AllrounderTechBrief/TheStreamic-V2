@@ -1,0 +1,220 @@
+<!-- 
+  HERO SECTION - Clean Modern Design
+  Copy this section into featured.html to replace the existing hero
+  The CSS should be added to style.css
+-->
+
+<!-- ========================================== -->
+<!-- STEP 1: ADD THIS TO style.css -->
+<!-- ========================================== -->
+
+<style>
+/* Import Modern Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600&display=swap');
+
+/* Hero Section - Clean Modern Design */
+.hero-broadcast {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Background Image */
+.hero-broadcast-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.92;
+}
+
+/* Subtle Dark Overlay (20% opacity) */
+.hero-broadcast-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg, 
+    rgba(0, 0, 0, 0.15) 0%, 
+    rgba(0, 0, 0, 0.25) 100%
+  );
+}
+
+/* Content Container */
+.hero-broadcast-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 900px;
+  padding: 60px 30px;
+}
+
+/* Main Headline */
+.hero-broadcast-title {
+  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 56px;
+  font-weight: 600; /* SemiBold */
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  color: #CCF3FF; /* Soft aqua */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* Subheadline */
+.hero-broadcast-subtitle {
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 300; /* Light */
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 16px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Tagline */
+.hero-broadcast-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.015em;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-broadcast {
+    min-height: 400px;
+  }
+  
+  .hero-broadcast-content {
+    padding: 40px 20px;
+  }
+  
+  .hero-broadcast-title {
+    font-size: 36px;
+  }
+  
+  .hero-broadcast-subtitle {
+    font-size: 18px;
+  }
+  
+  .hero-broadcast-tagline {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-broadcast-title {
+    font-size: 30px;
+  }
+  
+  .hero-broadcast-subtitle {
+    font-size: 16px;
+  }
+  
+  .hero-broadcast-tagline {
+    font-size: 15px;
+  }
+}
+</style>
+
+<!-- ========================================== -->
+<!-- STEP 2: REPLACE HERO SECTION IN featured.html -->
+<!-- Find <section class="hero-2039"> and replace entire section with: -->
+<!-- ========================================== -->
+
+<section class="hero-broadcast">
+  <!-- Background Image -->
+  <img 
+    src="assets/hero-broadcast-studio.png" 
+    alt="The Streamic Broadcast Technology Studio" 
+    class="hero-broadcast-image"
+  >
+  
+  <!-- Subtle Overlay -->
+  <div class="hero-broadcast-overlay"></div>
+  
+  <!-- Content -->
+  <div class="hero-broadcast-content">
+    <!-- Main Headline (2-3 lines max) -->
+    <h1 class="hero-broadcast-title">
+      Engineering the Future of Broadcast Technology
+    </h1>
+    
+    <!-- Subheadline -->
+    <p class="hero-broadcast-subtitle">
+      Real-time insights from newsroom systems to AI-driven production
+    </p>
+    
+    <!-- Tagline -->
+    <p class="hero-broadcast-tagline">
+      Your independent source for broadcast engineering news, cloud workflows, and media infrastructure innovation
+    </p>
+  </div>
+</section>
+
+<!-- ========================================== -->
+<!-- NOTES FOR IMPLEMENTATION -->
+<!-- ========================================== -->
+
+<!--
+✅ WHAT THIS DESIGN ACHIEVES:
+
+1. Clean Typography
+   - Inter for headlines (high readability)
+   - Montserrat Light for subtitles (elegant)
+   - Increased letter-spacing for better reading
+
+2. No Neon Glow
+   - Subtle text-shadow only (rgba(0,0,0,0.35))
+   - Professional and readable
+
+3. Soft Aqua Color
+   - #CCF3FF for main headline
+   - White (with opacity) for body text
+
+4. Subtle Overlay
+   - 15-25% dark gradient
+   - Ensures text contrast on bright studio image
+
+5. Responsive
+   - Scales beautifully on mobile
+   - Font sizes adjust automatically
+
+6. 2-3 Line Layout
+   - Main headline: 1 line
+   - Subtitle: 1 line
+   - Tagline: 1-2 lines
+   - Clean, modern, not cluttered
+
+📝 ASSET NAMING:
+   Save your new hero image as:
+   assets/hero-broadcast-studio.png
+   
+   Or update the src attribute to match your filename.
+
+🎨 CUSTOMIZATION OPTIONS:
+   If you want to adjust colors:
+   - Change #CCF3FF to pure white (#FFFFFF) for headline
+   - Adjust overlay opacity in rgba values
+   - Modify font weights (400, 500, 600)
+   
+✅ PRODUCTION READY - No placeholders, complete implementation
+-->
