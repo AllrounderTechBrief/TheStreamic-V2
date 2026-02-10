@@ -14,8 +14,7 @@ import requests
 from pathlib import Path
 
 # ===== CONFIGURATION =====
-# UPDATED: Added https:// prefix which is required for Python requests
-CLOUDFLARE_WORKER = "https://broken-king-b4dc.itabmum.workers.dev"
+CLOUDFLARE_WORKER = "https://rss-proxy.prerak-mehta.workers.dev"
 DATA_DIR = Path("data")
 OUTPUT_FILE = DATA_DIR / "news.json"
 ARCHIVE_FILE = DATA_DIR / "archive.json"
@@ -53,8 +52,6 @@ FEED_GROUPS = {
     'infrastructure': [
         'https://www.thebroadcastbridge.com/rss/infrastructure',
         'https://www.tvtechnology.com/infrastructure/rss.xml',
-        'https://www.smpte.org/blog/rss.xml',
-        'https://theiabm.org/feed/',
         'https://www.broadcastbridge.com/rss/security',
         'https://www.tvtechnology.com/security/rss.xml',
         'https://aws.amazon.com/security/blog/feed/',
@@ -81,13 +78,11 @@ FEED_GROUPS = {
     ],
     'streaming': [
         'https://www.thebroadcastbridge.com/rss/streaming',
-        'https://www.tvtechnology.com/streaming/rss.xml',
-        'https://www.haivision.com/blog/feed/'
+        'https://www.tvtechnology.com/streaming/rss.xml'
     ],
     'audio-ai': [
         'https://www.thebroadcastbridge.com/rss/audio',
         'https://www.tvtechnology.com/audio/rss.xml',
-        'https://blogs.telosalliance.com/rss.xml',
         'https://www.thebroadcastbridge.com/rss/ai',
         'https://www.tvtechnology.com/ai/rss.xml'
     ]
@@ -292,15 +287,7 @@ def fetch_missing_images(items, max_fetches=MAX_ARTICLE_FETCHES):
 
 def get_source_name(feed_url):
     """Extract source name from feed URL"""
-    if 'smpte.org' in feed_url:
-        return 'SMPTE'
-    elif 'theiabm.org' in feed_url:
-        return 'IABM'
-    elif 'telosalliance.com' in feed_url:
-        return 'Telos Alliance'
-    elif 'haivision.com' in feed_url:
-        return 'Haivision'
-    elif 'newscaststudio' in feed_url:
+    if 'newscaststudio' in feed_url:
         return 'Newscast Studio'
     elif 'tvtechnology' in feed_url:
         return 'TV Technology'
@@ -367,8 +354,25 @@ def validate_news_data(items):
     
     return True
 
+def deduplicate_by_guid(items):
+    """Remove duplicate articles by GUID"""
+    seen_guids = set()
+    unique_items = []
+    
+    for item in items:
+        guid = item.get('guid', '')
+        if guid and guid not in seen_guids:
+            seen_guids.add(guid)
+            unique_items.append(item)
+    
+    print(f"\n🔄 Deduplication: {len(items)} → {len(unique_items)} items (removed {len(items) - len(unique_items)} duplicates)")
+    return unique_items
+
 def balance_categories(all_items):
     """Balance items across categories"""
+    # First, deduplicate by GUID
+    all_items = deduplicate_by_guid(all_items)
+    
     category_items = {}
     
     # Group by category
@@ -451,15 +455,10 @@ def main():
     
     # Backup existing file
     if OUTPUT_FILE.exists():
-        try:
-            print(f"\n💾 Backing up to {ARCHIVE_FILE}...")
-            with open(OUTPUT_FILE, 'r', encoding='utf-8') as f:
-                old_data = json.load(f)
-            # Only backup if data is not empty
-            if old_data:
-                save_json_atomically(old_data, ARCHIVE_FILE)
-        except (json.JSONDecodeError, ValueError) as e:
-            print(f"  ⚠ Existing news.json corrupted, skipping backup: {e}")
+        print(f"\n💾 Backing up to {ARCHIVE_FILE}...")
+        with open(OUTPUT_FILE, 'r') as f:
+            old_data = json.load(f)
+        save_json_atomically(old_data, ARCHIVE_FILE)
     
     # Save strategy
     if is_valid or not OUTPUT_FILE.exists():
