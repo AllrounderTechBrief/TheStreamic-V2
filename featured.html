@@ -39,7 +39,7 @@
   <nav class="site-nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">THE STREAMIC</a>
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
       <ul class="nav-links">
         <li><a href="featured.html" class="active">FEATURED</a></li>
         <li><a href="infrastructure.html">INFRASTRUCTURE</a></li>
@@ -59,7 +59,7 @@
 
   <!-- NEW HERO SECTION - Clean Modern Design -->
   <section class="hero-broadcast">
-    <!-- Background Image - IMPORTANT: Name your new image this exact filename -->
+    <!-- Background Image -->
     <img 
       src="assets/IMG_1736.png" 
       alt="The Streamic Broadcast Technology Studio" 
@@ -124,11 +124,11 @@
           <h4>Stay Connected</h4>
           <a href="https://twitter.com/thestreamic" target="_blank" rel="noopener">Twitter</a>
           <a href="https://linkedin.com/company/thestreamic" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="/cdn-cgi/l/email-protection#660f08000926120e0315121403070b0f05480f08">Email Us</a>
+          <a href="mailto:info@thestreamic.in">Email Us</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-note">© 2026 The Streamic. All rights reserved.</p>
+        <p class="footer-note">&copy; 2026 The Streamic. All rights reserved.</p>
         <p class="footer-tech">Powered by RSS aggregation & smart content curation</p>
       </div>
     </div>
@@ -152,7 +152,7 @@
         <button type="submit" class="subscribe-modal-btn">Subscribe</button>
       </form>
       <div id="subscribeSuccess" class="subscribe-success" style="display: none;">
-        <p>✓ Welcome to the Future of Broadcast. You are subscribed!</p>
+        <p>&#10003; Welcome to the Future of Broadcast. You are subscribed!</p>
       </div>
     </div>
   </div>
@@ -170,7 +170,7 @@
     </div>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // Cookie Consent Functions
     function acceptCookies() {
       gtag('consent', 'update', {
@@ -246,4 +246,12 @@
 
     // Close modal on ESC key
     document.addEventListener('keydown', function(e) {
-   
+      if (e.key === 'Escape') {
+        closeSubscribeModal();
+      }
+    });
+  </script>
+
+  <script src="main.js?v=20260210"></script>
+</body>
+</html>
