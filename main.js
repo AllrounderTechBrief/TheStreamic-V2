@@ -1,4 +1,4 @@
-/* THE STREAMIC — Stable main.js (uses local data/news.json, no Worker on FE) */
+/* THE STREAMIC – Main JavaScript (pubDate sorting + lazy loading) */
 (() => {
   // -------------------------------------------
   // CONFIG
@@ -10,12 +10,12 @@
     'featured': 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80&fm=webp',
     'newsroom': 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80&fm=webp',
     'playout': 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80&fm=webp',
-    'infrastructure': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80&fm=webp',
+    'infrastructure': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80&fm=webp', // SMPTE & IABM
     'graphics': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80&fm=webp',
     'cloud': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80&fm=webp',
     'cloud-production': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80&fm=webp',
-    'streaming': 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80&fm=webp',
-    'audio-ai': 'https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=800&q=80&fm=webp',
+    'streaming': 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80&fm=webp', // Haivision
+    'audio-ai': 'https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=800&q=80&fm=webp',  // Telos Alliance
   };
 
   // -------------------------------------------
@@ -39,9 +39,10 @@
     if (!url || typeof url !== 'string') return false;
     const u = url.trim().toLowerCase();
     if (!u.startsWith('http')) return false; // must be http/https
-    const reject = ['data:image', '1x1', 'spacer', 'blank', 'pixel', 'avatar', 'gravatar'];
+    // Reject obvious tracking pixels
+    const reject = ['1x1', 'spacer', 'blank', 'pixel', 'avatar', 'gravatar', 'tracker'];
     if (reject.some(p => u.includes(p))) return false;
-    return true; // allow CDN URLs without extension, browser onerror will handle failures
+    return true; // Allow URLs without extensions - CDN URLs are OK
   }
 
   function setupImageObserver() {
@@ -181,9 +182,20 @@
   }
 
   function smartSort(items) {
+    // First, sort by pubDate (newest first)
+    items.sort((a, b) => {
+      const dateA = a.pubDate ? new Date(a.pubDate) : new Date(a.timestamp * 1000);
+      const dateB = b.pubDate ? new Date(b.pubDate) : new Date(b.timestamp * 1000);
+      return dateB - dateA; // Newest first
+    });
+
+    // Then prioritize items with images
     const withImages = items.filter(it => isValidImageUrl(it.image));
     const withoutImages = items.filter(it => !isValidImageUrl(it.image));
+    
+    // Apply source diversity cap
     const diversified = capPerSource(withImages, 6);
+    
     return [...diversified, ...withoutImages];
   }
 
@@ -201,18 +213,31 @@
   function filterByCategory(items, category) {
     const cat = (category || '').trim().toLowerCase();
     if (!cat || cat === 'featured') return items; // homepage shows all
+    
+    // Handle audio-ai category and aliases
     if (cat === 'audio-ai') {
       return items.filter(it => {
         const c = (it.category || '').toLowerCase();
         return c === 'audio-ai' || c === 'audio' || c === 'ai';
       });
     }
+    
+    // Handle cloud-production and cloud alias
     if (cat === 'cloud-production' || cat === 'cloud') {
       return items.filter(it => {
         const c = (it.category || '').toLowerCase();
         return c === 'cloud' || c === 'cloud-production';
       });
     }
+    
+    // Handle infrastructure (includes security feeds)
+    if (cat === 'infrastructure') {
+      return items.filter(it => {
+        const c = (it.category || '').toLowerCase();
+        return c === 'infrastructure' || c === 'security';
+      });
+    }
+    
     return items.filter(it => (it.category || '').toLowerCase() === cat);
   }
 
@@ -296,7 +321,7 @@
       .then(items => {
         const filtered = filterByCategory(items, category);
         if (filtered.length === 0) {
-          largeGrid.innerHTML = '<p class="empty-state">No articles yet. Run fetch.py to populate.</p>';
+          largeGrid.innerHTML = '<p class="empty-state">No articles yet. Check back soon!</p>';
           return;
         }
         allItems = smartSort(filtered);
@@ -322,6 +347,7 @@
       e.stopPropagation();
       links.classList.toggle('active');
     });
+    
     document.addEventListener('click', (e) => {
       if (links.classList.contains('active') &&
           !toggle.contains(e.target) &&
@@ -329,6 +355,7 @@
         links.classList.remove('active');
       }
     });
+    
     links.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => links.classList.remove('active'));
     });
@@ -338,7 +365,7 @@
   // INIT
   // -------------------------------------------
   function init() {
-    console.log('The Streamic — stable main.js loaded');
+    console.log('The Streamic – main.js loaded');
     imageObserver = setupImageObserver();
     initMobileNav();
 
