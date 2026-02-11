@@ -5,4 +5,4 @@ Allow: /
 Disallow: /assets/temp/
 Disallow: /*.json$
 
-Sitemap: https://www.yoursite.com/sitemap.xml
+Sitemap: https://www.thestreamic.in/sitemap.xml
