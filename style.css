@@ -394,6 +394,39 @@ body {
   border-bottom: 1px solid var(--border-color);
 }
 
+/* Category Hero (same as page-hero but for category pages) */
+.category-hero {
+  background: linear-gradient(135deg, var(--light-bg) 0%, #fff 100%);
+  padding: 90px 22px 70px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.category-hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.category-hero h1 {
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  margin-bottom: 18px;
+  color: var(--deep-black);
+  line-height: 1.05;
+  text-align: center;
+}
+
+.category-hero p {
+  font-size: 24px;
+  color: var(--slate-gray);
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
 .hero-inner h1 {
   font-size: 72px;
   font-weight: 700;
@@ -421,6 +454,18 @@ body {
 @media (max-width: 768px) {
   .page-hero {
     padding: 60px 22px 50px;
+  }
+  
+  .category-hero {
+    padding: 60px 22px 50px;
+  }
+  
+  .category-hero h1 {
+    font-size: 44px;
+  }
+  
+  .category-hero p {
+    font-size: 20px;
   }
   
   .hero-inner h1 {
@@ -1045,6 +1090,7 @@ main {
     font-size: 14px;
     margin: 40px auto 60px;
   }
+}
 
 /* ===================================================================
    VIEW MORE BUTTON (Used by main.js)
