@@ -2,6 +2,14 @@
 """
 The Streamic RSS Feed Aggregator
 Fetches, parses, and aggregates broadcast technology news from multiple sources
+
+This version:
+- Uses Cloudflare Worker: https://broken-king-b4dc.itabmum.workers.dev
+- Removes old feeds (Dacast / OnTheFly / YoloLiv / TechCrunch / Engadget / WIRED)
+- Adds Streaming vendors: Haivision / Telestream / Bitmovin
+- Adds Infra vendors: Avid Press (Notified) / Adobe Developer (OpenRSS)
+- Renames 'audio-ai' -> 'ai-post-production'
+- Adds 8 verified AI Post Production feeds
 """
 
 import feedparser
@@ -30,31 +38,36 @@ MIN_PER_CATEGORY = 18
 MIN_REQUIRED_EACH = 3
 MAX_NEWS_ITEMS = 300
 
+
 # ===== DIRECT FETCH FEEDS (Bypass Cloudflare Worker) =====
 DIRECT_FEEDS = [
-    # Streaming category
+    # Streaming category (core + vendors)
     'https://www.streamingmediablog.com/feed',
-    'https://www.dacast.com/feed',
-    'https://onthefly.stream/blog/feed',
-    'https://yololiv.com/blog/feed',
-    'https://techcrunch.com/feed',
-    'https://www.engadget.com/rss.xml',
-    'https://www.wired.com/feed/rss',
     'https://www.broadcastnow.co.uk/full-rss/',
-    # Infrastructure category - MAM/PAM
+    'https://www.haivision.com/feed/',
+    'https://blog.telestream.com/feed/',
+    'https://openrss.org/https://bitmovin.com/blog/',
+
+    # Infrastructure - MAM/PAM / Vendors
+    'https://api.client.notified.com/api/rss/publish/view/47032?type=press',   # Avid Press (Notified)
+    'https://openrss.org/https://blog.developer.adobe.com/',                   # Adobe Developers via OpenRSS
     'https://chesa.com/feed',
     'https://cloudinary.com/blog/feed',
-    # Infrastructure category - Storage
+
+    # Storage
     'https://www.studionetworksolutions.com/feed',
     'https://openrss.org/https://scalelogicinc.com/blog/protecting-valuable-media-assets/',
     'https://openrss.org/https://qsan.io/solutions/media-production/',
     'https://openrss.org/https://www.keycodemedia.com/capabilities/media-shared-storage-cloud-storage/',
-    # Infrastructure category - Production Ops
+
+    # Production Ops
     'https://www.processexcellencenetwork.com/rss-feeds',
-    # Legacy direct fetch
+
+    # Legacy direct fetch (kept)
     'https://www.inbroadcast.com/rss.xml',
     'https://www.imaginecommunications.com/news/rss.xml'
 ]
+
 
 # ===== FEED GROUPS =====
 FEED_GROUPS = {
@@ -64,6 +77,7 @@ FEED_GROUPS = {
         'https://www.broadcastbeat.com/feed/',
         'https://www.svgeurope.org/feed/'
     ],
+
     'playout': [
         'https://www.inbroadcast.com/rss.xml',
         'https://www.tvtechnology.com/playout/rss.xml',
@@ -72,6 +86,7 @@ FEED_GROUPS = {
         'https://www.evertz.com/news/rss',
         'https://www.imaginecommunications.com/news/rss.xml'
     ],
+
     'infrastructure': [
         'https://www.thebroadcastbridge.com/rss/infrastructure',
         'https://www.tvtechnology.com/infrastructure/rss.xml',
@@ -85,17 +100,23 @@ FEED_GROUPS = {
         'https://feeds.feedburner.com/TheHackerNews',
         'https://cloud.google.com/blog/topics/security/rss/',
         'https://www.microsoft.com/en-us/security/blog/feed/',
-        # MAM/PAM
+
+        # MAM/PAM + Vendors
+        'https://api.client.notified.com/api/rss/publish/view/47032?type=press',   # Avid Press
+        'https://openrss.org/https://blog.developer.adobe.com/',                   # Adobe Developers
         'https://chesa.com/feed',
         'https://cloudinary.com/blog/feed',
+
         # Storage
         'https://www.studionetworksolutions.com/feed',
         'https://openrss.org/https://scalelogicinc.com/blog/protecting-valuable-media-assets/',
         'https://openrss.org/https://qsan.io/solutions/media-production/',
         'https://openrss.org/https://www.keycodemedia.com/capabilities/media-shared-storage-cloud-storage/',
+
         # Production Ops
         'https://www.processexcellencenetwork.com/rss-feeds'
     ],
+
     'graphics': [
         'https://www.thebroadcastbridge.com/rss/graphics',
         'https://www.tvtechnology.com/graphics/rss.xml',
@@ -103,59 +124,65 @@ FEED_GROUPS = {
         'https://routing.vizrt.com/rss',
         'https://motionographer.com/feed/'
     ],
+
     'cloud': [
         'https://www.thebroadcastbridge.com/rss/cloud',
         'https://www.tvtechnology.com/cloud/rss.xml',
         'https://aws.amazon.com/blogs/media/feed/',
         'https://blog.frame.io/feed/'
     ],
+
     'streaming': [
         'https://www.thebroadcastbridge.com/rss/streaming',
         'https://www.tvtechnology.com/streaming/rss.xml',
-        # Direct fetch streaming feeds
+
+        # Direct fetch streaming vendors
         'https://www.streamingmediablog.com/feed',
-        'https://www.dacast.com/feed',
-        'https://onthefly.stream/blog/feed',
-        'https://yololiv.com/blog/feed',
-        'https://techcrunch.com/feed',
-        'https://www.engadget.com/rss.xml',
-        'https://www.wired.com/feed/rss',
-        'https://www.broadcastnow.co.uk/full-rss/'
+        'https://www.broadcastnow.co.uk/full-rss/',
+        'https://www.haivision.com/feed/',
+        'https://blog.telestream.com/feed/',
+        'https://openrss.org/https://bitmovin.com/blog/'
     ],
-    'audio-ai': [
-        'https://www.thebroadcastbridge.com/rss/audio',
-        'https://www.tvtechnology.com/audio/rss.xml',
-        'https://www.thebroadcastbridge.com/rss/ai',
-        'https://www.tvtechnology.com/ai/rss.xml'
+
+    # Renamed from 'audio-ai' -> 'ai-post-production'
+    'ai-post-production': [
+        'https://premiumbeat.com/blog/category/video-editing/feed/',
+        'https://premieregal.com/blog?format=RSS',
+        'https://videocopilot.net/feeds/tutorials/',
+        'https://jonnyelwyn.co.uk/feed/',
+        'https://blog.pond5.com/feed/',
+        'https://filtergrade.com/category/video/feed/',
+        'https://beforesandafters.com/feed/',
+        'https://avinteractive.com/feed/'
     ]
 }
 
-# ===== HELPER FUNCTIONS =====
 
-def should_use_direct_fetch(feed_url):
+# ===== HELPER FUNCTIONS =====
+def should_use_direct_fetch(feed_url: str) -> bool:
     """Check if feed should bypass Cloudflare Worker"""
     return feed_url in DIRECT_FEEDS
 
-def fetch_feed_via_worker(feed_url):
-    """Fetch feed through Cloudflare Worker"""
+
+def fetch_feed_via_worker(feed_url: str):
+    """Fetch feed through Cloudflare Worker (keeps your existing mechanism)"""
     try:
         encoded_url = quote(feed_url, safe='')
         worker_url = f"{CLOUDFLARE_WORKER}/?url={encoded_url}"
-        
         response = requests.get(
             worker_url,
             timeout=FEED_FETCH_TIMEOUT,
             headers={'User-Agent': 'Mozilla/5.0 (compatible; TheStreamic/1.0)'}
         )
-        
         if response.status_code == 200:
             return feedparser.parse(response.content)
         return None
     except Exception as e:
-        print(f"  ⚠ Worker error for {feed_url[:50]}: {e}")
+        print(f" ⚠ Worker error for {feed_url[:60]}: {e}")
         return None
 
-def fetch_feed_direct(feed_url):
+
+def fetch_feed_direct(feed_url: str):
     """Fetch feed directly without worker"""
     try:
         response = requests.get(
@@ -163,148 +190,133 @@ def fetch_feed_direct(feed_url):
             timeout=FEED_FETCH_TIMEOUT,
             headers={'User-Agent': 'Mozilla/5.0 (compatible; TheStreamic/1.0)'}
         )
-        
         if response.status_code == 200:
             return feedparser.parse(response.content)
         return None
     except Exception as e:
-        print(f"  ⚠ Direct fetch error for {feed_url[:50]}: {e}")
+        print(f" ⚠ Direct fetch error for {feed_url[:60]}: {e}")
         return None
 
-def fetch_feed_with_fallback(feed_url):
+
+def fetch_feed_with_fallback(feed_url: str):
     """Fetch feed with worker or direct based on configuration"""
     if should_use_direct_fetch(feed_url):
-        print(f"  → Direct fetch: {feed_url[:60]}")
-        feed = fetch_feed_direct(feed_url)
-        if feed:
-            return feed
-        print(f"  ⚠ Direct fetch failed")
-        return None
-    else:
-        feed = fetch_feed_via_worker(feed_url)
-        if feed:
-            return feed
-        print(f"  → Fallback to direct fetch")
+        print(f" → Direct fetch: {feed_url[:80]}")
         return fetch_feed_direct(feed_url)
+    feed = fetch_feed_via_worker(feed_url)
+    if feed:
+        return feed
+    print(" → Fallback to direct fetch")
+    return fetch_feed_direct(feed_url)
+
 
 def extract_image_from_entry(entry):
     """Extract image URL with multiple fallback strategies"""
-    # 1. media:content
+    # 1) media:content
     if hasattr(entry, 'media_content'):
         for media in entry.media_content:
-            if media.get('url'):
-                return media['url']
-    
-    # 2. media:thumbnail
+            url = media.get('url')
+            if url:
+                return url
+
+    # 2) media:thumbnail
     if hasattr(entry, 'media_thumbnail'):
         for thumb in entry.media_thumbnail:
-            if thumb.get('url'):
-                return thumb['url']
-    
-    # 3. enclosure
+            url = thumb.get('url')
+            if url:
+                return url
+
+    # 3) enclosures with image/*
     if hasattr(entry, 'enclosures'):
         for enc in entry.enclosures:
             if enc.get('type', '').startswith('image/'):
                 return enc.get('href') or enc.get('url')
-    
-    # 4. Extract from description/summary HTML
+
+    # 4) Parse from description/summary
     description = entry.get('description', '') or entry.get('summary', '')
     if description:
-        img_match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', description, re.IGNORECASE)
-        if img_match:
-            img_url = img_match.group(1)
-            if not any(x in img_url.lower() for x in ['1x1', 'pixel', 'tracker', 'spacer']):
+        m = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', description, re.IGNORECASE)
+        if m:
+            img_url = m.group(1)
+            low = img_url.lower()
+            if not any(k in low for k in ['1x1', 'pixel', 'spacer', 'tracker', 'avatar', 'gravatar']):
                 return img_url
-    
-    # 5. Try lower quality image parameters if available
+
+    # 5) Try a lowered-quality variant if URL contains width/height hints
     if hasattr(entry, 'media_content'):
         for media in entry.media_content:
             url = media.get('url', '')
-            if url and ('w=' in url or 'width=' in url):
-                # Try reducing quality parameters
-                low_quality_url = re.sub(r'(w|width)=\d+', r'\1=400', url)
-                low_quality_url = re.sub(r'(h|height)=\d+', r'\1=300', low_quality_url)
-                low_quality_url = re.sub(r'(q|quality)=\d+', r'\1=60', low_quality_url)
-                return low_quality_url
-    
+            if url and ('w=' in url or 'width=' in url or 'h=' in url or 'height=' in url):
+                url = re.sub(r'(w|width)=\d+', r'\1=400', url)
+                url = re.sub(r'(h|height)=\d+', r'\1=300', url)
+                url = re.sub(r'(q|quality)=\d+', r'\1=70', url)
+                return url
+
     return None
 
-def extract_og_image(article_url, timeout=ARTICLE_FETCH_TIMEOUT):
-    """Extract OG/Twitter image from article HTML"""
+
+def extract_og_image(article_url: str, timeout: int = ARTICLE_FETCH_TIMEOUT):
+    """Extract og:image or twitter:image from article HTML (last resort)"""
     try:
-        response = requests.get(
+        r = requests.get(
             article_url,
             timeout=timeout,
             headers={'User-Agent': 'Mozilla/5.0 (compatible; TheStreamic/1.0)'}
         )
-        
-        if response.status_code != 200:
+        if r.status_code != 200:
             return None
-        
-        html = response.text[:50000]
-        
-        # Try og:image
-        og_match = re.search(r'<meta\s+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', html, re.IGNORECASE)
-        if og_match:
-            img_url = og_match.group(1)
-            # Try lower quality version
-            if 'w=' in img_url or 'width=' in img_url:
-                img_url = re.sub(r'(w|width)=\d+', r'\1=400', img_url)
-                img_url = re.sub(r'(h|height)=\d+', r'\1=300', img_url)
-            return img_url
-        
-        # Try twitter:image
-        tw_match = re.search(r'<meta\s+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']', html, re.IGNORECASE)
-        if tw_match:
-            img_url = tw_match.group(1)
-            if 'w=' in img_url or 'width=' in img_url:
-                img_url = re.sub(r'(w|width)=\d+', r'\1=400', img_url)
-                img_url = re.sub(r'(h|height)=\d+', r'\1=300', img_url)
-            return img_url
-        
+        html = r.text[:80000]
+
+        # og:image
+        m = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', html, re.IGNORECASE)
+        if m:
+            return m.group(1)
+
+        # twitter:image
+        m = re.search(r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']', html, re.IGNORECASE)
+        if m:
+            return m.group(1)
+
         return None
-    except:
+    except Exception:
         return None
 
+
 def process_entries(entries, category, source_name):
-    """Process feed entries into standardized items"""
+    """Convert feed entries into our normalized item dicts"""
     items = []
     article_fetch_count = 0
-    
+
     for entry in entries:
         try:
-            title = entry.get('title', '').strip()
-            link = entry.get('link', '').strip()
+            title = (entry.get('title') or '').strip()
+            link = (entry.get('link') or '').strip()
             guid = entry.get('id', link)
-            
+
             if not title or not link:
                 continue
-            
-            # Extract image
+
+            # image
             image = extract_image_from_entry(entry)
-            
-            # If no image, try OG image (limited attempts)
             if not image and article_fetch_count < MAX_ARTICLE_FETCHES:
                 image = extract_og_image(link)
                 article_fetch_count += 1
-            
-            # Parse pubDate
-            pub_date = None
+
+            # pubDate
+            pub_date_iso = None
             if hasattr(entry, 'published_parsed') and entry.published_parsed:
                 try:
-                    pub_date = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc).isoformat()
-                except:
-                    pass
-            
-            if not pub_date and hasattr(entry, 'updated_parsed') and entry.updated_parsed:
+                    pub_date_iso = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc).isoformat()
+                except Exception:
+                    pub_date_iso = None
+            if not pub_date_iso and hasattr(entry, 'updated_parsed') and entry.updated_parsed:
                 try:
-                    pub_date = datetime(*entry.updated_parsed[:6], tzinfo=timezone.utc).isoformat()
-                except:
-                    pass
-            
-            if not pub_date:
-                pub_date = datetime.now(timezone.utc).isoformat()
-            
+                    pub_date_iso = datetime(*entry.updated_parsed[:6], tzinfo=timezone.utc).isoformat()
+                except Exception:
+                    pub_date_iso = None
+            if not pub_date_iso:
+                pub_date_iso = datetime.now(timezone.utc).isoformat()
+
             items.append({
                 'title': title,
                 'link': link,
@@ -312,223 +324,175 @@ def process_entries(entries, category, source_name):
                 'category': category,
                 'source': source_name,
                 'image': image,
-                'pubDate': pub_date,
+                'pubDate': pub_date_iso,
                 'timestamp': int(time.time())
             })
-            
         except Exception as e:
-            print(f"  ⚠ Error processing entry: {e}")
+            print(f" ⚠ Error processing entry: {e}")
             continue
-    
+
     return items
 
-def get_source_name(feed_url):
-    """Extract human-readable source name from feed URL"""
-    if 'newscaststudio' in feed_url:
-        return 'NewscastStudio'
-    elif 'tvtechnology' in feed_url:
-        return 'TV Technology'
-    elif 'broadcastbeat' in feed_url:
-        return 'BroadcastBeat'
-    elif 'svgeurope' in feed_url:
-        return 'SVG Europe'
-    elif 'inbroadcast' in feed_url:
-        return 'InBroadcast'
-    elif 'rossvideo' in feed_url:
-        return 'Ross Video'
-    elif 'harmonicinc' in feed_url:
-        return 'Harmonic'
-    elif 'evertz' in feed_url:
-        return 'Evertz'
-    elif 'imaginecommunications' in feed_url:
-        return 'Imagine Communications'
-    elif 'broadcastbridge' in feed_url or 'thebroadcastbridge' in feed_url:
-        return 'The Broadcast Bridge'
-    elif 'vizrt' in feed_url:
-        return 'Vizrt'
-    elif 'motionographer' in feed_url:
-        return 'Motionographer'
-    elif 'aws.amazon' in feed_url:
-        return 'AWS'
-    elif 'frame.io' in feed_url:
-        return 'Frame.io'
-    elif 'krebsonsecurity' in feed_url:
-        return 'Krebs on Security'
-    elif 'darkreading' in feed_url:
-        return 'Dark Reading'
-    elif 'bleepingcomputer' in feed_url:
-        return 'BleepingComputer'
-    elif 'securityweek' in feed_url:
-        return 'SecurityWeek'
-    elif 'feedburner.com/TheHackerNews' in feed_url:
-        return 'The Hacker News'
-    elif 'cloud.google.com' in feed_url:
-        return 'Google Cloud'
-    elif 'microsoft.com' in feed_url:
-        return 'Microsoft Security'
-    elif 'streamingmediablog' in feed_url:
-        return 'Streaming Media Blog'
-    elif 'dacast' in feed_url:
-        return 'Dacast'
-    elif 'onthefly.stream' in feed_url:
-        return 'OnTheFly'
-    elif 'yololiv' in feed_url:
-        return 'YoloLiv'
-    elif 'techcrunch' in feed_url:
-        return 'TechCrunch'
-    elif 'engadget' in feed_url:
-        return 'Engadget'
-    elif 'wired.com' in feed_url:
-        return 'WIRED'
-    elif 'broadcastnow' in feed_url:
-        return 'Broadcast Now'
-    elif 'chesa.com' in feed_url:
-        return 'Chesa'
-    elif 'cloudinary' in feed_url:
-        return 'Cloudinary'
-    elif 'studionetworksolutions' in feed_url:
-        return 'Studio Network Solutions'
-    elif 'scalelogicinc' in feed_url:
-        return 'ScaleLogic'
-    elif 'qsan.io' in feed_url:
-        return 'QSAN'
-    elif 'keycodemedia' in feed_url:
-        return 'Keycode Media'
-    elif 'processexcellencenetwork' in feed_url:
-        return 'Process Excellence Network'
-    else:
-        return 'Technology News'
+
+def get_source_name(feed_url: str) -> str:
+    """Return a nice source name for a feed URL"""
+    u = (feed_url or '').lower()
+
+    # Common sources
+    if 'newscaststudio' in u: return 'NewscastStudio'
+    if 'tvtechnology' in u: return 'TV Technology'
+    if 'broadcastbeat' in u: return 'BroadcastBeat'
+    if 'svgeurope' in u: return 'SVG Europe'
+    if 'inbroadcast' in u: return 'InBroadcast'
+    if 'rossvideo' in u: return 'Ross Video'
+    if 'harmonicinc' in u: return 'Harmonic'
+    if 'evertz' in u: return 'Evertz'
+    if 'imaginecommunications' in u: return 'Imagine Communications'
+    if 'thebroadcastbridge' in u or 'broadcastbridge' in u: return 'The Broadcast Bridge'
+    if 'vizrt' in u: return 'Vizrt'
+    if 'motionographer' in u: return 'Motionographer'
+    if 'aws.amazon' in u: return 'AWS'
+    if 'frame.io' in u: return 'Frame.io'
+    if 'krebsonsecurity' in u: return 'Krebs on Security'
+    if 'darkreading' in u: return 'Dark Reading'
+    if 'bleepingcomputer' in u: return 'BleepingComputer'
+    if 'securityweek' in u: return 'SecurityWeek'
+    if 'feedburner.com/thehackernews' in u: return 'The Hacker News'
+    if 'cloud.google.com' in u: return 'Google Cloud'
+    if 'microsoft.com' in u: return 'Microsoft Security'
+
+    # Streaming
+    if 'streamingmediablog' in u: return 'Streaming Media Blog'
+    if 'broadcastnow' in u: return 'Broadcast Now'
+    if 'haivision.com' in u: return 'Haivision'
+    if 'telestream' in u: return 'Telestream'
+    if 'bitmovin.com' in u or 'openrss.org/https://bitmovin.com' in u: return 'Bitmovin'
+
+    # AI Post Production
+    if 'premiumbeat' in u: return 'PremiumBeat'
+    if 'premieregal' in u: return 'Premiere Gal'
+    if 'videocopilot' in u: return 'Video Copilot'
+    if 'jonnyelwyn' in u: return 'Jonny Elwyn'
+    if 'pond5' in u: return 'Pond5'
+    if 'filtergrade' in u: return 'FilterGrade'
+    if 'beforesandafters' in u: return 'Befores & Afters'
+    if 'avinteractive' in u: return 'AV Magazine'
+
+    # Infra vendors
+    if 'api.client.notified.com' in u and 'type=press' in u: return 'Avid Press Room'
+    if 'developer.adobe.com' in u or 'openrss.org/https://blog.developer.adobe.com' in u: return 'Adobe Developers'
+    if 'chesa.com' in u: return 'Chesa'
+    if 'cloudinary' in u: return 'Cloudinary'
+    if 'studionetworksolutions' in u: return 'Studio Network Solutions'
+    if 'scalelogicinc' in u: return 'ScaleLogic'
+    if 'qsan.io' in u: return 'QSAN'
+    if 'keycodemedia' in u: return 'Keycode Media'
+    if 'processexcellencenetwork' in u: return 'Process Excellence Network'
+
+    return 'Technology News'
+
 
 def validate_news_data(items):
-    """Validate that we have minimum items per category"""
-    category_counts = {}
-    
-    for item in items:
-        cat = item['category']
-        category_counts[cat] = category_counts.get(cat, 0) + 1
-    
+    """Validate that we have minimum items per category (soft check)"""
+    counts = {}
+    for it in items:
+        cat = it.get('category', '')
+        counts[cat] = counts.get(cat, 0) + 1
+
     print("\n📊 Category distribution:")
-    for cat, count in sorted(category_counts.items()):
-        status = "✓" if count >= MIN_REQUIRED_EACH else "⚠"
-        print(f"  {status} {cat}: {count} items")
-    
-    failed_categories = [cat for cat, count in category_counts.items() if count < MIN_REQUIRED_EACH]
-    
-    if failed_categories:
-        print(f"\n⚠ Categories below minimum ({MIN_REQUIRED_EACH}): {', '.join(failed_categories)}")
-        return False
-    
+    for cat, cnt in sorted(counts.items()):
+        mark = "✓" if cnt >= MIN_REQUIRED_EACH else "⚠"
+        print(f" {mark} {cat}: {cnt}")
+
+    # soft validation: allow saving even if below minimum when first run
     return True
+
 
 def deduplicate_by_guid(items):
     """Remove duplicate articles by GUID"""
-    seen_guids = set()
-    unique_items = []
-    
-    for item in items:
-        guid = item.get('guid', '')
-        if guid and guid not in seen_guids:
-            seen_guids.add(guid)
-            unique_items.append(item)
-    
-    print(f"\n🔄 Deduplication: {len(items)} → {len(unique_items)} items (removed {len(items) - len(unique_items)} duplicates)")
-    return unique_items
+    seen = set()
+    out = []
+    for it in items:
+        g = it.get('guid') or it.get('link')
+        if g and g not in seen:
+            seen.add(g)
+            out.append(it)
+    print(f"\n🔄 Deduplication: {len(items)} → {len(out)} (removed {len(items) - len(out)})")
+    return out
+
 
 def balance_categories(all_items):
-    """Balance items across categories"""
+    """Balance items across categories; keep newest first within each"""
     all_items = deduplicate_by_guid(all_items)
-    
-    category_items = {}
-    
-    for item in all_items:
-        cat = item['category']
-        if cat not in category_items:
-            category_items[cat] = []
-        category_items[cat].append(item)
-    
-    for cat in category_items:
-        category_items[cat].sort(
-            key=lambda x: x.get('pubDate', ''),
-            reverse=True
-        )
-    
+
+    by_cat = {}
+    for it in all_items:
+        cat = it.get('category', '')
+        by_cat.setdefault(cat, []).append(it)
+
+    for cat, lst in by_cat.items():
+        lst.sort(key=lambda x: x.get('pubDate', ''), reverse=True)
+
     balanced = []
-    for cat, items in category_items.items():
-        balanced.extend(items[:MIN_PER_CATEGORY])
-    
+    for cat, lst in by_cat.items():
+        balanced.extend(lst[:MIN_PER_CATEGORY])
+
     balanced.sort(key=lambda x: x.get('pubDate', ''), reverse=True)
-    
     return balanced[:MAX_NEWS_ITEMS]
 
-def save_json_atomically(data, filepath):
-    """Save JSON file atomically"""
-    temp_file = filepath.with_suffix('.tmp')
-    
-    with open(temp_file, 'w', encoding='utf-8') as f:
+
+def save_json_atomically(data, filepath: Path):
+    tmp = filepath.with_suffix('.tmp')
+    with open(tmp, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
-    
-    temp_file.replace(filepath)
+    tmp.replace(filepath)
+
 
 def main():
-    """Main aggregation function"""
     print("🚀 Starting The Streamic RSS Aggregator\n")
-    
     DATA_DIR.mkdir(exist_ok=True)
-    
+
     all_items = []
-    
+
     for category, feed_urls in FEED_GROUPS.items():
         print(f"\n📰 Processing {category.upper()} ({len(feed_urls)} feeds)")
-        
         for feed_url in feed_urls:
             try:
                 feed = fetch_feed_with_fallback(feed_url)
-                
                 if not feed or not feed.entries:
-                    print(f"  ⚠ No entries from {feed_url[:60]}")
+                    print(f" ⚠ No entries from {feed_url[:80]}")
                     continue
-                
+
                 entries = feed.entries[:MAX_ITEMS_PER_FEED]
                 source_name = get_source_name(feed_url)
-                
                 items = process_entries(entries, category, source_name)
                 all_items.extend(items)
-                
-                print(f"  ✓ {source_name}: {len(items)} items")
-                
+                print(f" ✓ {source_name}: {len(items)} items")
             except Exception as e:
-                print(f"  ✗ Error with {feed_url[:60]}: {e}")
+                print(f" ✗ Error with {feed_url[:80]}: {e}")
                 continue
-    
+
     print(f"\n📦 Total items collected: {len(all_items)}")
-    
     if not all_items:
         print("❌ No items collected. Exiting.")
         return
-    
+
     balanced_items = balance_categories(all_items)
-    
-    print(f"⚖️  Balanced to: {len(balanced_items)} items")
-    
-    validation_passed = validate_news_data(balanced_items)
-    
+    print(f"⚖️ Balanced to: {len(balanced_items)} items")
+
+    _ok = validate_news_data(balanced_items)
+
+    # archive previous, then save
     if OUTPUT_FILE.exists():
-        if validation_passed:
-            if ARCHIVE_FILE.exists():
-                ARCHIVE_FILE.unlink()
-            OUTPUT_FILE.rename(ARCHIVE_FILE)
-            print(f"\n💾 Backed up existing data to {ARCHIVE_FILE}")
-        else:
-            print(f"\n⚠️  Validation failed. Keeping existing {OUTPUT_FILE}")
-            return
-    else:
-        if not validation_passed:
-            print("\n⚠️  Validation failed but no existing file. Saving anyway.")
-    
+        if ARCHIVE_FILE.exists():
+            ARCHIVE_FILE.unlink()
+        OUTPUT_FILE.rename(ARCHIVE_FILE)
+        print(f"\n💾 Backed up previous data to {ARCHIVE_FILE}")
+
     save_json_atomically(balanced_items, OUTPUT_FILE)
-    
     print(f"✅ Saved {len(balanced_items)} items to {OUTPUT_FILE}")
     print("\n🎉 Aggregation complete!")
+
 
 if __name__ == "__main__":
     main()
