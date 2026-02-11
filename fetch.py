@@ -14,7 +14,7 @@ import requests
 from pathlib import Path
 
 # ===== CONFIGURATION =====
-CLOUDFLARE_WORKER = "https://rss-proxy.prerak-mehta.workers.dev"
+CLOUDFLARE_WORKER = "https://broken-king-b4dc.itabmum.workers.dev"
 DATA_DIR = Path("data")
 OUTPUT_FILE = DATA_DIR / "news.json"
 ARCHIVE_FILE = DATA_DIR / "archive.json"
