@@ -139,3 +139,54 @@
       <p>Get the latest technology insights delivered to your inbox</p>
 
       <!-- If you later decide to switch to the hidden-iframe method, we can update this form. -->
+      <form id="subscribeForm" onsubmit="return handleSubscribe(event)">
+        <input type="email" id="emailInput" placeholder="Your email address" required>
+        <button type="submit" class="subscribe-submit-btn">Subscribe</button>
+      </form>
+      <p id="subscribeMessage" style="margin-top:15px;display:none;"></p>
+    </div>
+  </div>
+
+  <!-- ============ MAIN SCRIPT ============ -->
+  <script src="main.js?v=20260211"></script>
+  
+  <!-- ============ SUBSCRIBE MODAL SCRIPT ============ -->
+  <script>
+    function showSubscribeModal() {
+      document.getElementById('subscribeModal').style.display = 'flex';
+    }
+    
+    function closeSubscribeModal() {
+      document.getElementById('subscribeModal').style.display = 'none';
+    }
+    
+    function handleSubscribe(event) {
+      event.preventDefault();
+      const email = document.getElementById('emailInput').value;
+      const message = document.getElementById('subscribeMessage');
+      
+      // Simple validation
+      if (email) {
+        message.textContent = 'Thank you for subscribing!';
+        message.style.color = '#28a745';
+        message.style.display = 'block';
+        
+        // Reset form after 2 seconds
+        setTimeout(() => {
+          document.getElementById('subscribeForm').reset();
+          message.style.display = 'none';
+          closeSubscribeModal();
+        }, 2000);
+      }
+      
+      return false;
+    }
+    
+    // Close modal on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSubscribeModal();
+    });
+  </script>
+
+</body>
+</html>
