@@ -15,7 +15,8 @@
     'cloud': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80&fm=webp',
     'cloud-production': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80&fm=webp',
     'streaming': 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80&fm=webp',
-    'audio-ai': 'https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=800&q=80&fm=webp',
+    // 🔁 renamed key from 'audio-ai' to 'ai-post-production'
+    'ai-post-production': 'https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=800&q=80&fm=webp',
   };
 
   // -------------------------------------------
@@ -69,7 +70,8 @@
 
     if (imageObserver) {
       img.dataset.src = chosen;
-      img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; // 1x1
+      img.src =
+        'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; // 1x1
       img.classList.add('lazy');
       imageObserver.observe(img);
     } else {
@@ -83,6 +85,17 @@
     });
 
     return img;
+  }
+
+  // Render a nicer category label (e.g., ai-post-production → AI & POST-PRODUCTION)
+  function humanizeCategory(raw) {
+    const cat = (raw || '').toLowerCase();
+    const map = {
+      'ai-post-production': 'AI & POST-PRODUCTION',
+      'cloud-production': 'CLOUD PRODUCTION',
+    };
+    if (map[cat]) return map[cat];
+    return cat.toUpperCase().replace(/-/g, ' ');
   }
 
   // -------------------------------------------
@@ -110,6 +123,7 @@
 
     const meta = document.createElement('div');
     meta.className = 'card-meta';
+
     const source = document.createElement('span');
     source.className = 'source';
     source.textContent = item.source || '';
@@ -118,7 +132,7 @@
     if (item.category) {
       const tag = document.createElement('span');
       tag.className = 'category-tag';
-      tag.textContent = item.category.toUpperCase().replace('-', ' & ');
+      tag.textContent = humanizeCategory(item.category);
       meta.appendChild(tag);
     }
 
@@ -149,13 +163,14 @@
 
     const meta = document.createElement('div');
     meta.className = 'card-meta';
+
     const source = document.createElement('span');
     source.textContent = item.source || '';
     meta.appendChild(source);
 
     if (item.category) {
       const tag = document.createElement('span');
-      tag.textContent = ` • ${item.category.toUpperCase().replace('-', ' & ')}`;
+      tag.textContent = ` • ${humanizeCategory(item.category)}`;
       meta.appendChild(tag);
     }
 
@@ -192,10 +207,10 @@
     // Then prioritize items with images
     const withImages = items.filter(it => isValidImageUrl(it.image));
     const withoutImages = items.filter(it => !isValidImageUrl(it.image));
-    
+
     // Apply source diversity cap
     const diversified = capPerSource(withImages, 6);
-    
+
     return [...diversified, ...withoutImages];
   }
 
@@ -212,16 +227,15 @@
 
   function filterByCategory(items, category) {
     const cat = (category || '').trim().toLowerCase();
-    if (!cat || cat === 'featured') return items; // homepage shows all
-    
-    // Handle audio-ai category and aliases
-    if (cat === 'audio-ai') {
-      return items.filter(it => {
-        const c = (it.category || '').toLowerCase();
-        return c === 'audio-ai' || c === 'audio' || c === 'ai';
-      });
+
+    // FEATURED or empty => show everything (homepage / featured landing)
+    if (!cat || cat === 'featured') return items;
+
+    // 🔁 New category name
+    if (cat === 'ai-post-production') {
+      return items.filter(it => (it.category || '').toLowerCase() === 'ai-post-production');
     }
-    
+
     // Handle cloud-production and cloud alias
     if (cat === 'cloud-production' || cat === 'cloud') {
       return items.filter(it => {
@@ -229,7 +243,7 @@
         return c === 'cloud' || c === 'cloud-production';
       });
     }
-    
+
     // Handle infrastructure (includes security feeds)
     if (cat === 'infrastructure') {
       return items.filter(it => {
@@ -237,7 +251,7 @@
         return c === 'infrastructure' || c === 'security';
       });
     }
-    
+
     return items.filter(it => (it.category || '').toLowerCase() === cat);
   }
 
@@ -347,7 +361,7 @@
       e.stopPropagation();
       links.classList.toggle('active');
     });
-    
+
     document.addEventListener('click', (e) => {
       if (links.classList.contains('active') &&
           !toggle.contains(e.target) &&
@@ -355,7 +369,7 @@
         links.classList.remove('active');
       }
     });
-    
+
     links.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => links.classList.remove('active'));
     });
