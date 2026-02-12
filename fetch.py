@@ -2,17 +2,21 @@
 """
 The Streamic RSS Feed Aggregator
 
-This version adds PRIORITY + ROUND-ROBIN mixing for the Featured feed:
-- Guarantees a top block: Cloud -> Streaming -> AI-Post-Production (repeat 3x)
-- Then weighted round-robin by priority order:
-    cloud(3), streaming(3), ai-post-production(3), graphics(1), playout(1), infrastructure(1)
-
-Other behavior unchanged:
-- Uses Cloudflare Worker: https://broken-king-b4dc.itabmum.workers.dev
-- Removes legacy-disallowed feeds
-- Adds vendor feeds as per current configuration
-- Renames 'audio-ai' -> 'ai-post-production'
+This build:
+- PRESERVES your original network behavior (same timeouts, same og:image lookups)
+- Adds a FEATURED mixer with priority + round‑robin (toggleable via MIXING_ENABLED)
 - Writes data/news.json (flat array)
+
+Priority (for Featured):
+  1) cloud
+  2) streaming
+  3) ai-post-production
+  4) graphics
+  5) playout
+  6) infrastructure
+
+Top block guarantee:
+  cloud -> streaming -> ai-post-production (repeat 3 times, skipping empty buckets)
 """
 import feedparser
 import json
@@ -29,31 +33,31 @@ DATA_DIR = Path("data")
 OUTPUT_FILE = DATA_DIR / "news.json"
 ARCHIVE_FILE = DATA_DIR / "archive.json"
 
-# Performance settings
+# ---------- Performance settings (UNCHANGED) ----------
 MAX_ITEMS_PER_FEED = 20
-FEED_FETCH_TIMEOUT = 12
-ARTICLE_FETCH_TIMEOUT = 5
-MAX_ARTICLE_FETCHES = 8
+FEED_FETCH_TIMEOUT = 12          # unchanged
+ARTICLE_FETCH_TIMEOUT = 5        # unchanged
+MAX_ARTICLE_FETCHES = 8          # unchanged
 
-# Balancing settings
+# ---------- Balancing settings (UNCHANGED) ----------
 MIN_PER_CATEGORY = 18
 MIN_REQUIRED_EACH = 3
 MAX_NEWS_ITEMS = 300
 
+# ===== FEATURED MIXING TOGGLE =====
+# Set to False to revert to your previous "newest-first after trim" behavior.
+MIXING_ENABLED = True
+
 # ===== PRIORITY / MIXING CONFIG =====
-# Friendly mapping note:
-# - 'cloud' is your "Cloud Production" category key on the backend.
-# - Frontend treats 'cloud' and 'cloud-production' as aliases.
 PRIORITY_ORDER = [
-    "cloud",              # 1. Cloud Production
-    "streaming",          # 2. Streaming
-    "ai-post-production", # 3. AI - POST PRODUCTION
-    "graphics",           # 4. Graphics
-    "playout",            # 5. Playout
-    "infrastructure",     # 6. Infrastructure
+    "cloud",              # Cloud Production
+    "streaming",          # Streaming
+    "ai-post-production", # AI - POST PRODUCTION
+    "graphics",           # Graphics
+    "playout",            # Playout
+    "infrastructure",     # Infrastructure
 ]
 
-# Weighted round-robin after the top guaranteed block
 CATEGORY_WEIGHTS = {
     "cloud": 3,
     "streaming": 3,
@@ -63,9 +67,8 @@ CATEGORY_WEIGHTS = {
     "infrastructure": 1,
 }
 
-# How many guaranteed items to take for each of the top-3 categories (in order)
-GUARANTEE_TOP3_ROUNDS = 3  # Cloud, Streaming, AI-Post-Production -> repeated 3 times
-
+# How many guaranteed top cycles (Cloud -> Streaming -> AI)
+GUARANTEE_TOP3_ROUNDS = 3
 
 # ===== DIRECT FETCH FEEDS (Bypass Cloudflare Worker) =====
 DIRECT_FEEDS = [
@@ -170,13 +173,11 @@ FEED_GROUPS = {
     ]
 }
 
-# ===== HELPER FUNCTIONS =====
+# ===== NETWORK HELPERS =====
 def should_use_direct_fetch(feed_url: str) -> bool:
-    """Check if feed should bypass Cloudflare Worker"""
     return feed_url in DIRECT_FEEDS
 
 def fetch_feed_via_worker(feed_url: str):
-    """Fetch feed through Cloudflare Worker"""
     try:
         encoded_url = quote(feed_url, safe='')
         worker_url = f"{CLOUDFLARE_WORKER}/?url={encoded_url}"
@@ -193,7 +194,6 @@ def fetch_feed_via_worker(feed_url: str):
         return None
 
 def fetch_feed_direct(feed_url: str):
-    """Fetch feed directly without worker"""
     try:
         response = requests.get(
             feed_url,
@@ -208,7 +208,6 @@ def fetch_feed_direct(feed_url: str):
         return None
 
 def fetch_feed_with_fallback(feed_url: str):
-    """Fetch feed with worker or direct based on configuration"""
     if should_use_direct_fetch(feed_url):
         print(f" → Direct fetch: {feed_url[:80]}")
         return fetch_feed_direct(feed_url)
@@ -218,8 +217,8 @@ def fetch_feed_with_fallback(feed_url: str):
     print(" → Fallback to direct fetch")
     return fetch_feed_direct(feed_url)
 
+# ===== IMAGE EXTRACTION =====
 def extract_image_from_entry(entry):
-    """Extract image URL with multiple fallback strategies"""
     # 1) media:content
     if hasattr(entry, 'media_content'):
         for media in entry.media_content:
@@ -240,25 +239,24 @@ def extract_image_from_entry(entry):
     # 4) Parse from description/summary
     description = entry.get('description', '') or entry.get('summary', '')
     if description:
-        m = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', description, re.IGNORECASE)
+        m = re.search(r'<img[^>]+src=[\"\\\']([^\"\\\']+)[\"\\\']', description, re.IGNORECASE)
         if m:
             img_url = m.group(1)
             low = img_url.lower()
             if not any(k in low for k in ['1x1', 'pixel', 'spacer', 'tracker', 'avatar', 'gravatar']):
                 return img_url
-    # 5) Try a lowered-quality variant if URL contains width/height hints
+    # 5) Try lowered-quality variant if URL contains width/height hints
     if hasattr(entry, 'media_content'):
         for media in entry.media_content:
             url = media.get('url', '')
             if url and ('w=' in url or 'width=' in url or 'h=' in url or 'height=' in url):
-                url = re.sub(r'(w|width)=\d+', r'\1=400', url)
-                url = re.sub(r'(h|height)=\d+', r'\1=300', url)
-                url = re.sub(r'(q|quality)=\d+', r'\1=70', url)
+                url = re.sub(r'(w|width)=\\d+', r'\\1=400', url)
+                url = re.sub(r'(h|height)=\\d+', r'\\1=300', url)
+                url = re.sub(r'(q|quality)=\\d+', r'\\1=70', url)
                 return url
     return None
 
 def extract_og_image(article_url: str, timeout: int = ARTICLE_FETCH_TIMEOUT):
-    """Extract og:image or twitter:image from article HTML (last resort)"""
     try:
         r = requests.get(
             article_url,
@@ -269,19 +267,19 @@ def extract_og_image(article_url: str, timeout: int = ARTICLE_FETCH_TIMEOUT):
             return None
         html = r.text[:80000]
         # og:image
-        m = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', html, re.IGNORECASE)
+        m = re.search(r'<meta[^>]+property=[\"\\\']og:image[\"\\\'][^>]+content=[\"\\\']([^\"\\\']+)[\"\\\']', html, re.IGNORECASE)
         if m:
             return m.group(1)
         # twitter:image
-        m = re.search(r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']', html, re.IGNORECASE)
+        m = re.search(r'<meta[^>]+name=[\"\\\']twitter:image[\"\\\'][^>]+content=[\"\\\']([^\"\\\']+)[\"\\\']', html, re.IGNORECASE)
         if m:
             return m.group(1)
         return None
     except Exception:
         return None
 
+# ===== NORMALIZATION =====
 def process_entries(entries, category, source_name):
-    """Convert feed entries into our normalized item dicts"""
     items = []
     article_fetch_count = 0
     for entry in entries:
@@ -326,7 +324,6 @@ def process_entries(entries, category, source_name):
     return items
 
 def get_source_name(feed_url: str) -> str:
-    """Return a nice source name for a feed URL"""
     u = (feed_url or '').lower()
     # Common sources
     if 'newscaststudio' in u: return 'NewscastStudio'
@@ -378,7 +375,6 @@ def get_source_name(feed_url: str) -> str:
     return 'Technology News'
 
 def validate_news_data(items):
-    """Validate that we have minimum items per category (soft check)"""
     counts = {}
     for it in items:
         cat = it.get('category', '')
@@ -387,11 +383,9 @@ def validate_news_data(items):
     for cat, cnt in sorted(counts.items()):
         mark = "✓" if cnt >= MIN_REQUIRED_EACH else "⚠"
         print(f" {mark} {cat}: {cnt}")
-    # soft validation
     return True
 
 def deduplicate_by_guid(items):
-    """Remove duplicate articles by GUID"""
     seen = set()
     out = []
     for it in items:
@@ -402,90 +396,70 @@ def deduplicate_by_guid(items):
     print(f"\n🔄 Deduplication: {len(items)} → {len(out)} (removed {len(items) - len(out)})")
     return out
 
-# ===== NEW MIXING HELPERS =====
+# ===== MIXING HELPERS =====
 def _iso_date_key(item):
-    """Key function for ISO date strings (fallback to timestamp)."""
     return item.get('pubDate', '') or item.get('timestamp', 0)
 
-def interleave_categories(by_cat):
-    """
-    Simple round-robin: 1 item from each category per cycle.
-    Assumes each list in by_cat is sorted newest-first.
-    """
-    buckets = {cat: list(items) for cat, items in by_cat.items()}
-    output = []
-    while any(buckets.values()):
-        for cat in list(buckets.keys()):
-            if buckets[cat]:
-                output.append(buckets[cat].pop(0))
-    return output
-
 def weighted_interleave(by_cat, order, weights):
-    """
-    Weighted round-robin using given order and per-category weights.
-    Each cycle loops through categories in 'order' and attempts to take
-    'weights[cat]' items from that category (if available).
-    """
     buckets = {cat: list(items) for cat, items in by_cat.items()}
     output = []
-    # Continue while any category still has items
     while any(buckets.values()):
         for cat in order:
             w = max(1, int(weights.get(cat, 1)))
             for _ in range(w):
-                if buckets.get(cat) and len(buckets[cat]) > 0:
+                if buckets.get(cat) and buckets[cat]:
                     output.append(buckets[cat].pop(0))
     return output
 
 def build_top_block(by_cat, rounds=3):
-    """
-    Guarantee top presence for the first three priority categories:
-    Cloud -> Streaming -> AI-Post-Production, repeated 'rounds' times.
-    """
     top3 = ["cloud", "streaming", "ai-post-production"]
     output = []
     for _ in range(rounds):
         for cat in top3:
-            if by_cat.get(cat) and len(by_cat[cat]) > 0:
+            if by_cat.get(cat) and by_cat[cat]:
                 output.append(by_cat[cat].pop(0))
     return output
 
+# ===== BALANCING / FEATURED ORDERING =====
 def balance_categories(all_items):
     """
-    Balance items across categories and produce a priority-mixed list:
-    1) Deduplicate
-    2) Sort newest-first within category
-    3) Trim to MIN_PER_CATEGORY per category
-    4) Build a guaranteed top block (Cloud, Streaming, AI x3)
-    5) Weighted round-robin for the remaining items using PRIORITY_ORDER + CATEGORY_WEIGHTS
+    Previous behavior:
+      - dedupe -> group -> sort newest in each cat -> take MIN_PER_CATEGORY from each
+      - then sort ALL newest-first and cap to MAX_NEWS_ITEMS
+
+    New behavior when MIXING_ENABLED:
+      - same trimming per category
+      - TOP BLOCK: Cloud, Streaming, AI x 3 rounds (skip empties)
+      - Remaining items: weighted round-robin by PRIORITY_ORDER & CATEGORY_WEIGHTS
     """
-    # 1. Deduplicate
     all_items = deduplicate_by_guid(all_items)
 
-    # 2. Group and sort by category
+    # Group and sort newest-first within each category
     by_cat = {}
     for it in all_items:
         cat = it.get('category', '')
         by_cat.setdefault(cat, []).append(it)
-
     for cat, lst in by_cat.items():
         lst.sort(key=_iso_date_key, reverse=True)
 
-    # 3. Trim per category
+    # Trim to MIN_PER_CATEGORY per category (unchanged)
     trimmed = {cat: lst[:MIN_PER_CATEGORY] for cat, lst in by_cat.items()}
 
-    # 4. Build guaranteed top block (up to 3 each from Cloud, Streaming, AI)
+    if not MIXING_ENABLED:
+        # ORIGINAL behavior: flatten and sort newest-first
+        flattened = []
+        for lst in trimmed.values():
+            flattened.extend(lst)
+        flattened.sort(key=_iso_date_key, reverse=True)
+        return flattened[:MAX_NEWS_ITEMS]
+
+    # FEATURED mixing path
     top_block = build_top_block(trimmed, rounds=GUARANTEE_TOP3_ROUNDS)
-
-    # 5. Weighted round-robin for remaining
     rest_mixed = weighted_interleave(trimmed, PRIORITY_ORDER, CATEGORY_WEIGHTS)
-
     mixed = top_block + rest_mixed
-
-    # Final cap
     return mixed[:MAX_NEWS_ITEMS]
 
-
+# ===== SAVE / MAIN =====
 def save_json_atomically(data, filepath: Path):
     tmp = filepath.with_suffix('.tmp')
     with open(tmp, 'w', encoding='utf-8') as f:
@@ -520,7 +494,7 @@ def main():
         return
 
     balanced_items = balance_categories(all_items)
-    print(f"⚖️ Mixed & balanced to: {len(balanced_items)} items")
+    print(f"⚖️ Output count: {len(balanced_items)} items (MIXING_ENABLED={MIXING_ENABLED})")
 
     _ok = validate_news_data(balanced_items)
 
