@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 """
 The Streamic RSS Feed Aggregator
-Fetches, parses, and aggregates broadcast technology news from multiple sources
 
-This version:
+This version adds PRIORITY + ROUND-ROBIN mixing for the Featured feed:
+- Guarantees a top block: Cloud -> Streaming -> AI-Post-Production (repeat 3x)
+- Then weighted round-robin by priority order:
+    cloud(3), streaming(3), ai-post-production(3), graphics(1), playout(1), infrastructure(1)
+
+Other behavior unchanged:
 - Uses Cloudflare Worker: https://broken-king-b4dc.itabmum.workers.dev
-- Removes old feeds (Dacast / OnTheFly / YoloLiv / TechCrunch / Engadget / WIRED)
-- Adds Streaming vendors: Haivision / Telestream / Bitmovin
-- Adds Infra vendors: Avid Press (Notified) / Adobe Developer (OpenRSS)
+- Removes legacy-disallowed feeds
+- Adds vendor feeds as per current configuration
 - Renames 'audio-ai' -> 'ai-post-production'
-- Adds 8 verified AI Post Production feeds
+- Writes data/news.json (flat array)
 """
-
 import feedparser
 import json
 import re
@@ -38,6 +40,32 @@ MIN_PER_CATEGORY = 18
 MIN_REQUIRED_EACH = 3
 MAX_NEWS_ITEMS = 300
 
+# ===== PRIORITY / MIXING CONFIG =====
+# Friendly mapping note:
+# - 'cloud' is your "Cloud Production" category key on the backend.
+# - Frontend treats 'cloud' and 'cloud-production' as aliases.
+PRIORITY_ORDER = [
+    "cloud",              # 1. Cloud Production
+    "streaming",          # 2. Streaming
+    "ai-post-production", # 3. AI - POST PRODUCTION
+    "graphics",           # 4. Graphics
+    "playout",            # 5. Playout
+    "infrastructure",     # 6. Infrastructure
+]
+
+# Weighted round-robin after the top guaranteed block
+CATEGORY_WEIGHTS = {
+    "cloud": 3,
+    "streaming": 3,
+    "ai-post-production": 3,
+    "graphics": 1,
+    "playout": 1,
+    "infrastructure": 1,
+}
+
+# How many guaranteed items to take for each of the top-3 categories (in order)
+GUARANTEE_TOP3_ROUNDS = 3  # Cloud, Streaming, AI-Post-Production -> repeated 3 times
+
 
 # ===== DIRECT FETCH FEEDS (Bypass Cloudflare Worker) =====
 DIRECT_FEEDS = [
@@ -47,27 +75,22 @@ DIRECT_FEEDS = [
     'https://www.haivision.com/feed/',
     'https://blog.telestream.com/feed/',
     'https://openrss.org/https://bitmovin.com/blog/',
-
     # Infrastructure - MAM/PAM / Vendors
-    'https://api.client.notified.com/api/rss/publish/view/47032?type=press',   # Avid Press (Notified)
-    'https://openrss.org/https://blog.developer.adobe.com/',                   # Adobe Developers via OpenRSS
+    'https://api.client.notified.com/api/rss/publish/view/47032?type=press',  # Avid Press (Notified)
+    'https://openrss.org/https://blog.developer.adobe.com/',                  # Adobe Developers via OpenRSS
     'https://chesa.com/feed',
     'https://cloudinary.com/blog/feed',
-
     # Storage
     'https://www.studionetworksolutions.com/feed',
     'https://openrss.org/https://scalelogicinc.com/blog/protecting-valuable-media-assets/',
     'https://openrss.org/https://qsan.io/solutions/media-production/',
     'https://openrss.org/https://www.keycodemedia.com/capabilities/media-shared-storage-cloud-storage/',
-
     # Production Ops
     'https://www.processexcellencenetwork.com/rss-feeds',
-
     # Legacy direct fetch (kept)
     'https://www.inbroadcast.com/rss.xml',
     'https://www.imaginecommunications.com/news/rss.xml'
 ]
-
 
 # ===== FEED GROUPS =====
 FEED_GROUPS = {
@@ -77,7 +100,6 @@ FEED_GROUPS = {
         'https://www.broadcastbeat.com/feed/',
         'https://www.svgeurope.org/feed/'
     ],
-
     'playout': [
         'https://www.inbroadcast.com/rss.xml',
         'https://www.tvtechnology.com/playout/rss.xml',
@@ -86,7 +108,6 @@ FEED_GROUPS = {
         'https://www.evertz.com/news/rss',
         'https://www.imaginecommunications.com/news/rss.xml'
     ],
-
     'infrastructure': [
         'https://www.thebroadcastbridge.com/rss/infrastructure',
         'https://www.tvtechnology.com/infrastructure/rss.xml',
@@ -100,23 +121,19 @@ FEED_GROUPS = {
         'https://feeds.feedburner.com/TheHackerNews',
         'https://cloud.google.com/blog/topics/security/rss/',
         'https://www.microsoft.com/en-us/security/blog/feed/',
-
         # MAM/PAM + Vendors
-        'https://api.client.notified.com/api/rss/publish/view/47032?type=press',   # Avid Press
-        'https://openrss.org/https://blog.developer.adobe.com/',                   # Adobe Developers
+        'https://api.client.notified.com/api/rss/publish/view/47032?type=press',  # Avid Press
+        'https://openrss.org/https://blog.developer.adobe.com/',                  # Adobe Developers
         'https://chesa.com/feed',
         'https://cloudinary.com/blog/feed',
-
         # Storage
         'https://www.studionetworksolutions.com/feed',
         'https://openrss.org/https://scalelogicinc.com/blog/protecting-valuable-media-assets/',
         'https://openrss.org/https://qsan.io/solutions/media-production/',
         'https://openrss.org/https://www.keycodemedia.com/capabilities/media-shared-storage-cloud-storage/',
-
         # Production Ops
         'https://www.processexcellencenetwork.com/rss-feeds'
     ],
-
     'graphics': [
         'https://www.thebroadcastbridge.com/rss/graphics',
         'https://www.tvtechnology.com/graphics/rss.xml',
@@ -124,18 +141,15 @@ FEED_GROUPS = {
         'https://routing.vizrt.com/rss',
         'https://motionographer.com/feed/'
     ],
-
     'cloud': [
         'https://www.thebroadcastbridge.com/rss/cloud',
         'https://www.tvtechnology.com/cloud/rss.xml',
         'https://aws.amazon.com/blogs/media/feed/',
         'https://blog.frame.io/feed/'
     ],
-
     'streaming': [
         'https://www.thebroadcastbridge.com/rss/streaming',
         'https://www.tvtechnology.com/streaming/rss.xml',
-
         # Direct fetch streaming vendors
         'https://www.streamingmediablog.com/feed',
         'https://www.broadcastnow.co.uk/full-rss/',
@@ -143,7 +157,6 @@ FEED_GROUPS = {
         'https://blog.telestream.com/feed/',
         'https://openrss.org/https://bitmovin.com/blog/'
     ],
-
     # Renamed from 'audio-ai' -> 'ai-post-production'
     'ai-post-production': [
         'https://premiumbeat.com/blog/category/video-editing/feed/',
@@ -157,15 +170,13 @@ FEED_GROUPS = {
     ]
 }
 
-
 # ===== HELPER FUNCTIONS =====
 def should_use_direct_fetch(feed_url: str) -> bool:
     """Check if feed should bypass Cloudflare Worker"""
     return feed_url in DIRECT_FEEDS
 
-
 def fetch_feed_via_worker(feed_url: str):
-    """Fetch feed through Cloudflare Worker (keeps your existing mechanism)"""
+    """Fetch feed through Cloudflare Worker"""
     try:
         encoded_url = quote(feed_url, safe='')
         worker_url = f"{CLOUDFLARE_WORKER}/?url={encoded_url}"
@@ -180,7 +191,6 @@ def fetch_feed_via_worker(feed_url: str):
     except Exception as e:
         print(f" ⚠ Worker error for {feed_url[:60]}: {e}")
         return None
-
 
 def fetch_feed_direct(feed_url: str):
     """Fetch feed directly without worker"""
@@ -197,7 +207,6 @@ def fetch_feed_direct(feed_url: str):
         print(f" ⚠ Direct fetch error for {feed_url[:60]}: {e}")
         return None
 
-
 def fetch_feed_with_fallback(feed_url: str):
     """Fetch feed with worker or direct based on configuration"""
     if should_use_direct_fetch(feed_url):
@@ -209,7 +218,6 @@ def fetch_feed_with_fallback(feed_url: str):
     print(" → Fallback to direct fetch")
     return fetch_feed_direct(feed_url)
 
-
 def extract_image_from_entry(entry):
     """Extract image URL with multiple fallback strategies"""
     # 1) media:content
@@ -218,20 +226,17 @@ def extract_image_from_entry(entry):
             url = media.get('url')
             if url:
                 return url
-
     # 2) media:thumbnail
     if hasattr(entry, 'media_thumbnail'):
         for thumb in entry.media_thumbnail:
             url = thumb.get('url')
             if url:
                 return url
-
     # 3) enclosures with image/*
     if hasattr(entry, 'enclosures'):
         for enc in entry.enclosures:
             if enc.get('type', '').startswith('image/'):
                 return enc.get('href') or enc.get('url')
-
     # 4) Parse from description/summary
     description = entry.get('description', '') or entry.get('summary', '')
     if description:
@@ -241,7 +246,6 @@ def extract_image_from_entry(entry):
             low = img_url.lower()
             if not any(k in low for k in ['1x1', 'pixel', 'spacer', 'tracker', 'avatar', 'gravatar']):
                 return img_url
-
     # 5) Try a lowered-quality variant if URL contains width/height hints
     if hasattr(entry, 'media_content'):
         for media in entry.media_content:
@@ -251,9 +255,7 @@ def extract_image_from_entry(entry):
                 url = re.sub(r'(h|height)=\d+', r'\1=300', url)
                 url = re.sub(r'(q|quality)=\d+', r'\1=70', url)
                 return url
-
     return None
-
 
 def extract_og_image(article_url: str, timeout: int = ARTICLE_FETCH_TIMEOUT):
     """Extract og:image or twitter:image from article HTML (last resort)"""
@@ -266,42 +268,34 @@ def extract_og_image(article_url: str, timeout: int = ARTICLE_FETCH_TIMEOUT):
         if r.status_code != 200:
             return None
         html = r.text[:80000]
-
         # og:image
         m = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', html, re.IGNORECASE)
         if m:
             return m.group(1)
-
         # twitter:image
         m = re.search(r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']', html, re.IGNORECASE)
         if m:
             return m.group(1)
-
         return None
     except Exception:
         return None
-
 
 def process_entries(entries, category, source_name):
     """Convert feed entries into our normalized item dicts"""
     items = []
     article_fetch_count = 0
-
     for entry in entries:
         try:
             title = (entry.get('title') or '').strip()
             link = (entry.get('link') or '').strip()
             guid = entry.get('id', link)
-
             if not title or not link:
                 continue
-
             # image
             image = extract_image_from_entry(entry)
             if not image and article_fetch_count < MAX_ARTICLE_FETCHES:
                 image = extract_og_image(link)
                 article_fetch_count += 1
-
             # pubDate
             pub_date_iso = None
             if hasattr(entry, 'published_parsed') and entry.published_parsed:
@@ -316,7 +310,6 @@ def process_entries(entries, category, source_name):
                     pub_date_iso = None
             if not pub_date_iso:
                 pub_date_iso = datetime.now(timezone.utc).isoformat()
-
             items.append({
                 'title': title,
                 'link': link,
@@ -330,14 +323,11 @@ def process_entries(entries, category, source_name):
         except Exception as e:
             print(f" ⚠ Error processing entry: {e}")
             continue
-
     return items
-
 
 def get_source_name(feed_url: str) -> str:
     """Return a nice source name for a feed URL"""
     u = (feed_url or '').lower()
-
     # Common sources
     if 'newscaststudio' in u: return 'NewscastStudio'
     if 'tvtechnology' in u: return 'TV Technology'
@@ -360,14 +350,12 @@ def get_source_name(feed_url: str) -> str:
     if 'feedburner.com/thehackernews' in u: return 'The Hacker News'
     if 'cloud.google.com' in u: return 'Google Cloud'
     if 'microsoft.com' in u: return 'Microsoft Security'
-
     # Streaming
     if 'streamingmediablog' in u: return 'Streaming Media Blog'
     if 'broadcastnow' in u: return 'Broadcast Now'
     if 'haivision.com' in u: return 'Haivision'
     if 'telestream' in u: return 'Telestream'
     if 'bitmovin.com' in u or 'openrss.org/https://bitmovin.com' in u: return 'Bitmovin'
-
     # AI Post Production
     if 'premiumbeat' in u: return 'PremiumBeat'
     if 'premieregal' in u: return 'Premiere Gal'
@@ -377,7 +365,6 @@ def get_source_name(feed_url: str) -> str:
     if 'filtergrade' in u: return 'FilterGrade'
     if 'beforesandafters' in u: return 'Befores & Afters'
     if 'avinteractive' in u: return 'AV Magazine'
-
     # Infra vendors
     if 'api.client.notified.com' in u and 'type=press' in u: return 'Avid Press Room'
     if 'developer.adobe.com' in u or 'openrss.org/https://blog.developer.adobe.com' in u: return 'Adobe Developers'
@@ -388,9 +375,7 @@ def get_source_name(feed_url: str) -> str:
     if 'qsan.io' in u: return 'QSAN'
     if 'keycodemedia' in u: return 'Keycode Media'
     if 'processexcellencenetwork' in u: return 'Process Excellence Network'
-
     return 'Technology News'
-
 
 def validate_news_data(items):
     """Validate that we have minimum items per category (soft check)"""
@@ -398,15 +383,12 @@ def validate_news_data(items):
     for it in items:
         cat = it.get('category', '')
         counts[cat] = counts.get(cat, 0) + 1
-
     print("\n📊 Category distribution:")
     for cat, cnt in sorted(counts.items()):
         mark = "✓" if cnt >= MIN_REQUIRED_EACH else "⚠"
         print(f" {mark} {cat}: {cnt}")
-
-    # soft validation: allow saving even if below minimum when first run
+    # soft validation
     return True
-
 
 def deduplicate_by_guid(items):
     """Remove duplicate articles by GUID"""
@@ -420,25 +402,88 @@ def deduplicate_by_guid(items):
     print(f"\n🔄 Deduplication: {len(items)} → {len(out)} (removed {len(items) - len(out)})")
     return out
 
+# ===== NEW MIXING HELPERS =====
+def _iso_date_key(item):
+    """Key function for ISO date strings (fallback to timestamp)."""
+    return item.get('pubDate', '') or item.get('timestamp', 0)
+
+def interleave_categories(by_cat):
+    """
+    Simple round-robin: 1 item from each category per cycle.
+    Assumes each list in by_cat is sorted newest-first.
+    """
+    buckets = {cat: list(items) for cat, items in by_cat.items()}
+    output = []
+    while any(buckets.values()):
+        for cat in list(buckets.keys()):
+            if buckets[cat]:
+                output.append(buckets[cat].pop(0))
+    return output
+
+def weighted_interleave(by_cat, order, weights):
+    """
+    Weighted round-robin using given order and per-category weights.
+    Each cycle loops through categories in 'order' and attempts to take
+    'weights[cat]' items from that category (if available).
+    """
+    buckets = {cat: list(items) for cat, items in by_cat.items()}
+    output = []
+    # Continue while any category still has items
+    while any(buckets.values()):
+        for cat in order:
+            w = max(1, int(weights.get(cat, 1)))
+            for _ in range(w):
+                if buckets.get(cat) and len(buckets[cat]) > 0:
+                    output.append(buckets[cat].pop(0))
+    return output
+
+def build_top_block(by_cat, rounds=3):
+    """
+    Guarantee top presence for the first three priority categories:
+    Cloud -> Streaming -> AI-Post-Production, repeated 'rounds' times.
+    """
+    top3 = ["cloud", "streaming", "ai-post-production"]
+    output = []
+    for _ in range(rounds):
+        for cat in top3:
+            if by_cat.get(cat) and len(by_cat[cat]) > 0:
+                output.append(by_cat[cat].pop(0))
+    return output
 
 def balance_categories(all_items):
-    """Balance items across categories; keep newest first within each"""
+    """
+    Balance items across categories and produce a priority-mixed list:
+    1) Deduplicate
+    2) Sort newest-first within category
+    3) Trim to MIN_PER_CATEGORY per category
+    4) Build a guaranteed top block (Cloud, Streaming, AI x3)
+    5) Weighted round-robin for the remaining items using PRIORITY_ORDER + CATEGORY_WEIGHTS
+    """
+    # 1. Deduplicate
     all_items = deduplicate_by_guid(all_items)
 
+    # 2. Group and sort by category
     by_cat = {}
     for it in all_items:
         cat = it.get('category', '')
         by_cat.setdefault(cat, []).append(it)
 
     for cat, lst in by_cat.items():
-        lst.sort(key=lambda x: x.get('pubDate', ''), reverse=True)
+        lst.sort(key=_iso_date_key, reverse=True)
 
-    balanced = []
-    for cat, lst in by_cat.items():
-        balanced.extend(lst[:MIN_PER_CATEGORY])
+    # 3. Trim per category
+    trimmed = {cat: lst[:MIN_PER_CATEGORY] for cat, lst in by_cat.items()}
 
-    balanced.sort(key=lambda x: x.get('pubDate', ''), reverse=True)
-    return balanced[:MAX_NEWS_ITEMS]
+    # 4. Build guaranteed top block (up to 3 each from Cloud, Streaming, AI)
+    top_block = build_top_block(trimmed, rounds=GUARANTEE_TOP3_ROUNDS)
+
+    # 5. Weighted round-robin for remaining
+    rest_mixed = weighted_interleave(trimmed, PRIORITY_ORDER, CATEGORY_WEIGHTS)
+
+    mixed = top_block + rest_mixed
+
+    # Final cap
+    return mixed[:MAX_NEWS_ITEMS]
 
 
 def save_json_atomically(data, filepath: Path):
@@ -447,11 +492,9 @@ def save_json_atomically(data, filepath: Path):
         json.dump(data, f, indent=2, ensure_ascii=False)
     tmp.replace(filepath)
 
-
 def main():
     print("🚀 Starting The Streamic RSS Aggregator\n")
     DATA_DIR.mkdir(exist_ok=True)
-
     all_items = []
 
     for category, feed_urls in FEED_GROUPS.items():
@@ -462,7 +505,6 @@ def main():
                 if not feed or not feed.entries:
                     print(f" ⚠ No entries from {feed_url[:80]}")
                     continue
-
                 entries = feed.entries[:MAX_ITEMS_PER_FEED]
                 source_name = get_source_name(feed_url)
                 items = process_entries(entries, category, source_name)
@@ -478,7 +520,7 @@ def main():
         return
 
     balanced_items = balance_categories(all_items)
-    print(f"⚖️ Balanced to: {len(balanced_items)} items")
+    print(f"⚖️ Mixed & balanced to: {len(balanced_items)} items")
 
     _ok = validate_news_data(balanced_items)
 
@@ -492,7 +534,6 @@ def main():
     save_json_atomically(balanced_items, OUTPUT_FILE)
     print(f"✅ Saved {len(balanced_items)} items to {OUTPUT_FILE}")
     print("\n🎉 Aggregation complete!")
-
 
 if __name__ == "__main__":
     main()
