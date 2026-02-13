@@ -53,6 +53,43 @@
   </nav>
 
   <!-- ============ HERO SECTION (Isolated from main container) ============ -->
+  <!-- Place this inside <head>, after your main CSS link -->
+<style>
+  /* Shrink hero block height */
+  .hero-section {
+    min-height: 45vh;            /* ~35–50% less than a full “hero” */
+    padding: 48px 22px;          /* reduce vertical padding */
+  }
+
+  /* Background image scales within the shorter hero */
+  .hero-background-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Content area (centered) */
+  .hero-content {
+    padding: 0;                  /* remove extra interior spacing */
+  }
+
+  /* Title & subtitle sizes (smaller clamps than before) */
+  .hero-title h1 {
+    font-size: clamp(28px, 4.5vw, 54px) !important;  /* was up to 82px */
+    line-height: 1.15 !important;
+  }
+  .hero-title p {
+    font-size: clamp(14px, 1.8vw, 22px) !important;  /* was up to 28px */
+    margin-top: 14px !important;
+  }
+
+  /* For smaller screens, compress a bit more */
+  @media (max-width: 768px) {
+    .hero-section { min-height: 40vh; padding: 36px 16px; }
+    .hero-title h1 { font-size: clamp(24px, 5.5vw, 42px) !important; }
+    .hero-title p  { font-size: clamp(13px, 2.2vw, 18px) !important; }
+  }
+</style>
   <header class="hero-section">
     <img 
       src="assets/paris-control-room-8k.png" 
