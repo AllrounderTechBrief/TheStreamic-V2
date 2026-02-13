@@ -3,49 +3,55 @@
   <!-- Replace "www.yoursite.com" with your actual domain -->
   <url>
     <loc>https://www.thestreamic.in/</loc>
-    <lastmod>2026-02-07</lastmod>
+    <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.thestreamic.in/featured.html</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://www.thestreamic.in/newsroom.html</loc>
-    <lastmod>2026-02-07</lastmod>
+    <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.thestreamic.in/playout.html</loc>
-    <lastmod>2026-02-07</lastmod>
+    <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.thestreamic.in/infrastructure.html</loc>
-    <lastmod>2026-02-07</lastmod>
+    <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.thestreamic.in/graphics.html</loc>
-    <lastmod>2026-02-07</lastmod>
+    <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.thestreamic.in/cloud.html</loc>
-    <lastmod>2026-02-07</lastmod>
+    <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.thestreamic.in/streaming.html</loc>
-    <lastmod>2026-02-07</lastmod>
+    <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.thestreamic.in/ai-post-production.html</loc>
-    <lastmod>2026-02-07</lastmod>
+    <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>

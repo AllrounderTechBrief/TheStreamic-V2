@@ -1165,3 +1165,170 @@ main {
    - .hero-2039-subtitle
    - .hero-2039-tagline
    =================================================================== */
+
+/* ===================================================================
+   CATEGORY INTRO & STATIC FALLBACK (SEO Enhancement)
+   =================================================================== */
+.category-intro {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.category-intro .intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.category-intro p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+}
+
+.category-static-fallback {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  background: #fff;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.category-static-fallback h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--deep-black);
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.static-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.static-links li {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.static-links li:last-child {
+  border-bottom: none;
+}
+
+.static-links a {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--link-blue);
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.2s ease;
+}
+
+.static-links a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* Category Links Section (for featured.html) */
+.category-links-section {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.category-links-section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--deep-black);
+  margin-bottom: 24px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.category-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.category-link-card {
+  background: white;
+  padding: 24px 20px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.category-link-card:hover {
+  border-color: var(--link-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.category-link-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--deep-black);
+  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+}
+
+.category-link-card p {
+  font-size: 14px;
+  color: var(--slate-gray);
+  line-height: 1.5;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .category-intro {
+    padding: 30px 20px;
+  }
+
+  .category-intro p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .category-static-fallback {
+    padding: 30px 20px;
+  }
+
+  .category-static-fallback h2 {
+    font-size: 20px;
+  }
+
+  .static-links a {
+    font-size: 15px;
+  }
+
+  .category-links-section {
+    padding: 30px 20px;
+    margin: 30px auto;
+  }
+
+  .category-links-section h2 {
+    font-size: 24px;
+  }
+
+  .category-links-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
