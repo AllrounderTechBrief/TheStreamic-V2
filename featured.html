@@ -52,109 +52,17 @@
     </div>
   </nav>
 
-  <!-- ============ HERO SECTION (Isolated from main container) ============ -->
-  <!-- Place this inside <head>, after your main CSS link -->
-<style>
-  /* Shrink hero block height */
-  .hero-section {
-    min-height: 45vh;            /* ~35–50% less than a full “hero” */
-    padding: 48px 22px;          /* reduce vertical padding */
-  }
-
-  /* Background image scales within the shorter hero */
-  .hero-background-image {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  /* Content area (centered) */
-  .hero-content {
-    padding: 0;                  /* remove extra interior spacing */
-  }
-
-  /* Title & subtitle sizes (smaller clamps than before) */
-  .hero-title h1 {
-    font-size: clamp(28px, 4.5vw, 54px) !important;  /* was up to 82px */
-    line-height: 1.15 !important;
-  }
-  .hero-title p {
-    font-size: clamp(14px, 1.8vw, 22px) !important;  /* was up to 28px */
-    margin-top: 14px !important;
-  }
-
-  /* For smaller screens, compress a bit more */
-  @media (max-width: 768px) {
-    .hero-section { min-height: 40vh; padding: 36px 16px; }
-    .hero-title h1 { font-size: clamp(24px, 5.5vw, 42px) !important; }
-    .hero-title p  { font-size: clamp(13px, 2.2vw, 18px) !important; }
-  }
-</style>
-  <header class="hero-section">
+  <section class="hero-broadcast">
     <img 
-      src="assets/paris-control-room-8k.png" 
-      alt="The Streamic - Broadcast Control Room" 
-      class="hero-background-image"
+      src="assets/IMG_1736.png" 
+      alt="The Streamic Broadcast Technology Studio" 
+      class="hero-broadcast-image"
     >
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-title">
-        <h1 style="font-size: clamp(36px, 6vw, 82px); font-weight: 800; letter-spacing: -0.04em; color: #ffffff; margin: 0; line-height: 1.1; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
-          The Global Pulse of Broadcast Innovation
-        </h1>
-        <p style="font-size: clamp(16px, 2.5vw, 28px); font-weight: 300; letter-spacing: -0.01em; color: #a1a1a6; margin: 20px 0 0 0; max-width: 900px; line-height: 1.5; text-shadow: 0 2px 10px rgba(0,0,0,0.6);">
-          Master the 2026 Tech Push: Operational AI, ST 2110 IP-Native Workflows, and Hybrid Cloud Scale.
-        </p>
-      </div>
-    </div>
-  </header>
-
-  <!-- ============ SEO FEATURED PRIORITY (Static HTML for Indexing) ============ -->
-  <!-- This section contains hard-coded links to top articles from each category -->
-  <!-- Update these links manually when fetching new content -->
-  <section class="featured-seo-priority" style="display:none;">
-    <h2>Latest From Each Category</h2>
-    
-    <!-- NEWSROOM - Add latest article link here -->
-    <div class="seo-category-item">
-      <span class="seo-category-label">NEWSROOM:</span>
-      <a href="#" rel="bookmark">Article Title Here</a>
-    </div>
-    
-    <!-- PLAYOUT - Add latest article link here -->
-    <div class="seo-category-item">
-      <span class="seo-category-label">PLAYOUT:</span>
-      <a href="#" rel="bookmark">Article Title Here</a>
-    </div>
-    
-    <!-- INFRASTRUCTURE - Add latest article link here -->
-    <div class="seo-category-item">
-      <span class="seo-category-label">INFRASTRUCTURE:</span>
-      <a href="#" rel="bookmark">Article Title Here</a>
-    </div>
-    
-    <!-- GRAPHICS - Add latest article link here -->
-    <div class="seo-category-item">
-      <span class="seo-category-label">GRAPHICS:</span>
-      <a href="#" rel="bookmark">Article Title Here</a>
-    </div>
-    
-    <!-- CLOUD - Add latest article link here -->
-    <div class="seo-category-item">
-      <span class="seo-category-label">CLOUD:</span>
-      <a href="#" rel="bookmark">Article Title Here</a>
-    </div>
-    
-    <!-- STREAMING - Add latest article link here -->
-    <div class="seo-category-item">
-      <span class="seo-category-label">STREAMING:</span>
-      <a href="#" rel="bookmark">Article Title Here</a>
-    </div>
-    
-    <!-- AI & POST-PRODUCTION - Add latest article link here -->
-    <div class="seo-category-item">
-      <span class="seo-category-label">AI & POST-PRODUCTION:</span>
-      <a href="#" rel="bookmark">Article Title Here</a>
+    <div class="hero-broadcast-overlay"></div>
+    <div class="hero-broadcast-content">
+      <h1 class="hero-broadcast-title">
+        Real-Time Streaming, Broadcast and Media Tech Updates
+      </h1>
     </div>
   </section>
 
@@ -197,19 +105,6 @@
           <a href="mailto:info@thestreamic.in">Email Us</a>
         </div>
       </div>
-      
-      <!-- ============ EXPLORE CATEGORIES (In Footer for SEO) ============ -->
-      <div class="footer-categories">
-        <h4>Explore Our Coverage</h4>
-        <div class="footer-category-links">
-          <a href="cloud.html">Cloud Production</a>
-          <a href="graphics.html">Graphics</a>
-          <a href="playout.html">Playout</a>
-          <a href="streaming.html">Streaming</a>
-          <a href="ai-post-production.html">AI & Post-Production</a>
-        </div>
-      </div>
-      
       <div class="footer-bottom">
         <p class="footer-note">&copy; 2026 The Streamic. All rights reserved.</p>
         <p class="footer-tech">Powered by RSS aggregation & smart content curation</p>
