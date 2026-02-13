@@ -221,8 +221,20 @@
     const res = await fetch(NEWS_FILE, { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    if (!Array.isArray(data)) throw new Error('Invalid JSON shape');
-    return data;
+    
+    // Handle both old (array) and new (object) formats
+    if (Array.isArray(data)) {
+      // Legacy format: just an array of items
+      return { items: data, featured_priority: [] };
+    } else if (data && typeof data === 'object') {
+      // New format: { featured_priority: [...], items: [...] }
+      return {
+        items: data.items || [],
+        featured_priority: data.featured_priority || []
+      };
+    }
+    
+    throw new Error('Invalid JSON shape');
   }
 
   function filterByCategory(items, category) {
@@ -332,13 +344,38 @@
     displayedCount = 0;
 
     loadLocalJson()
-      .then(items => {
-        const filtered = filterByCategory(items, category);
+      .then(data => {
+        const { items, featured_priority } = data;
+        const cat = (category || '').trim().toLowerCase();
+        
+        let filtered;
+        
+        // FEATURED PAGE: Show priority items first, then rest
+        if (!cat || cat === 'featured') {
+          // Get IDs of priority items to avoid duplicates
+          const priorityIds = new Set(featured_priority.map(item => item.guid || item.link));
+          
+          // Filter out priority items from main items list
+          const remainingItems = items.filter(item => 
+            !priorityIds.has(item.guid || item.link)
+          );
+          
+          // Combine: featured_priority first, then remaining items
+          filtered = [...featured_priority, ...remainingItems];
+        } else {
+          // OTHER CATEGORY PAGES: Normal filtering
+          filtered = filterByCategory(items, category);
+        }
+        
         if (filtered.length === 0) {
           largeGrid.innerHTML = '<p class="empty-state">No articles yet. Check back soon!</p>';
           return;
         }
-        allItems = smartSort(filtered);
+        
+        // For non-featured pages, apply smart sort
+        // For featured, we already have the order we want (priority + sorted rest)
+        allItems = (cat === 'featured' || !cat) ? filtered : smartSort(filtered);
+        
         largeGrid.innerHTML = '';
         renderNextBatch();
         if (allItems.length > ITEMS_PER_BATCH) createLoadMoreButton();

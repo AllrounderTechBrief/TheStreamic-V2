@@ -441,6 +441,37 @@ def balance_categories(all_items):
     return balanced[:MAX_NEWS_ITEMS]
 
 
+def extract_featured_priority(items):
+    """
+    Extract the newest article from each category for Featured page priority.
+    Returns list of 7 items (one per category) in fixed order.
+    """
+    categories = [
+        'newsroom',
+        'playout', 
+        'infrastructure',
+        'graphics',
+        'cloud',
+        'streaming',
+        'ai-post-production'
+    ]
+    
+    priority_items = []
+    for cat in categories:
+        # Find newest item for this category
+        cat_items = [item for item in items if item.get('category', '').lower() == cat]
+        if cat_items:
+            # Sort by pubDate to get newest
+            cat_items_sorted = sorted(
+                cat_items,
+                key=lambda x: x.get('pubDate', x.get('timestamp', 0)),
+                reverse=True
+            )
+            priority_items.append(cat_items_sorted[0])
+    
+    return priority_items
+
+
 def save_json_atomically(data, filepath: Path):
     tmp = filepath.with_suffix('.tmp')
     with open(tmp, 'w', encoding='utf-8') as f:
@@ -482,6 +513,16 @@ def main():
 
     _ok = validate_news_data(balanced_items)
 
+    # Extract featured priority items (newest from each category)
+    featured_priority = extract_featured_priority(balanced_items)
+    print(f"⭐ Featured priority: {len(featured_priority)} items (top from each category)")
+
+    # Create output structure with featured_priority and items
+    output_data = {
+        "featured_priority": featured_priority,
+        "items": balanced_items
+    }
+
     # archive previous, then save
     if OUTPUT_FILE.exists():
         if ARCHIVE_FILE.exists():
@@ -489,8 +530,8 @@ def main():
         OUTPUT_FILE.rename(ARCHIVE_FILE)
         print(f"\n💾 Backed up previous data to {ARCHIVE_FILE}")
 
-    save_json_atomically(balanced_items, OUTPUT_FILE)
-    print(f"✅ Saved {len(balanced_items)} items to {OUTPUT_FILE}")
+    save_json_atomically(output_data, OUTPUT_FILE)
+    print(f"✅ Saved {len(balanced_items)} items + {len(featured_priority)} priority to {OUTPUT_FILE}")
     print("\n🎉 Aggregation complete!")
 
 
