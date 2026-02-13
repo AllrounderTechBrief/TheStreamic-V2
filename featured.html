@@ -52,19 +52,25 @@
     </div>
   </nav>
 
-  <section class="hero-broadcast">
+  <!-- ============ HERO SECTION (Isolated from main container) ============ -->
+  <header class="hero-section">
     <img 
-      src="assets/IMG_1736.png" 
-      alt="The Streamic Broadcast Technology Studio" 
-      class="hero-broadcast-image"
+      src="assets/paris-control-room-8k.png" 
+      alt="The Streamic - Broadcast Control Room" 
+      class="hero-background-image"
     >
-    <div class="hero-broadcast-overlay"></div>
-    <div class="hero-broadcast-content">
-      <h1 class="hero-broadcast-title">
-        Real-Time Streaming, Broadcast and Media Tech Updates
-      </h1>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-title">
+        <h1 style="font-size: clamp(36px, 6vw, 82px); font-weight: 800; letter-spacing: -0.04em; color: #ffffff; margin: 0; line-height: 1.1; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+          The Global Pulse of Broadcast Innovation
+        </h1>
+        <p style="font-size: clamp(16px, 2.5vw, 28px); font-weight: 300; letter-spacing: -0.01em; color: #a1a1a6; margin: 20px 0 0 0; max-width: 900px; line-height: 1.5; text-shadow: 0 2px 10px rgba(0,0,0,0.6);">
+          Master the 2026 Tech Push: Operational AI, ST 2110 IP-Native Workflows, and Hybrid Cloud Scale.
+        </p>
+      </div>
     </div>
-  </section>
+  </header>
 
   <!-- ============ SEO FEATURED PRIORITY (Static HTML for Indexing) ============ -->
   <!-- This section contains hard-coded links to top articles from each category -->
@@ -115,33 +121,6 @@
     </div>
   </section>
 
-  <!-- ============ EXPLORE CATEGORIES (Internal Linking) ============ -->
-  <section class="category-links-section">
-    <h2>Explore Our Coverage</h2>
-    <div class="category-links-grid">
-      <a href="cloud.html" class="category-link-card">
-        <h3>Cloud Production</h3>
-        <p>Cloud-based production, remote workflows, and SaaS platforms</p>
-      </a>
-      <a href="graphics.html" class="category-link-card">
-        <h3>Graphics</h3>
-        <p>Real-time graphics, motion graphics, and visual technology</p>
-      </a>
-      <a href="playout.html" class="category-link-card">
-        <h3>Playout</h3>
-        <p>Master control, channel automation, and playout systems</p>
-      </a>
-      <a href="streaming.html" class="category-link-card">
-        <h3>Streaming</h3>
-        <p>OTT platforms, video delivery, and streaming technology</p>
-      </a>
-      <a href="ai-post-production.html" class="category-link-card">
-        <h3>AI & Post-Production</h3>
-        <p>AI tools, video editing, VFX, color grading, and workflows</p>
-      </a>
-    </div>
-  </section>
-
   <main class="category-content">
     <div id="bentoGridLarge" class="bento-grid-large"></div>
     <div id="listGrid" class="list-grid"></div>
@@ -181,6 +160,19 @@
           <a href="mailto:info@thestreamic.in">Email Us</a>
         </div>
       </div>
+      
+      <!-- ============ EXPLORE CATEGORIES (In Footer for SEO) ============ -->
+      <div class="footer-categories">
+        <h4>Explore Our Coverage</h4>
+        <div class="footer-category-links">
+          <a href="cloud.html">Cloud Production</a>
+          <a href="graphics.html">Graphics</a>
+          <a href="playout.html">Playout</a>
+          <a href="streaming.html">Streaming</a>
+          <a href="ai-post-production.html">AI & Post-Production</a>
+        </div>
+      </div>
+      
       <div class="footer-bottom">
         <p class="footer-note">&copy; 2026 The Streamic. All rights reserved.</p>
         <p class="footer-tech">Powered by RSS aggregation & smart content curation</p>

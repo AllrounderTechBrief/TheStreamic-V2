@@ -86,7 +86,7 @@ body {
 .nav-links a:hover,
 .nav-links a.active {
   opacity: 1;
-  color: #4A90E2; /* Elegant blue instead of yellow */
+  color: #ffffff; /* High contrast white for selected page */
 }
 
 /* Header Subscribe Button */
@@ -825,7 +825,7 @@ main {
 .hero-section {
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
