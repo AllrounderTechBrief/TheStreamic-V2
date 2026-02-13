@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+##!/usr/bin/env python3
 """
 The Streamic RSS Feed Aggregator
 Fetches, parses, and aggregates broadcast technology news from multiple sources
