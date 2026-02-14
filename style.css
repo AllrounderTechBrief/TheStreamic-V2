@@ -1201,6 +1201,68 @@ main {
     margin: 0;
     letter-spacing: -0.01em;
 }
+/* --- AWWWARDS STYLE UPGRADE --- */
+
+/* 1. FORCE FULL WIDTH & KILL GAP */
+.hero-broadcast, 
+.hero-broadcast-image {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    display: block;
+    width: 100%;
+}
+
+.editorial-container {
+    max-content: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 2. ELEGANT MODERN GREY BOX (Full Width) */
+.editorial-box {
+    background: #2d3436 !important; /* Modern Slate Grey */
+    border-left: 6px solid #ffffff !important; 
+    padding: 40px 10% !important; /* Large horizontal padding for breathing room */
+    margin-top: -2px !important; /* Glues it to the hero image */
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.2);
+    border-radius: 0; /* Square edges look more cinematic */
+}
+
+.editorial-label {
+    background: #ffffff !important;
+    color: #2d3436 !important;
+    font-size: 11px;
+    font-weight: 900;
+    padding: 4px 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+#daily-insight {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #ffffff !important; 
+    margin: 0;
+}
+
+/* 3. HERO TEXT OVERHAUL */
+.hero-broadcast-title {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: clamp(2rem, 5vw, 3.5rem) !important; /* Dynamic sizing for mobile/desktop */
+    color: #ffffff !important;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    line-height: 1.1;
+    max-width: 900px;
+    margin: 0 auto;
+}
 /* ===================================================================
    REMOVE OR COMMENT OUT OLD HERO STYLES
    Delete or comment out all .hero-2039 related styles:
