@@ -1153,12 +1153,26 @@ main {
     height: 28px;
   }
 }
+/* 1. Reduce the gap around the Editorial Box */
 .editorial-container {
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 5px auto; /* Reduced from 20px to 5px to close the gap */
     padding: 0 20px;
 }
 
+/* 2. Remove extra bottom space from the Hero section */
+.hero-broadcast {
+    margin-bottom: 0 !important; /* Forces the hero to end exactly where the image ends */
+    padding-bottom: 0 !important;
+}
+/* 3. Tighten the spacing inside the box itself if needed */
+.editorial-box {
+    background: #f8f9fa;
+    border-left: 5px solid #764ba2;
+    padding: 15px 25px; /* Reduced top/bottom padding from 25px to 15px */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
 .editorial-box {
     background: #f8f9fa;
     border-left: 5px solid #764ba2;
