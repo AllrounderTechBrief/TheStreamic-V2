@@ -1212,56 +1212,69 @@ main {
     width: 100%;
 }
 
+/* --- ULTIMATE CINEMATIC UPGRADE --- */
+
+/* 1. THE "BREAKOUT" FIX: Forces the box to be 100% screen width */
 .editorial-container {
-    max-content: 100% !important;
-    width: 100% !important;
-    margin: 0 !important;
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    margin-top: -2px !important; /* Glues it to the hero image above */
+    margin-bottom: 20px !important;
     padding: 0 !important;
+    overflow: hidden;
 }
 
-/* 2. ELEGANT MODERN GREY BOX (Full Width) */
+/* 2. MODERN TECH-BLUE BOX (21:9 Aspect Feel) */
 .editorial-box {
-    background: #2d3436 !important; /* Modern Slate Grey */
-    border-left: 6px solid #ffffff !important; 
-    padding: 40px 10% !important; /* Large horizontal padding for breathing room */
-    margin-top: -2px !important; /* Glues it to the hero image */
-    box-shadow: inset 0 0 50px rgba(0,0,0,0.2);
-    border-radius: 0; /* Square edges look more cinematic */
+    background: #0f172a !important; /* Modern Deep Tech Blue (Navy/Slate) */
+    border-left: 10px solid #38bdf8 !important; /* Vibrant Cyan-Blue accent line */
+    padding: 80px 15% !important; /* Huge padding creates that 21:9 wide-screen look */
+    border-radius: 0 !important;
+    box-shadow: inset 0 0 150px rgba(0,0,0,0.5); /* Deep cinematic shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 300px; /* Guarantees a significant vertical presence */
 }
 
+/* 3. TYPOGRAPHY ENHANCEMENT */
 .editorial-label {
-    background: #ffffff !important;
-    color: #2d3436 !important;
+    background: #38bdf8 !important; /* Matching Cyan-Blue for the badge */
+    color: #ffffff !important;
     font-size: 11px;
     font-weight: 900;
-    padding: 4px 12px;
-    letter-spacing: 3px;
+    padding: 5px 15px;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     display: inline-block;
+    width: fit-content;
 }
 
 #daily-insight {
     font-family: 'Inter', sans-serif !important;
-    font-size: 22px !important;
-    font-weight: 400;
-    line-height: 1.6;
+    font-size: 24px !important; /* Larger font for the larger box */
+    font-weight: 300 !important; /* Thin, modern weight */
+    line-height: 1.5;
     color: #ffffff !important; 
+    max-width: 1200px;
     margin: 0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-/* 3. HERO TEXT OVERHAUL */
+/* 4. HERO TITLE FIX (Montserrat + White) */
 .hero-broadcast-title {
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 700 !important;
-    font-size: clamp(2rem, 5vw, 3.5rem) !important; /* Dynamic sizing for mobile/desktop */
     color: #ffffff !important;
+    font-size: clamp(2.5rem, 6vw, 4.5rem) !important; /* Bold and massive */
     text-transform: uppercase;
-    letter-spacing: -1px;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.6);
-    line-height: 1.1;
-    max-width: 900px;
-    margin: 0 auto;
+    letter-spacing: -2px;
+    text-shadow: 0 5px 25px rgba(0,0,0,0.7) !important;
 }
 /* ===================================================================
    REMOVE OR COMMENT OUT OLD HERO STYLES
