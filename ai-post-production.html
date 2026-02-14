@@ -78,8 +78,8 @@
  </section>
   <div class="editorial-container">
     <div class="editorial-box">
-      <span class="editorial-label">GLOBAL AI & POST HIGHLIGHTS</span>
-      <p id="daily-insight">Analyzing the global impact of AI on post-production workflows...</p>
+      <span class="editorial-label">AI & POST-PRODUCTION ANALYSIS</span>
+      <p id="daily-insight">Evaluating the integration of generative AI and machine learning in global media post-production...</p>
     </div>
   </div>
 
@@ -89,10 +89,10 @@
   </main>
 
   <script>
-    fetch('editorial.txt')
-      .then(response => response.ok ? response.text() : "Tracking the global evolution of AI-driven editing and automated metadata workflows.")
+    fetch('news-ai.txt')
+      .then(response => response.ok ? response.text() : "Tracking the global evolution of AI-driven editing, cloud rendering, and automated metadata workflows.")
       .then(text => { document.getElementById('daily-insight').innerText = text; })
-      .catch(() => { document.getElementById('daily-insight').innerText = "Tracking the global evolution of AI-driven editing and automated metadata workflows."; });
+      .catch(() => { });
   </script>
   </main>
 
