@@ -64,8 +64,34 @@
   </header>
 
   <main class="category-content">
+</section>
+
+  <div class="editorial-container">
+    <div class="editorial-box">
+      <span class="editorial-label">THE STREAMIC: GLOBAL UPDATES</span>
+      <p id="daily-insight">Analyzing the latest global shifts in media technology and broadcast infrastructure...</p>
+    </div>
+  </div>
+
+  <main class="category-content">
     <div id="bentoGridLarge" class="bento-grid-large"></div>
     <div id="listGrid" class="list-grid"></div>
+  </main>
+
+  <script>
+    fetch('editorial.txt')
+      .then(response => {
+        if (!response.ok) throw new Error();
+        return response.text();
+      })
+      .then(text => {
+        document.getElementById('daily-insight').innerText = text;
+      })
+      .catch(err => {
+        // This is your safety text if the file fails to load
+        document.getElementById('daily-insight').innerText = "Tracking the global evolution of broadcast technology, from cloud playout to IP-based production standards.";
+      });
+  </script>
   </main>
 
   <footer class="site-footer">
