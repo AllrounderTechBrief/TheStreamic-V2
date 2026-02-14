@@ -1221,58 +1221,70 @@ main {
     padding-bottom: 10px !important;
 }
 
+/* --- 75% CENTERED CINEMATIC BOX FIX --- */
+
+/* 1. THE CONTAINER: Forcing perfect centering */
 .editorial-container {
-    max-width: 1200px;
-    margin: 0 auto !important; /* Removes top margin entirely */
-    padding: 0 20px;
+    display: block !important; /* Ensures it behaves as a block for centering */
+    width: 75% !important; /* Exactly 75% of the screen/parent width */
+    max-width: 1400px; 
+    margin-left: auto !important; /* Centers the block */
+    margin-right: auto !important; /* Centers the block */
+    margin-top: 20px !important;
+    margin-bottom: 40px !important;
+    padding: 0 !important;
+    clear: both;
 }
 
-/* 2. Awwwards Style Box: Pure White Text on Dark Background */
+/* 2. THE BOX: Modern Tech Blue & 21:9 Proportions */
 .editorial-box {
-    background: #1a1a1a; /* Sophisticated deep charcoal/black */
-    border-left: 4px solid #ffffff; /* Clean white accent line */
-    padding: 30px;
-    border-radius: 4px; /* Sharper corners look more 'premium' */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
+    background: #0f172a !important; /* Sophisticated Modern Blue */
+    border-left: 10px solid #38bdf8 !important; /* Cyan-Blue accent line */
+    padding: 60px 8% !important; /* High vertical padding for the 21:9 feel */
+    border-radius: 12px; /* Smoother rounded corners for a premium look */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Deep soft shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for definition */
 }
 
-.editorial-box:hover {
-    transform: translateY(-5px); /* Subtle lift effect on hover */
-}
-
-/* 3. Typography: Pure White & Bold */
+/* 3. TYPOGRAPHY: High Contrast White */
 .editorial-label {
-    display: inline-block;
-    background: #ffffff; /* White label */
-    color: #000000; /* Black text inside label for ultimate contrast */
-    font-size: 10px;
-    font-weight: 800;
-    padding: 3px 12px;
-    border-radius: 2px;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
+    background: #38bdf8 !important; /* Vibrant Cyan */
+    color: #ffffff !important;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 6px 16px;
+    letter-spacing: 3px;
     text-transform: uppercase;
+    margin-bottom: 25px;
+    display: inline-block;
+    width: fit-content;
+    border-radius: 4px;
 }
 
 #daily-insight {
-    font-family: 'Inter', sans-serif;
-    font-size: 20px; /* Slightly larger for impact */
-    font-weight: 500;
-    line-height: 1.5;
-    color: #ffffff !important; /* Pure white font */
+    font-family: 'Inter', sans-serif !important;
+    font-size: 22px !important; /* Large, readable font */
+    font-weight: 300 !important; /* Modern thin weight */
+    line-height: 1.6;
+    color: #ffffff !important; 
     margin: 0;
-    letter-spacing: -0.02em; /* Tight kerning for a modern look */
+    text-wrap: balance; /* Prevents awkward line breaks */
 }
-/* 4. HERO TITLE FIX (Montserrat + White) */
+
+/* 4. HERO TITLE: Montserrat Bold & White */
 .hero-broadcast-title {
     font-family: 'Montserrat', sans-serif !important;
-    font-weight: 700 !important;
+    font-weight: 800 !important; /* Extra bold for impact */
     color: #ffffff !important;
-    font-size: clamp(2.5rem, 6vw, 4.5rem) !important; /* Bold and massive */
+    font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
     text-transform: uppercase;
     letter-spacing: -2px;
-    text-shadow: 0 5px 25px rgba(0,0,0,0.7) !important;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.8) !important;
+    text-align: center;
+    margin-bottom: 20px;
 }
 /* ===================================================================
    REMOVE OR COMMENT OUT OLD HERO STYLES
