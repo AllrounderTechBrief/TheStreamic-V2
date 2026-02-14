@@ -64,8 +64,23 @@
   </header>
 
   <main class="category-content">
+    </section>
+  <div class="editorial-container">
+    <div class="editorial-box">
+      <span class="editorial-label">PLAYOUT & AUTOMATION</span>
+      <p id="daily-insight">Analyzing automated master control and channel-in-a-box innovations...</p>
+    </div>
+  </div>
+  <main class="category-content">
     <div id="bentoGridLarge" class="bento-grid-large"></div>
     <div id="listGrid" class="list-grid"></div>
+  </main>
+  <script>
+    fetch('news-playout.txt')
+      .then(response => response.ok ? response.text() : "Global updates on playout reliability, disaster recovery, and automated scheduling workflows.")
+      .then(text => { document.getElementById('daily-insight').innerText = text; })
+      .catch(() => { });
+  </script>
   </main>
 
   <footer class="site-footer">
@@ -108,7 +123,7 @@
       
       <div class="footer-bottom">
         <p class="footer-note">© 2026 The Streamic. All rights reserved.</p>
-        <p class="footer-tech">Powered by RSS aggregation & smart content curation</p>
+        <p class="footer-tech">Curated by The Streamic Editorial. Human-led insights on global media technology</p>
       </div>
     </div>
   </footer>
