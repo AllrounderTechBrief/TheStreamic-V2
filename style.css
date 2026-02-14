@@ -1215,56 +1215,55 @@ main {
 /* --- ULTIMATE CINEMATIC UPGRADE --- */
 
 /* 1. THE "BREAKOUT" FIX: Forces the box to be 100% screen width */
-.editorial-container {
-    width: 100vw !important;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw !important;
-    margin-right: -50vw !important;
-    margin-top: -2px !important; /* Glues it to the hero image above */
-    margin-bottom: 20px !important;
-    padding: 0 !important;
-    overflow: hidden;
+/* 1. Eliminate the Gap - Forces sections to touch */
+.hero-broadcast, .category-header {
+    margin-bottom: 0 !important;
+    padding-bottom: 10px !important;
 }
 
-/* 2. MODERN TECH-BLUE BOX (21:9 Aspect Feel) */
-.editorial-box {
-    background: #0f172a !important; /* Modern Deep Tech Blue (Navy/Slate) */
-    border-left: 10px solid #38bdf8 !important; /* Vibrant Cyan-Blue accent line */
-    padding: 80px 15% !important; /* Huge padding creates that 21:9 wide-screen look */
-    border-radius: 0 !important;
-    box-shadow: inset 0 0 150px rgba(0,0,0,0.5); /* Deep cinematic shadow */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 300px; /* Guarantees a significant vertical presence */
+.editorial-container {
+    max-width: 1200px;
+    margin: 0 auto !important; /* Removes top margin entirely */
+    padding: 0 20px;
 }
-/* 3. TYPOGRAPHY ENHANCEMENT */
+
+/* 2. Awwwards Style Box: Pure White Text on Dark Background */
+.editorial-box {
+    background: #1a1a1a; /* Sophisticated deep charcoal/black */
+    border-left: 4px solid #ffffff; /* Clean white accent line */
+    padding: 30px;
+    border-radius: 4px; /* Sharper corners look more 'premium' */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.editorial-box:hover {
+    transform: translateY(-5px); /* Subtle lift effect on hover */
+}
+
+/* 3. Typography: Pure White & Bold */
 .editorial-label {
-    background: #38bdf8 !important; /* Matching Cyan-Blue for the badge */
-    color: #ffffff !important;
-    font-size: 11px;
-    font-weight: 900;
-    padding: 5px 15px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 25px;
     display: inline-block;
-    width: fit-content;
+    background: #ffffff; /* White label */
+    color: #000000; /* Black text inside label for ultimate contrast */
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 12px;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 #daily-insight {
-    font-family: 'Inter', sans-serif !important;
-    font-size: 24px !important; /* Larger font for the larger box */
-    font-weight: 300 !important; /* Thin, modern weight */
+    font-family: 'Inter', sans-serif;
+    font-size: 20px; /* Slightly larger for impact */
+    font-weight: 500;
     line-height: 1.5;
-    color: #ffffff !important; 
-    max-width: 1200px;
+    color: #ffffff !important; /* Pure white font */
     margin: 0;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    letter-spacing: -0.02em; /* Tight kerning for a modern look */
 }
-
 /* 4. HERO TITLE FIX (Montserrat + White) */
 .hero-broadcast-title {
     font-family: 'Montserrat', sans-serif !important;
