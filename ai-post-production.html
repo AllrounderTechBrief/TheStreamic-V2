@@ -75,6 +75,7 @@
 
   <!-- ============ CONTENT ============ -->
   <main class="category-content">
+ </section>
   <div class="editorial-container">
     <div class="editorial-box">
       <span class="editorial-label">GLOBAL AI & POST HIGHLIGHTS</span>
@@ -82,18 +83,16 @@
     </div>
   </div>
 
+  <main class="category-content">
+    <div id="bentoGridLarge" class="bento-grid-large"></div>
+    <div id="listGrid" class="list-grid"></div>
+  </main>
+
   <script>
     fetch('editorial.txt')
-      .then(response => {
-        if (!response.ok) throw new Error('File not found');
-        return response.text();
-      })
-      .then(text => {
-        document.getElementById('daily-insight').innerText = text;
-      })
-      .catch(err => {
-        document.getElementById('daily-insight').innerText = "Tracking the global evolution of AI-driven editing, cloud rendering, and automated metadata workflows.";
-      });
+      .then(response => response.ok ? response.text() : "Tracking the global evolution of AI-driven editing and automated metadata workflows.")
+      .then(text => { document.getElementById('daily-insight').innerText = text; })
+      .catch(() => { document.getElementById('daily-insight').innerText = "Tracking the global evolution of AI-driven editing and automated metadata workflows."; });
   </script>
   </main>
 
