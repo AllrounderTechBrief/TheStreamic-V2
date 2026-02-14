@@ -75,11 +75,26 @@
 
   <!-- ============ CONTENT ============ -->
   <main class="category-content">
-    <!-- First 12 render as large cards (handled by main.js) -->
-    <div id="bentoGridLarge" class="bento-grid-large"></div>
+  <div class="editorial-container">
+    <div class="editorial-box">
+      <span class="editorial-label">GLOBAL AI & POST HIGHLIGHTS</span>
+      <p id="daily-insight">Analyzing the global impact of AI on post-production workflows...</p>
+    </div>
+  </div>
 
-    <!-- The rest render as list cards (handled by main.js) -->
-    <div id="listGrid" class="list-grid"></div>
+  <script>
+    fetch('editorial.txt')
+      .then(response => {
+        if (!response.ok) throw new Error('File not found');
+        return response.text();
+      })
+      .then(text => {
+        document.getElementById('daily-insight').innerText = text;
+      })
+      .catch(err => {
+        document.getElementById('daily-insight').innerText = "Tracking the global evolution of AI-driven editing, cloud rendering, and automated metadata workflows.";
+      });
+  </script>
   </main>
 
   <!-- ============ FOOTER ============ -->
