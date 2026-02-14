@@ -1154,54 +1154,53 @@ main {
   }
 }
 /* 1. Reduce the gap around the Editorial Box */
+/* 1. ELIMINATE THE GAP */
+/* This targets the hero image and the header to remove hidden spacing */
+.hero-broadcast, .category-header, .hero-broadcast-image {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    display: block; /* Removes tiny inline spacing at bottom of images */
+}
+
 .editorial-container {
     max-width: 1200px;
-    margin: 5px auto; /* Reduced from 20px to 5px to close the gap */
+    margin: 0 auto !important; /* Zero top margin to touch the hero */
     padding: 0 20px;
 }
 
-/* 2. Remove extra bottom space from the Hero section */
-.hero-broadcast {
-    margin-bottom: 0 !important; /* Forces the hero to end exactly where the image ends */
-    padding-bottom: 0 !important;
-}
-/* 3. Tighten the spacing inside the box itself if needed */
+/* 2. PREMIUM DARK THEME BOX */
 .editorial-box {
-    background: #f8f9fa;
-    border-left: 5px solid #764ba2;
-    padding: 15px 25px; /* Reduced top/bottom padding from 25px to 15px */
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-.editorial-box {
-    background: #f8f9fa;
-    border-left: 5px solid #764ba2;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    background: #1a1a1a; /* Deep professional charcoal */
+    border-left: 4px solid #ffffff; /* Sharp white accent */
+    padding: 25px 35px;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    margin-top: -5px; /* Slight pull-up to ensure no white line shows */
 }
 
+/* 3. HIGH-CONTRAST TYPOGRAPHY */
 .editorial-label {
     display: inline-block;
-    background: #764ba2;
-    color: white;
-    font-size: 11px;
-    font-weight: bold;
-    padding: 4px 10px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 2px 10px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 #daily-insight {
     font-family: 'Inter', sans-serif;
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: 500;
     line-height: 1.6;
-    color: #333;
+    color: #ffffff !important; /* Pure White Font */
     margin: 0;
-    font-style: italic;
+    letter-spacing: -0.01em;
 }
-
 /* ===================================================================
    REMOVE OR COMMENT OUT OLD HERO STYLES
    Delete or comment out all .hero-2039 related styles:
