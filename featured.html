@@ -67,8 +67,28 @@
   </section>
 
   <main class="category-content">
+ <div class="editorial-container">
+    <div class="editorial-box">
+      <span class="editorial-label">EDITOR'S INSIGHT</span>
+      <p id="daily-insight">Loading today's industry update...</p>
+    </div>
+  </div>
+
+  <main class="category-content">
     <div id="bentoGridLarge" class="bento-grid-large"></div>
     <div id="listGrid" class="list-grid"></div>
+  </main>
+
+  <script>
+    fetch('editorial.txt')
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById('daily-insight').innerText = text;
+      })
+      .catch(err => {
+        document.getElementById('daily-insight').innerText = "Tracking the latest shifts in broadcast technology and media infrastructure.";
+      });
+  </script>
   </main>
 
   <footer class="site-footer">
