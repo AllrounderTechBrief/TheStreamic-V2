@@ -13,27 +13,19 @@
     });
   </script>
 
-  <!-- (Optional) AdSense - keep only if you actively use ads -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8033069131874524" crossorigin="anonymous"></script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="AI tools, video editing, VFX, color grading, and post‑production workflows from trusted industry sources."
-  />
+  <meta name="description" content="AI tools, video editing, VFX, color grading, and post-production workflows from trusted industry sources." />
   <meta name="author" content="The Streamic" />
   <link rel="canonical" href="https://www.thestreamic.in/ai-post-production.html" />
 
-  <title>AI &amp; Post‑Production — The Streamic</title>
+  <title>AI &amp; Post-Production – The Streamic</title>
 
-  <!-- Fonts / CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -54,7 +46,7 @@
         <li><a href="graphics.html">GRAPHICS</a></li>
         <li><a href="cloud.html">CLOUD PRODUCTION</a></li>
         <li><a href="streaming.html">STREAMING</a></li>
-        <li><a href="ai-post-production.html" class="active">AI &amp; POST‑PRODUCTION</a></li>
+        <li><a href="ai-post-production.html" class="active">AI &amp; POST-PRODUCTION</a></li>
         <li><a href="playout.html">PLAYOUT</a></li>
       </ul>
 
@@ -65,28 +57,29 @@
     </div>
   </nav>
 
-  <!-- ============ HERO ============ -->
+  <!-- ============ HERO (30% REDUCED SIZE) ============ -->
   <section class="category-hero">
     <div class="category-hero-content">
-      <h1>AI &amp; Post‑Production</h1>
-      <p>AI tools, video editing, VFX, color grading, and post‑production workflows</p>
+      <h1>AI &amp; Post-Production</h1>
+      <p>AI tools, video editing, VFX, color grading, and post-production workflows</p>
     </div>
   </section>
 
-  <!-- ============ CONTENT ============ -->
-  <main class="category-content">
- </section>
-  <div class="editorial-container">
-    <div class="editorial-box">
-      <span class="editorial-label">AI & POST-PRODUCTION ANALYSIS</span>
-      <p id="daily-insight">Evaluating the integration of generative AI and machine learning in global media post-production...</p>
-    </div>
-  </div>
-
+  <!-- ============ MAIN CONTENT ============ -->
   <main class="category-content">
     <div id="bentoGridLarge" class="bento-grid-large"></div>
     <div id="listGrid" class="list-grid"></div>
   </main>
+
+  <!-- ============ EDITORIAL BOX (NEW POSITION: ABOVE FOOTER) ============ -->
+  <div class="editorial-footer-wrapper">
+    <div class="editorial-container">
+      <div class="editorial-box">
+        <span class="editorial-label">AI & POST-PRODUCTION ANALYSIS</span>
+        <p id="daily-insight">Evaluating the integration of generative AI and machine learning in global media post-production...</p>
+      </div>
+    </div>
+  </div>
 
   <script>
     fetch('news-ai.txt')
@@ -94,7 +87,6 @@
       .then(text => { document.getElementById('daily-insight').innerText = text; })
       .catch(() => { });
   </script>
-  </main>
 
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
@@ -102,10 +94,8 @@
       <div class="footer-grid">
         <div class="foot-col">
           <h4>About</h4>
-          <p>
-            An independent resource for systems architects and media technologists tracking the evolution of broadcast infrastructure.
-          </p>
-          <p class="footer-tagline">Real‑time insights. Industry‑leading coverage.</p>
+          <p>An independent resource for systems architects and media technologists tracking the evolution of broadcast infrastructure.</p>
+          <p class="footer-tagline">Real-time insights. Industry-leading coverage.</p>
         </div>
 
         <div class="foot-col">
@@ -115,7 +105,7 @@
           <a href="graphics.html">Graphics</a>
           <a href="cloud.html">Cloud Production</a>
           <a href="streaming.html">Streaming</a>
-          <a href="ai-post-production.html">AI &amp; Post‑Production</a>
+          <a href="ai-post-production.html">AI &amp; Post-Production</a>
           <a href="playout.html">Playout</a>
         </div>
 
@@ -139,7 +129,7 @@
 
       <div class="footer-bottom">
         <p class="footer-note">© 2026 The Streamic. All rights reserved.</p>
-        <p class="footer-tech">Curated by The Streamic Editorial. Human-led insights on global media technology. &amp; smart content curation</p>
+        <p class="footer-tech">Curated by The Streamic Editorial. Human-led insights on global media technology &amp; smart content curation.</p>
       </div>
     </div>
   </footer>
@@ -152,7 +142,6 @@
       <h2>Join the Future of Broadcast</h2>
       <p>Get the latest technology insights delivered to your inbox</p>
 
-      <!-- If you later decide to switch to the hidden-iframe method, we can update this form. -->
       <form id="subscribeForm" onsubmit="return handleSubscribe(event)">
         <input type="email" id="emailInput" placeholder="Your email address" required>
         <button type="submit" class="subscribe-submit-btn">Subscribe</button>
@@ -161,10 +150,9 @@
     </div>
   </div>
 
-  <!-- ============ MAIN SCRIPT ============ -->
-  <script src="main.js?v=20260211"></script>
+  <!-- ============ SCRIPTS ============ -->
+  <script src="main.js?v=20260214"></script>
   
-  <!-- ============ SUBSCRIBE MODAL SCRIPT ============ -->
   <script>
     function showSubscribeModal() {
       document.getElementById('subscribeModal').style.display = 'flex';
@@ -179,13 +167,11 @@
       const email = document.getElementById('emailInput').value;
       const message = document.getElementById('subscribeMessage');
       
-      // Simple validation
       if (email) {
         message.textContent = 'Thank you for subscribing!';
         message.style.color = '#28a745';
         message.style.display = 'block';
         
-        // Reset form after 2 seconds
         setTimeout(() => {
           document.getElementById('subscribeForm').reset();
           message.style.display = 'none';
@@ -196,7 +182,6 @@
       return false;
     }
     
-    // Close modal on escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeSubscribeModal();
     });

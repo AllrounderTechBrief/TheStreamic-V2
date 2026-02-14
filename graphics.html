@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Consent Mode v2 - Default Denied -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -12,43 +11,43 @@
       'analytics_storage': 'denied'
     });
   </script>
-  
-  <!-- Google AdSense -->
+
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8033069131874524" crossorigin="anonymous"></script>
-  
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Real-time graphics, motion graphics, and visual technology">
-  <meta name="keywords" content="graphics, broadcast technology, media infrastructure, professional video">
-  <meta name="author" content="The Streamic">
-  <link rel="canonical" href="https://www.yoursite.com/graphics.html">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.yoursite.com/graphics.html">
-  <meta property="og:title" content="Graphics - The Streamic">
-  <meta property="og:description" content="Real-time graphics, motion graphics, and visual technology">
-  <title>Graphics - The Streamic | Broadcast Technology News</title>
-  <link rel="stylesheet" href="style.css">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Broadcast graphics, real-time rendering, AR/VR, virtual sets, and motion graphics technology news from industry leaders." />
+  <meta name="author" content="The Streamic" />
+  <link rel="canonical" href="https://www.thestreamic.in/graphics.html" />
+
+  <title>Graphics – The Streamic</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body data-category="graphics">
-  
   <nav class="site-nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo-container">
-        <img src="assets/logo.png" alt="The Streamic Logo" class="nav-logo-image">
+        <img src="assets/logo.png" alt="The Streamic Logo" class="nav-logo-image" />
         <span class="nav-logo">THE STREAMIC</span>
       </a>
+
       <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+
       <ul class="nav-links">
         <li><a href="featured.html">FEATURED</a></li>
-        <li><a href="infrastructure.html" >INFRASTRUCTURE</a></li>
+        <li><a href="infrastructure.html">INFRASTRUCTURE</a></li>
         <li><a href="graphics.html" class="active">GRAPHICS</a></li>
-        <li><a href="cloud.html" >CLOUD PRODUCTION</a></li>
-        <li><a href="streaming.html" >STREAMING</a></li>
-        <li><a href="ai-post-production.html" >AI &amp; POST-PRODUCTION</a></li>
-        <li><a href="playout.html" >PLAYOUT</a></li>
+        <li><a href="cloud.html">CLOUD PRODUCTION</a></li>
+        <li><a href="streaming.html">STREAMING</a></li>
+        <li><a href="ai-post-production.html">AI &amp; POST-PRODUCTION</a></li>
+        <li><a href="playout.html">PLAYOUT</a></li>
       </ul>
-      
-      <!-- Subscribe Button in Header -->
+
       <div class="header-subscribe">
         <a href="vlog.html" class="editors-desk-link">Editor's Desk</a>
         <button onclick="showSubscribeModal()" class="header-subscribe-btn">Subscribe</button>
@@ -56,42 +55,33 @@
     </div>
   </nav>
 
-  <header class="page-hero">
-    <div class="hero-inner">
-      <h1 class="category-heading">Graphics</h1>
-      <p>Real-time graphics, motion graphics, and visual technology</p>
+  <section class="category-hero">
+    <div class="category-hero-content">
+      <h1>Graphics</h1>
+      <p>Real-time rendering, AR/VR, virtual sets, and motion graphics technology</p>
     </div>
-  </header>
-
-  <main class="category-content">
-</section>
-  <div class="editorial-container">
-    <div class="editorial-box">
-      <span class="editorial-label">THE STREAMIC: GLOBAL UPDATES</span>
-      <p id="daily-insight">Analyzing the latest global shifts in media technology and broadcast infrastructure...</p>
-    </div>
-  </div>
+  </section>
 
   <main class="category-content">
     <div id="bentoGridLarge" class="bento-grid-large"></div>
     <div id="listGrid" class="list-grid"></div>
   </main>
 
+  <div class="editorial-footer-wrapper">
+    <div class="editorial-container">
+      <div class="editorial-box">
+        <span class="editorial-label">GRAPHICS TECHNOLOGY ANALYSIS</span>
+        <p id="daily-insight">Examining the convergence of real-time rendering engines, LED virtual production, and photorealistic AR overlays in live broadcast environments...</p>
+      </div>
+    </div>
+  </div>
+
   <script>
-    fetch('editorial.txt')
-      .then(response => {
-        if (!response.ok) throw new Error();
-        return response.text();
-      })
-      .then(text => {
-        document.getElementById('daily-insight').innerText = text;
-      })
-      .catch(err => {
-        // This is your safety text if the file fails to load
-        document.getElementById('daily-insight').innerText = "Tracking the global evolution of broadcast technology, from cloud playout to IP-based production standards.";
-      });
+    fetch('news-graphics.txt')
+      .then(response => response.ok ? response.text() : "Following innovations in Unreal Engine integration, XR studios, and next-generation graphics workflows.")
+      .then(text => { document.getElementById('daily-insight').innerText = text; })
+      .catch(() => { });
   </script>
-  </main>
 
   <footer class="site-footer">
     <div class="footer-content">
@@ -101,7 +91,7 @@
           <p>An independent resource for systems architects and media technologists tracking the evolution of broadcast infrastructure.</p>
           <p class="footer-tagline">Real-time insights. Industry-leading coverage.</p>
         </div>
-        
+
         <div class="foot-col">
           <h4>Categories</h4>
           <a href="featured.html">Featured</a>
@@ -112,7 +102,7 @@
           <a href="ai-post-production.html">AI &amp; Post-Production</a>
           <a href="playout.html">Playout</a>
         </div>
-        
+
         <div class="foot-col">
           <h4>Resources</h4>
           <a href="about.html">About Us</a>
@@ -122,140 +112,72 @@
           <a href="privacy.html">Privacy Policy</a>
           <a href="rss-policy.html">RSS Policy</a>
         </div>
-        
+
         <div class="foot-col">
           <h4>Stay Connected</h4>
           <a href="https://twitter.com/thestreamic" target="_blank" rel="noopener">Twitter</a>
           <a href="https://linkedin.com/company/thestreamic" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="/cdn-cgi/l/email-protection#41282f272e0135292432353324202c28226f282f">Email Us</a>
+          <a href="mailto:info@thestreamic.in">Email Us</a>
         </div>
       </div>
-      
+
       <div class="footer-bottom">
         <p class="footer-note">© 2026 The Streamic. All rights reserved.</p>
-        <p class="footer-tech">Powered by RSS aggregation & smart content curation</p>
+        <p class="footer-tech">Curated by The Streamic Editorial. Human-led insights on global media technology &amp; smart content curation.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Subscribe Modal -->
-  <div id="subscribeModal" class="subscribe-modal" style="display: none;">
+  <div id="subscribeModal" class="subscribe-modal" style="display:none;">
     <div class="subscribe-modal-overlay" onclick="closeSubscribeModal()"></div>
     <div class="subscribe-modal-content">
-      <button class="subscribe-modal-close" onclick="closeSubscribeModal()">&times;</button>
+      <button class="subscribe-modal-close" onclick="closeSubscribeModal()">×</button>
       <h2>Join the Future of Broadcast</h2>
       <p>Get the latest technology insights delivered to your inbox</p>
+
       <form id="subscribeForm" onsubmit="return handleSubscribe(event)">
-        <input 
-          type="email" 
-          class="subscribe-modal-input" 
-          placeholder="Enter your email"
-          required
-          id="subscribeEmail"
-        >
-        <button type="submit" class="subscribe-modal-btn">Subscribe</button>
+        <input type="email" id="emailInput" placeholder="Your email address" required>
+        <button type="submit" class="subscribe-submit-btn">Subscribe</button>
       </form>
-      <div id="subscribeSuccess" class="subscribe-success" style="display: none;">
-        <p>✓ Welcome to the Future of Broadcast. You are subscribed!</p>
-      </div>
+      <p id="subscribeMessage" style="margin-top:15px;display:none;"></p>
     </div>
   </div>
 
-  <!-- Cookie Consent Banner -->
-  <div id="cookieConsent" class="cookie-consent" style="display: none;">
-    <div class="cookie-consent-content">
-      <div class="cookie-text">
-        <p>We use cookies to personalize content and ads, and to analyze our traffic. By clicking "Accept", you consent to our use of cookies.</p>
-      </div>
-      <div class="cookie-buttons">
-        <button onclick="declineCookies()" class="cookie-btn cookie-decline">Decline</button>
-        <button onclick="acceptCookies()" class="cookie-btn cookie-accept">Accept</button>
-      </div>
-    </div>
-  </div>
-
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Cookie Consent Functions
-    function acceptCookies() {
-      gtag('consent', 'update', {
-        'ad_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted',
-        'analytics_storage': 'granted'
-      });
-      localStorage.setItem('cookieConsent', 'accepted');
-      document.getElementById('cookieConsent').style.display = 'none';
-    }
-
-    function declineCookies() {
-      localStorage.setItem('cookieConsent', 'declined');
-      document.getElementById('cookieConsent').style.display = 'none';
-    }
-
-    // Show cookie banner if user hasn't made a choice
-    window.addEventListener('DOMContentLoaded', function() {
-      const consent = localStorage.getItem('cookieConsent');
-      if (!consent) {
-        document.getElementById('cookieConsent').style.display = 'block';
-      } else if (consent === 'accepted') {
-        gtag('consent', 'update', {
-          'ad_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted',
-          'analytics_storage': 'granted'
-        });
-      }
-    });
-
-    // Subscribe Modal Functions
+  <script src="main.js?v=20260214"></script>
+  
+  <script>
     function showSubscribeModal() {
       document.getElementById('subscribeModal').style.display = 'flex';
-      document.body.style.overflow = 'hidden';
     }
-
+    
     function closeSubscribeModal() {
       document.getElementById('subscribeModal').style.display = 'none';
-      document.body.style.overflow = 'auto';
     }
-
+    
     function handleSubscribe(event) {
       event.preventDefault();
+      const email = document.getElementById('emailInput').value;
+      const message = document.getElementById('subscribeMessage');
       
-      const email = document.getElementById('subscribeEmail').value.trim();
-      
-      if (!email.includes('@') || !email.includes('.')) {
-        alert('Please enter a valid email address');
-        return false;
+      if (email) {
+        message.textContent = 'Thank you for subscribing!';
+        message.style.color = '#28a745';
+        message.style.display = 'block';
+        
+        setTimeout(() => {
+          document.getElementById('subscribeForm').reset();
+          message.style.display = 'none';
+          closeSubscribeModal();
+        }, 2000);
       }
-      
-      const formData = new FormData();
-      formData.append('entry.592345898', email);
-      
-      fetch('https://docs.google.com/forms/d/e/1FAIpQLSdbeoEH4KHqRG7jFWMB4u8cEH27AMPAmPYEuYKtrn9sDewG2A/formResponse', {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData
-      }).then(() => {
-        document.getElementById('subscribeForm').style.display = 'none';
-        document.getElementById('subscribeSuccess').style.display = 'block';
-        setTimeout(closeSubscribeModal, 3000);
-      }).catch(() => {
-        document.getElementById('subscribeForm').style.display = 'none';
-        document.getElementById('subscribeSuccess').style.display = 'block';
-        setTimeout(closeSubscribeModal, 3000);
-      });
       
       return false;
     }
-
-    // Close modal on ESC key
-    document.addEventListener('keydown', function(e) {
-         if (e.key == "Escape") {
-        closeSubscribeModal();
-      }
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSubscribeModal();
     });
   </script>
 
-  <script src="main.js?v=20260209"></script>
 </body>
 </html>
