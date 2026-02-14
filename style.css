@@ -1224,54 +1224,52 @@ main {
 /* --- 75% CENTERED CINEMATIC BOX FIX --- */
 
 /* 1. THE CONTAINER: Forcing perfect centering */
+/* 1. ELIMINATE THE GAP */
+/* This targets the hero image and the header to remove hidden spacing */
+.hero-broadcast, .category-header, .hero-broadcast-image {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    display: block; /* Removes tiny inline spacing at bottom of images */
+}
+
 .editorial-container {
-    display: block !important; /* Ensures it behaves as a block for centering */
-    width: 75% !important; /* Exactly 75% of the screen/parent width */
-    max-width: 1400px; 
-    margin-left: auto !important; /* Centers the block */
-    margin-right: auto !important; /* Centers the block */
-    margin-top: 20px !important;
-    margin-bottom: 40px !important;
-    padding: 0 !important;
-    clear: both;
+    max-width: 1200px;
+    margin: 0 auto !important; /* Zero top margin to touch the hero */
+    padding: 0 20px;
 }
 
-/* 2. THE BOX: Modern Tech Blue & 21:9 Proportions */
+/* 2. PREMIUM DARK THEME BOX */
 .editorial-box {
-    background: #0f172a !important; /* Sophisticated Modern Blue */
-    border-left: 10px solid #38bdf8 !important; /* Cyan-Blue accent line */
-    padding: 60px 8% !important; /* High vertical padding for the 21:9 feel */
-    border-radius: 12px; /* Smoother rounded corners for a premium look */
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Deep soft shadow */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for definition */
+    background: #1a1a1a; /* Deep professional charcoal */
+    border-left: 4px solid #ffffff; /* Sharp white accent */
+    padding: 25px 35px;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    margin-top: -5px; /* Slight pull-up to ensure no white line shows */
 }
 
-/* 3. TYPOGRAPHY: High Contrast White */
+/* 3. HIGH-CONTRAST TYPOGRAPHY */
 .editorial-label {
-    background: #38bdf8 !important; /* Vibrant Cyan */
-    color: #ffffff !important;
-    font-size: 12px;
-    font-weight: 900;
-    padding: 6px 16px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 25px;
     display: inline-block;
-    width: fit-content;
-    border-radius: 4px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 2px 10px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 #daily-insight {
-    font-family: 'Inter', sans-serif !important;
-    font-size: 22px !important; /* Large, readable font */
-    font-weight: 300 !important; /* Modern thin weight */
+    font-family: 'Inter', sans-serif;
+    font-size: 19px;
+    font-weight: 500;
     line-height: 1.6;
-    color: #ffffff !important; 
+    color: #ffffff !important; /* Pure White Font */
     margin: 0;
-    text-wrap: balance; /* Prevents awkward line breaks */
+    letter-spacing: -0.01em;
 }
 
 /* 4. HERO TITLE: Montserrat Bold & White */
