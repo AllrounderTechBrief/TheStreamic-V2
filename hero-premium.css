@@ -1,0 +1,532 @@
+/* ===================================================================
+   THE STREAMIC - PREMIUM HERO REDESIGN
+   Apple / Linear / Awwwards-Inspired Ultra-Modern Aesthetics
+   
+   6 VISUAL CONCEPTS:
+   1. Ultra-Light Vertical Gradient (Default - Most Minimal)
+   2. Soft Spotlight Vignette
+   3. Floating Glass Plate
+   4. Metallic Sheen Gradient
+   5. Geometric Curvature Depth
+   6. Hyper-Minimal Shadow Typography
+   
+   Simply swap the class name on <section class="category-hero"> to:
+   - category-hero-spotlight
+   - category-hero-glass
+   - category-hero-metallic
+   - category-hero-geometric
+   - category-hero-shadow
+=================================================================== */
+
+/* ===================================================================
+   CONCEPT 1: ULTRA-LIGHT VERTICAL GRADIENT (DEFAULT)
+   Apple-style minimal with barely-there gradient
+=================================================================== */
+.category-hero {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    #FAFAFA 0%,
+    #F5F5F5 50%,
+    #F0F0F0 100%
+  );
+  padding: 60px 22px 50px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+/* Subtle ambient light effect - top glow */
+.category-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  pointer-events: none;
+}
+
+.category-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Ultra-Modern Typography System */
+.category-hero h1 {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+  font-size: 50px;
+  font-weight: 600; /* SemiBold for premium feel */
+  letter-spacing: -0.045em; /* Tighter tracking */
+  margin-bottom: 16px;
+  color: #1a1a1a;
+  line-height: 1.08;
+  text-align: center;
+  background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.category-hero p {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  color: #6e6e73;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+/* ===================================================================
+   CONCEPT 2: SOFT SPOTLIGHT VIGNETTE
+   Dramatic center-focused lighting
+=================================================================== */
+.category-hero-spotlight {
+  position: relative;
+  background: 
+    radial-gradient(
+      ellipse 140% 80% at 50% 40%,
+      #FFFFFF 0%,
+      #F8F8F8 40%,
+      #F0F0F0 100%
+    );
+  padding: 60px 22px 50px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+/* Soft shadow vignette around edges */
+.category-hero-spotlight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
+  pointer-events: none;
+}
+
+.category-hero-spotlight .category-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.category-hero-spotlight h1 {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+  line-height: 1.08;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.category-hero-spotlight p {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-size: 20px;
+  color: #6e6e73;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ===================================================================
+   CONCEPT 3: FLOATING GLASS PLATE
+   Frosted glass morphism behind text
+=================================================================== */
+.category-hero-glass {
+  position: relative;
+  background: linear-gradient(180deg, #FAFAFA 0%, #F2F2F2 100%);
+  padding: 60px 22px 50px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+/* Subtle grid pattern */
+.category-hero-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.category-hero-glass .category-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 50px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.category-hero-glass h1 {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+  line-height: 1.08;
+}
+
+.category-hero-glass p {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-size: 20px;
+  color: #6e6e73;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ===================================================================
+   CONCEPT 4: METALLIC SHEEN GRADIENT
+   Soft metallic light sweep
+=================================================================== */
+.category-hero-metallic {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    #FAFAFA 0%,
+    #F5F5F5 25%,
+    #FCFCFC 50%,
+    #F5F5F5 75%,
+    #F0F0F0 100%
+  );
+  padding: 60px 22px 50px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+/* Metallic sheen overlay */
+.category-hero-metallic::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 60%
+  );
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.category-hero-metallic .category-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.category-hero-metallic h1 {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+  line-height: 1.08;
+  background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 50%, #1a1a1a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.category-hero-metallic p {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-size: 20px;
+  color: #6e6e73;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ===================================================================
+   CONCEPT 5: GEOMETRIC CURVATURE DEPTH
+   Subtle curved layers with depth
+=================================================================== */
+.category-hero-geometric {
+  position: relative;
+  background: #F8F8F8;
+  padding: 60px 22px 50px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+/* Curved layer 1 - background */
+.category-hero-geometric::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120%;
+  background: linear-gradient(180deg, transparent 0%, #F0F0F0 100%);
+  border-radius: 50% 50% 0 0 / 20% 20% 0 0;
+  transform: translateY(10%);
+  pointer-events: none;
+}
+
+/* Curved layer 2 - mid */
+.category-hero-geometric::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  right: 5%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 100%);
+  border-radius: 50% 50% 0 0 / 15% 15% 0 0;
+  transform: translateY(5%);
+  pointer-events: none;
+}
+
+.category-hero-geometric .category-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.category-hero-geometric h1 {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+  line-height: 1.08;
+}
+
+.category-hero-geometric p {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-size: 20px;
+  color: #6e6e73;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ===================================================================
+   CONCEPT 6: HYPER-MINIMAL SHADOW TYPOGRAPHY
+   Ultra-clean with subtle depth behind text only
+=================================================================== */
+.category-hero-shadow {
+  position: relative;
+  background: #F9F9F9;
+  padding: 60px 22px 50px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.category-hero-shadow .category-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.category-hero-shadow h1 {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+  line-height: 1.08;
+  text-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.03),
+    0 2px 4px rgba(0, 0, 0, 0.02);
+  position: relative;
+}
+
+/* Soft glow behind title */
+.category-hero-shadow h1::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: transparent;
+  filter: blur(40px);
+  opacity: 0.15;
+  background: linear-gradient(180deg, #000 0%, #666 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.category-hero-shadow p {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-size: 20px;
+  color: #6e6e73;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  max-width: 680px;
+  margin: 0 auto;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+/* ===================================================================
+   MOBILE RESPONSIVE ADJUSTMENTS (All Concepts)
+=================================================================== */
+@media (max-width: 768px) {
+  .category-hero,
+  .category-hero-spotlight,
+  .category-hero-glass,
+  .category-hero-metallic,
+  .category-hero-geometric,
+  .category-hero-shadow {
+    padding: 45px 22px 35px;
+  }
+  
+  .category-hero h1,
+  .category-hero-spotlight h1,
+  .category-hero-glass h1,
+  .category-hero-metallic h1,
+  .category-hero-geometric h1,
+  .category-hero-shadow h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+    letter-spacing: -0.04em;
+  }
+  
+  .category-hero p,
+  .category-hero-spotlight p,
+  .category-hero-glass p,
+  .category-hero-metallic p,
+  .category-hero-geometric p,
+  .category-hero-shadow p {
+    font-size: 16px;
+    max-width: 100%;
+  }
+  
+  /* Glass plate adjustment for mobile */
+  .category-hero-glass .category-hero-content {
+    padding: 30px 25px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-hero,
+  .category-hero-spotlight,
+  .category-hero-glass,
+  .category-hero-metallic,
+  .category-hero-geometric,
+  .category-hero-shadow {
+    padding: 40px 18px 30px;
+  }
+  
+  .category-hero h1,
+  .category-hero-spotlight h1,
+  .category-hero-glass h1,
+  .category-hero-metallic h1,
+  .category-hero-geometric h1,
+  .category-hero-shadow h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .category-hero p,
+  .category-hero-spotlight p,
+  .category-hero-glass p,
+  .category-hero-metallic p,
+  .category-hero-geometric p,
+  .category-hero-shadow p {
+    font-size: 15px;
+  }
+}
+
+/* ===================================================================
+   PREMIUM MICRO-INTERACTIONS (Optional Enhancement)
+   Add these to enhance the premium feel with subtle motion
+=================================================================== */
+
+/* Smooth fade-in on page load */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category-hero-content,
+.category-hero-spotlight .category-hero-content,
+.category-hero-glass .category-hero-content,
+.category-hero-metallic .category-hero-content,
+.category-hero-geometric .category-hero-content,
+.category-hero-shadow .category-hero-content {
+  animation: heroFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Subtle hover state for glass variant (desktop only) */
+@media (min-width: 1024px) {
+  .category-hero-glass .category-hero-content {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .category-hero-glass:hover .category-hero-content {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 12px 48px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 1);
+  }
+}
