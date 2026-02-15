@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Consent defaults (opt-out) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -30,7 +29,6 @@
 </head>
 
 <body data-category="ai-post-production">
-  <!-- ============ NAV ============ -->
   <nav class="site-nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo-container">
@@ -57,7 +55,6 @@
     </div>
   </nav>
 
-  <!-- ============ HERO (30% REDUCED SIZE) ============ -->
   <section class="category-hero">
     <div class="category-hero-content">
       <h1>AI &amp; Post-Production</h1>
@@ -65,30 +62,11 @@
     </div>
   </section>
 
-  <!-- ============ MAIN CONTENT ============ -->
   <main class="category-content">
     <div id="bentoGridLarge" class="bento-grid-large"></div>
     <div id="listGrid" class="list-grid"></div>
   </main>
 
-  <!-- ============ EDITORIAL BOX (NEW POSITION: ABOVE FOOTER) ============ -->
-  <div class="editorial-footer-wrapper">
-    <div class="editorial-container">
-      <div class="editorial-box">
-        <span class="editorial-label">AI & POST-PRODUCTION ANALYSIS</span>
-        <p id="daily-insight">Evaluating the integration of generative AI and machine learning in global media post-production...</p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    fetch('news-ai.txt')
-      .then(response => response.ok ? response.text() : "Tracking the global evolution of AI-driven editing, cloud rendering, and automated metadata workflows.")
-      .then(text => { document.getElementById('daily-insight').innerText = text; })
-      .catch(() => { });
-  </script>
-
-  <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-grid">
@@ -123,18 +101,17 @@
           <h4>Stay Connected</h4>
           <a href="https://twitter.com/thestreamic" target="_blank" rel="noopener">Twitter</a>
           <a href="https://linkedin.com/company/thestreamic" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="/cdn-cgi/l/email-protection#41282f272e0135292432353324202c28226f282f">Email Us</a>
+          <a href="mailto:info@thestreamic.in">Email Us</a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-note">© 2026 The Streamic. All rights reserved.</p>
+        <p class="footer-note">© 2026 The Streamic. Founded and Curated by Prerak Mehta. Built for the Global Broadcast Community.</p>
         <p class="footer-tech">Curated by The Streamic Editorial. Human-led insights on global media technology &amp; smart content curation.</p>
       </div>
     </div>
   </footer>
 
-  <!-- ============ SUBSCRIBE MODAL ============ -->
   <div id="subscribeModal" class="subscribe-modal" style="display:none;">
     <div class="subscribe-modal-overlay" onclick="closeSubscribeModal()"></div>
     <div class="subscribe-modal-content">
@@ -150,8 +127,7 @@
     </div>
   </div>
 
-  <!-- ============ SCRIPTS ============ -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="main.js?v=20260214"></script>
+  <script src="main.js?v=20260215"></script>
   
   <script>
     function showSubscribeModal() {
@@ -180,4 +156,12 @@
       }
       
       return false;
- 
+    }
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSubscribeModal();
+    });
+  </script>
+
+</body>
+</html>

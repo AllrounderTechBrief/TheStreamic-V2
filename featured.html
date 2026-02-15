@@ -70,6 +70,7 @@
       <div id="daily-insight" class="editorial-analysis">
         <p>Fetching analysis...</p>
       </div>
+      <button id="readMoreBtn" class="read-more-btn" onclick="toggleReadMore()">Read More</button>
     </div>
   </div>
 
@@ -83,8 +84,8 @@
       <div class="footer-grid">
         <div class="foot-col">
           <h4>About</h4>
-          <p>An independent resource for systems architects and media technologists tracking the evolution of broadcast infrastructure.</p>
-          <p class="footer-tagline">Real-time insights. Industry-leading coverage.</p>
+          <p>A dedicated media tech desk by Prerak Mehta. Sharing insights on the future of broadcast, cloud playout, and digital media.</p>
+          <p class="footer-tagline">We cut through the noise of the media industry to bring you the technical updates that actually matter. No filler, just pure knowledge sharing focused on how technology is redefining the way we create and consume content globally.</p>
         </div>
 
         <div class="foot-col">
@@ -117,8 +118,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-note">© 2026 The Streamic. All rights reserved.</p>
-        <p class="footer-tech">Curated by The Streamic Editorial. Human-led insights on global media technology &amp; smart content curation.</p>
+        <p class="footer-note">© 2026 The Streamic. Founded and Curated by Prerak Mehta. Built for the Global Broadcast Community.</p>
       </div>
     </div>
   </footer>
@@ -138,7 +138,7 @@
     </div>
   </div>
 
-  <script src="main.js?v=20260214"></script>
+  <script src="main.js?v=20260215"></script>
   
   <script>
     function showSubscribeModal() {
@@ -174,13 +174,8 @@
     });
   </script>
 
-  <!-- ============================================
-       TASK 1: EDITORIAL FETCH ENGINE
-       Fetches headlines.txt and parses it
-       Format: Headline --- Analysis
-       ============================================ -->
+  <!-- EDITORIAL FETCH ENGINE -->
   <script>
-    // Fetch and parse headlines.txt
     fetch('headlines.txt')
       .then(response => {
         if (!response.ok) {
@@ -189,30 +184,40 @@
         return response.text();
       })
       .then(content => {
-        // Parse the content - split by '---' separator
         const parts = content.split('---').map(part => part.trim());
         
         if (parts.length >= 2) {
-          // First part is the headline
           const headline = parts[0];
-          // Second part is the analysis (everything after ---)
           const analysis = parts.slice(1).join('---').trim();
           
-          // Inject into the page
           document.getElementById('daily-headline').textContent = headline;
           document.getElementById('daily-insight').innerHTML = '<p>' + analysis.replace(/\n\n/g, '</p><p>') + '</p>';
         } else {
-          // Fallback if format is wrong
           document.getElementById('daily-headline').textContent = 'Featured Technology Insights';
           document.getElementById('daily-insight').innerHTML = '<p>' + content + '</p>';
         }
       })
       .catch(error => {
-        // Fallback content if file doesn't exist
         console.log('Headlines fetch error:', error);
         document.getElementById('daily-headline').textContent = 'Featured Technology Insights';
         document.getElementById('daily-insight').innerHTML = '<p>Highlighting the most significant developments shaping broadcast technology, from infrastructure transformation to emerging production paradigms. Our editorial team curates breakthrough announcements, strategic partnerships, and technology shifts across the broadcast ecosystem.</p>';
       });
+  </script>
+
+  <!-- READ MORE TOGGLE FUNCTION -->
+  <script>
+    function toggleReadMore() {
+      const insight = document.getElementById('daily-insight');
+      const btn = document.getElementById('readMoreBtn');
+      
+      if (insight.classList.contains('expanded')) {
+        insight.classList.remove('expanded');
+        btn.textContent = 'Read More';
+      } else {
+        insight.classList.add('expanded');
+        btn.textContent = 'Read Less';
+      }
+    }
   </script>
 
 </body>

@@ -1,6 +1,6 @@
 /* =========================================================
    THE STREAMIC - Complete CSS
-   Updated with Weekly Curation Section & Mobile Fixes
+   Updated with Read More Functionality & Mobile Optimization
 ========================================================= */
 
 * {
@@ -263,19 +263,21 @@ body {
 }
 
 /* ===================================================================
-   TASK 2: EDITORIAL CONTAINER (Weekly Curation - Awwwards 21:9)
-   Deep Navy Background, 2-Column Desktop, 1-Column Mobile
+   EDITORIAL CONTAINER with Height Limit & Fade Effect
 =================================================================== */
 .editorial-container {
   background: var(--navy-bg);
   width: 100%;
-  padding: 80px 22px;
+  padding: 60px 22px;
   margin: 0;
+  max-height: 40vh; /* Mobile constraint - max 40% of screen height */
+  overflow: visible;
 }
 
 .editorial-inner {
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
 }
 
 .editorial-label {
@@ -286,7 +288,7 @@ body {
   font-weight: 900;
   padding: 6px 16px;
   border-radius: 4px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   letter-spacing: 2px;
   text-transform: uppercase;
   border: 1px solid rgba(255, 215, 0, 0.3);
@@ -295,14 +297,15 @@ body {
 .editorial-container h2,
 .editorial-container #daily-headline {
   font-family: 'Inter', sans-serif;
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.2;
   color: #ffffff;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   letter-spacing: -0.02em;
 }
 
+/* HEIGHT-LIMITED TEXT WITH FADE EFFECT */
 .editorial-analysis,
 .editorial-container #daily-insight {
   font-family: 'Inter', sans-serif;
@@ -313,6 +316,36 @@ body {
   column-count: 2;
   column-gap: 60px;
   text-align: justify;
+  
+  /* Height limit with fade */
+  max-height: 180px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+/* FADE-OUT GRADIENT MASK */
+.editorial-analysis::after,
+.editorial-container #daily-insight::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent 0%, var(--navy-bg) 100%);
+  pointer-events: none;
+}
+
+/* EXPANDED STATE - Remove height limit and fade */
+.editorial-analysis.expanded,
+.editorial-container #daily-insight.expanded {
+  max-height: none;
+}
+
+.editorial-analysis.expanded::after,
+.editorial-container #daily-insight.expanded::after {
+  display: none;
 }
 
 .editorial-analysis p,
@@ -321,10 +354,38 @@ body {
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* Mobile: 1-column at 96% width */
+/* READ MORE BUTTON */
+.read-more-btn {
+  padding: 12px 32px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy-bg);
+  background: var(--gold-accent);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.read-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+  background: #FFA500;
+}
+
+.read-more-btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile: 1-column, 96% width, maintain 40vh constraint */
 @media (max-width: 768px) {
   .editorial-container {
-    padding: 60px 0;
+    padding: 40px 0;
+    max-height: 40vh; /* Critical - ensures first card is visible */
+    overflow: visible;
   }
   
   .editorial-inner {
@@ -335,8 +396,8 @@ body {
   
   .editorial-container h2,
   .editorial-container #daily-headline {
-    font-size: 28px;
-    margin-bottom: 24px;
+    font-size: 24px;
+    margin-bottom: 16px;
   }
   
   .editorial-analysis,
@@ -345,6 +406,12 @@ body {
     font-size: 16px;
     line-height: 1.6;
     text-align: left;
+    max-height: 180px; /* Same height limit on mobile */
+  }
+  
+  .read-more-btn {
+    font-size: 13px;
+    padding: 10px 28px;
   }
 }
 
@@ -360,8 +427,7 @@ main {
 }
 
 /* ===================================================================
-   TASK 3: MOBILE CARD OVERHAUL - CRITICAL FIX
-   Single Column Layout at 96% Width on Mobile
+   MOBILE CARD FIX - Single Column at 96% Width
 =================================================================== */
 
 /* TIER 1: LARGE BENTO CARDS */
@@ -471,10 +537,7 @@ main {
   }
 }
 
-/* ===================================================================
-   CRITICAL: MOBILE SINGLE COLUMN FIX (768px and below)
-   This FORCES single column layout at 96% width
-=================================================================== */
+/* CRITICAL: MOBILE SINGLE COLUMN FIX (768px and below) */
 @media (max-width: 768px) {
   /* FORCE SINGLE COLUMN - Override everything */
   .bento-grid-large,

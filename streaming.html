@@ -67,22 +67,6 @@
     <div id="listGrid" class="list-grid"></div>
   </main>
 
-  <div class="editorial-footer-wrapper">
-    <div class="editorial-container">
-      <div class="editorial-box">
-        <span class="editorial-label">STREAMING TECHNOLOGY ANALYSIS</span>
-        <p id="daily-insight">Evaluating the deployment of AV1, LCEVC, and next-generation codecs alongside low-latency streaming protocols for global OTT delivery...</p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    fetch('news-streaming.txt')
-      .then(response => response.ok ? response.text() : "Tracking CDN evolution, FAST channel growth, and the convergence of broadcast and streaming workflows.")
-      .then(text => { document.getElementById('daily-insight').innerText = text; })
-      .catch(() => { });
-  </script>
-
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-grid">
@@ -117,12 +101,12 @@
           <h4>Stay Connected</h4>
           <a href="https://twitter.com/thestreamic" target="_blank" rel="noopener">Twitter</a>
           <a href="https://linkedin.com/company/thestreamic" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="/cdn-cgi/l/email-protection#8fe6e1e9e0cffbe7eafcfbfdeaeee2e6eca1e6e1">Email Us</a>
+          <a href="mailto:info@thestreamic.in">Email Us</a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-note">© 2026 The Streamic. All rights reserved.</p>
+        <p class="footer-note">© 2026 The Streamic. Founded and Curated by Prerak Mehta. Built for the Global Broadcast Community.</p>
         <p class="footer-tech">Curated by The Streamic Editorial. Human-led insights on global media technology &amp; smart content curation.</p>
       </div>
     </div>
@@ -143,7 +127,7 @@
     </div>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="main.js?v=20260214"></script>
+  <script src="main.js?v=20260215"></script>
   
   <script>
     function showSubscribeModal() {
@@ -172,4 +156,12 @@
       }
       
       return false;
- 
+    }
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSubscribeModal();
+    });
+  </script>
+
+</body>
+</html>

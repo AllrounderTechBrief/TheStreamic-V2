@@ -67,22 +67,6 @@
     <div id="listGrid" class="list-grid"></div>
   </main>
 
-  <div class="editorial-footer-wrapper">
-    <div class="editorial-container">
-      <div class="editorial-box">
-        <span class="editorial-label">PLAYOUT TECHNOLOGY ANALYSIS</span>
-        <p id="daily-insight">Reviewing the shift from traditional hardware-based master control to software-defined playout and multi-channel automation platforms...</p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    fetch('news-playout.txt')
-      .then(response => response.ok ? response.text() : "Monitoring virtualized playout adoption, disaster recovery strategies, and unified channel origination systems.")
-      .then(text => { document.getElementById('daily-insight').innerText = text; })
-      .catch(() => { });
-  </script>
-
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-grid">
@@ -117,12 +101,12 @@
           <h4>Stay Connected</h4>
           <a href="https://twitter.com/thestreamic" target="_blank" rel="noopener">Twitter</a>
           <a href="https://linkedin.com/company/thestreamic" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="/cdn-cgi/l/email-protection#573e39313817233f3224232532363a3e34793e39">Email Us</a>
+          <a href="mailto:info@thestreamic.in">Email Us</a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-note">© 2026 The Streamic. All rights reserved.</p>
+        <p class="footer-note">© 2026 The Streamic. Founded and Curated by Prerak Mehta. Built for the Global Broadcast Community.</p>
         <p class="footer-tech">Curated by The Streamic Editorial. Human-led insights on global media technology &amp; smart content curation.</p>
       </div>
     </div>
@@ -143,7 +127,7 @@
     </div>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="main.js?v=20260214"></script>
+  <script src="main.js?v=20260215"></script>
   
   <script>
     function showSubscribeModal() {
@@ -172,4 +156,12 @@
       }
       
       return false;
- 
+    }
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSubscribeModal();
+    });
+  </script>
+
+</body>
+</html>
