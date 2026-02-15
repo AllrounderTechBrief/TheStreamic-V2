@@ -1,6 +1,6 @@
 /* =========================================================
    THE STREAMIC - Complete CSS
-   Updated with Read More Functionality & Mobile Optimization
+   Updated: Modern Color Scheme + No Grey Belt + Compact Layout
 ========================================================= */
 
 * {
@@ -19,7 +19,7 @@
   --card-shadow: 0 2px 12px rgba(0,0,0,0.06);
   --card-hover-shadow: 0 8px 32px rgba(0,0,0,0.12);
   --nav-grey: #8b95a5;
-  --navy-bg: #0f172a;
+  --editorial-bg: #1e293b; /* Modern slate-blue instead of pure navy */
 }
 
 body {
@@ -263,15 +263,17 @@ body {
 }
 
 /* ===================================================================
-   EDITORIAL CONTAINER with Height Limit & Fade Effect
+   EDITORIAL CONTAINER - Modern Slate-Blue with Gradient
+   FIX: Removed grey belt, compact padding, better positioning
 =================================================================== */
 .editorial-container {
-  background: var(--navy-bg);
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); /* Modern slate-blue gradient */
   width: 100%;
-  padding: 60px 22px;
-  margin: 0;
-  max-height: 40vh; /* Mobile constraint - max 40% of screen height */
+  padding: 50px 22px 50px; /* Reduced from 60px - moves it up */
+  margin: 0; /* NO margin to prevent grey gap */
+  max-height: 40vh;
   overflow: visible;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
 }
 
 .editorial-inner {
@@ -288,7 +290,7 @@ body {
   font-weight: 900;
   padding: 6px 16px;
   border-radius: 4px;
-  margin-bottom: 20px;
+  margin-bottom: 18px; /* Reduced from 20px */
   letter-spacing: 2px;
   text-transform: uppercase;
   border: 1px solid rgba(255, 215, 0, 0.3);
@@ -301,7 +303,7 @@ body {
   font-weight: 700;
   line-height: 1.2;
   color: #ffffff;
-  margin-bottom: 24px;
+  margin-bottom: 20px; /* Reduced from 24px */
   letter-spacing: -0.02em;
 }
 
@@ -318,13 +320,13 @@ body {
   text-align: justify;
   
   /* Height limit with fade */
-  max-height: 180px;
+  max-height: 160px; /* Reduced from 180px to fit button better */
   overflow: hidden;
   position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 20px; /* Reduced from 24px */
 }
 
-/* FADE-OUT GRADIENT MASK */
+/* FADE-OUT GRADIENT MASK - Updated to match new background */
 .editorial-analysis::after,
 .editorial-container #daily-insight::after {
   content: '';
@@ -332,8 +334,8 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 80px;
-  background: linear-gradient(to bottom, transparent 0%, var(--navy-bg) 100%);
+  height: 70px; /* Reduced from 80px */
+  background: linear-gradient(to bottom, transparent 0%, #0f172a 100%);
   pointer-events: none;
 }
 
@@ -350,17 +352,17 @@ body {
 
 .editorial-analysis p,
 .editorial-container #daily-insight p {
-  margin-bottom: 20px;
+  margin-bottom: 18px; /* Reduced from 20px */
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* READ MORE BUTTON */
+/* READ MORE BUTTON - Updated styling */
 .read-more-btn {
-  padding: 12px 32px;
-  font-size: 14px;
+  padding: 11px 30px; /* Slightly smaller */
+  font-size: 13px;
   font-weight: 600;
-  color: var(--navy-bg);
-  background: var(--gold-accent);
+  color: #1e293b;
+  background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%);
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -373,7 +375,7 @@ body {
 .read-more-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
-  background: #FFA500;
+  background: linear-gradient(135deg, #FFC107 0%, #FFD700 100%);
 }
 
 .read-more-btn:active {
@@ -383,8 +385,8 @@ body {
 /* Mobile: 1-column, 96% width, maintain 40vh constraint */
 @media (max-width: 768px) {
   .editorial-container {
-    padding: 40px 0;
-    max-height: 40vh; /* Critical - ensures first card is visible */
+    padding: 35px 0; /* Reduced from 40px */
+    max-height: 40vh;
     overflow: visible;
   }
   
@@ -397,7 +399,7 @@ body {
   .editorial-container h2,
   .editorial-container #daily-headline {
     font-size: 24px;
-    margin-bottom: 16px;
+    margin-bottom: 14px; /* Reduced from 16px */
   }
   
   .editorial-analysis,
@@ -406,24 +408,30 @@ body {
     font-size: 16px;
     line-height: 1.6;
     text-align: left;
-    max-height: 180px; /* Same height limit on mobile */
+    max-height: 150px; /* Reduced from 180px */
+    margin-bottom: 16px; /* Reduced from 20px */
+  }
+  
+  .editorial-analysis::after,
+  .editorial-container #daily-insight::after {
+    height: 60px; /* Reduced */
   }
   
   .read-more-btn {
-    font-size: 13px;
-    padding: 10px 28px;
+    font-size: 12px;
+    padding: 10px 26px;
   }
 }
 
-/* =========== MAIN CONTAINER =========== */
+/* =========== MAIN CONTAINER - FIX: Remove top padding to eliminate grey belt =========== */
 main {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 60px 22px;
+  padding: 0 22px 60px; /* REMOVED top padding - was causing grey belt */
 }
 
 .category-content {
-  margin-top: 40px;
+  margin-top: 40px; /* This provides spacing from editorial */
 }
 
 /* ===================================================================
@@ -582,9 +590,9 @@ main {
     font-size: 12px;
   }
   
-  /* Main content padding adjustment */
+  /* Main content adjustment */
   main {
-    padding: 40px 0 !important;
+    padding: 0 0 40px !important; /* NO top padding on mobile */
   }
   
   .category-content {
