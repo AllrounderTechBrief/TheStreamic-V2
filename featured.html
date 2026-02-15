@@ -24,7 +24,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -62,7 +62,6 @@
     </div>
   </section>
 
-  <!-- WEEKLY CURATION SECTION -->
   <div class="editorial-container">
     <div class="editorial-inner">
       <span class="editorial-label">WEEKLY CURATION</span>
@@ -174,7 +173,6 @@
     });
   </script>
 
-  <!-- EDITORIAL FETCH ENGINE -->
   <script>
     fetch('headlines.txt')
       .then(response => {
@@ -204,7 +202,6 @@
       });
   </script>
 
-  <!-- READ MORE TOGGLE FUNCTION -->
   <script>
     function toggleReadMore() {
       const insight = document.getElementById('daily-insight');
@@ -212,10 +209,10 @@
       
       if (insight.classList.contains('expanded')) {
         insight.classList.remove('expanded');
-        btn.textContent = 'Read More';
+        btn.innerHTML = 'Read More';
       } else {
         insight.classList.add('expanded');
-        btn.textContent = 'Read Less';
+        btn.innerHTML = 'Read Less';
       }
     }
   </script>
