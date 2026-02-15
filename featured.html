@@ -62,26 +62,21 @@
     </div>
   </section>
 
-  <main class="category-content">
-    <div id="bentoGridLarge" class="bento-grid-large"></div>
-    <div id="listGrid" class="list-grid"></div>
-  </main>
-
-  <div class="editorial-footer-wrapper">
-    <div class="editorial-container">
-      <div class="editorial-box">
-        <span class="editorial-label">FEATURED STORY ANALYSIS</span>
-        <p id="daily-insight">Highlighting the most significant developments shaping broadcast technology, from infrastructure transformation to emerging production paradigms...</p>
+  <!-- WEEKLY CURATION SECTION (Between Hero and Main Content) -->
+  <div class="editorial-container">
+    <div class="editorial-inner">
+      <span class="editorial-label">WEEKLY CURATION</span>
+      <h2 id="daily-headline">Loading this week's featured story...</h2>
+      <div id="daily-insight" class="editorial-analysis">
+        <p>Fetching analysis...</p>
       </div>
     </div>
   </div>
 
-  <script>
-    fetch('news-featured.txt')
-      .then(response => response.ok ? response.text() : "Curating breakthrough announcements, strategic partnerships, and technology shifts across the broadcast ecosystem.")
-      .then(text => { document.getElementById('daily-insight').innerText = text; })
-      .catch(() => { });
-  </script>
+  <main class="category-content">
+    <div id="bentoGridLarge" class="bento-grid-large"></div>
+    <div id="listGrid" class="list-grid"></div>
+  </main>
 
   <footer class="site-footer">
     <div class="footer-content">
@@ -117,7 +112,7 @@
           <h4>Stay Connected</h4>
           <a href="https://twitter.com/thestreamic" target="_blank" rel="noopener">Twitter</a>
           <a href="https://linkedin.com/company/thestreamic" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="/cdn-cgi/l/email-protection#dbb2b5bdb49bafb3bea8afa9bebab6b2b8f5b2b5">Email Us</a>
+          <a href="mailto:info@thestreamic.in">Email Us</a>
         </div>
       </div>
 
@@ -143,7 +138,7 @@
     </div>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="main.js?v=20260214"></script>
+  <script src="main.js?v=20260214"></script>
   
   <script>
     function showSubscribeModal() {
@@ -172,4 +167,53 @@
       }
       
       return false;
- 
+    }
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSubscribeModal();
+    });
+  </script>
+
+  <!-- ============================================
+       TASK 1: EDITORIAL FETCH ENGINE
+       Fetches headlines.txt and parses it
+       Format: Headline --- Analysis
+       ============================================ -->
+  <script>
+    // Fetch and parse headlines.txt
+    fetch('headlines.txt')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Could not load headlines.txt');
+        }
+        return response.text();
+      })
+      .then(content => {
+        // Parse the content - split by '---' separator
+        const parts = content.split('---').map(part => part.trim());
+        
+        if (parts.length >= 2) {
+          // First part is the headline
+          const headline = parts[0];
+          // Second part is the analysis (everything after ---)
+          const analysis = parts.slice(1).join('---').trim();
+          
+          // Inject into the page
+          document.getElementById('daily-headline').textContent = headline;
+          document.getElementById('daily-insight').innerHTML = '<p>' + analysis.replace(/\n\n/g, '</p><p>') + '</p>';
+        } else {
+          // Fallback if format is wrong
+          document.getElementById('daily-headline').textContent = 'Featured Technology Insights';
+          document.getElementById('daily-insight').innerHTML = '<p>' + content + '</p>';
+        }
+      })
+      .catch(error => {
+        // Fallback content if file doesn't exist
+        console.log('Headlines fetch error:', error);
+        document.getElementById('daily-headline').textContent = 'Featured Technology Insights';
+        document.getElementById('daily-insight').innerHTML = '<p>Highlighting the most significant developments shaping broadcast technology, from infrastructure transformation to emerging production paradigms. Our editorial team curates breakthrough announcements, strategic partnerships, and technology shifts across the broadcast ecosystem.</p>';
+      });
+  </script>
+
+</body>
+</html>
