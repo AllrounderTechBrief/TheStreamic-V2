@@ -1,132 +1,275 @@
-/* =========== NAVIGATION FIX =========== */
-.nav-toggle {
-  display: none !important; /* Strictly hidden on desktop */
-}
+/* =========================================================
+   THE STREAMIC - Premium "Midnight Graphite" Edition
+   Design: Apple-Style / Awwwards Layout
+   Features: Compact Fold, Floating Editorial, Mobile Fixes
+========================================================= */
 
-@media (max-width: 1024px) {
-  .nav-toggle {
-    display: block !important; /* Only visible on mobile/tablet */
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-  }
-}
-
-/* =========== AWWWARDS-STYLE EDITORIAL BOX =========== */
-.editorial-container {
-  background: #0a0a0a; /* Deepest black background for the section */
-  width: 100%;
-  padding: 80px 22px; 
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --apple-blue: #0071e3;
+  --deep-black: #1d1d1f;
+  --slate-gray: #86868b;
+  --light-bg: #f5f5f7;
+  --border-color: #d2d2d7;
+  --gold-accent: #D4AF37;
+  --card-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  --card-hover-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  /* Elegant Awwwards Palette */
+  --midnight-bg: linear-gradient(145deg, #151516 0%, #1c1c1e 100%);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  color: var(--deep-black);
+  background: #fff;
+  line-height: 1.47059;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========== NAVIGATION (Clean Apple Style) =========== */
+.site-nav {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0 22px;
+}
+
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 52px;
+  gap: 40px;
+}
+
+.nav-logo-image { height: 28px; width: auto; display: block; }
+
+.nav-links { display: flex; gap: 24px; list-style: none; align-items: center; flex: 1; }
+.nav-links a {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.5px;
+  color: #424245; text-decoration: none; text-transform: uppercase;
+}
+.nav-links a:hover { color: #000; }
+
+.header-subscribe { margin-left: auto; display: flex; align-items: center; gap: 20px; }
+.header-subscribe-btn {
+  padding: 6px 20px; font-size: 13px; font-weight: 600;
+  color: #fff; background: #000; border: none; border-radius: 50px;
+  cursor: pointer; transition: all 0.3s;
+}
+
+/* Mobile Nav Logic preserved from your original */
+@media (max-width: 1024px) {
+  .nav-inner { justify-content: space-between; }
+  .nav-toggle { display: block; background: none; border: none; font-size: 24px; cursor: pointer; }
+  .nav-links {
+    display: none; position: absolute; top: 52px; left: 0; right: 0;
+    background: #fff; flex-direction: column; padding: 12px 0; border-bottom: 1px solid #eee;
+  }
+  .nav-links.active { display: flex; }
+  .header-subscribe { position: absolute; right: 60px; top: 10px; }
+}
+
+/* =========== HERO (REDUCED FOR IMMEDIATE VISIBILITY) =========== */
+.category-hero {
+  background: #fff;
+  padding: 30px 22px 10px; /* Highly reduced padding */
+  text-align: center;
+}
+
+.category-hero h1 {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin-bottom: 8px;
+  color: #1d1d1f;
+}
+
+.category-hero p {
+  font-size: 18px;
+  color: var(--slate-gray);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* =========== THE ELEGANT EDITORIAL BOX (AWWWARDS LOOK) =========== */
+.editorial-container {
+  width: 96%;
+  max-width: 1360px;
+  margin: 10px auto 30px; /* Moved UP, reduced bottom gap */
+  padding: 0;
+  perspective: 1000px;
 }
 
 .editorial-inner {
-  max-width: 1300px;
-  width: 100%;
-  background: #121212; /* Dark grey card */
-  padding: 60px;
-  border-radius: 32px;
-  border: 1px solid #2a2a2a; /* Subtle premium border */
+  background: var(--midnight-bg);
+  padding: 40px 50px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.5);
-}
-
-/* The "Gold Blade" Accent - World Class Detail */
-.editorial-inner::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: var(--gold-accent);
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
 .editorial-label {
   display: inline-block;
   color: var(--gold-accent);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 24px;
+  margin-bottom: 15px;
 }
 
-.editorial-container h2, 
-.editorial-container #daily-headline {
-  font-family: 'Inter', sans-serif;
-  font-size: 42px; /* Large, bold impact */
-  font-weight: 800;
-  line-height: 1.1;
-  color: #ffffff;
-  margin-bottom: 30px;
-  letter-spacing: -0.03em;
+.editorial-container h2 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 15px;
+  letter-spacing: -0.02em;
 }
 
-.editorial-analysis, 
+/* REFINED TEXT CLAMP FOR ABOVE THE FOLD */
+.editorial-analysis,
 .editorial-container #daily-insight {
-  font-size: 18px;
-  line-height: 1.8;
-  color: #a0a0a0; /* Highly readable grey on black */
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.8);
   column-count: 2;
   column-gap: 50px;
-  max-height: 180px;
+  max-height: 100px; /* Compacted to show cards sooner */
   overflow: hidden;
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
-/* Smooth Fade for Dark Mode */
+/* Fade Effect matching the Graphite Background */
 .editorial-analysis::after,
 .editorial-container #daily-insight::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: linear-gradient(to bottom, transparent 0%, #121212 100%);
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, #1c1c1e);
   pointer-events: none;
 }
 
-/* BUTTON REFINEMENT */
+.editorial-analysis.expanded,
+.editorial-container #daily-insight.expanded { max-height: none; }
+.editorial-analysis.expanded::after,
+.editorial-container #daily-insight.expanded::after { display: none; }
+
 .read-more-btn {
-  padding: 14px 34px;
-  font-size: 13px;
-  font-weight: 700;
-  color: #000;
-  background: var(--gold-accent);
-  border: none;
-  border-radius: 4px; /* Sharp, modern look */
+  background: transparent;
+  color: var(--gold-accent);
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 6px 20px;
+  border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
+  transition: 0.3s;
 }
 
 .read-more-btn:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
-  box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+  background: rgba(212, 175, 55, 0.1);
+  border-color: var(--gold-accent);
 }
 
-/* Mobile Adjustments for Editorial */
-@media (max-width: 768px) {
-  .editorial-inner {
-    padding: 40px 25px;
-    border-radius: 0; /* Full bleed on mobile looks more premium */
-  }
-  
-  .editorial-container h2 {
-    font-size: 28px;
-  }
-  
-  .editorial-analysis {
-    column-count: 1 !important;
-  }
+/* =========== MAIN GRID (PRESERVING ORIGINAL MOBILE FIXES) =========== */
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 22px 60px;
 }
+
+.bento-grid-large, .news-grid, .card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.bento-card-large {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-card-large:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.bento-card-large .card-image { height: 240px; background: #f0f0f0; }
+.bento-card-large .card-image img { width: 100%; height: 100%; object-fit: cover; }
+.bento-card-large .card-body { padding: 24px; }
+.bento-card-large .card-body h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+
+/* TIRED 2: LIST GRID */
+.list-grid { display: flex; flex-direction: column; gap: 12px; margin: 40px 0; }
+.list-card-horizontal {
+  display: flex; background: #fff; border-radius: 12px; border: 1px solid #eee;
+  max-height: 100px; text-decoration: none; color: inherit;
+}
+.list-card-horizontal .card-image { width: 140px; height: 100px; }
+.list-card-horizontal .card-body { padding: 0 15px; display: flex; flex-direction: column; justify-content: center; }
+.list-card-horizontal h3 { font-size: 15px; font-weight: 600; }
+
+/* =========== CRITICAL MOBILE FIXES (FROM YOUR ORIGINAL) =========== */
+@media (max-width: 768px) {
+  /* Editorial Box Mobile */
+  .editorial-container { width: 92%; margin-top: 10px; }
+  .editorial-inner { padding: 30px 20px; }
+  .editorial-analysis, .editorial-container #daily-insight {
+    column-count: 1 !important;
+    max-height: 120px;
+  }
+
+  /* FORCE SINGLE COLUMN FOR CARDS */
+  .bento-grid-large, .news-grid, .card-container {
+    grid-template-columns: 1fr !important;
+    display: grid !important;
+  }
+
+  /* FORCE 96% WIDTH */
+  .bento-card-large {
+    width: 96% !important;
+    margin: 0 auto !important;
+    border-radius: 18px;
+  }
+
+  .list-card-horizontal { width: 96% !important; margin: 0 auto; }
+}
+
+/* =========== FOOTER & OTHERS (CLEANUP) =========== */
+.site-footer { background: #f5f5f7; padding: 40px 22px; border-top: 1px solid #d2d2d7; margin-top: 50px; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+.foot-col h4 { font-size: 13px; text-transform: uppercase; margin-bottom: 15px; }
+.foot-col a { display: block; color: #86868b; text-decoration: none; font-size: 13px; margin-bottom: 8px; }
+
+.subscribe-modal-content { border-radius: 24px; padding: 40px; }
+.btn-view-more {
+  display: block; margin: 40px auto; padding: 15px 40px;
+  background: #000; color: #fff; border-radius: 50px; border: none; font-weight: 600; cursor: pointer;
+}
+.hidden { display: none; }
