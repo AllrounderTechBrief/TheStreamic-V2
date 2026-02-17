@@ -1,14 +1,14 @@
 {
   "featured_priority": [
     {
-      "title": "E! Co-Founder Alan Mruvka Launches Filmology Labs Studios",
-      "link": "https://www.tvtechnology.com/production/e-co-founder-alan-mruvka-launches-filmology-labs-studios",
-      "guid": "SiK4SD94ZkTskQ2VWMGHTF",
+      "title": "NBA All-Star Game Averages 8.8 Million Viewers",
+      "link": "https://www.tvtechnology.com/business/nba-all-star-game-averages-8-8-million-viewers",
+      "guid": "TX7qQGnrQreyrtXjHrNFkY",
       "category": "newsroom",
       "source": "TV Technology",
-      "image": "https://cdn.mos.cms.futurecdn.net/HsMuWBeqQpmwLEHZZxfbw6-1280-80.jpg",
-      "pubDate": "2026-02-17T19:04:04+00:00",
-      "timestamp": 1771358447
+      "image": "https://cdn.mos.cms.futurecdn.net/GRGocZmVC5Ko9mqJYM4fwU-1280-80.webp",
+      "pubDate": "2026-02-17T20:53:19+00:00",
+      "timestamp": 1771365185
     },
     {
       "title": "Pushing the Boundaries of Video Innovation Through the Power of Collaboration",
@@ -18,17 +18,17 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/2025_Blog_Main_Image_Video_Innovation_Harmonic_Akamai_NVIDIA_VB_V1.png",
       "pubDate": "2025-10-28T20:09:24+00:00",
-      "timestamp": 1771358492
+      "timestamp": 1771365243
     },
     {
-      "title": "Notepad++ boosts update security with ‘double-lock’ mechanism",
-      "link": "https://www.bleepingcomputer.com/news/security/notepad-plus-plus-boosts-update-security-with-double-lock-mechanism/",
-      "guid": "https://www.bleepingcomputer.com/news/security/notepad-plus-plus-boosts-update-security-with-double-lock-mechanism/",
+      "title": "Flaws in popular VSCode extensions expose developers to attacks",
+      "link": "https://www.bleepingcomputer.com/news/security/flaws-in-popular-vscode-extensions-expose-developers-to-attacks/",
+      "guid": "https://www.bleepingcomputer.com/news/security/flaws-in-popular-vscode-extensions-expose-developers-to-attacks/",
       "category": "infrastructure",
       "source": "BleepingComputer",
-      "image": "https://www.bleepstatic.com/content/hl-images/2021/06/07/Notepad++.jpg",
-      "pubDate": "2026-02-17T18:29:18+00:00",
-      "timestamp": 1771358501
+      "image": "https://www.bleepstatic.com/content/hl-images/2025/03/13/VSCode_bw.jpg",
+      "pubDate": "2026-02-17T21:27:12+00:00",
+      "timestamp": 1771365252
     },
     {
       "title": "Ask the Experts: Building Your Own Professional Studio on a Budget",
@@ -37,8 +37,8 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": null,
-      "pubDate": "2026-02-17T20:02:19.848756+00:00",
-      "timestamp": 1771358539
+      "pubDate": "2026-02-17T21:54:41.092588+00:00",
+      "timestamp": 1771365281
     },
     {
       "title": "TV 2 Norway scales to support 20,000 live sports streams with AWS",
@@ -48,7 +48,7 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/827bfc458708f0b442009c9c9836f7e4b65557fb/2020/06/03/Blog-Post_thumbnail.png",
       "pubDate": "2026-02-16T23:16:33+00:00",
-      "timestamp": 1771358541
+      "timestamp": 1771365283
     },
     {
       "title": "SOC vs NOC: Understanding Security and Network Operation Centers",
@@ -58,17 +58,17 @@
       "source": "Haivision",
       "image": "https://www.haivision.com/wp-content/uploads/blog-soc-vs-noc.jpg",
       "pubDate": "2026-02-11T16:00:51+00:00",
-      "timestamp": 1771358555
+      "timestamp": 1771365297
     },
     {
-      "title": "New platform automates video content for digital signage",
-      "link": "https://www.avinteractive.com/news/digital-signage-and-dooh/new-platform-automates-video-content-for-digital-signage-17-02-2026/",
-      "guid": "https://www.avinteractive.com/?p=789578",
+      "title": "New Foundry video highlights lighting and comp in ‘KPop Demon Hunters’",
+      "link": "https://beforesandafters.com/2026/02/18/new-foundry-video-highlights-lighting-and-comp-in-kpop-demon-hunters/",
+      "guid": "https://beforesandafters.com/?p=117611",
       "category": "ai-post-production",
-      "source": "AV Magazine",
-      "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/Screenshot-2026-02-16-101525USE.webp",
-      "pubDate": "2026-02-17T17:31:25+00:00",
-      "timestamp": 1771358609
+      "source": "Befores & Afters",
+      "image": "https://beforesandafters.com/wp-content/uploads/2026/02/Kpop-Demon-Hunters-animation_-Behind-the-scenes-of-the-global-hit-movie-1-8-screenshot.jpg",
+      "pubDate": "2026-02-17T20:55:11+00:00",
+      "timestamp": 1771365333
     }
   ],
   "items": [
@@ -79,8 +79,8 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": null,
-      "pubDate": "2026-02-17T20:02:19.848756+00:00",
-      "timestamp": 1771358539
+      "pubDate": "2026-02-17T21:54:41.092588+00:00",
+      "timestamp": 1771365281
     },
     {
       "title": "How Vizrt Education Solutions Prepare Students for Real-World Media Careers",
@@ -89,8 +89,8 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": null,
-      "pubDate": "2026-02-17T20:02:19.848731+00:00",
-      "timestamp": 1771358539
+      "pubDate": "2026-02-17T21:54:41.092561+00:00",
+      "timestamp": 1771365281
     },
     {
       "title": "On Air 2025: A Global Broadcast Powered by Students and Vizrt",
@@ -99,8 +99,8 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2025/10/Media.jpeg",
-      "pubDate": "2026-02-17T20:02:19.848671+00:00",
-      "timestamp": 1771358539
+      "pubDate": "2026-02-17T21:54:41.092496+00:00",
+      "timestamp": 1771365281
     },
     {
       "title": "Why now is the time to migrate from Viz Pilot News to Viz Pilot Edge",
@@ -109,8 +109,8 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2025/09/Viz-Pilot-Edge-News-Malayalam-2.png",
-      "pubDate": "2026-02-17T20:02:18.147246+00:00",
-      "timestamp": 1771358538
+      "pubDate": "2026-02-17T21:54:40.971459+00:00",
+      "timestamp": 1771365280
     },
     {
       "title": "Turning archives into intelligence: Vizrt and DeepVA introduce AI-driven metadata enrichment in Viz One media asset management",
@@ -119,8 +119,8 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2025/11/Vizrt-Viz-One-and-DeepVA-Header-Image-1920x1080-1-scaled.jpg",
-      "pubDate": "2026-02-17T20:02:16.071531+00:00",
-      "timestamp": 1771358536
+      "pubDate": "2026-02-17T21:54:40.841133+00:00",
+      "timestamp": 1771365280
     },
     {
       "title": "DeepVA",
@@ -129,8 +129,8 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2025/11/deepVA-logo-on-white-bg.png",
-      "pubDate": "2026-02-17T20:02:14.555264+00:00",
-      "timestamp": 1771358534
+      "pubDate": "2026-02-17T21:54:40.710985+00:00",
+      "timestamp": 1771365280
     },
     {
       "title": "Vizrt launches AI-powered advances for speed and accuracy in media management",
@@ -139,8 +139,8 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2025/11/Vizrt-Viz-One-and-DeepVA-Header-Image-1920x1080-1-scaled.jpg",
-      "pubDate": "2026-02-17T20:02:13.195623+00:00",
-      "timestamp": 1771358533
+      "pubDate": "2026-02-17T21:54:39.224280+00:00",
+      "timestamp": 1771365279
     },
     {
       "title": "Vizrt Powers a New Era of Corporate Viewer Engagement with Expanded Enterprise Team",
@@ -149,8 +149,8 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2026/01/Vizrt-PR-Image-for-Momentum-PR-1920x1080-2-scaled.jpg",
-      "pubDate": "2026-02-17T20:02:11.572926+00:00",
-      "timestamp": 1771358531
+      "pubDate": "2026-02-17T21:54:39.106324+00:00",
+      "timestamp": 1771365279
     },
     {
       "title": "Vizrt revolutionizes corporate communications with AI-powered augmented reality in Zoom",
@@ -159,8 +159,8 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2026/02/PR_Zoom-and-Vizrt-InteractifAI-2.png",
-      "pubDate": "2026-02-17T20:02:09.758123+00:00",
-      "timestamp": 1771358529
+      "pubDate": "2026-02-17T21:54:37.454093+00:00",
+      "timestamp": 1771365277
     },
     {
       "title": "Vizrt Launches Sports Production Bundles to Empower US Students to Produce Like the Pros",
@@ -169,8 +169,118 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2026/02/3-Harvard-Control-Room-2-Basketball-2-scaled.jpg",
-      "pubDate": "2026-02-17T20:02:07.938757+00:00",
-      "timestamp": 1771358527
+      "pubDate": "2026-02-17T21:54:37.327394+00:00",
+      "timestamp": 1771365277
+    },
+    {
+      "title": "Flaws in popular VSCode extensions expose developers to attacks",
+      "link": "https://www.bleepingcomputer.com/news/security/flaws-in-popular-vscode-extensions-expose-developers-to-attacks/",
+      "guid": "https://www.bleepingcomputer.com/news/security/flaws-in-popular-vscode-extensions-expose-developers-to-attacks/",
+      "category": "infrastructure",
+      "source": "BleepingComputer",
+      "image": "https://www.bleepstatic.com/content/hl-images/2025/03/13/VSCode_bw.jpg",
+      "pubDate": "2026-02-17T21:27:12+00:00",
+      "timestamp": 1771365252
+    },
+    {
+      "title": "RMM Abuse Explodes as Hackers Ditch Malware",
+      "link": "https://www.darkreading.com/application-security/rmm-abuse-explodes-hackers-ditch-malware",
+      "guid": "https://www.darkreading.com/application-security/rmm-abuse-explodes-hackers-ditch-malware",
+      "category": "infrastructure",
+      "source": "Dark Reading",
+      "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltac90e1eb954c1669/6994cb1349e8a40008936007/rmm_tashatuvango_Alamy.jpg?width=1280&auto=webp&quality=80&disable=upscale",
+      "pubDate": "2026-02-17T21:01:26+00:00",
+      "timestamp": 1771365252
+    },
+    {
+      "title": "ClickFix Attacks Abuses DNS Lookup Command to Deliver ModeloRAT",
+      "link": "https://www.darkreading.com/endpoint-security/clickfix-attacks-dns-lookup-command-modelorat",
+      "guid": "https://www.darkreading.com/endpoint-security/clickfix-attacks-dns-lookup-command-modelorat",
+      "category": "infrastructure",
+      "source": "Dark Reading",
+      "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt26ca6f75ad43d880/699489c6cbe7c60008821687/browser_Tada_Images_shutterstock.png?width=1280&auto=webp&quality=80&disable=upscale",
+      "pubDate": "2026-02-17T21:01:02+00:00",
+      "timestamp": 1771365252
+    },
+    {
+      "title": "New Foundry video highlights lighting and comp in ‘KPop Demon Hunters’",
+      "link": "https://beforesandafters.com/2026/02/18/new-foundry-video-highlights-lighting-and-comp-in-kpop-demon-hunters/",
+      "guid": "https://beforesandafters.com/?p=117611",
+      "category": "ai-post-production",
+      "source": "Befores & Afters",
+      "image": "https://beforesandafters.com/wp-content/uploads/2026/02/Kpop-Demon-Hunters-animation_-Behind-the-scenes-of-the-global-hit-movie-1-8-screenshot.jpg",
+      "pubDate": "2026-02-17T20:55:11+00:00",
+      "timestamp": 1771365333
+    },
+    {
+      "title": "NBA All-Star Game Averages 8.8 Million Viewers",
+      "link": "https://www.tvtechnology.com/business/nba-all-star-game-averages-8-8-million-viewers",
+      "guid": "TX7qQGnrQreyrtXjHrNFkY",
+      "category": "newsroom",
+      "source": "TV Technology",
+      "image": "https://cdn.mos.cms.futurecdn.net/GRGocZmVC5Ko9mqJYM4fwU-1280-80.webp",
+      "pubDate": "2026-02-17T20:53:19+00:00",
+      "timestamp": 1771365185
+    },
+    {
+      "title": "Speed, Innovation, & LEDs: Whitaker ASC and Verbinski Dive into the Astera Era",
+      "link": "https://www.broadcastbeat.com/speed-innovation-leds-whitaker-asc-and-verbinski-dive-into-the-astera-era/",
+      "guid": "https://www.broadcastbeat.com/?p=208783",
+      "category": "newsroom",
+      "source": "BroadcastBeat",
+      "image": null,
+      "pubDate": "2026-02-17T20:41:38+00:00",
+      "timestamp": 1771365194
+    },
+    {
+      "title": "Teradek Introduces RF-X, Revolutionizing Mission-Critical Signal Redundancy",
+      "link": "https://www.broadcastbeat.com/teradek-introduces-rf-x-revolutionizing-mission-critical-signal-redundancy/",
+      "guid": "https://www.broadcastbeat.com/?p=208778",
+      "category": "newsroom",
+      "source": "BroadcastBeat",
+      "image": null,
+      "pubDate": "2026-02-17T20:29:51+00:00",
+      "timestamp": 1771365197
+    },
+    {
+      "title": "Visual Reasoning: The AI Capability Broadcast Professionals Can’t Afford to Ignore",
+      "link": "https://www.broadcastbeat.com/visual-reasoning-the-ai-capability-broadcast-professionals-cant-afford-to-ignore/",
+      "guid": "https://www.broadcastbeat.com/?p=208770",
+      "category": "newsroom",
+      "source": "BroadcastBeat",
+      "image": null,
+      "pubDate": "2026-02-17T20:21:15+00:00",
+      "timestamp": 1771365206
+    },
+    {
+      "title": "Stephen Colbert, FCC Commissioner Gomez Blast FCC `Censorship’",
+      "link": "https://www.tvtechnology.com/regulatory-legal/stephen-colbert-fcc-commissioner-gomez-blast-fcc-censorship",
+      "guid": "yZ4ShXRVoyAKGhgD6TeuRb",
+      "category": "newsroom",
+      "source": "TV Technology",
+      "image": "https://cdn.mos.cms.futurecdn.net/KB4GW4BH6ymhja3zUVC7PV-1280-80.png",
+      "pubDate": "2026-02-17T20:20:31+00:00",
+      "timestamp": 1771365185
+    },
+    {
+      "title": "Chinese hackers exploiting Dell zero-day flaw since mid-2024",
+      "link": "https://www.bleepingcomputer.com/news/security/chinese-hackers-exploiting-dell-zero-day-flaw-since-mid-2024/",
+      "guid": "https://www.bleepingcomputer.com/news/security/chinese-hackers-exploiting-dell-zero-day-flaw-since-mid-2024/",
+      "category": "infrastructure",
+      "source": "BleepingComputer",
+      "image": "https://www.bleepstatic.com/content/hl-images/2024/05/09/Dell-headpic.jpg",
+      "pubDate": "2026-02-17T20:15:03+00:00",
+      "timestamp": 1771365253
+    },
+    {
+      "title": "DP Adolpho Veloso Captures “Train Dreams” with ZEISS Super Speeds",
+      "link": "https://www.broadcastbeat.com/dp-adolpho-veloso-captures-train-dreams-with-zeiss-super-speeds/",
+      "guid": "https://www.broadcastbeat.com/?p=208765",
+      "category": "newsroom",
+      "source": "BroadcastBeat",
+      "image": null,
+      "pubDate": "2026-02-17T20:03:52+00:00",
+      "timestamp": 1771365214
     },
     {
       "title": "E! Co-Founder Alan Mruvka Launches Filmology Labs Studios",
@@ -180,7 +290,7 @@
       "source": "TV Technology",
       "image": "https://cdn.mos.cms.futurecdn.net/HsMuWBeqQpmwLEHZZxfbw6-1280-80.jpg",
       "pubDate": "2026-02-17T19:04:04+00:00",
-      "timestamp": 1771358447
+      "timestamp": 1771365185
     },
     {
       "title": "SinclairLaunches New True Crime Daily Video Podcast",
@@ -190,7 +300,7 @@
       "source": "TV Technology",
       "image": "https://cdn.mos.cms.futurecdn.net/2q6sDx4fADGkNfCWg57ZM4-1280-80.png",
       "pubDate": "2026-02-17T18:38:04+00:00",
-      "timestamp": 1771358447
+      "timestamp": 1771365185
     },
     {
       "title": "Notepad++ boosts update security with ‘double-lock’ mechanism",
@@ -200,7 +310,7 @@
       "source": "BleepingComputer",
       "image": "https://www.bleepstatic.com/content/hl-images/2021/06/07/Notepad++.jpg",
       "pubDate": "2026-02-17T18:29:18+00:00",
-      "timestamp": 1771358501
+      "timestamp": 1771365253
     },
     {
       "title": "New platform automates video content for digital signage",
@@ -210,7 +320,7 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/Screenshot-2026-02-16-101525USE.webp",
       "pubDate": "2026-02-17T17:31:25+00:00",
-      "timestamp": 1771358609
+      "timestamp": 1771365336
     },
     {
       "title": "TAG Video Systems Expands MCS 1.7.0 With New Lens Visualization Tool",
@@ -220,7 +330,7 @@
       "source": "TV Technology",
       "image": "https://cdn.mos.cms.futurecdn.net/jseG9bT5FUBCtstVE5n2ZX-1280-80.jpg",
       "pubDate": "2026-02-17T17:29:37+00:00",
-      "timestamp": 1771358447
+      "timestamp": 1771365185
     },
     {
       "title": "Non-English Content Makes Up More Than Half of Netflix’s TV Originals, a First",
@@ -230,7 +340,7 @@
       "source": "TV Technology",
       "image": "https://cdn.mos.cms.futurecdn.net/hXbxsXqsJGnSjFN6zCAZc7-1280-80.jpeg",
       "pubDate": "2026-02-17T17:13:01+00:00",
-      "timestamp": 1771358447
+      "timestamp": 1771365185
     },
     {
       "title": "Unify now or pay later: New research exposes the operational cost of a fragmented SOC",
@@ -240,7 +350,7 @@
       "source": "Microsoft Security",
       "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/02/Security-Operation-SOC-3.jpg",
       "pubDate": "2026-02-17T17:00:00+00:00",
-      "timestamp": 1771358507
+      "timestamp": 1771365257
     },
     {
       "title": "Video Window powers Asia’s first always-on video Portal",
@@ -250,7 +360,7 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/MANILA-PORTALuse.webp",
       "pubDate": "2026-02-17T16:54:06+00:00",
-      "timestamp": 1771358610
+      "timestamp": 1771365336
     },
     {
       "title": "Indian Media Conglomerate Deploys Grass Valley Playout For Linear, OTT, Web",
@@ -260,7 +370,7 @@
       "source": "TV Technology",
       "image": "https://cdn.mos.cms.futurecdn.net/mkXkUqZaYPoWhAKMsBEmXo-1280-80.jpg",
       "pubDate": "2026-02-17T16:45:43+00:00",
-      "timestamp": 1771358447
+      "timestamp": 1771365185
     },
     {
       "title": "TV Viewing Hits 12-Month High",
@@ -270,7 +380,7 @@
       "source": "TV Technology",
       "image": "https://cdn.mos.cms.futurecdn.net/6HiDszkyokokBvLhnWR9Eo-1280-80.jpg",
       "pubDate": "2026-02-17T16:28:10+00:00",
-      "timestamp": 1771358447
+      "timestamp": 1771365185
     },
     {
       "title": "WBD gives Paramount another week for ‘best and final offer’",
@@ -280,7 +390,7 @@
       "source": "NewscastStudio",
       "image": "https://www.newscaststudio.com/wp-content/uploads/2025/12/paramount-skydance-wbd.jpg",
       "pubDate": "2026-02-17T16:20:08+00:00",
-      "timestamp": 1771358444
+      "timestamp": 1771365182
     },
     {
       "title": "Project AV launches ‘Digital Performance Hubs’ for builders",
@@ -290,7 +400,7 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/Project-Audio-Visual-and-BBI-Services-launch-new-Digital-Performance-HubsUSE.webp",
       "pubDate": "2026-02-17T16:09:37+00:00",
-      "timestamp": 1771358610
+      "timestamp": 1771365337
     },
     {
       "title": "VulnCheck Raises $25 Million in Series B Funding to Scale Vulnerability Intelligence",
@@ -300,7 +410,7 @@
       "source": "SecurityWeek",
       "image": null,
       "pubDate": "2026-02-17T16:00:04+00:00",
-      "timestamp": 1771358504
+      "timestamp": 1771365254
     },
     {
       "title": "Microsoft Teams outage affects users in United States, Europe",
@@ -310,7 +420,7 @@
       "source": "BleepingComputer",
       "image": "https://www.bleepstatic.com/content/hl-images/2026/02/17/Microsoft--Teams.jpg",
       "pubDate": "2026-02-17T15:37:45+00:00",
-      "timestamp": 1771358502
+      "timestamp": 1771365253
     },
     {
       "title": "Anderson Cooper exits CBS ’60 Minutes’ gig, will remain at CNN",
@@ -320,7 +430,7 @@
       "source": "NewscastStudio",
       "image": "https://www.newscaststudio.com/wp-content/uploads/2026/02/anderson-cooper-60-minutes.jpg",
       "pubDate": "2026-02-17T15:34:15+00:00",
-      "timestamp": 1771358444
+      "timestamp": 1771365182
     },
     {
       "title": "MULTRA Brand Film | MULTRA",
@@ -330,7 +440,7 @@
       "source": "Motionographer",
       "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/MBF_05-700x394.png",
       "pubDate": "2026-02-17T15:30:39+00:00",
-      "timestamp": 1771358539
+      "timestamp": 1771365281
     },
     {
       "title": "Hackers Offer to Sell Millions of Eurail User Records",
@@ -340,7 +450,7 @@
       "source": "SecurityWeek",
       "image": null,
       "pubDate": "2026-02-17T15:27:12+00:00",
-      "timestamp": 1771358504
+      "timestamp": 1771365255
     },
     {
       "title": "Gray Signs Deal for Atlanta Braves Spring Training Games",
@@ -350,7 +460,7 @@
       "source": "TV Technology",
       "image": "https://cdn.mos.cms.futurecdn.net/CwNuGGfhtpfSJVaa3WBWgi-1280-80.png",
       "pubDate": "2026-02-17T15:09:45+00:00",
-      "timestamp": 1771358447
+      "timestamp": 1771365185
     },
     {
       "title": "Cerberus Tech Expands Livelink’s Multi-Cloud Capabilities with Akamai Cloud Integration",
@@ -360,7 +470,27 @@
       "source": "BroadcastBeat",
       "image": null,
       "pubDate": "2026-02-17T15:05:30+00:00",
-      "timestamp": 1771358459
+      "timestamp": 1771365219
+    },
+    {
+      "title": "STUDIO STORIES: VERSUS — The Studio That Refused to Become “Good Enough”",
+      "link": "https://motionographer.com/2026/02/17/studio-stories-versus-the-studio-that-refused-to-become-good-enough/",
+      "guid": "https://motionographer.com/?p=89734",
+      "category": "graphics",
+      "source": "Motionographer",
+      "image": "https://s35726.pcdn.co/wp-content/uploads/2010/02/versusbehaind-ezgif.com-optimize.gif",
+      "pubDate": "2026-02-17T15:01:03+00:00",
+      "timestamp": 1771365281
+    },
+    {
+      "title": "Building a Context-Aware Storefront: Automating Regional Personalization With Contentful, Cloudinary, and Next.js",
+      "link": "https://cloudinary.com/blog/context-aware-storefront-regional-personalization",
+      "guid": "https://cloudinary.com/blog/?p=39801",
+      "category": "infrastructure",
+      "source": "Cloudinary",
+      "image": "https://res.cloudinary.com/cloudinary-marketing/images/f_auto,q_auto/v1770932705/Blog_Building_a_Context-Aware_Storefront__Automating_Regional_Personalization_with_Contentful_Cloudinary_and_Next.js/Blog_Building_a_Context-Aware_Storefront__Automating_Regional_Personalization_with_Contentful_Cloudinary_and_Next.js.jpg?_i=AA",
+      "pubDate": "2026-02-17T15:00:00+00:00",
+      "timestamp": 1771365262
     },
     {
       "title": "What 5 Million Apps Revealed About Secrets in JavaScript",
@@ -370,7 +500,7 @@
       "source": "BleepingComputer",
       "image": "https://www.bleepstatic.com/content/posts/2026/02/12/intruder-search.jpg",
       "pubDate": "2026-02-17T14:40:49+00:00",
-      "timestamp": 1771358502
+      "timestamp": 1771365253
     },
     {
       "title": "TAG Video Systems expands MCS 1.7.0 with new lens visualisation tool",
@@ -380,7 +510,7 @@
       "source": "SVG Europe",
       "image": "https://www.svgeurope.org/wp-content/blogs.dir/17/files/2026/02/TAG-Lens-PR.png",
       "pubDate": "2026-02-17T14:20:24+00:00",
-      "timestamp": 1771358487
+      "timestamp": 1771365238
     },
     {
       "title": "New Keenadu backdoor found in Android firmware, Google Play apps",
@@ -390,7 +520,7 @@
       "source": "BleepingComputer",
       "image": "https://www.bleepstatic.com/content/hl-images/2024/01/12/android-eyes.jpg",
       "pubDate": "2026-02-17T14:05:25+00:00",
-      "timestamp": 1771358502
+      "timestamp": 1771365253
     },
     {
       "title": "API Threats Grow in Scale as AI Expands the Blast Radius",
@@ -400,7 +530,7 @@
       "source": "SecurityWeek",
       "image": null,
       "pubDate": "2026-02-17T14:00:00+00:00",
-      "timestamp": 1771358504
+      "timestamp": 1771365255
     },
     {
       "title": "Cyber Insights 2026: The Ongoing Fight to Secure Industrial Control Systems",
@@ -410,7 +540,7 @@
       "source": "SecurityWeek",
       "image": null,
       "pubDate": "2026-02-17T14:00:00+00:00",
-      "timestamp": 1771358504
+      "timestamp": 1771365255
     },
     {
       "title": "Veritone’s Sean King on how metadata is the backbone of live sports broadcasting",
@@ -420,7 +550,7 @@
       "source": "NewscastStudio",
       "image": "https://www.newscaststudio.com/wp-content/uploads/2026/02/metadata-sports-abstract.jpg",
       "pubDate": "2026-02-17T13:30:27+00:00",
-      "timestamp": 1771358445
+      "timestamp": 1771365183
     },
     {
       "title": "Man Linked to Phobos Ransomware Arrested in Poland",
@@ -430,7 +560,7 @@
       "source": "SecurityWeek",
       "image": null,
       "pubDate": "2026-02-17T12:54:34+00:00",
-      "timestamp": 1771358504
+      "timestamp": 1771365255
     },
     {
       "title": "‘Pro AV is leaving hype cycles and marketing gloss behind’",
@@ -440,7 +570,7 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/Futuresource-1024x5761USE-1.webp",
       "pubDate": "2026-02-17T12:39:17+00:00",
-      "timestamp": 1771358611
+      "timestamp": 1771365337
     },
     {
       "title": "GVAV turns 50 amid multi-year investment programme",
@@ -450,27 +580,7 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/GV50USE.webp",
       "pubDate": "2026-02-17T12:23:10+00:00",
-      "timestamp": 1771358611
-    },
-    {
-      "title": "NBCU’s Winter Olympics sellout proves the value of linear streaming",
-      "link": "https://www.newscaststudio.com/2026/02/17/nbcus-winter-olympics-sellout-proves-the-value-of-linear-streaming/",
-      "guid": "https://www.newscaststudio.com/?p=149823",
-      "category": "newsroom",
-      "source": "NewscastStudio",
-      "image": "https://www.newscaststudio.com/wp-content/uploads/2026/02/winter-sports-ski-abstract_2.jpg",
-      "pubDate": "2026-02-17T12:00:44+00:00",
-      "timestamp": 1771358445
-    },
-    {
-      "title": "Jigsaw24 joins SVG Europe as a Gold sponsor",
-      "link": "https://www.svgeurope.org/blog/headlines/jigsaw24-joins-svg-europe-as-a-gold-sponsor/",
-      "guid": "https://www.svgeurope.org/?p=125017",
-      "category": "newsroom",
-      "source": "SVG Europe",
-      "image": "https://www.svgeurope.org/wp-content/blogs.dir/17/files/2026/02/Jigsaw.jpg",
-      "pubDate": "2026-02-17T11:49:36+00:00",
-      "timestamp": 1771358487
+      "timestamp": 1771365338
     },
     {
       "title": "LED CHINA to showcase Winter Olympics 8K microLED",
@@ -480,7 +590,7 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/Reacp-2USE.webp",
       "pubDate": "2026-02-17T11:49:23+00:00",
-      "timestamp": 1771358612
+      "timestamp": 1771365339
     },
     {
       "title": "Newcastle United bans working from home for all staff",
@@ -490,7 +600,7 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/47425516012_548762fe24_oUSE.webp",
       "pubDate": "2026-02-17T11:35:30+00:00",
-      "timestamp": 1771358613
+      "timestamp": 1771365339
     },
     {
       "title": "Poland arrests suspect linked to Phobos ransomware operation",
@@ -500,7 +610,7 @@
       "source": "BleepingComputer",
       "image": "https://www.bleepstatic.com/content/hl-images/2022/10/28/police-arrest-hacker.jpg",
       "pubDate": "2026-02-17T11:31:37+00:00",
-      "timestamp": 1771358502
+      "timestamp": 1771365254
     },
     {
       "title": "3 Threat Groups Started Targeting ICS/OT in 2025: Dragos",
@@ -510,17 +620,7 @@
       "source": "SecurityWeek",
       "image": null,
       "pubDate": "2026-02-17T11:05:26+00:00",
-      "timestamp": 1771358504
-    },
-    {
-      "title": "Milano Cortina 2026: Inside the Milan-based Warner Bros. Discovery Casa Italia studio with Eurosport",
-      "link": "https://www.svgeurope.org/blog/headlines/milano-cortina-2026-inside-the-milan-based-warner-bros-discoverys-casa-italia-studio-with-eurosport/",
-      "guid": "https://www.svgeurope.org/?p=125083",
-      "category": "newsroom",
-      "source": "SVG Europe",
-      "image": "https://www.svgeurope.org/wp-content/blogs.dir/17/files/2026/02/IMG-20260217-WA0000.jpg",
-      "pubDate": "2026-02-17T10:08:20+00:00",
-      "timestamp": 1771358487
+      "timestamp": 1771365255
     },
     {
       "title": "Ireland now also investigating X over Grok-made sexual images",
@@ -530,37 +630,7 @@
       "source": "BleepingComputer",
       "image": "https://www.bleepstatic.com/content/hl-images/2026/02/17/X--Twitter.jpg",
       "pubDate": "2026-02-17T10:02:21+00:00",
-      "timestamp": 1771358503
-    },
-    {
-      "title": "Milano Cortina 2026: How NOS is delivering a speed skating-first feed for Dutch audiences",
-      "link": "https://www.svgeurope.org/blog/headlines/milano-cortina-2026-how-nos-is-delivering-a-speed-skating-first-feed-for-dutch-audiences/",
-      "guid": "https://www.svgeurope.org/?p=125076",
-      "category": "newsroom",
-      "source": "SVG Europe",
-      "image": "https://www.svgeurope.org/wp-content/blogs.dir/17/files/2026/02/Milan-Cortina-NOS-dutch-fans.jpg",
-      "pubDate": "2026-02-17T09:39:17+00:00",
-      "timestamp": 1771358487
-    },
-    {
-      "title": "Password Managers Vulnerable to Vault Compromise Under Malicious Server",
-      "link": "https://www.securityweek.com/password-managers-vulnerable-to-vault-compromise-under-malicious-server/",
-      "guid": "https://www.securityweek.com/?p=45391",
-      "category": "infrastructure",
-      "source": "SecurityWeek",
-      "image": null,
-      "pubDate": "2026-02-17T09:30:46+00:00",
-      "timestamp": 1771358504
-    },
-    {
-      "title": "Milano Cortina 2026: NBC Sports on NEP’s critical role for the Winter Olympics",
-      "link": "https://www.sportsvideo.org/2026/02/16/nbc-olympics-on-neps-critical-role-for-the-2026-winter-olympics/#new_tab",
-      "guid": "https://www.svgeurope.org/?p=125073",
-      "category": "newsroom",
-      "source": "SVG Europe",
-      "image": null,
-      "pubDate": "2026-02-17T09:15:48+00:00",
-      "timestamp": 1771358487
+      "timestamp": 1771365254
     },
     {
       "title": "TV 2 Norway scales to support 20,000 live sports streams with AWS",
@@ -570,7 +640,7 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/827bfc458708f0b442009c9c9836f7e4b65557fb/2020/06/03/Blog-Post_thumbnail.png",
       "pubDate": "2026-02-16T23:16:33+00:00",
-      "timestamp": 1771358541
+      "timestamp": 1771365283
     },
     {
       "title": "Watch ‘Jurassic World Rebirth’ director Gareth Edwards scout a gaussian splatted scene in real-time",
@@ -580,7 +650,7 @@
       "source": "Befores & Afters",
       "image": "https://beforesandafters.com/wp-content/uploads/2026/02/Saga-ViewAssets-TrexLagoon.Still002a.jpg",
       "pubDate": "2026-02-16T22:38:59+00:00",
-      "timestamp": 1771358606
+      "timestamp": 1771365333
     },
     {
       "title": "Watch Rodeo FX’s ‘IT: Welcome to Derry’ VFX breakdown",
@@ -590,57 +660,7 @@
       "source": "Befores & Afters",
       "image": "https://beforesandafters.com/wp-content/uploads/2026/02/Welcome-To-Derry-S1-VFX-Breakdown-by-RodeoFX-0-45-screenshot.jpg",
       "pubDate": "2026-02-16T22:32:45+00:00",
-      "timestamp": 1771358607
-    },
-    {
-      "title": "Washington Hotel in Japan discloses ransomware infection incident",
-      "link": "https://www.bleepingcomputer.com/news/security/washington-hotel-in-japan-discloses-ransomware-infection-incident/",
-      "guid": "https://www.bleepingcomputer.com/news/security/washington-hotel-in-japan-discloses-ransomware-infection-incident/",
-      "category": "infrastructure",
-      "source": "BleepingComputer",
-      "image": "https://www.bleepstatic.com/content/hl-images/2026/02/16/Shin_Osaka.jpg",
-      "pubDate": "2026-02-16T21:10:38+00:00",
-      "timestamp": 1771358503
-    },
-    {
-      "title": "Apple bringing new video features to its podcasts platform",
-      "link": "https://www.newscaststudio.com/2026/02/16/apple-podcasts-hls-features/",
-      "guid": "https://www.newscaststudio.com/?p=150478",
-      "category": "newsroom",
-      "source": "NewscastStudio",
-      "image": "https://www.newscaststudio.com/wp-content/uploads/2026/02/apple-podcasts-video.jpg",
-      "pubDate": "2026-02-16T19:35:24+00:00",
-      "timestamp": 1771358445
-    },
-    {
-      "title": "Eurail says stolen traveler data now up for sale on dark web",
-      "link": "https://www.bleepingcomputer.com/news/security/eurail-says-stolen-traveler-data-now-up-for-sale-on-dark-web/",
-      "guid": "https://www.bleepingcomputer.com/news/security/eurail-says-stolen-traveler-data-now-up-for-sale-on-dark-web/",
-      "category": "infrastructure",
-      "source": "BleepingComputer",
-      "image": "https://www.bleepstatic.com/content/hl-images/2026/02/16/track.jpg",
-      "pubDate": "2026-02-16T19:19:09+00:00",
-      "timestamp": 1771358503
-    },
-    {
-      "title": "Man arrested for demanding reward after accidental police data leak",
-      "link": "https://www.bleepingcomputer.com/news/security/man-arrested-for-demanding-reward-after-accidental-police-data-leak/",
-      "guid": "https://www.bleepingcomputer.com/news/security/man-arrested-for-demanding-reward-after-accidental-police-data-leak/",
-      "category": "infrastructure",
-      "source": "BleepingComputer",
-      "image": null,
-      "pubDate": "2026-02-16T19:13:39+00:00",
-      "timestamp": 1771358503
-    },
-    {
-      "title": "Operation DoppelBrand: Weaponizing Fortune 500 Brands",
-      "link": "https://www.darkreading.com/cyberattacks-data-breaches/operation-doppelbrand-weaponizing-fortune-500-brands",
-      "guid": "https://www.darkreading.com/cyberattacks-data-breaches/operation-doppelbrand-weaponizing-fortune-500-brands",
-      "category": "infrastructure",
-      "source": "Dark Reading",
-      "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltbc2448028e821d2b/699286dc2507f00008dd14b7/Phishing_(1800)_Thomas_Bethge_Alamy.jpg?width=1280&auto=webp&quality=80&disable=upscale",
-      "pubDate": "2026-02-16T18:05:55+00:00",
-      "timestamp": 1771358501
+      "timestamp": 1771365333
     },
     {
       "title": "CURIOSITY | Mach Studio / Rafael Merino",
@@ -650,7 +670,7 @@
       "source": "Motionographer",
       "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/ezgif-2a1c236aabb060e8-700x390.png",
       "pubDate": "2026-02-16T15:28:19+00:00",
-      "timestamp": 1771358539
+      "timestamp": 1771365281
     },
     {
       "title": "How an Olympic white water rafting course was used for the tense T-rex river scene",
@@ -660,7 +680,7 @@
       "source": "Befores & Afters",
       "image": "https://beforesandafters.com/wp-content/uploads/2026/01/jurassic1.jpg",
       "pubDate": "2026-02-13T20:06:44+00:00",
-      "timestamp": 1771358607
+      "timestamp": 1771365333
     },
     {
       "title": "Rodoreda, un bosc | Wild Pony",
@@ -670,7 +690,7 @@
       "source": "Motionographer",
       "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/Screenshot-2026-02-09-at-12.14.52-PM-700x392.png",
       "pubDate": "2026-02-13T15:00:31+00:00",
-      "timestamp": 1771358539
+      "timestamp": 1771365281
     },
     {
       "title": "HiBid brings the excitement of auctions online with Amazon IVS",
@@ -680,7 +700,7 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/02/10/HiBid-brings-the-excitement-of-auctions-online-with-Amazon-IVS-1120x630.png",
       "pubDate": "2026-02-12T21:40:25+00:00",
-      "timestamp": 1771358541
+      "timestamp": 1771365283
     },
     {
       "title": "Framestore showcases the 4D Gaussian Splatting used for ‘Superman’",
@@ -690,7 +710,7 @@
       "source": "Befores & Afters",
       "image": "https://beforesandafters.com/wp-content/uploads/2026/02/Gaussian-Splatting-in-Superman-_-Framestore-1-25-screenshot.jpg",
       "pubDate": "2026-02-12T21:20:06+00:00",
-      "timestamp": 1771358607
+      "timestamp": 1771365334
     },
     {
       "title": "BenQ InstaShow VS25 ditches CPU-intensive apps for BYOM",
@@ -700,7 +720,7 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/BenQ-VS25-Image-2USE.webp",
       "pubDate": "2026-02-12T18:15:09+00:00",
-      "timestamp": 1771358614
+      "timestamp": 1771365340
     },
     {
       "title": "Nato upgrades broadcast studio with Grass Valley cameras",
@@ -710,7 +730,7 @@
       "source": "AV Magazine",
       "image": null,
       "pubDate": "2026-02-12T18:05:32+00:00",
-      "timestamp": 1771358614
+      "timestamp": 1771365340
     },
     {
       "title": "AI agent sets up parallel AV universes in Dubai restaurant",
@@ -720,7 +740,7 @@
       "source": "AV Magazine",
       "image": null,
       "pubDate": "2026-02-12T17:59:30+00:00",
-      "timestamp": 1771358614
+      "timestamp": 1771365340
     },
     {
       "title": "Memories | Mehdi Hadi",
@@ -730,7 +750,7 @@
       "source": "Motionographer",
       "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/MEMORIES_3-700x297.jpg",
       "pubDate": "2026-02-12T16:26:13+00:00",
-      "timestamp": 1771358539
+      "timestamp": 1771365281
     },
     {
       "title": "Keeping Visual Storytelling Alive: The Importance of the Concept Artist — Part 2",
@@ -740,7 +760,7 @@
       "source": "Motionographer",
       "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/ezgif-5f6f1665a966c5e0-700x394.gif",
       "pubDate": "2026-02-12T16:11:17+00:00",
-      "timestamp": 1771358539
+      "timestamp": 1771365281
     },
     {
       "title": "How the in-house VFX process worked on s2 of ‘The Sandman’",
@@ -750,7 +770,7 @@
       "source": "Befores & Afters",
       "image": "https://beforesandafters.com/wp-content/uploads/2026/02/sandman2.jpg",
       "pubDate": "2026-02-11T21:11:08+00:00",
-      "timestamp": 1771358607
+      "timestamp": 1771365334
     },
     {
       "title": "How To Make a DCP For Film Festival Projection",
@@ -760,7 +780,7 @@
       "source": "Jonny Elwyn",
       "image": null,
       "pubDate": "2026-02-11T20:46:46+00:00",
-      "timestamp": 1771358599
+      "timestamp": 1771365326
     },
     {
       "title": "BritBox Launches Refreshed Brand Logo and New Motion and Sonic Branding Designed By Sibling Rivalry",
@@ -770,7 +790,7 @@
       "source": "Motionographer",
       "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/britbox-700x467.jpg",
       "pubDate": "2026-02-11T17:22:50+00:00",
-      "timestamp": 1771358539
+      "timestamp": 1771365281
     },
     {
       "title": "Stranger Things: Dustin & Suzie’s Never Ending Story | Pedro Allevato",
@@ -780,7 +800,7 @@
       "source": "Motionographer",
       "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/Screenshot-2026-02-09-at-11.44.56-AM-700x392.png",
       "pubDate": "2026-02-11T16:15:26+00:00",
-      "timestamp": 1771358539
+      "timestamp": 1771365281
     },
     {
       "title": "SOC vs NOC: Understanding Security and Network Operation Centers",
@@ -790,7 +810,7 @@
       "source": "Haivision",
       "image": "https://www.haivision.com/wp-content/uploads/blog-soc-vs-noc.jpg",
       "pubDate": "2026-02-11T16:00:51+00:00",
-      "timestamp": 1771358555
+      "timestamp": 1771365297
     },
     {
       "title": "The art of flowing water, the riverbed, swamp and oceans",
@@ -800,17 +820,7 @@
       "source": "Befores & Afters",
       "image": "https://beforesandafters.com/wp-content/uploads/2026/02/avatar_water.jpg",
       "pubDate": "2026-02-10T22:19:01+00:00",
-      "timestamp": 1771358607
-    },
-    {
-      "title": "Target Holiday 2025 | Scholar",
-      "link": "https://motionographer.com/quickie/target-holiday-2025-scholar/",
-      "guid": "https://motionographer.com/?post_type=quickie&p=89689",
-      "category": "graphics",
-      "source": "Motionographer",
-      "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/Holiday_Assortment_Yetiverse_BFNewness16x9-700x394.png",
-      "pubDate": "2026-02-10T16:00:03+00:00",
-      "timestamp": 1771358539
+      "timestamp": 1771365334
     },
     {
       "title": "New in Frame.io: Deeper Automation, Stronger Security, and Smarter Mobile Search",
@@ -820,7 +830,7 @@
       "source": "Frame.io",
       "image": "https://blog.frame.io/wp-content/uploads/2026/02/blog-header-202601.png",
       "pubDate": "2026-02-10T15:00:00+00:00",
-      "timestamp": 1771358543
+      "timestamp": 1771365284
     },
     {
       "title": "Set up LucidLink with service managed fleet scripts for AWS Deadline Cloud",
@@ -830,17 +840,7 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/827bfc458708f0b442009c9c9836f7e4b65557fb/2020/06/03/Blog-Post_thumbnail.png",
       "pubDate": "2026-02-10T13:36:50+00:00",
-      "timestamp": 1771358541
-    },
-    {
-      "title": "Breaking down a scene from ‘F1’: Monza",
-      "link": "https://beforesandafters.com/2026/02/10/breaking-down-a-scene-from-f1-monza/",
-      "guid": "https://beforesandafters.com/?p=117529",
-      "category": "ai-post-production",
-      "source": "Befores & Afters",
-      "image": "https://beforesandafters.com/wp-content/uploads/2026/02/F1_new.jpg",
-      "pubDate": "2026-02-09T21:38:56+00:00",
-      "timestamp": 1771358607
+      "timestamp": 1771365283
     },
     {
       "title": "DAZN’s NFL Game Pass Stream of Super Bowl LX Looking Good; Detailed Tech Specs",
@@ -850,7 +850,7 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2026/02/IMG_2464.jpeg",
       "pubDate": "2026-02-08T23:49:46+00:00",
-      "timestamp": 1771358547
+      "timestamp": 1771365289
     },
     {
       "title": "Live Blogging of NBC’s Super Bowl Stream Across 25+ Devices and OTT Platforms; Detailed Tech Specs",
@@ -860,7 +860,7 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2026/02/SB2026-1200x900-1.jpg",
       "pubDate": "2026-02-07T18:00:26+00:00",
-      "timestamp": 1771358548
+      "timestamp": 1771365290
     },
     {
       "title": "From Mountains to Ice Rinks: How Haivision Is Transforming Winter Sports in 2026",
@@ -870,7 +870,7 @@
       "source": "Haivision",
       "image": "https://www.haivision.com/wp-content/uploads/svg-europe-autumn2025-editorial-blog.jpg",
       "pubDate": "2026-02-05T16:00:40+00:00",
-      "timestamp": 1771358558
+      "timestamp": 1771365300
     },
     {
       "title": "Cloud Provider Gcore Breaks Out CDN Revenue, Capacity of Network",
@@ -880,7 +880,7 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2026/02/Gcore-in-Numbers-scaled.png",
       "pubDate": "2026-02-04T17:54:12+00:00",
-      "timestamp": 1771358548
+      "timestamp": 1771365290
     },
     {
       "title": "How DoveRunner Multi-DRM Cloud integrates with AWS media services",
@@ -890,7 +890,7 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/16/How-DoveRunner-Multi-DRM-Cloud-integrates-with-AWS-media-services-Featured-Image-1120x630.png",
       "pubDate": "2026-02-03T19:40:06+00:00",
-      "timestamp": 1771358541
+      "timestamp": 1771365283
     },
     {
       "title": "Ruggedized Video Processing for Demanding Environments",
@@ -900,7 +900,7 @@
       "source": "Haivision",
       "image": "https://www.haivision.com/wp-content/uploads/kraken-x1-rugged-blog.jpg",
       "pubDate": "2026-02-03T16:00:19+00:00",
-      "timestamp": 1771358562
+      "timestamp": 1771365304
     },
     {
       "title": "Watermarking: You Don’t Think About It—Until You Need It",
@@ -910,7 +910,7 @@
       "source": "Frame.io",
       "image": "https://blog.frame.io/wp-content/uploads/2026/02/Screenshot-2026-01-30-at-10.47.40-AM-800x494.png",
       "pubDate": "2026-02-02T15:00:00+00:00",
-      "timestamp": 1771358543
+      "timestamp": 1771365285
     },
     {
       "title": "The End of Business as Usual: Why 2026 Is the Year the Media Supply Chain Must Strategically Reinvent",
@@ -920,7 +920,7 @@
       "source": "Telestream",
       "image": "https://blog.telestream.com/wp-content/uploads/2026/01/Blog_Jan2026_TheEndofBusinessAsUsual.jpg",
       "pubDate": "2026-01-30T21:48:46+00:00",
-      "timestamp": 1771358582
+      "timestamp": 1771365323
     },
     {
       "title": "How to Power Your Live Production Workflows with SMPTE ST 2110 and Haivision",
@@ -930,7 +930,7 @@
       "source": "Haivision",
       "image": "https://www.haivision.com/wp-content/uploads/haivision-logo.jpg",
       "pubDate": "2026-01-29T16:00:55+00:00",
-      "timestamp": 1771358565
+      "timestamp": 1771365307
     },
     {
       "title": "Cosm scales high-resolution Shared Reality experiences with AWS",
@@ -940,7 +940,7 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/20/Cosm-scales-high-resolution-Shared-Reality-experiences-with-AWS-Featured-Image-1120x630.png",
       "pubDate": "2026-01-23T18:17:58+00:00",
-      "timestamp": 1771358541
+      "timestamp": 1771365283
     },
     {
       "title": "How the NBA and AWS built an AI system to measure what actually wins basketball games",
@@ -950,7 +950,7 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/20/How-the-NBA-and-AWS-built-an-AI-system-to-measure-what-actually-wins-basketball-games-Featured-Image-1120x630.png",
       "pubDate": "2026-01-22T16:03:08+00:00",
-      "timestamp": 1771358541
+      "timestamp": 1771365283
     },
     {
       "title": "TVB Europe Meets with Ronan Poullaouec, SVP Engineering, Haivision",
@@ -958,9 +958,9 @@
       "guid": "https://www.haivision.com/?p=54470",
       "category": "streaming",
       "source": "Haivision",
-      "image": "https://www.haivision.com/wp-content/uploads/tvb-europe-ronan-poullaouec.jpg",
+      "image": null,
       "pubDate": "2026-01-20T16:00:15+00:00",
-      "timestamp": 1771358568
+      "timestamp": 1771365312
     },
     {
       "title": "Schedule AWS Elemental MediaLive channel operations with AWS EventBridge",
@@ -970,7 +970,7 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/15/Schedule-AWS-Elemental-MediaLive-channel-operations-with-AWS-EventBridge-Featured-Image-1120x630.png",
       "pubDate": "2026-01-15T20:16:13+00:00",
-      "timestamp": 1771358541
+      "timestamp": 1771365283
     },
     {
       "title": "Haivision Powers Wireless Contribution at the 2025 UEC Cyclo-Cross European Championships",
@@ -980,7 +980,7 @@
       "source": "Haivision",
       "image": "https://www.haivision.com/wp-content/uploads/cyclo-cross-championships_blog.jpg",
       "pubDate": "2026-01-15T15:30:06+00:00",
-      "timestamp": 1771358571
+      "timestamp": 1771365316
     },
     {
       "title": "Detailed Netflix Engineering Post Describes the Custom Origin Server It Built For Live",
@@ -990,7 +990,7 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2026/01/1767970383226.jpeg",
       "pubDate": "2026-01-13T21:54:51+00:00",
-      "timestamp": 1771358549
+      "timestamp": 1771365291
     },
     {
       "title": "Stats Perform Acquires Assets of ULL Tech Company Phenix Real Time Solutions for Approximately $7M",
@@ -1000,7 +1000,7 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2026/01/stats-logos.jpg",
       "pubDate": "2026-01-12T18:30:03+00:00",
-      "timestamp": 1771358549
+      "timestamp": 1771365291
     },
     {
       "title": "From flat to full immersion: The AWS path to Dolby Vision and Dolby Atmos",
@@ -1010,7 +1010,7 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/06/From-flat-to-full-immersion-The-AWS-path-to-Dolby-Vision-and-Dolby-Atmos-Featured-Image-1120x630.png",
       "pubDate": "2026-01-08T17:48:56+00:00",
-      "timestamp": 1771358542
+      "timestamp": 1771365283
     },
     {
       "title": "New in Frame.io: Interactive ZIPs, Access Requests, and a Faster Way to Get Around",
@@ -1020,7 +1020,7 @@
       "source": "Frame.io",
       "image": "https://blog.frame.io/wp-content/uploads/2026/01/blog-header-dec-1.png",
       "pubDate": "2026-01-08T15:00:00+00:00",
-      "timestamp": 1771358543
+      "timestamp": 1771365285
     },
     {
       "title": "ISR Trends Transforming Defense and Public Safety Operations",
@@ -1028,9 +1028,9 @@
       "guid": "https://www.haivision.com/?p=54441",
       "category": "streaming",
       "source": "Haivision",
-      "image": null,
+      "image": "https://www.haivision.com/wp-content/uploads/isr-top-trends-2026-blog.jpg",
       "pubDate": "2026-01-07T16:00:12+00:00",
-      "timestamp": 1771358577
+      "timestamp": 1771365319
     },
     {
       "title": "Thanks To Readers and Podcast Listeners: Year-End Stats and Thoughts",
@@ -1040,7 +1040,7 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2025/12/Dan-2025-LI-Stats.jpg",
       "pubDate": "2025-12-30T15:48:36+00:00",
-      "timestamp": 1771358549
+      "timestamp": 1771365292
     },
     {
       "title": "Announcing My Investment in Hydrolix, and Why I Made It",
@@ -1050,7 +1050,7 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2025/12/Dan-Rayburn-LinkedIn-Graphic.jpg",
       "pubDate": "2025-12-29T15:16:09+00:00",
-      "timestamp": 1771358550
+      "timestamp": 1771365292
     },
     {
       "title": "Netflix Removes Support for Casting From Most Devices",
@@ -1060,7 +1060,7 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2025/12/1764611955836.jpeg",
       "pubDate": "2025-12-23T22:35:01+00:00",
-      "timestamp": 1771358550
+      "timestamp": 1771365292
     },
     {
       "title": "Memory and SSDs Costs Skyrocket, Due to AI Buildouts",
@@ -1070,7 +1070,7 @@
       "source": "Streaming Media Blog",
       "image": null,
       "pubDate": "2025-12-23T22:32:26+00:00",
-      "timestamp": 1771358550
+      "timestamp": 1771365292
     },
     {
       "title": "Netflix Says AV1 Codec Now Powers 30% of Netflix VOD Streaming",
@@ -1080,7 +1080,7 @@
       "source": "Streaming Media Blog",
       "image": null,
       "pubDate": "2025-12-23T22:30:11+00:00",
-      "timestamp": 1771358550
+      "timestamp": 1771365292
     },
     {
       "title": "Accelerating creative workflows with the AWS Creative Innovation Hub in London",
@@ -1090,7 +1090,7 @@
       "source": "AWS",
       "image": null,
       "pubDate": "2025-12-11T18:35:59+00:00",
-      "timestamp": 1771358542
+      "timestamp": 1771365283
     },
     {
       "title": "Introducing the expanded AWS Well-Architected Video Streaming Advertising Lens",
@@ -1100,7 +1100,7 @@
       "source": "AWS",
       "image": null,
       "pubDate": "2025-12-10T18:42:00+00:00",
-      "timestamp": 1771358542
+      "timestamp": 1771365283
     },
     {
       "title": "Warner Bros. Discovery reinvents linear television advertising with AWS",
@@ -1110,7 +1110,7 @@
       "source": "AWS",
       "image": null,
       "pubDate": "2025-12-09T21:09:34+00:00",
-      "timestamp": 1771358542
+      "timestamp": 1771365283
     },
     {
       "title": "October + November Product Releases: Closing Out the Fall of Features",
@@ -1120,7 +1120,7 @@
       "source": "Frame.io",
       "image": "https://blog.frame.io/wp-content/uploads/2025/12/oct-nov-blog-header.jpg",
       "pubDate": "2025-12-09T15:00:00+00:00",
-      "timestamp": 1771358543
+      "timestamp": 1771365285
     },
     {
       "title": "The Ultimate Guide to the New Frame.io Search Experience",
@@ -1130,7 +1130,7 @@
       "source": "Frame.io",
       "image": "https://blog.frame.io/wp-content/uploads/2025/12/FY25Q4-Frame.io-Corp-MAX2025-MediaIntelligence-BlogHeader-2400x1350-EN.jpg",
       "pubDate": "2025-12-01T15:00:00+00:00",
-      "timestamp": 1771358543
+      "timestamp": 1771365285
     },
     {
       "title": "Holstein Kiel transforms scouting with OpenAI models on Amazon Bedrock",
@@ -1140,7 +1140,7 @@
       "source": "AWS",
       "image": null,
       "pubDate": "2025-11-20T18:33:51+00:00",
-      "timestamp": 1771358542
+      "timestamp": 1771365283
     },
     {
       "title": "Agentic AI headlines AWS re:Invent 2025 across Media and Entertainment",
@@ -1150,7 +1150,7 @@
       "source": "AWS",
       "image": null,
       "pubDate": "2025-11-19T18:32:59+00:00",
-      "timestamp": 1771358542
+      "timestamp": 1771365283
     },
     {
       "title": "Pushing the Boundaries of Video Innovation Through the Power of Collaboration",
@@ -1160,7 +1160,7 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/2025_Blog_Main_Image_Video_Innovation_Harmonic_Akamai_NVIDIA_VB_V1.png",
       "pubDate": "2025-10-28T20:09:24+00:00",
-      "timestamp": 1771358492
+      "timestamp": 1771365243
     },
     {
       "title": "Brownfield MDU Broadband: Unlocking Revenue with Existing Infrastructure",
@@ -1170,7 +1170,7 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/2025_Blog_Main_Image_MDU_Unlock_Harmonic_BB_vf-2.png",
       "pubDate": "2025-09-22T21:24:35+00:00",
-      "timestamp": 1771358492
+      "timestamp": 1771365243
     },
     {
       "title": "The Economics of Hybrid Streaming Architectures",
@@ -1180,7 +1180,7 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/video-streaming/vos-media-software-image.jpg",
       "pubDate": "2025-09-02T12:00:00+00:00",
-      "timestamp": 1771358492
+      "timestamp": 1771365243
     },
     {
       "title": "The Everything Era: What NAB 2025 Really Told Us About Streaming’s Future",
@@ -1190,7 +1190,7 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/video-streaming/services/Harmonic-video-service-tools.webp",
       "pubDate": "2025-06-09T14:05:14+00:00",
-      "timestamp": 1771358492
+      "timestamp": 1771365243
     },
     {
       "title": "Unified DOCSIS 4.0",
@@ -1200,7 +1200,7 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/DOCSIS_40_Blog_Image.png",
       "pubDate": "2025-04-08T09:18:01+00:00",
-      "timestamp": 1771358492
+      "timestamp": 1771365243
     },
     {
       "title": "OLT and ONT Interoperability: A New Path Forward",
@@ -1210,7 +1210,7 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/Blog_Open_ONU_Harmonic_2025_Linkedin_Article.png",
       "pubDate": "2025-03-12T17:00:52+00:00",
-      "timestamp": 1771358492
+      "timestamp": 1771365243
     },
     {
       "title": "Harmonic Leads Broadband Industry Transformation",
@@ -1220,7 +1220,7 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/harmonic-leader-cos-image-blog-article.jpg",
       "pubDate": "2025-02-21T14:53:46+00:00",
-      "timestamp": 1771358492
+      "timestamp": 1771365243
     },
     {
       "title": "How Cloud-Based Playout-to-Delivery Drives Cost Efficiency",
@@ -1230,7 +1230,7 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/blog-how-cloud-based-playout-to-delivery-drives-cost-efficiency.png",
       "pubDate": "2025-02-13T14:57:40+00:00",
-      "timestamp": 1771358492
+      "timestamp": 1771365243
     },
     {
       "title": "Broadband Operators Pick up the Pace with vCMTS and DAA Adoption",
@@ -1240,7 +1240,7 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/broadband%20operators%20vcmts%20daa.jpg",
       "pubDate": "2025-02-06T14:19:07+00:00",
-      "timestamp": 1771358492
+      "timestamp": 1771365243
     },
     {
       "title": "How Harmonic's Customer Migrated Seamlessly from Satellite to SRT Distribution",
@@ -1250,7 +1250,7 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/Blog_Main_Image_SRT_Distribution.png",
       "pubDate": "2024-12-04T11:21:56+00:00",
-      "timestamp": 1771358492
+      "timestamp": 1771365243
     }
   ]
 }
