@@ -121,7 +121,7 @@
     title.textContent = item.title || 'Untitled';
     body.appendChild(title);
 
-    // Brief / summary — shown only when the feed provides one
+    // Brief / summary — rendered when feed provides one (additive field)
     if (item.summary && item.summary.trim()) {
       const brief = document.createElement('p');
       brief.className = 'card-summary';
@@ -369,10 +369,20 @@
           );
           
           // Combine: featured_priority first, then remaining items
-          filtered = [...featured_priority, ...remainingItems];
+          // Guard: strip any items whose link isn't a real http(s) URL
+          const safeFilter = arr => arr.filter(it => {
+            const l = (it.link || '').trim();
+            return l.startsWith('http://') || l.startsWith('https://');
+          });
+          filtered = [...safeFilter(featured_priority), ...safeFilter(remainingItems)];
         } else {
           // OTHER CATEGORY PAGES: Normal filtering
-          filtered = filterByCategory(items, category);
+          const catItems = filterByCategory(items, category);
+          // Guard: strip any items whose link isn't a real http(s) URL
+          filtered = catItems.filter(it => {
+            const l = (it.link || '').trim();
+            return l.startsWith('http://') || l.startsWith('https://');
+          });
         }
         
         if (filtered.length === 0) {
