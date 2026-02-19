@@ -70,6 +70,13 @@ DIRECT_FEEDS = [
     # New: FierceVideo (direct to bypass Cloudflare blocking)
     'https://www.fiercevideo.com/rss',
 
+    # Playout vendors — direct to bypass Cloudflare Worker blocking
+    'https://www.rossvideo.com/news/feed/',
+    'https://www.evertz.com/news/rss',
+    'https://www.sportsvideo.org/feed/',
+    'https://dtve.org/feed/',
+    'https://www.broadcastproengineering.com/rss.xml',
+
     # Legacy direct fetch (kept)
     'https://www.inbroadcast.com/rss.xml',
     'https://www.imaginecommunications.com/news/rss.xml'
@@ -93,12 +100,21 @@ FEED_GROUPS = {
     ],
 
     'playout': [
-        'https://www.inbroadcast.com/rss.xml',
-        'https://www.tvtechnology.com/playout/rss.xml',
-        'https://www.rossvideo.com/news/feed/',
+        # Active broadcast industry publications — publish daily/weekly
+        'https://www.sportsvideo.org/feed/',              # SVG: broadcast tech, playout, live prod
+        'https://www.thebroadcastbridge.com/rss/playout', # Broadcast Bridge playout section
+        'https://dtve.org/feed/',                         # Digital TV Europe
+        'https://www.broadcastproengineering.com/rss.xml',# Broadcast Engineering & Technology
+
+        # Vendor blogs — kept, but post infrequently
         'https://www.harmonicinc.com/insights/blog/rss.xml',
+        'https://www.rossvideo.com/news/feed/',
         'https://www.evertz.com/news/rss',
-        'https://www.imaginecommunications.com/news/rss.xml'
+        'https://www.imaginecommunications.com/news/rss.xml',
+
+        # Category-specific TV Technology section
+        'https://www.tvtechnology.com/playout/rss.xml',
+        'https://www.inbroadcast.com/rss.xml',
     ],
 
     'infrastructure': [
@@ -405,6 +421,9 @@ def get_source_name(feed_url: str) -> str:
 
     # New RSS sources
     if 'fiercevideo' in u: return 'FierceVideo'
+    if 'sportsvideo.org' in u: return 'Sports Video Group'
+    if 'dtve.org' in u: return 'Digital TV Europe'
+    if 'broadcastproengineering' in u: return 'Broadcast Pro Engineering'
     if 'rapidtvnews' in u: return 'RapidTVNews'
     if 'tvnewscheck' in u: return 'TVNewsCheck'
 
