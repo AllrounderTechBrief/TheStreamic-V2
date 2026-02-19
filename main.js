@@ -216,8 +216,11 @@
     const withImages = items.filter(it => isValidImageUrl(it.image));
     const withoutImages = items.filter(it => !isValidImageUrl(it.image));
 
-    // Apply source diversity cap
-    const diversified = capPerSource(withImages, 6);
+    // Dynamic per-source cap: scale up when few sources exist
+    // e.g. 1 source with 10 items → cap=10; 3 sources → cap=6 (minimum)
+    const uniqueSources = new Set(items.map(it => (it.source || '').trim().toLowerCase())).size;
+    const dynamicCap = Math.max(6, Math.ceil(items.length / Math.max(uniqueSources, 1)));
+    const diversified = capPerSource(withImages, dynamicCap);
 
     return [...diversified, ...withoutImages];
   }
