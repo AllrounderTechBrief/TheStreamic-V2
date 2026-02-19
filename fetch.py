@@ -30,7 +30,7 @@ CLOUDFLARE_WORKER = "https://broken-king-b4dc.itabmum.workers.dev"
 # ─── HTML Scraper Feature Flag ────────────────────────────────────────────────
 # Set to True to activate optional HTML scrapers for TVBEurope & NCS Digital.
 # Keep False for standard RSS-only behaviour (default / production).
-ENABLE_HTML_SCRAPERS = True
+ENABLE_HTML_SCRAPERS = False
 # ─────────────────────────────────────────────────────────────────────────────
 
 DATA_DIR = Path("data")
@@ -97,8 +97,8 @@ FEED_GROUPS = {
         'https://www.rapidtvnews.com/news.rss',
         'https://tvnewscheck.com/feed/',
         # Optional HTML scrapers — uncomment + set ENABLE_HTML_SCRAPERS=True to test
-         'HTML|TVBEurope|https://www.tvbeurope.com/',
-         'HTML|NCS|https://digital.newscaststudio.com/',
+        # 'HTML|TVBEurope|https://www.tvbeurope.com/',
+        # 'HTML|NCS|https://digital.newscaststudio.com/',
     ],
 
     'playout': [
@@ -582,7 +582,8 @@ def _process_html_marker(marker: str, category: str) -> list:
     for r in raw_items:
         title = (r.get('title') or '').strip()
         link = (r.get('link') or '').strip()
-        if not title or not link:
+        # Hard guard: must have a title and a real http(s) link
+        if not title or not link or not link.startswith('http'):
             continue
         # Build summary from title text (no body scraping — copyright safe)
         sentences = [s.strip() for s in title.split('. ') if s.strip()]

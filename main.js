@@ -121,6 +121,14 @@
     title.textContent = item.title || 'Untitled';
     body.appendChild(title);
 
+    // Brief / summary — shown only when the feed provides one
+    if (item.summary && item.summary.trim()) {
+      const brief = document.createElement('p');
+      brief.className = 'card-summary';
+      brief.textContent = item.summary.trim();
+      body.appendChild(brief);
+    }
+
     const meta = document.createElement('div');
     meta.className = 'card-meta';
 
