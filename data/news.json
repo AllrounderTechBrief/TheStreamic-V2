@@ -1,14 +1,15 @@
 {
   "featured_priority": [
     {
-      "title": "Data moves from analysis to execution in broadcast advertising",
-      "link": "https://www.newscaststudio.com/2026/02/19/data-moves-from-analysis-to-execution-in-broadcast-advertising/",
-      "guid": "https://www.newscaststudio.com/?p=149508",
+      "title": "Broadcast and streaming audiences surge for Milano Cortina 2026",
+      "link": "https://www.newscaststudio.com/2026/02/19/broadcast-and-streaming-audiences-surge-for-milano-cortina-2026/",
+      "guid": "https://www.newscaststudio.com/?p=150508",
       "category": "newsroom",
       "source": "NewscastStudio",
-      "image": "https://www.newscaststudio.com/wp-content/uploads/2026/02/broadcast-advertising-data-abstract.jpg",
-      "pubDate": "2026-02-19T13:10:34+00:00",
-      "timestamp": 1771508687
+      "image": "https://www.newscaststudio.com/wp-content/uploads/2026/02/obs-milan-cortina.avif",
+      "pubDate": "2026-02-19T14:16:39+00:00",
+      "timestamp": 1771512437,
+      "summary": "International Olympic Committee reported record broadcast and digital audiences for 2026 Winter Olympics, with media ... Read More The post Broadcast and streaming audiences surge for Milano Cortina 2026 appeared first on NCS | NewscastStudio ."
     },
     {
       "title": "Pushing the Boundaries of Video Innovation Through the Power of Collaboration",
@@ -18,17 +19,19 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/2025_Blog_Main_Image_Video_Innovation_Harmonic_Akamai_NVIDIA_VB_V1.png",
       "pubDate": "2025-10-28T20:09:24+00:00",
-      "timestamp": 1771508719
+      "timestamp": 1771512505,
+      "summary": "At Harmonic, we believe that innovation in video delivery starts with deep collaboration.&nbsp; Our work with NVIDIA over the years has been instrumental in unlocking the full potential of NVENC and NVDEC to enable advanced capabilities like AI-driven noise reduction, upscaling and frame rate doubling. These enhancements deliver stunning video quality for our customers across multiple codecs, including AVC, HEVC, AVI, and even for MV-HEVC for spatial videos. &nbsp;The video quality enhancements are further optimized by Harmonic’s EyeQ™ technology that leverages-trained Convolutional Neural Network models for rate control and mode decisions."
     },
     {
-      "title": "Nearly 1 Million User Records Compromised in Figure Data Breach",
-      "link": "https://www.securityweek.com/nearly-1-million-user-records-compromised-in-figure-data-breach/",
-      "guid": "https://www.securityweek.com/?p=45428",
+      "title": "Nigerian man gets eight years in prison for hacking tax firms",
+      "link": "https://www.bleepingcomputer.com/news/security/nigerian-man-gets-eight-years-in-prison-for-hacking-tax-firms/",
+      "guid": "https://www.bleepingcomputer.com/news/security/nigerian-man-gets-eight-years-in-prison-for-hacking-tax-firms/",
       "category": "infrastructure",
-      "source": "SecurityWeek",
-      "image": null,
-      "pubDate": "2026-02-19T13:19:08+00:00",
-      "timestamp": 1771508730
+      "source": "BleepingComputer",
+      "image": "https://www.bleepstatic.com/content/hl-images/2025/11/05/Credit-card-hacker.jpg",
+      "pubDate": "2026-02-19T13:51:49+00:00",
+      "timestamp": 1771512516,
+      "summary": "A Nigerian national was sentenced to eight years in prison for hacking multiple tax preparation firms in Massachusetts and filing fraudulent tax returns seeking over $8.1 million in refunds. [...]."
     },
     {
       "title": "Ask the Experts: Building Your Own Professional Studio on a Budget",
@@ -37,8 +40,9 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": null,
-      "pubDate": "2026-02-19T13:46:08.154089+00:00",
-      "timestamp": 1771508768
+      "pubDate": "2026-02-19T14:49:07.884466+00:00",
+      "timestamp": 1771512547,
+      "summary": "back to Blogs Ask the Experts: Building Your Own Professional Studio on a Budget by Andrei Kolmogorov, Vizrt Migration Expert &#38; Ionut ‘Johnny’ Pogacean, Viz Pilot Edge Senior Product Manager A Professional Studio: Why it’s within reach &#8211; and why you might need one Streaming, video creation, and live production aren’t just nice-to-haves anymore, they’ve... The post Ask the Experts: Building Your Own Professional Studio on a Budget appeared first on Vizrt | Transforming Viewer Experiences ."
     },
     {
       "title": "TV 2 Norway scales to support 20,000 live sports streams with AWS",
@@ -48,7 +52,8 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/827bfc458708f0b442009c9c9836f7e4b65557fb/2020/06/03/Blog-Post_thumbnail.png",
       "pubDate": "2026-02-16T23:16:33+00:00",
-      "timestamp": 1771508769
+      "timestamp": 1771512549,
+      "summary": "Live sports production and delivery have changed tremendously in the past decade, backed by cloud and streaming advancements making it more accessible to a broader range of organizations. TV 2 Norway has helped pioneer this incredible transformation, building a video platform on Amazon Web Services (AWS) that can support the live streaming of more than […]."
     },
     {
       "title": "The Technology Behind Comcast’s 30 Mbps Upscaled 4K Super Bowl Stream",
@@ -58,7 +63,8 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2026/02/comcast-text.jpg",
       "pubDate": "2026-02-19T02:38:38+00:00",
-      "timestamp": 1771508775
+      "timestamp": 1771512556,
+      "summary": "In conjunction with Super Bowl LX, Comcast’s Xfinity announced the launch of what they call &#8220;RealTime4K&#8221;, a new ultra-low-latency technology with a 30 Mbps bitrate supporting Dolby Vision HDR and Dolby Atmos, compatible with an Xfinity X1 XG1v4 or Xi6 TV Box, or an XiOne streaming TV Box for Xfinity Flex. Comcast is positioning RealTime4K [&#8230;]."
     },
     {
       "title": "Sci-Tech honorees include rendering developments, artistic looks in animation and more",
@@ -68,7 +74,8 @@
       "source": "Befores & Afters",
       "image": "https://beforesandafters.com/wp-content/uploads/2026/02/scitechs.jpg",
       "pubDate": "2026-02-19T04:38:03+00:00",
-      "timestamp": 1771508826
+      "timestamp": 1771512608,
+      "summary": "See the full list here. The post Sci-Tech honorees include rendering developments, artistic looks in animation and more appeared first on befores &amp; afters ."
     }
   ],
   "items": [
@@ -79,8 +86,9 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": null,
-      "pubDate": "2026-02-19T13:46:08.154089+00:00",
-      "timestamp": 1771508768
+      "pubDate": "2026-02-19T14:49:07.884466+00:00",
+      "timestamp": 1771512547,
+      "summary": "back to Blogs Ask the Experts: Building Your Own Professional Studio on a Budget by Andrei Kolmogorov, Vizrt Migration Expert &#38; Ionut ‘Johnny’ Pogacean, Viz Pilot Edge Senior Product Manager A Professional Studio: Why it’s within reach &#8211; and why you might need one Streaming, video creation, and live production aren’t just nice-to-haves anymore, they’ve... The post Ask the Experts: Building Your Own Professional Studio on a Budget appeared first on Vizrt | Transforming Viewer Experiences ."
     },
     {
       "title": "How Vizrt Education Solutions Prepare Students for Real-World Media Careers",
@@ -89,8 +97,9 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": null,
-      "pubDate": "2026-02-19T13:46:08.154060+00:00",
-      "timestamp": 1771508768
+      "pubDate": "2026-02-19T14:49:07.884415+00:00",
+      "timestamp": 1771512547,
+      "summary": "See how Japanese students used Vizrt’s TriCaster Mini S to deliver a live broadcast, gaining real-world media skills for future careers. The post How Vizrt Education Solutions Prepare Students for Real-World Media Careers appeared first on Vizrt | Transforming Viewer Experiences ."
     },
     {
       "title": "On Air 2025: A Global Broadcast Powered by Students and Vizrt",
@@ -99,8 +108,9 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2025/10/Media.jpeg",
-      "pubDate": "2026-02-19T13:46:08.153984+00:00",
-      "timestamp": 1771508768
+      "pubDate": "2026-02-19T14:49:07.884307+00:00",
+      "timestamp": 1771512547,
+      "summary": "Discover how 500+ students from 17 universities powered a 24-hour global broadcast using Vizrt's professional live production tools. The post On Air 2025: A Global Broadcast Powered by Students and Vizrt appeared first on Vizrt | Transforming Viewer Experiences ."
     },
     {
       "title": "Why now is the time to migrate from Viz Pilot News to Viz Pilot Edge",
@@ -109,8 +119,9 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2025/09/Viz-Pilot-Edge-News-Malayalam-2.png",
-      "pubDate": "2026-02-19T13:46:06.477450+00:00",
-      "timestamp": 1771508766
+      "pubDate": "2026-02-19T14:49:07.744464+00:00",
+      "timestamp": 1771512547,
+      "summary": "Outdated technologies can pose a security risk. Viz Pilot Edge is a HTML-based templated graphics solution designed to meet the challenges of today’s fast-evolving modern newsrooms. The post Why now is the time to migrate from Viz Pilot News to Viz Pilot Edge appeared first on Vizrt | Transforming Viewer Experiences ."
     },
     {
       "title": "Turning archives into intelligence: Vizrt and DeepVA introduce AI-driven metadata enrichment in Viz One media asset management",
@@ -119,8 +130,9 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2025/11/Vizrt-Viz-One-and-DeepVA-Header-Image-1920x1080-1-scaled.jpg",
-      "pubDate": "2026-02-19T13:46:04.635668+00:00",
-      "timestamp": 1771508764
+      "pubDate": "2026-02-19T14:49:07.615141+00:00",
+      "timestamp": 1771512547,
+      "summary": "Vizrt’s partnership with Aiconix’s DeepVA AI platform brings advanced AI-assisted metadata enrichment capabilities to Viz One’s media asset management workflows. This integration empowers content creators to unlock the full potential of their media archives, streamline workflows, and deliver more localized, monetizable content. The post Turning archives into intelligence: Vizrt and DeepVA introduce AI-driven metadata enrichment in Viz One media asset management appeared first on Vizrt | Transforming Viewer Experiences ."
     },
     {
       "title": "DeepVA",
@@ -129,8 +141,9 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2025/11/deepVA-logo-on-white-bg.png",
-      "pubDate": "2026-02-19T13:46:02.953874+00:00",
-      "timestamp": 1771508762
+      "pubDate": "2026-02-19T14:49:07.480766+00:00",
+      "timestamp": 1771512547,
+      "summary": "Vizrt Tech Partner DeepVA AI analysis and workflows for Viz One Vizrt’s partnership with DeepVA brings powerful, sovereign AI analysis directly into Viz One workflows – helping broadcasters and content owners find, log, and repurpose media faster and more accurately than ever before. By automating previously manual tasks like shot logging, tagging, and archive research,... The post DeepVA appeared first on Vizrt | Transforming Viewer Experiences ."
     },
     {
       "title": "Vizrt launches AI-powered advances for speed and accuracy in media management",
@@ -139,8 +152,9 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2025/11/Vizrt-Viz-One-and-DeepVA-Header-Image-1920x1080-1-scaled.jpg",
-      "pubDate": "2026-02-19T13:46:01.564568+00:00",
-      "timestamp": 1771508761
+      "pubDate": "2026-02-19T14:49:07.341097+00:00",
+      "timestamp": 1771512547,
+      "summary": "Viz One 8.1 introduces AI-powered visual recognition and automated metadata to boost speed, accuracy, and discovery in media asset management workflows. The post Vizrt launches AI-powered advances for speed and accuracy in media management appeared first on Vizrt | Transforming Viewer Experiences ."
     },
     {
       "title": "Vizrt Powers a New Era of Corporate Viewer Engagement with Expanded Enterprise Team",
@@ -149,8 +163,9 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2026/01/Vizrt-PR-Image-for-Momentum-PR-1920x1080-2-scaled.jpg",
-      "pubDate": "2026-02-19T13:45:59.930487+00:00",
-      "timestamp": 1771508759
+      "pubDate": "2026-02-19T14:49:07.218570+00:00",
+      "timestamp": 1771512547,
+      "summary": "New international leaders bring decades of SaaS and B2B enterprise technology experience to transform corporate communications and audience engagement. The post Vizrt Powers a New Era of Corporate Viewer Engagement with Expanded Enterprise Team appeared first on Vizrt | Transforming Viewer Experiences ."
     },
     {
       "title": "Vizrt revolutionizes corporate communications with AI-powered augmented reality in Zoom",
@@ -159,8 +174,9 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2026/02/PR_Zoom-and-Vizrt-InteractifAI-2.png",
-      "pubDate": "2026-02-19T13:45:58.251725+00:00",
-      "timestamp": 1771508758
+      "pubDate": "2026-02-19T14:49:07.103788+00:00",
+      "timestamp": 1771512547,
+      "summary": "Vizrt offers broadcast-quality tools in Zoom meetings and Zoom Rooms, bringing immersive experiences to internal and external audiences worldwide The post Vizrt revolutionizes corporate communications with AI-powered augmented reality in Zoom appeared first on Vizrt | Transforming Viewer Experiences ."
     },
     {
       "title": "Vizrt Launches Sports Production Bundles to Empower US Students to Produce Like the Pros",
@@ -169,8 +185,42 @@
       "category": "graphics",
       "source": "Vizrt",
       "image": "https://routing.vizrt.com/wp-content/uploads/2026/02/3-Harvard-Control-Room-2-Basketball-2-scaled.jpg",
-      "pubDate": "2026-02-19T13:45:56.601400+00:00",
-      "timestamp": 1771508756
+      "pubDate": "2026-02-19T14:49:06.994834+00:00",
+      "timestamp": 1771512546,
+      "summary": "Using the same live production tools trusted by sports broadcasters and professional media organizations, the bundles deliver a complete, integrated workflow for live switching, replays, and graphics – complete with ready-to-play big screen graphics templates. The post Vizrt Launches Sports Production Bundles to Empower US Students to Produce Like the Pros appeared first on Vizrt | Transforming Viewer Experiences ."
+    },
+    {
+      "title": "Broadcast and streaming audiences surge for Milano Cortina 2026",
+      "link": "https://www.newscaststudio.com/2026/02/19/broadcast-and-streaming-audiences-surge-for-milano-cortina-2026/",
+      "guid": "https://www.newscaststudio.com/?p=150508",
+      "category": "newsroom",
+      "source": "NewscastStudio",
+      "image": "https://www.newscaststudio.com/wp-content/uploads/2026/02/obs-milan-cortina.avif",
+      "pubDate": "2026-02-19T14:16:39+00:00",
+      "timestamp": 1771512437,
+      "summary": "International Olympic Committee reported record broadcast and digital audiences for 2026 Winter Olympics, with media ... Read More The post Broadcast and streaming audiences surge for Milano Cortina 2026 appeared first on NCS | NewscastStudio ."
+    },
+    {
+      "title": "Nigerian man gets eight years in prison for hacking tax firms",
+      "link": "https://www.bleepingcomputer.com/news/security/nigerian-man-gets-eight-years-in-prison-for-hacking-tax-firms/",
+      "guid": "https://www.bleepingcomputer.com/news/security/nigerian-man-gets-eight-years-in-prison-for-hacking-tax-firms/",
+      "category": "infrastructure",
+      "source": "BleepingComputer",
+      "image": "https://www.bleepstatic.com/content/hl-images/2025/11/05/Credit-card-hacker.jpg",
+      "pubDate": "2026-02-19T13:51:49+00:00",
+      "timestamp": 1771512516,
+      "summary": "A Nigerian national was sentenced to eight years in prison for hacking multiple tax preparation firms in Massachusetts and filing fraudulent tax returns seeking over $8.1 million in refunds. [...]."
+    },
+    {
+      "title": "Remembering June Bacon-Bercey, America’s 1st Black Female TV Meteorologist",
+      "link": "https://newsblues.com/2026/02/17/americas-1st-black-female-tv-meteorologist/",
+      "guid": "https://tvnewscheck.com/?p=372684",
+      "category": "newsroom",
+      "source": "TVNewsCheck",
+      "image": null,
+      "pubDate": "2026-02-19T13:23:43+00:00",
+      "timestamp": 1771512498,
+      "summary": "The post Remembering June Bacon-Bercey, America’s 1st Black Female TV Meteorologist appeared first on TV News Check ."
     },
     {
       "title": "Nearly 1 Million User Records Compromised in Figure Data Breach",
@@ -180,7 +230,30 @@
       "source": "SecurityWeek",
       "image": null,
       "pubDate": "2026-02-19T13:19:08+00:00",
-      "timestamp": 1771508730
+      "timestamp": 1771512519,
+      "summary": "The blockchain-based lender has confirmed a data breach after ShinyHunters leaked over 2GB of data allegedly stolen from the company. The post Nearly 1 Million User Records Compromised in Figure Data Breach appeared first on SecurityWeek ."
+    },
+    {
+      "title": "The WKRP Call Letters Are For Sale. Will They Live On The Air In Cincinnati?",
+      "link": "https://www.wvxu.org/media/2026-02-11/wkrp-call-letters-for-sale-wkrc-tvkiese",
+      "guid": "https://tvnewscheck.com/?p=372682",
+      "category": "newsroom",
+      "source": "TVNewsCheck",
+      "image": "https://npr.brightspotcdn.com/dims4/default/e6c2a41/2147483647/strip/true/crop/2364x1241+0+210/resize/1200x630!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F19%2F49%2F4de757124e3c91e26d44a95eaf7f%2Fwkrp-lp-logo-jpeg.jpg",
+      "pubDate": "2026-02-19T13:18:45+00:00",
+      "timestamp": 1771512498,
+      "summary": "The post The WKRP Call Letters Are For Sale. Will They Live On The Air In Cincinnati? appeared first on TV News Check ."
+    },
+    {
+      "title": "WTAE Pittsburgh Promotes From Within, Names New Morning Co-Anchor",
+      "link": "https://triblive.com/aande/movies-tv/tv-talk-wtae-promotes-from-within-names-laquatra-morning-co-anchor/",
+      "guid": "https://tvnewscheck.com/?p=372679",
+      "category": "newsroom",
+      "source": "TVNewsCheck",
+      "image": "https://assets-varnish.triblive.com/2026/02/9298642_web1_ptr-TVTalk02182026-ElenaLaQuatraRyanRecker.jpg",
+      "pubDate": "2026-02-19T13:16:31+00:00",
+      "timestamp": 1771512499,
+      "summary": "The post WTAE Pittsburgh Promotes From Within, Names New Morning Co-Anchor appeared first on TV News Check ."
     },
     {
       "title": "Data moves from analysis to execution in broadcast advertising",
@@ -190,7 +263,52 @@
       "source": "NewscastStudio",
       "image": "https://www.newscaststudio.com/wp-content/uploads/2026/02/broadcast-advertising-data-abstract.jpg",
       "pubDate": "2026-02-19T13:10:34+00:00",
-      "timestamp": 1771508687
+      "timestamp": 1771512437,
+      "summary": "Broadcasters have moved data from the back end of advertising campaigns to the front. The ... Read More The post Data moves from analysis to execution in broadcast advertising appeared first on NCS | NewscastStudio ."
+    },
+    {
+      "title": "FCC Reviewed Transcripts Of Bad Bunny Super Bowl Show",
+      "link": "https://tvnewscheck.com/regulation/article/fcc-reviewed-transcripts-of-bad-bunny-super-bowl-show/",
+      "guid": "https://tvnewscheck.com/?p=372676",
+      "category": "newsroom",
+      "source": "TVNewsCheck",
+      "image": "https://tvnewscheck.com/wp-content/uploads/2026/02/Bad-Bunny-2026-Super-Bowl-AP-Lynne-Sladky.jpg",
+      "pubDate": "2026-02-19T13:01:30+00:00",
+      "timestamp": 1771512499,
+      "summary": "The FCC requested transcripts of Bad Bunny's Super Bowl halftime show from NBC after Republican lawmakers suggested it could violate federal indecency regulations, Commissioner Anna Gomez said. The post FCC Reviewed Transcripts Of Bad Bunny Super Bowl Show appeared first on TV News Check ."
+    },
+    {
+      "title": "What Stephen Colbert Protects By Standing Up To FCC Chair Brendan Carr",
+      "link": "https://www.ms.now/opinion/stephen-colbert-talarico-fcc-carr-equal-time-rule",
+      "guid": "https://tvnewscheck.com/?p=372674",
+      "category": "newsroom",
+      "source": "TVNewsCheck",
+      "image": "https://res.cloudinary.com/msnow/images/f_auto,q_auto/v1771463116/0218-fcc-equaltime-al-65/0218-fcc-equaltime-al-65.jpg?_i=AA&w=1200&h=630&crop=1",
+      "pubDate": "2026-02-19T12:53:46+00:00",
+      "timestamp": 1771512500,
+      "summary": "The post What Stephen Colbert Protects By Standing Up To FCC Chair Brendan Carr appeared first on TV News Check ."
+    },
+    {
+      "title": "Carr Ready To Approve Nexstar-Tegna Deal",
+      "link": "https://tvnewscheck.com/regulation/article/carr-ready-to-approve-nexstar-tegna-deal/",
+      "guid": "https://tvnewscheck.com/?p=372671",
+      "category": "newsroom",
+      "source": "TVNewsCheck",
+      "image": "https://tvnewscheck.com/wp-content/uploads/2025/02/Carr_Brendan_2024.jpg",
+      "pubDate": "2026-02-19T12:49:06+00:00",
+      "timestamp": 1771512501,
+      "summary": "\"I support that transaction,\" the FCC chairman tells reporters Wednesday. Will he waive the 39% cap? \"Stay tuned.\" The post Carr Ready To Approve Nexstar-Tegna Deal appeared first on TV News Check ."
+    },
+    {
+      "title": "BBC Plans David Attenborough Celebration For 100th Birthday",
+      "link": "https://www.bbc.com/news/articles/c1l7m7j6lzjo",
+      "guid": "https://tvnewscheck.com/?p=372669",
+      "category": "newsroom",
+      "source": "TVNewsCheck",
+      "image": "https://ichef.bbci.co.uk/news/1024/branded_news/1d31/live/8ae65d80-0d6f-11f1-b7e1-afb6d0884c18.jpg",
+      "pubDate": "2026-02-19T12:39:50+00:00",
+      "timestamp": 1771512501,
+      "summary": "The post BBC Plans David Attenborough Celebration For 100th Birthday appeared first on TV News Check ."
     },
     {
       "title": "Texas sues TP-Link over Chinese hacking risks, user deception",
@@ -200,7 +318,8 @@
       "source": "BleepingComputer",
       "image": "https://www.bleepstatic.com/content/hl-images/2024/12/18/tp-link-headpic.jpg",
       "pubDate": "2026-02-19T12:36:51+00:00",
-      "timestamp": 1771508728
+      "timestamp": 1771512517,
+      "summary": "Texas sued networking giant TP-Link Systems, accusing the company of deceptively marketing its routers as secure while allowing Chinese state-backed hackers to exploit firmware vulnerabilities and access users' devices. [...]."
     },
     {
       "title": "Hackers target Microsoft Entra accounts in device code vishing attacks",
@@ -210,7 +329,8 @@
       "source": "BleepingComputer",
       "image": "https://www.bleepstatic.com/content/hl-images/2025/08/07/Microsoft.jpg",
       "pubDate": "2026-02-19T12:30:37+00:00",
-      "timestamp": 1771508728
+      "timestamp": 1771512517,
+      "summary": "Threat actors are targeting technology, manufacturing, and financial organizations in campaigns that combine device code phishing and voice phishing (vishing) to abuse the OAuth 2.0 Device Authorization flow and compromise Microsoft Entra accounts. [...]."
     },
     {
       "title": "ITV’s daytime programs move to studio at The Hospital Club",
@@ -220,7 +340,19 @@
       "source": "NewscastStudio",
       "image": "https://www.newscaststudio.com/wp-content/uploads/2026/02/NCS_itv_this-morning_studio-2026.jpg",
       "pubDate": "2026-02-19T12:30:00+00:00",
-      "timestamp": 1771508687
+      "timestamp": 1771512437,
+      "summary": "ITV&#8217;s daytime programs &#8220;This Morning,&#8221; &#8220;Lorraine&#8221; and &#8220;Loose Women&#8221; moved to The Hospital Club in ... Read More The post ITV&#8217;s daytime programs move to studio at The Hospital Club appeared first on NCS | NewscastStudio ."
+    },
+    {
+      "title": "TikTok’s Local Feed Arrives At A Fragile Moment For Local News",
+      "link": "https://tvnewscheck.com/journalism/article/tiktoks-local-feed-arrives-at-a-fragile-moment-for-local-news/",
+      "guid": "https://tvnewscheck.com/?p=372666",
+      "category": "newsroom",
+      "source": "TVNewsCheck",
+      "image": "https://tvnewscheck.com/wp-content/uploads/2025/09/TikTok_phone_3.jpg",
+      "pubDate": "2026-02-19T12:23:46+00:00",
+      "timestamp": 1771512502,
+      "summary": "Local news in the United States is facing a dual crisis: production and consumption. The post TikTok’s Local Feed Arrives At A Fragile Moment For Local News appeared first on TV News Check ."
     },
     {
       "title": "Venice Security Emerges From Stealth With $33M Funding for Privileged Access Management",
@@ -230,7 +362,8 @@
       "source": "SecurityWeek",
       "image": null,
       "pubDate": "2026-02-19T12:23:41+00:00",
-      "timestamp": 1771508730
+      "timestamp": 1771512519,
+      "summary": "Formerly named Valkyrie, the company’s funding includes $25 million raised in a Series A round. The post Venice Security Emerges From Stealth With $33M Funding for Privileged Access Management appeared first on SecurityWeek ."
     },
     {
       "title": "The final countdown: Why C-band auctions are accelerating the IP shift in U.S. broadcasting",
@@ -240,7 +373,19 @@
       "source": "NewscastStudio",
       "image": "https://www.newscaststudio.com/wp-content/uploads/2026/02/satellite-video-distribution-abstract.jpg",
       "pubDate": "2026-02-19T12:00:44+00:00",
-      "timestamp": 1771508688
+      "timestamp": 1771512437,
+      "summary": "For U.S. broadcasters, the countdown to the Upper C-band auction is well underway. As the .."
+    },
+    {
+      "title": "BBC Hires Universal’s Ed Havard To Run Entertainment",
+      "link": "https://tvnewscheck.com/programming/article/bbc-hires-universals-ed-havard-to-run-entertainment/",
+      "guid": "https://tvnewscheck.com/?p=372663",
+      "category": "newsroom",
+      "source": "TVNewsCheck",
+      "image": null,
+      "pubDate": "2026-02-19T11:59:40+00:00",
+      "timestamp": 1771512502,
+      "summary": "Ed Havard is exiting his SVP role at Universal International Studios (UIS) to become director of entertainment at the Beeb, while Fiona Campbell takes on the director of factual role amid the biggest restructure since content chief Kate Phillips took over. The post BBC Hires Universal’s Ed Havard To Run Entertainment appeared first on TV News Check ."
     },
     {
       "title": "Ivanti Exploitation Surges as Zero-Day Attacks Traced Back to July 2025",
@@ -250,7 +395,63 @@
       "source": "SecurityWeek",
       "image": null,
       "pubDate": "2026-02-19T11:56:29+00:00",
-      "timestamp": 1771508731
+      "timestamp": 1771512519,
+      "summary": "Security researchers have seen the vulnerabilities being exploited to deliver shells, conduct reconnaissance, and download malware. The post Ivanti Exploitation Surges as Zero-Day Attacks Traced Back to July 2025 appeared first on SecurityWeek ."
+    },
+    {
+      "title": "Journalists Arrested In Cameroon While Reporting On Trump’s Secretive Deportation Program",
+      "link": "https://tvnewscheck.com/journalism/article/journalists-arrested-in-cameroon-while-reporting-on-trumps-secretive-deportation-program/",
+      "guid": "https://tvnewscheck.com/?p=372660",
+      "category": "newsroom",
+      "source": "TVNewsCheck",
+      "image": null,
+      "pubDate": "2026-02-19T11:55:28+00:00",
+      "timestamp": 1771512502,
+      "summary": "An Associated Press reporter was hit and held with three other journalists and a lawyer, two detainees said, while at a center for migrants secretively deported from the United States. The post Journalists Arrested In Cameroon While Reporting On Trump’s Secretive Deportation Program appeared first on TV News Check ."
+    },
+    {
+      "title": "Netflix Projected To Double Ad Revenue This Year",
+      "link": "https://tvnewscheck.com/business/article/netflix-projected-to-double-ad-revenue-this-year/",
+      "guid": "https://tvnewscheck.com/?p=372657",
+      "category": "newsroom",
+      "source": "TVNewsCheck",
+      "image": null,
+      "pubDate": "2026-02-19T11:52:25+00:00",
+      "timestamp": 1771512502,
+      "summary": "Advertising revenue at Netflix has risen rapidly — and is now expected to double to $3 billion globally this year from $1.5 billion in 2025, and to comprise 10% of all connected TV advertising (CTV) spend by 2030, according to projections from WARC Media. The post Netflix Projected To Double Ad Revenue This Year appeared first on TV News Check ."
+    },
+    {
+      "title": "CBS’s Bari Weiss Pulls Out Of UCLA Lecture",
+      "link": "https://tvnewscheck.com/journalism/article/cbss-bari-weiss-pulls-out-of-ucla-lecture/",
+      "guid": "https://tvnewscheck.com/?p=372654",
+      "category": "newsroom",
+      "source": "TVNewsCheck",
+      "image": null,
+      "pubDate": "2026-02-19T11:49:25+00:00",
+      "timestamp": 1771512502,
+      "summary": "The CBS News editor-in-chief’s Daniel Pearl Memorial Lecture will be rescheduled at an unspecified date, an individual with knowledge of the event says. The post CBS’s Bari Weiss Pulls Out Of UCLA Lecture appeared first on TV News Check ."
+    },
+    {
+      "title": "Netflix’s Chief Comms Officer Dani Dudeck Makes Two Key VP Hires Overseas",
+      "link": "https://tvnewscheck.com/promotion/article/netflixs-chief-comms-officer-dani-dudeck-makes-two-key-vp-hires-overseas/",
+      "guid": "https://tvnewscheck.com/?p=372650",
+      "category": "newsroom",
+      "source": "TVNewsCheck",
+      "image": null,
+      "pubDate": "2026-02-19T11:42:21+00:00",
+      "timestamp": 1771512502,
+      "summary": "Flávia Vígio (l) and Joy Albert have been named vice presidents of communications for the LatAm and APAC regions, respectively. The post Netflix’s Chief Comms Officer Dani Dudeck Makes Two Key VP Hires Overseas appeared first on TV News Check ."
+    },
+    {
+      "title": "Peter Krause To Star In NBC’s Drama ‘Protection’",
+      "link": "https://tvnewscheck.com/programming/article/peter-krause-to-star-in-nbcs-drama-protection/",
+      "guid": "https://tvnewscheck.com/?p=372647",
+      "category": "newsroom",
+      "source": "TVNewsCheck",
+      "image": null,
+      "pubDate": "2026-02-19T11:36:16+00:00",
+      "timestamp": 1771512502,
+      "summary": "The role is his first regular TV part since leaving 911. The post Peter Krause To Star In NBC’s Drama ‘Protection’ appeared first on TV News Check ."
     },
     {
       "title": "Police arrests 651 suspects in African cybercrime crackdown",
@@ -260,7 +461,8 @@
       "source": "BleepingComputer",
       "image": "https://www.bleepstatic.com/content/hl-images/2025/06/16/law-enforcement-arrest-red.jpg",
       "pubDate": "2026-02-19T11:24:17+00:00",
-      "timestamp": 1771508729
+      "timestamp": 1771512517,
+      "summary": "African authorities arrested 651 suspects and recovered over $4.3 million in a joint operation targeting investment fraud, mobile money scams, and fake loan applications. [...]."
     },
     {
       "title": "OpenClaw Security Issues Continue as SecureClaw Open Source Tool Debuts",
@@ -270,7 +472,8 @@
       "source": "SecurityWeek",
       "image": null,
       "pubDate": "2026-02-19T11:00:00+00:00",
-      "timestamp": 1771508731
+      "timestamp": 1771512519,
+      "summary": "OpenClaw faces security vulnerabilities and misconfiguration risks despite rapid patches and its transition to an OpenAI-backed foundation. The post OpenClaw Security Issues Continue as SecureClaw Open Source Tool Debuts appeared first on SecurityWeek ."
     },
     {
       "title": "New 'Massiv' Android banking malware poses as an IPTV app",
@@ -280,7 +483,8 @@
       "source": "BleepingComputer",
       "image": "https://www.bleepstatic.com/content/hl-images/2024/05/03/Android.jpg",
       "pubDate": "2026-02-19T10:00:00+00:00",
-      "timestamp": 1771508729
+      "timestamp": 1771512518,
+      "summary": "A newly identified Android banking trojan named Massiv has been under active distribution across south Europe, disguised as an IPTV app. [...]."
     },
     {
       "title": "German Rail Giant Deutsche Bahn Hit by Large-Scale DDoS Attack",
@@ -290,7 +494,8 @@
       "source": "SecurityWeek",
       "image": null,
       "pubDate": "2026-02-19T09:16:20+00:00",
-      "timestamp": 1771508731
+      "timestamp": 1771512519,
+      "summary": "The cyberattack disrupted information and booking systems and lasted for several hours. The post German Rail Giant Deutsche Bahn Hit by Large-Scale DDoS Attack appeared first on SecurityWeek ."
     },
     {
       "title": "More Than 40% of South Africans Were Scammed in 2025",
@@ -300,7 +505,8 @@
       "source": "Dark Reading",
       "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt49d98ee5edaf7150/698f86d35d330e0008bd444f/South_Africa_trap-Olekcii_Mach-Alamy.jpg?width=1280&auto=webp&quality=80&disable=upscale",
       "pubDate": "2026-02-19T07:00:00+00:00",
-      "timestamp": 1771508728
+      "timestamp": 1771512516,
+      "summary": "Survey underscores the reality that scammers follow &quot;scalable opportunities and low friction,&quot; rather than rich targets that tend to be better protected."
     },
     {
       "title": "Sci-Tech honorees include rendering developments, artistic looks in animation and more",
@@ -310,7 +516,8 @@
       "source": "Befores & Afters",
       "image": "https://beforesandafters.com/wp-content/uploads/2026/02/scitechs.jpg",
       "pubDate": "2026-02-19T04:38:03+00:00",
-      "timestamp": 1771508826
+      "timestamp": 1771512608,
+      "summary": "See the full list here. The post Sci-Tech honorees include rendering developments, artistic looks in animation and more appeared first on befores &amp; afters ."
     },
     {
       "title": "The Technology Behind Comcast’s 30 Mbps Upscaled 4K Super Bowl Stream",
@@ -320,27 +527,8 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2026/02/comcast-text.jpg",
       "pubDate": "2026-02-19T02:38:38+00:00",
-      "timestamp": 1771508775
-    },
-    {
-      "title": "NRB Backs ATSC 3.0 Tuner and Must-Carry Requirements",
-      "link": "https://www.tvtechnology.com/regulatory-legal/nrb-backs-atsc-3-0-tuner-and-must-carry-requirements",
-      "guid": "dTZHpukCDkZnsneC3SpMof",
-      "category": "newsroom",
-      "source": "TV Technology",
-      "image": "https://cdn.mos.cms.futurecdn.net/sCognzfESxidmzwQcGdyVT-1280-80.png",
-      "pubDate": "2026-02-19T00:06:51+00:00",
-      "timestamp": 1771508689
-    },
-    {
-      "title": "IBCAP Announces $21 Million Lawsuit Against DMTN IPTV",
-      "link": "https://www.tvtechnology.com/regulatory-legal/ibcap-announces-usd21-million-lawsuit-against-dmtn-iptv",
-      "guid": "TfLnRNGygReyofSd7QpMea",
-      "category": "newsroom",
-      "source": "TV Technology",
-      "image": "https://cdn.mos.cms.futurecdn.net/oB58pMTsPxtaxeKceLQoJW-1280-80.jpg",
-      "pubDate": "2026-02-18T23:16:27+00:00",
-      "timestamp": 1771508689
+      "timestamp": 1771512556,
+      "summary": "In conjunction with Super Bowl LX, Comcast’s Xfinity announced the launch of what they call &#8220;RealTime4K&#8221;, a new ultra-low-latency technology with a 30 Mbps bitrate supporting Dolby Vision HDR and Dolby Atmos, compatible with an Xfinity X1 XG1v4 or Xi6 TV Box, or an XiOne streaming TV Box for Xfinity Flex. Comcast is positioning RealTime4K [&#8230;]."
     },
     {
       "title": "Scam Abuses Gemini Chatbots to Convince People to Buy Fake Crypto",
@@ -350,7 +538,8 @@
       "source": "Dark Reading",
       "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltf5b8e2297cc10652/699603ad3302230008e89c88/chatbot_khunkornStudio_shutterstock.jpg?width=1280&auto=webp&quality=80&disable=upscale",
       "pubDate": "2026-02-18T21:47:01+00:00",
-      "timestamp": 1771508728
+      "timestamp": 1771512516,
+      "summary": "A convincing presale site for phony &quot;Google Coin&quot; features an AI assistant that engages victims with a slick sales pitch, funneling payment to attackers."
     },
     {
       "title": "Alec Gillis on the practical effects design process for ‘Predator: Badlands’",
@@ -360,7 +549,8 @@
       "source": "Befores & Afters",
       "image": "https://beforesandafters.com/wp-content/uploads/2026/02/alecgillis.jpg",
       "pubDate": "2026-02-18T21:19:14+00:00",
-      "timestamp": 1771508826
+      "timestamp": 1771512608,
+      "summary": "What went into Dek and other characters on the film. The post Alec Gillis on the practical effects design process for &#8216;Predator: Badlands&#8217; appeared first on befores &amp; afters ."
     },
     {
       "title": "Critical Grandstream VoIP Bug Highlights SMB Security Blind Spot",
@@ -370,7 +560,8 @@
       "source": "Dark Reading",
       "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt17ec90df4d63b4e0/699621b7a7e4430008d84b8a/voip_Digitala_World_shutterstock.jpg?width=1280&auto=webp&quality=80&disable=upscale",
       "pubDate": "2026-02-18T21:15:08+00:00",
-      "timestamp": 1771508728
+      "timestamp": 1771512516,
+      "summary": "CVE-2026-2329 allows unauthenticated root-level access to SMB phone infrastructure, so attackers can intercept calls, commit toll fraud, and impersonate users."
     },
     {
       "title": "Critical infra Honeywell CCTVs vulnerable to auth bypass flaw",
@@ -380,7 +571,8 @@
       "source": "BleepingComputer",
       "image": "https://www.bleepstatic.com/content/hl-images/2026/02/18/0_Honeywell.jpg",
       "pubDate": "2026-02-18T20:58:20+00:00",
-      "timestamp": 1771508729
+      "timestamp": 1771512518,
+      "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) is warning of a critical vulnerability in multiple Honeywell CCTV products that allows unauthorized access to feeds or account hijacking. [...]."
     },
     {
       "title": "Threat Intelligence Has a Human-Shaped Blind Spot",
@@ -390,7 +582,8 @@
       "source": "Dark Reading",
       "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt2bbd305178566dd6/69962b2a2d050f0008532d6c/blind_spot_Andrii_Biletskyi_Alamy.jpg?width=1280&auto=webp&quality=80&disable=upscale",
       "pubDate": "2026-02-18T20:56:22+00:00",
-      "timestamp": 1771508728
+      "timestamp": 1771512516,
+      "summary": "How I realized what I was taught to about threat intelligence was missing something crucial."
     },
     {
       "title": "Dell's Hard-Coded Flaw: A Nation-State Goldmine",
@@ -400,27 +593,8 @@
       "source": "Dark Reading",
       "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltbd8909d37cfab711/69961bba80f6080008947bc0/Gold_panning_Mira_Alamy.jpg?width=1280&auto=webp&quality=80&disable=upscale",
       "pubDate": "2026-02-18T20:49:36+00:00",
-      "timestamp": 1771508728
-    },
-    {
-      "title": "Spincast Gets U.S. Patent for AI-Powered Shoppable TV",
-      "link": "https://www.tvtechnology.com/business/spincast-gets-u-s-patent-for-ai-powered-shoppable-tv",
-      "guid": "i22PZohzvrCLUqpjwqo4Q4",
-      "category": "newsroom",
-      "source": "TV Technology",
-      "image": "https://cdn.mos.cms.futurecdn.net/YWBUFiafWSPvSYSLGA3D8Q-1280-80.jpg",
-      "pubDate": "2026-02-18T20:43:00+00:00",
-      "timestamp": 1771508689
-    },
-    {
-      "title": "Fuse Media and Complex to Launch Complex TV",
-      "link": "https://www.tvtechnology.com/platform/streaming/fuse-media-and-complex-to-launch-complex-tv",
-      "guid": "pkLxSkZU9TGbVK9VHAPXRC",
-      "category": "newsroom",
-      "source": "TV Technology",
-      "image": "https://cdn.mos.cms.futurecdn.net/bp2Lt74hTpVJPCr9gqLfPj-1280-80.png",
-      "pubDate": "2026-02-18T20:20:22+00:00",
-      "timestamp": 1771508689
+      "timestamp": 1771512516,
+      "summary": "A China-related attacker has exploited the vendor flaw since mid-2024, allowing it to move laterally, maintain persistent access, and deploy malware."
     },
     {
       "title": "AI platforms can be abused for stealthy malware communication",
@@ -430,17 +604,8 @@
       "source": "BleepingComputer",
       "image": "https://www.bleepstatic.com/content/hl-images/2024/03/05/hand.jpg",
       "pubDate": "2026-02-18T20:18:24+00:00",
-      "timestamp": 1771508729
-    },
-    {
-      "title": "NBC Sports Details NEP's Extensive Work for Winter Olympic Coverage",
-      "link": "https://www.tvtechnology.com/production/nbc-sports-taps-nep-for-winter-olympic-coverage",
-      "guid": "3aiuvaaY3u5Bzv8PUz9XwF",
-      "category": "newsroom",
-      "source": "TV Technology",
-      "image": "https://cdn.mos.cms.futurecdn.net/nsHEgCU6EbuC3QhJbwdpPL-1280-80.png",
-      "pubDate": "2026-02-18T20:01:31+00:00",
-      "timestamp": 1771508689
+      "timestamp": 1771512518,
+      "summary": "AI assistants like Grok and Microsoft Copilot with web browsing and URL-fetching capabilities can be abused to intermediate command-and-control (C2) activity. [...]."
     },
     {
       "title": "A CISO's Playbook for Defending Data Assets Against AI Scraping",
@@ -450,17 +615,8 @@
       "source": "Dark Reading",
       "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt31e87979b1f1fabb/6996141cf67cb600083358aa/ai-read-Chiradech-Chotchuang-alamy.jpg?width=1280&auto=webp&quality=80&disable=upscale",
       "pubDate": "2026-02-18T19:13:33+00:00",
-      "timestamp": 1771508728
-    },
-    {
-      "title": "Broadband Usage Jumps by 9.9% in Q4",
-      "link": "https://www.tvtechnology.com/infrastructure/ip-networking/broadband-usage-jumps-by-9-9-percent-in-q4",
-      "guid": "hN9xGxN6DdAp943w3xrvmc",
-      "category": "newsroom",
-      "source": "TV Technology",
-      "image": "https://cdn.mos.cms.futurecdn.net/3RASheKoj2scfQt8ZoG9wQ-1280-80.jpg",
-      "pubDate": "2026-02-18T18:24:52+00:00",
-      "timestamp": 1771508689
+      "timestamp": 1771512516,
+      "summary": "Discover a strategic approach to govern scraping risks, balance security with business growth, and safeguard intellectual capital from automated data harvesting."
     },
     {
       "title": "CDN Netskrt Discloses Network Capacity, Revenue, and How it Adds Capacity Profitably",
@@ -470,27 +626,8 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2026/02/Netskrt-v3.jpg",
       "pubDate": "2026-02-18T18:05:34+00:00",
-      "timestamp": 1771508776
-    },
-    {
-      "title": "SMPTE Issues Call for Summit Papers",
-      "link": "https://www.tvtechnology.com/events/smpte-issues-call-for-summit-papers",
-      "guid": "FmazjrENFouR4EqKF92EaE",
-      "category": "newsroom",
-      "source": "TV Technology",
-      "image": "https://cdn.mos.cms.futurecdn.net/jWaC5D6VGnH54TxfQL74HR-1280-80.jpg",
-      "pubDate": "2026-02-18T17:29:36+00:00",
-      "timestamp": 1771508689
-    },
-    {
-      "title": "Submissions open for Best of Show Awards at NAB 2026",
-      "link": "https://www.tvtechnology.com/events/submissions-open-for-best-of-show-awards-at-nab-2026",
-      "guid": "pKJtD58VK4WtA3sU2wgnkH",
-      "category": "newsroom",
-      "source": "TV Technology",
-      "image": "https://cdn.mos.cms.futurecdn.net/DvLuo4oJHzdSumrPnXZTeg-1280-80.jpg",
-      "pubDate": "2026-02-18T17:15:36+00:00",
-      "timestamp": 1771508689
+      "timestamp": 1771512556,
+      "summary": "Netskrt Systems has carved out a meaningful foothold in the global streaming video market, particularly tier-one live events such as NFL football games, supporting both TNF on Prime Video and the recent Super Bowl on Peacock. It has done this in a manner unlike most of its competitors, focusing on broad, deep deployment of pure [&#8230;]."
     },
     {
       "title": "Framestore Pictures Director Rich Lee Brings a Human Touch to Capcom’s Resident Evil: Requiem Live-Action Trailer",
@@ -500,17 +637,8 @@
       "source": "Motionographer",
       "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/requiemfeature-700x467.jpg",
       "pubDate": "2026-02-18T17:14:31+00:00",
-      "timestamp": 1771508768
-    },
-    {
-      "title": "Super Bowl LX Attracts Nearly 125 Million U.S. Viewers",
-      "link": "https://www.tvtechnology.com/business/super-bowl-lx-attracts-nearly-125-million-u-s-viewers-clone",
-      "guid": "ikjWfeoHKrRSXAhNsEwiBa",
-      "category": "newsroom",
-      "source": "TV Technology",
-      "image": "https://cdn.mos.cms.futurecdn.net/qg3RBjmLDn2Zn7efpkbCaf-1280-80.png",
-      "pubDate": "2026-02-18T16:42:36+00:00",
-      "timestamp": 1771508689
+      "timestamp": 1771512548,
+      "summary": "Framestore Pictures director Rich Lee has partnered with Capcom and Nomadic Agency to create a live-action trailer for Resident Evil: Requiem — a three-minute short that has already sparked significant fan response ahead of its official release."
     },
     {
       "title": "Rise AV and Broadcast to mark International Women’s Day",
@@ -520,17 +648,8 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/IWD-2026USE.webp",
       "pubDate": "2026-02-18T16:28:54+00:00",
-      "timestamp": 1771508828
-    },
-    {
-      "title": "Telegram channels expose rapid weaponization of SmarterMail flaws",
-      "link": "https://www.bleepingcomputer.com/news/security/telegram-channels-expose-rapid-weaponization-of-smartermail-flaws/",
-      "guid": "https://www.bleepingcomputer.com/news/security/telegram-channels-expose-rapid-weaponization-of-smartermail-flaws/",
-      "category": "infrastructure",
-      "source": "BleepingComputer",
-      "image": "https://www.bleepstatic.com/content/posts/2026/02/18/flare-header-image-hg.jpg",
-      "pubDate": "2026-02-18T16:27:38+00:00",
-      "timestamp": 1771508730
+      "timestamp": 1771512611,
+      "summary": "A joint AV and broadcast event will feature a keynote address by motivational speaker and TV personality Suzie Cox, plus a panel discussion and networking. The post Rise AV and Broadcast to mark International Women’s Day appeared first on AV Magazine ."
     },
     {
       "title": "Northumbria University adopts Avonic presenter tracking",
@@ -540,7 +659,8 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/dd041USE.webp",
       "pubDate": "2026-02-18T16:22:32+00:00",
-      "timestamp": 1771508828
+      "timestamp": 1771512612,
+      "summary": "Distributor Polar Integrated Solutions supplied Avonic PTZ cameras and CamDirector Teacher Tracker software as recommended by integrator AV2000 for two 400-seat lecture theatres. The post Northumbria University adopts Avonic presenter tracking appeared first on AV Magazine ."
     },
     {
       "title": "Auditoria crafts immersive sound for UAE orchestra debut",
@@ -550,27 +670,8 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/UAE-Orchestra-DD-12USE.webp",
       "pubDate": "2026-02-18T16:10:55+00:00",
-      "timestamp": 1771508830
-    },
-    {
-      "title": "Wirecams and immersive jockey cam help to build global interest in 2026 Saudi Cup",
-      "link": "https://www.svgeurope.org/blog/headlines/wirecams-and-immersive-jockey-cam-help-to-build-global-interest-in-2026-saudi-cup/",
-      "guid": "https://www.svgeurope.org/?p=125160",
-      "category": "newsroom",
-      "source": "SVG Europe",
-      "image": "https://www.svgeurope.org/wp-content/blogs.dir/17/files/2024/02/image002-3-1.jpg",
-      "pubDate": "2026-02-18T16:02:08+00:00",
-      "timestamp": 1771508715
-    },
-    {
-      "title": "NBC focuses on duality of host cities in 2026 Winter Olympics graphics",
-      "link": "https://www.newscaststudio.com/2026/02/18/nbc-2026-winter-olympics-graphics/",
-      "guid": "https://www.newscaststudio.com/?p=150408",
-      "category": "newsroom",
-      "source": "NewscastStudio",
-      "image": "https://www.newscaststudio.com/wp-content/uploads/2026/02/nbc-2026-winter-olympics-graphics.jpg",
-      "pubDate": "2026-02-18T16:00:52+00:00",
-      "timestamp": 1771508688
+      "timestamp": 1771512613,
+      "summary": "Auditoria worked around rigging restrictions with an L‑ISA spatial audio system, dual DiGiCo Quantum 7 consoles and full multitrack capture to support live, recording and broadcast mixes. The post Auditoria crafts immersive sound for UAE orchestra debut appeared first on AV Magazine ."
     },
     {
       "title": "Avocor launches 700‑nit B Series digital signage displays",
@@ -580,7 +681,8 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/Avocor-B-Series-Lifestyle-Corporate-Weather-Landscape.webp",
       "pubDate": "2026-02-18T15:55:01+00:00",
-      "timestamp": 1771508831
+      "timestamp": 1771512614,
+      "summary": "The non‑interactive B Series ranges from 43\" to 86\"and combines 25%‑haze anti‑glare panels with an Android 14 SoC, 24/7 operation and FUSE remote management for high‑traffic environments. The post Avocor launches 700‑nit B Series digital signage displays appeared first on AV Magazine ."
     },
     {
       "title": "InfoComm 2026 to host new activation hubs and floorplan",
@@ -590,17 +692,8 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/InfoComm-2026.gif",
       "pubDate": "2026-02-18T15:47:59+00:00",
-      "timestamp": 1771508831
-    },
-    {
-      "title": "Philly EP named news director at Telemundo Colorado",
-      "link": "https://www.newscaststudio.com/2026/02/18/emmanuel-lopez-capo-kden-news-director/",
-      "guid": "https://www.newscaststudio.com/?p=150492",
-      "category": "newsroom",
-      "source": "NewscastStudio",
-      "image": "https://www.newscaststudio.com/wp-content/uploads/2026/02/emmanuel-lopez-capo.jpg",
-      "pubDate": "2026-02-18T15:42:18+00:00",
-      "timestamp": 1771508688
+      "timestamp": 1771512615,
+      "summary": "Registration has opened for the trade show in Las Vegas, which will have one hall for Work and another for Play technologies together with workplace, retail and sports/entertainment hubs. The post InfoComm 2026 to host new activation hubs and floorplan appeared first on AV Magazine ."
     },
     {
       "title": "Now You See Me: Now You Don’t Main End Titles | Laundry",
@@ -610,17 +703,8 @@
       "source": "Motionographer",
       "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/Frame-11-700x394.png",
       "pubDate": "2026-02-18T15:37:13+00:00",
-      "timestamp": 1771508768
-    },
-    {
-      "title": "Milano Cortina 2026: Bringing the Winter Games to viewers with France Télévisions from the IBC in Milan",
-      "link": "https://www.svgeurope.org/blog/headlines/milano-cortina-2026-bringing-the-winter-games-to-viewers-with-france-televisions-from-the-ibc-in-milan/",
-      "guid": "https://www.svgeurope.org/?p=125141",
-      "category": "newsroom",
-      "source": "SVG Europe",
-      "image": "https://www.svgeurope.org/wp-content/blogs.dir/17/files/2026/02/1000058185.jpg",
-      "pubDate": "2026-02-18T15:33:45+00:00",
-      "timestamp": 1771508715
+      "timestamp": 1771512548,
+      "summary": ""
     },
     {
       "title": "Why Microsoft is bringing MDEP to digital signage",
@@ -630,27 +714,8 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/Juha-Kuosmanen-Microsoft-ISE-2026-AV-Magazine-620x330-1.gif",
       "pubDate": "2026-02-18T15:20:39+00:00",
-      "timestamp": 1771508832
-    },
-    {
-      "title": "The physics behind capturing clean audio outdoors",
-      "link": "https://www.svgeurope.org/blog/headlines/the-physics-behind-capturing-clean-audio-outdoors/",
-      "guid": "https://www.svgeurope.org/?p=125119",
-      "category": "newsroom",
-      "source": "SVG Europe",
-      "image": "https://www.svgeurope.org/wp-content/blogs.dir/17/files/2026/02/microphone-windshield-with-fur.png",
-      "pubDate": "2026-02-18T14:27:40+00:00",
-      "timestamp": 1771508715
-    },
-    {
-      "title": "Universal Ads brings Winter Olympics inventory to small and mid-size brands",
-      "link": "https://www.newscaststudio.com/2026/02/18/universal-ads-brings-winter-olympics-inventory-to-small-and-mid-size-brands/",
-      "guid": "https://www.newscaststudio.com/?p=150466",
-      "category": "newsroom",
-      "source": "NewscastStudio",
-      "image": "https://www.newscaststudio.com/wp-content/uploads/2026/02/winter-sports-snowboarding-abstract.jpg",
-      "pubDate": "2026-02-18T13:00:25+00:00",
-      "timestamp": 1771508688
+      "timestamp": 1771512615,
+      "summary": "Microsoft’s Juha Kuosmanen tell us how MDEP tackles security and manageability in Teams Rooms on Android and now more widely in ARM-based enterprise displays. The post Why Microsoft is bringing MDEP to digital signage appeared first on AV Magazine ."
     },
     {
       "title": "London’s Lightroom to host 360° David Bowie experience",
@@ -660,7 +725,8 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/791678USE.webp",
       "pubDate": "2026-02-18T12:08:23+00:00",
-      "timestamp": 1771508833
+      "timestamp": 1771512616,
+      "summary": "David Bowie: You’re Not Alone blends newly mixed spatial audio, floor‑to‑ceiling projection and rare archive material to immerse visitors in the performances and inner world of the late pop icon. The post London&#8217;s Lightroom to host 360° David Bowie experience appeared first on AV Magazine ."
     },
     {
       "title": "New Foundry video highlights lighting and comp in ‘KPop Demon Hunters’",
@@ -670,7 +736,8 @@
       "source": "Befores & Afters",
       "image": "https://beforesandafters.com/wp-content/uploads/2026/02/Kpop-Demon-Hunters-animation_-Behind-the-scenes-of-the-global-hit-movie-1-8-screenshot.jpg",
       "pubDate": "2026-02-17T20:55:11+00:00",
-      "timestamp": 1771508826
+      "timestamp": 1771512608,
+      "summary": "Featuring Pablo Holcer, Senior CG Supervisor, and Jiwoon Kim, Comp Supervisor, at Imageworks. The post New Foundry video highlights lighting and comp in &#8216;KPop Demon Hunters&#8217; appeared first on befores &amp; afters ."
     },
     {
       "title": "New platform automates video content for digital signage",
@@ -680,7 +747,8 @@
       "source": "AV Magazine",
       "image": "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2026/02/Screenshot-2026-02-16-101525USE.webp",
       "pubDate": "2026-02-17T17:31:25+00:00",
-      "timestamp": 1771508833
+      "timestamp": 1771512617,
+      "summary": "Frame Weave links to POS, inventory and other business systems to auto-generate branded video clips and push updates to existing digital signage CMS platforms without manual production. The post New platform automates video content for digital signage appeared first on AV Magazine ."
     },
     {
       "title": "Video Window powers Asia’s first always-on video Portal",
@@ -690,7 +758,8 @@
       "source": "AV Magazine",
       "image": null,
       "pubDate": "2026-02-17T16:54:06+00:00",
-      "timestamp": 1771508833
+      "timestamp": 1771512617,
+      "summary": "The Portal in Manila, in the Philippines, delivers 24/7/365 live connectivity and enables real-time interaction with other Portal public art projects in Ireland, Lithuania, Poland, the UK and the US. The post Video Window powers Asia&#8217;s first always-on video Portal appeared first on AV Magazine ."
     },
     {
       "title": "Project AV launches ‘Digital Performance Hubs’ for builders",
@@ -700,7 +769,8 @@
       "source": "AV Magazine",
       "image": null,
       "pubDate": "2026-02-17T16:09:37+00:00",
-      "timestamp": 1771508833
+      "timestamp": 1771512617,
+      "summary": "Working with construction performance consultancy BBI Services, Project AV will create hubs that bring together real-time project data and digital collaboration tools in a familiar environment. The post Project AV launches ‘Digital Performance Hubs’ for builders appeared first on AV Magazine ."
     },
     {
       "title": "MULTRA Brand Film | MULTRA",
@@ -710,7 +780,8 @@
       "source": "Motionographer",
       "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/MBF_05-700x394.png",
       "pubDate": "2026-02-17T15:30:39+00:00",
-      "timestamp": 1771508768
+      "timestamp": 1771512548,
+      "summary": ""
     },
     {
       "title": "STUDIO STORIES: VERSUS — The Studio That Refused to Become “Good Enough”",
@@ -720,7 +791,8 @@
       "source": "Motionographer",
       "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/versusbehaind-ezgif.com-optimize-1.gif",
       "pubDate": "2026-02-17T15:01:03+00:00",
-      "timestamp": 1771508768
+      "timestamp": 1771512548,
+      "summary": "VERSUS didn't buy a bigger office. They bought a burner phone. Twelve years later, the Manhattan studio that faked its way through its first client call has sold shows to Paramount Plus, launched a comic book at Comic-Con, and just released a 400-page book that deliberately avoids talking about themselves."
     },
     {
       "title": "TV 2 Norway scales to support 20,000 live sports streams with AWS",
@@ -730,7 +802,8 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/827bfc458708f0b442009c9c9836f7e4b65557fb/2020/06/03/Blog-Post_thumbnail.png",
       "pubDate": "2026-02-16T23:16:33+00:00",
-      "timestamp": 1771508769
+      "timestamp": 1771512549,
+      "summary": "Live sports production and delivery have changed tremendously in the past decade, backed by cloud and streaming advancements making it more accessible to a broader range of organizations. TV 2 Norway has helped pioneer this incredible transformation, building a video platform on Amazon Web Services (AWS) that can support the live streaming of more than […]."
     },
     {
       "title": "Watch ‘Jurassic World Rebirth’ director Gareth Edwards scout a gaussian splatted scene in real-time",
@@ -740,7 +813,8 @@
       "source": "Befores & Afters",
       "image": "https://beforesandafters.com/wp-content/uploads/2026/02/Saga-ViewAssets-TrexLagoon.Still002a.jpg",
       "pubDate": "2026-02-16T22:38:59+00:00",
-      "timestamp": 1771508826
+      "timestamp": 1771512608,
+      "summary": "How Proof enabled the real-time scouting in record time with gaussian splats. The post Watch &#8216;Jurassic World Rebirth&#8217; director Gareth Edwards scout a gaussian splatted scene in real-time appeared first on befores &amp; afters ."
     },
     {
       "title": "Watch Rodeo FX’s ‘IT: Welcome to Derry’ VFX breakdown",
@@ -750,7 +824,8 @@
       "source": "Befores & Afters",
       "image": "https://beforesandafters.com/wp-content/uploads/2026/02/Welcome-To-Derry-S1-VFX-Breakdown-by-RodeoFX-0-45-screenshot.jpg",
       "pubDate": "2026-02-16T22:32:45+00:00",
-      "timestamp": 1771508826
+      "timestamp": 1771512609,
+      "summary": "Go behind the scenes. The post Watch Rodeo FX&#8217;s &#8216;IT: Welcome to Derry&#8217; VFX breakdown appeared first on befores &amp; afters ."
     },
     {
       "title": "CURIOSITY | Mach Studio / Rafael Merino",
@@ -760,7 +835,8 @@
       "source": "Motionographer",
       "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/ezgif-2a1c236aabb060e8-700x390.png",
       "pubDate": "2026-02-16T15:28:19+00:00",
-      "timestamp": 1771508768
+      "timestamp": 1771512548,
+      "summary": ""
     },
     {
       "title": "How an Olympic white water rafting course was used for the tense T-rex river scene",
@@ -770,7 +846,8 @@
       "source": "Befores & Afters",
       "image": "https://beforesandafters.com/wp-content/uploads/2026/01/jurassic1.jpg",
       "pubDate": "2026-02-13T20:06:44+00:00",
-      "timestamp": 1771508826
+      "timestamp": 1771512609,
+      "summary": "Plus, the unique approach ILM adopted to digital set dressing. An excerpt from issue #49 of befores &#038; afters magazine. The post How an Olympic white water rafting course was used for the tense T-rex river scene appeared first on befores &amp; afters ."
     },
     {
       "title": "Rodoreda, un bosc | Wild Pony",
@@ -780,7 +857,8 @@
       "source": "Motionographer",
       "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/Screenshot-2026-02-09-at-12.14.52-PM-700x392.png",
       "pubDate": "2026-02-13T15:00:31+00:00",
-      "timestamp": 1771508768
+      "timestamp": 1771512548,
+      "summary": ""
     },
     {
       "title": "HiBid brings the excitement of auctions online with Amazon IVS",
@@ -790,7 +868,8 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/02/10/HiBid-brings-the-excitement-of-auctions-online-with-Amazon-IVS-1120x630.png",
       "pubDate": "2026-02-12T21:40:25+00:00",
-      "timestamp": 1771508769
+      "timestamp": 1771512549,
+      "summary": "For over 15 years, HiBid has helped auctioneers reach bidders beyond their local markets, enabling auction houses to expand from local-only events to national and global participation. Most recently, with a switch to Amazon Interactive Video Service (Amazon IVS) Real-Time Streaming for streaming live auctions, HiBid has increased the power and stability of its platform. […]."
     },
     {
       "title": "Framestore showcases the 4D Gaussian Splatting used for ‘Superman’",
@@ -800,7 +879,8 @@
       "source": "Befores & Afters",
       "image": "https://beforesandafters.com/wp-content/uploads/2026/02/Gaussian-Splatting-in-Superman-_-Framestore-1-25-screenshot.jpg",
       "pubDate": "2026-02-12T21:20:06+00:00",
-      "timestamp": 1771508826
+      "timestamp": 1771512609,
+      "summary": "A new video breaks down their collaboration with Infinite Realities. The post Framestore showcases the 4D Gaussian Splatting used for &#8216;Superman&#8217; appeared first on befores &amp; afters ."
     },
     {
       "title": "Memories | Mehdi Hadi",
@@ -810,7 +890,8 @@
       "source": "Motionographer",
       "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/MEMORIES_3-700x297.jpg",
       "pubDate": "2026-02-12T16:26:13+00:00",
-      "timestamp": 1771508768
+      "timestamp": 1771512548,
+      "summary": ""
     },
     {
       "title": "Keeping Visual Storytelling Alive: The Importance of the Concept Artist — Part 2",
@@ -820,7 +901,8 @@
       "source": "Motionographer",
       "image": "https://s35726.pcdn.co/wp-content/uploads/2026/02/ezgif-5f6f1665a966c5e0-700x394.gif",
       "pubDate": "2026-02-12T16:11:17+00:00",
-      "timestamp": 1771508768
+      "timestamp": 1771512548,
+      "summary": "Concept Art doesn’t just decorate a production, it engineers it. In Part 2 of Keeping Visual Storytelling Alive, we move from history into the work itself, showing how concept artists turn research, references, and relentless experimentation into clear visual guides that teams can actually build from. Through insights from Léa Pinto, David Palumbo, and Eduardo Peña, the piece highlights what makes Concept Art indispensable."
     },
     {
       "title": "How the in-house VFX process worked on s2 of ‘The Sandman’",
@@ -830,7 +912,8 @@
       "source": "Befores & Afters",
       "image": "https://beforesandafters.com/wp-content/uploads/2026/02/sandman2.jpg",
       "pubDate": "2026-02-11T21:11:08+00:00",
-      "timestamp": 1771508826
+      "timestamp": 1771512609,
+      "summary": "A rarely-discussed insight into how visual effects work is done. The post How the in-house VFX process worked on s2 of &#8216;The Sandman&#8217; appeared first on befores &amp; afters ."
     },
     {
       "title": "SOC vs NOC: Understanding Security and Network Operation Centers",
@@ -840,7 +923,8 @@
       "source": "Haivision",
       "image": "https://www.haivision.com/wp-content/uploads/blog-soc-vs-noc.jpg",
       "pubDate": "2026-02-11T16:00:51+00:00",
-      "timestamp": 1771508783
+      "timestamp": 1771512563,
+      "summary": "An organization's digital health depends on efficient, secure IT infrastructure. Learn how SOCs and NOCs play a critical role in multiple sectors."
     },
     {
       "title": "New in Frame.io: Deeper Automation, Stronger Security, and Smarter Mobile Search",
@@ -850,7 +934,8 @@
       "source": "Frame.io",
       "image": "https://blog.frame.io/wp-content/uploads/2026/02/blog-header-202601.png",
       "pubDate": "2026-02-10T15:00:00+00:00",
-      "timestamp": 1771508771
+      "timestamp": 1771512551,
+      "summary": "January brought a set of Frame.io product updates focused on scale—helping teams automate more of their workflows, protect work with greater confidence, and find the right media faster, even when&#160;they’re&#160;away..."
     },
     {
       "title": "Set up LucidLink with service managed fleet scripts for AWS Deadline Cloud",
@@ -860,7 +945,8 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/827bfc458708f0b442009c9c9836f7e4b65557fb/2020/06/03/Blog-Post_thumbnail.png",
       "pubDate": "2026-02-10T13:36:50+00:00",
-      "timestamp": 1771508769
+      "timestamp": 1771512550,
+      "summary": "Modern creative workflows demand high-performance rendering capabilities that can scale on demand without the operational overhead of managing infrastructure. AWS Deadline Cloud service-managed fleets address this challenge. It handles the complexity of Amazon Elastic Compute Cloud (Amazon EC2) instance management, operating system updates, virtual private cloud (VPC) configuration, and networking."
     },
     {
       "title": "DAZN’s NFL Game Pass Stream of Super Bowl LX Looking Good; Detailed Tech Specs",
@@ -870,7 +956,8 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2026/02/IMG_2464.jpeg",
       "pubDate": "2026-02-08T23:49:46+00:00",
-      "timestamp": 1771508776
+      "timestamp": 1771512557,
+      "summary": "I&#8217;m testing DAZN&#8217;s stream of Super Bowl LX, available to NFL Game Pass subscribers outside the US for just £0.99, and the stream looks great. DAZN is taking the NBC international feed in 1080p at 59.94 fps HLG with 5.1, and streaming it in 1080p HDR, not upscaled 4K. I am streaming the DAZN feed [&#8230;]."
     },
     {
       "title": "Live Blogging of NBC’s Super Bowl Stream Across 25+ Devices and OTT Platforms; Detailed Tech Specs",
@@ -880,7 +967,8 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2026/02/SB2026-1200x900-1.jpg",
       "pubDate": "2026-02-07T18:00:26+00:00",
-      "timestamp": 1771508777
+      "timestamp": 1771512557,
+      "summary": "I&#8217;ve been testing the Super Bowl LX stream on Sunday, starting with the pre-game stream at 1pm, across more than 25 devices and platforms, documenting video quality, latency, and other technical metrics. You can jump here for my latest comments during the game. (2025 Super Bowl blog post here) During the game, I am monitoring [&#8230;]."
     },
     {
       "title": "From Mountains to Ice Rinks: How Haivision Is Transforming Winter Sports in 2026",
@@ -888,9 +976,10 @@
       "guid": "https://www.haivision.com/?p=54508",
       "category": "streaming",
       "source": "Haivision",
-      "image": null,
+      "image": "https://www.haivision.com/wp-content/uploads/svg-europe-autumn2025-editorial-blog.jpg",
       "pubDate": "2026-02-05T16:00:40+00:00",
-      "timestamp": 1771508788
+      "timestamp": 1771512566,
+      "summary": "In this interview, Haivision shares how mobile video, 5G, SRT, and cloud workflows are transforming Winter Sports broadcasting."
     },
     {
       "title": "Cloud Provider Gcore Breaks Out CDN Revenue, Capacity of Network",
@@ -900,7 +989,8 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2026/02/Gcore-in-Numbers-scaled.png",
       "pubDate": "2026-02-04T17:54:12+00:00",
-      "timestamp": 1771508777
+      "timestamp": 1771512557,
+      "summary": "Privately held CDN and infrastructure provider Gcore, headquartered in Luxembourg, is allowing me to disclose some of its financial figures, which show significant revenue growth over the past two years. The company ended 2025 with $140 million in revenue, of which CDN-specific revenue was $27 million. From November 2024 to November 2025, CDN revenue grew [&#8230;]."
     },
     {
       "title": "How DoveRunner Multi-DRM Cloud integrates with AWS media services",
@@ -910,7 +1000,8 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/16/How-DoveRunner-Multi-DRM-Cloud-integrates-with-AWS-media-services-Featured-Image-1120x630.png",
       "pubDate": "2026-02-03T19:40:06+00:00",
-      "timestamp": 1771508769
+      "timestamp": 1771512550,
+      "summary": "This blog post was co-authored by Erik Peña, Multi-DRM Product Manager at DoveRunner Viewers, content owners and over-the-top (OTT) services face a significant challenge: balancing content accessibility with strong security measures, particularly digital rights management (DRM), to protect against unauthorized streaming. This is a top concern for the media industry, as the U.S. Chamber of […]."
     },
     {
       "title": "Ruggedized Video Processing for Demanding Environments",
@@ -918,9 +1009,10 @@
       "guid": "https://haistage.wpenginepowered.com/?p=54327",
       "category": "streaming",
       "source": "Haivision",
-      "image": null,
+      "image": "https://www.haivision.com/wp-content/uploads/kraken-x1-rugged-blog.jpg",
       "pubDate": "2026-02-03T16:00:19+00:00",
-      "timestamp": 1771508793
+      "timestamp": 1771512570,
+      "summary": "Haivision’s Kraken X1 Rugged delivers AI-powered, low latency video processing at the edge for remote ISR and public safety operations."
     },
     {
       "title": "Watermarking: You Don’t Think About It—Until You Need It",
@@ -930,7 +1022,8 @@
       "source": "Frame.io",
       "image": "https://blog.frame.io/wp-content/uploads/2026/02/Screenshot-2026-01-30-at-10.47.40-AM-800x494.png",
       "pubDate": "2026-02-02T15:00:00+00:00",
-      "timestamp": 1771508771
+      "timestamp": 1771512551,
+      "summary": "Most&#160;creative&#160;teams&#160;don’t&#160;think about watermarking until they really, really need it.&#160; Not necessarily because something went wrong—but&#160;because something moved faster than expected.&#160; Imagine&#160;you’re&#160;a producer working with external agencies. Multiple vendors. Multiple review..."
     },
     {
       "title": "The End of Business as Usual: Why 2026 Is the Year the Media Supply Chain Must Strategically Reinvent",
@@ -940,7 +1033,8 @@
       "source": "Telestream",
       "image": "https://blog.telestream.com/wp-content/uploads/2026/01/Blog_Jan2026_TheEndofBusinessAsUsual.jpg",
       "pubDate": "2026-01-30T21:48:46+00:00",
-      "timestamp": 1771508810
+      "timestamp": 1771512589,
+      "summary": "How an Industry at Peak Demand Is Simultaneously Buckling Under Its Own Weight As we start a new year, there’s a familiar mix of optimism &#8230; The post The End of Business as Usual: Why 2026 Is the Year the Media Supply Chain Must Strategically Reinvent appeared first on Telestream Blog ."
     },
     {
       "title": "How to Power Your Live Production Workflows with SMPTE ST 2110 and Haivision",
@@ -948,9 +1042,10 @@
       "guid": "https://www.haivision.com/?p=52014",
       "category": "streaming",
       "source": "Haivision",
-      "image": "https://www.haivision.com/wp-content/uploads/haivision-logo.jpg",
+      "image": null,
       "pubDate": "2026-01-29T16:00:55+00:00",
-      "timestamp": 1771508796
+      "timestamp": 1771512575,
+      "summary": "Our latest post explores how to power your live productions with SMPTE ST 2110 and Haivision live video contribution solutions."
     },
     {
       "title": "Cosm scales high-resolution Shared Reality experiences with AWS",
@@ -960,7 +1055,8 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/20/Cosm-scales-high-resolution-Shared-Reality-experiences-with-AWS-Featured-Image-1120x630.png",
       "pubDate": "2026-01-23T18:17:58+00:00",
-      "timestamp": 1771508770
+      "timestamp": 1771512550,
+      "summary": "Consumer appetite for live entertainment is stronger than ever. From concerts to sporting events, the bar for audience expectations continues to go up, with Shared Reality emerging as an exciting new way to engage with content. Cosm is a leading pioneer in reimagining how fans can experience entertainment, with 8K and higher resolution programming uniquely […]."
     },
     {
       "title": "How the NBA and AWS built an AI system to measure what actually wins basketball games",
@@ -970,7 +1066,8 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/20/How-the-NBA-and-AWS-built-an-AI-system-to-measure-what-actually-wins-basketball-games-Featured-Image-1120x630.png",
       "pubDate": "2026-01-22T16:03:08+00:00",
-      "timestamp": 1771508770
+      "timestamp": 1771512550,
+      "summary": "Traditional basketball statistics capture what happened—points, rebounds, assists—but miss the context that determines game outcomes. A missed shot that draws three defenders and creates an open corner three-pointer generates zero points for the passer in the box score yet fundamentally shifts win probability. A rebound is a rebound in the box score, whether it’s a […]."
     },
     {
       "title": "TVB Europe Meets with Ronan Poullaouec, SVP Engineering, Haivision",
@@ -980,7 +1077,8 @@
       "source": "Haivision",
       "image": "https://www.haivision.com/wp-content/uploads/tvb-europe-ronan-poullaouec.jpg",
       "pubDate": "2026-01-20T16:00:15+00:00",
-      "timestamp": 1771508799
+      "timestamp": 1771512578,
+      "summary": "In this interview with TVB Europe proceeding IBC 2025, Haivision shares insights on how technology is shaping live broadcast production."
     },
     {
       "title": "Schedule AWS Elemental MediaLive channel operations with AWS EventBridge",
@@ -990,7 +1088,8 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/15/Schedule-AWS-Elemental-MediaLive-channel-operations-with-AWS-EventBridge-Featured-Image-1120x630.png",
       "pubDate": "2026-01-15T20:16:13+00:00",
-      "timestamp": 1771508770
+      "timestamp": 1771512550,
+      "summary": "Live streaming helps businesses engage global audiences with low latency. Cloud-based streaming costs less up front than traditional broadcasting and scales to match your needs. By using serverless Amazon Web Services (AWS) services, you can automatically scale resources to match your exact streaming needs, spinning up channels for major events and efficiently cleaning up afterwards."
     },
     {
       "title": "Haivision Powers Wireless Contribution at the 2025 UEC Cyclo-Cross European Championships",
@@ -1000,7 +1099,8 @@
       "source": "Haivision",
       "image": "https://www.haivision.com/wp-content/uploads/cyclo-cross-championships_blog.jpg",
       "pubDate": "2026-01-15T15:30:06+00:00",
-      "timestamp": 1771508803
+      "timestamp": 1771512582,
+      "summary": "Learn how Citymesh leveraged Haivision mobile technology over private 5G for the 2025 UEC Cyclo-Cross European Championships."
     },
     {
       "title": "Detailed Netflix Engineering Post Describes the Custom Origin Server It Built For Live",
@@ -1010,7 +1110,8 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2026/01/1767970383226.jpeg",
       "pubDate": "2026-01-13T21:54:51+00:00",
-      "timestamp": 1771508778
+      "timestamp": 1771512558,
+      "summary": "In one of the most detailed blog posts yet [3,200 words], Netflix describes the custom Origin Server it built for live. The sentence I like most states that Netflix took a platform originally built for VOD and simply &#8220;extended nginx&#8217;s proxy-caching functionality to address live-specific needs.&#8221; This goes against those who claim that Netflix can&#8217;t [&#8230;]."
     },
     {
       "title": "Stats Perform Acquires Assets of ULL Tech Company Phenix Real Time Solutions for Approximately $7M",
@@ -1020,7 +1121,8 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2026/01/stats-logos.jpg",
       "pubDate": "2026-01-12T18:30:03+00:00",
-      "timestamp": 1771508778
+      "timestamp": 1771512558,
+      "summary": "Stats Perform acquired the assets of the ultra-low-latency tech company Phenix Real Time Solutions for approximately $7 million, including 21 patents. Stats Perform also rehired most of the former employees, with approximately nine coming over. In June of 2025, VC firm KB Partners put the assets of Phenix Real Time Solutions up for sale after [&#8230;]."
     },
     {
       "title": "From flat to full immersion: The AWS path to Dolby Vision and Dolby Atmos",
@@ -1030,7 +1132,8 @@
       "source": "AWS",
       "image": "https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2026/01/06/From-flat-to-full-immersion-The-AWS-path-to-Dolby-Vision-and-Dolby-Atmos-Featured-Image-1120x630.png",
       "pubDate": "2026-01-08T17:48:56+00:00",
-      "timestamp": 1771508770
+      "timestamp": 1771512550,
+      "summary": "This blog post was co-authored by José Luis Tamez de Gyves, Client Executive Manager, Dolby. Remember watching grainy web videos in tiny windows that constantly paused to buffer? How about those streaming videos with washed-out colors, inaccurate skin tones, and a loss of detail in both shadows and highlights? We’ll show how to implement Dolby […]."
     },
     {
       "title": "New in Frame.io: Interactive ZIPs, Access Requests, and a Faster Way to Get Around",
@@ -1040,7 +1143,8 @@
       "source": "Frame.io",
       "image": "https://blog.frame.io/wp-content/uploads/2026/01/blog-header-dec-1.png",
       "pubDate": "2026-01-08T15:00:00+00:00",
-      "timestamp": 1771508771
+      "timestamp": 1771512552,
+      "summary": "Big updates, less friction. Frame.io just got simpler to navigate, easier to share, and better at handling the kinds of files creative teams actually ship. Check out what&#8217;s new in..."
     },
     {
       "title": "ISR Trends Transforming Defense and Public Safety Operations",
@@ -1050,7 +1154,8 @@
       "source": "Haivision",
       "image": "https://www.haivision.com/wp-content/uploads/isr-top-trends-2026-blog.jpg",
       "pubDate": "2026-01-07T16:00:12+00:00",
-      "timestamp": 1771508806
+      "timestamp": 1771512585,
+      "summary": "Discover the key ISR trends shaping 2026, from AI and DFR to edge processing and multi-domain intelligence. Learn how Haivision powers real-time mission success."
     },
     {
       "title": "Thanks To Readers and Podcast Listeners: Year-End Stats and Thoughts",
@@ -1060,7 +1165,8 @@
       "source": "Streaming Media Blog",
       "image": "https://www.streamingmediablog.com/wp-content/uploads/2025/12/Dan-2025-LI-Stats.jpg",
       "pubDate": "2025-12-30T15:48:36+00:00",
-      "timestamp": 1771508778
+      "timestamp": 1771512559,
+      "summary": "I say this at the end of every year, but the last twelve months have seen an incredible amount of news and deals in the streaming industry, making it another busy year, with plenty to discuss. I want to thank all those who read my content across LinkedIn and my blog, contributed to the discussions [&#8230;]."
     },
     {
       "title": "Announcing My Investment in Hydrolix, and Why I Made It",
@@ -1070,7 +1176,8 @@
       "source": "Streaming Media Blog",
       "image": null,
       "pubDate": "2025-12-29T15:16:09+00:00",
-      "timestamp": 1771508778
+      "timestamp": 1771512559,
+      "summary": "Since I write about vendors, I want to disclose that, effective December 2nd, I have become a minority shareholder in Hydrolix through a personal investment in the company. This is only the second time I have invested in a company in the streaming industry, the other being my seed investment in Datazoom, which I disclosed [&#8230;]."
     },
     {
       "title": "Netflix Removes Support for Casting From Most Devices",
@@ -1080,7 +1187,8 @@
       "source": "Streaming Media Blog",
       "image": null,
       "pubDate": "2025-12-23T22:35:01+00:00",
-      "timestamp": 1771508778
+      "timestamp": 1771512559,
+      "summary": "Netflix just made its service less user-friendly when traveling. Netflix announced it no longer supports casting shows from mobile devices to most TVs and streaming devices. Casting will now only work on older Chromecast models without remotes and TVs with Google Cast, regardless of whether you’re on an ad-supported or ad-free Netflix plan."
     },
     {
       "title": "Accelerating creative workflows with the AWS Creative Innovation Hub in London",
@@ -1090,7 +1198,8 @@
       "source": "AWS",
       "image": null,
       "pubDate": "2025-12-11T18:35:59+00:00",
-      "timestamp": 1771508770
+      "timestamp": 1771512550,
+      "summary": "A phrase often heard in the media industry is: We’ve always done it this way. As an industry, we need fresh ideas and new approaches to keep pace with with rapid technological change and evolving audience demand for content at unprecedented scale and speed. As Amazon Web Services (AWS) specialists working with creative businesses, we […]."
     },
     {
       "title": "Introducing the expanded AWS Well-Architected Video Streaming Advertising Lens",
@@ -1100,7 +1209,8 @@
       "source": "AWS",
       "image": null,
       "pubDate": "2025-12-10T18:42:00+00:00",
-      "timestamp": 1771508770
+      "timestamp": 1771512550,
+      "summary": "At Amazon Web Services (AWS), we are delighted to introduce the next revision to the AWS Well-Architected Video Streaming Advertising (VSA) Lens. The expanded VSA Lens consists of a Lens whitepaper and custom lens, which will become available in the public AWS Well-Architected custom lens GitHub repository. The April 25, 2025 launch of the original […]."
     },
     {
       "title": "Warner Bros. Discovery reinvents linear television advertising with AWS",
@@ -1110,7 +1220,8 @@
       "source": "AWS",
       "image": null,
       "pubDate": "2025-12-09T21:09:34+00:00",
-      "timestamp": 1771508770
+      "timestamp": 1771512550,
+      "summary": "When brands run ads during linear free-to-air (FTA) broadcasts, they can loosely target messages based on a program’s viewer demographics, but they’re generally casting a wide net. There’s limited visibility into whether they’re reaching the intended audience and if the message engages the viewer. Committed to shaking up the status quo, the Warner Bros."
     },
     {
       "title": "October + November Product Releases: Closing Out the Fall of Features",
@@ -1120,7 +1231,8 @@
       "source": "Frame.io",
       "image": "https://blog.frame.io/wp-content/uploads/2025/12/oct-nov-blog-header.jpg",
       "pubDate": "2025-12-09T15:00:00+00:00",
-      "timestamp": 1771508772
+      "timestamp": 1771512552,
+      "summary": "Revisit the biggest reveals from MAX 2025 and explore the new releases that you haven’t seen yet. With Adobe MAX 2025 behind us, the Fall of Features is officially wrapped—but..."
     },
     {
       "title": "The Ultimate Guide to the New Frame.io Search Experience",
@@ -1130,7 +1242,8 @@
       "source": "Frame.io",
       "image": "https://blog.frame.io/wp-content/uploads/2025/12/FY25Q4-Frame.io-Corp-MAX2025-MediaIntelligence-BlogHeader-2400x1350-EN.jpg",
       "pubDate": "2025-12-01T15:00:00+00:00",
-      "timestamp": 1771508772
+      "timestamp": 1771512552,
+      "summary": "The most significant evolution in Frame.io search—ever. If you’ve worked in media for any length of time, you know that finding can be almost as challenging as creating. Entire productions..."
     },
     {
       "title": "Holstein Kiel transforms scouting with OpenAI models on Amazon Bedrock",
@@ -1140,7 +1253,8 @@
       "source": "AWS",
       "image": null,
       "pubDate": "2025-11-20T18:33:51+00:00",
-      "timestamp": 1771508770
+      "timestamp": 1771512550,
+      "summary": "This blog post was co-authored by Markus Brunnschneider, Head of Game and Tactical Analysis, Squad Planning and Scouting, International Football Institute. Traditional football clubs generate vast amounts of player data but often struggle to transform it into competitive advantages. Holstein Kiel solved this challenge by implementing an AI-powered scouting platform using OpenAI models on Amazon […]."
     },
     {
       "title": "Agentic AI headlines AWS re:Invent 2025 across Media and Entertainment",
@@ -1150,7 +1264,8 @@
       "source": "AWS",
       "image": null,
       "pubDate": "2025-11-19T18:32:59+00:00",
-      "timestamp": 1771508770
+      "timestamp": 1771512550,
+      "summary": "Agentic AI is rapidly reshaping workloads across industries and is taking center stage at Amazon Web Services (AWS) re:Invent conference this year. In media and entertainment (M&amp;E), AI is accelerating workflows, unlocking new capabilities, and transforming how content is created, captured, and delivered. In advertising, AI is empowering companies and brands to engage audiences and […]."
     },
     {
       "title": "Pushing the Boundaries of Video Innovation Through the Power of Collaboration",
@@ -1160,7 +1275,8 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/2025_Blog_Main_Image_Video_Innovation_Harmonic_Akamai_NVIDIA_VB_V1.png",
       "pubDate": "2025-10-28T20:09:24+00:00",
-      "timestamp": 1771508719
+      "timestamp": 1771512505,
+      "summary": "At Harmonic, we believe that innovation in video delivery starts with deep collaboration.&nbsp; Our work with NVIDIA over the years has been instrumental in unlocking the full potential of NVENC and NVDEC to enable advanced capabilities like AI-driven noise reduction, upscaling and frame rate doubling. These enhancements deliver stunning video quality for our customers across multiple codecs, including AVC, HEVC, AVI, and even for MV-HEVC for spatial videos. &nbsp;The video quality enhancements are further optimized by Harmonic’s EyeQ™ technology that leverages-trained Convolutional Neural Network models for rate control and mode decisions."
     },
     {
       "title": "Brownfield MDU Broadband: Unlocking Revenue with Existing Infrastructure",
@@ -1170,7 +1286,8 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/2025_Blog_Main_Image_MDU_Unlock_Harmonic_BB_vf-2.png",
       "pubDate": "2025-09-22T21:24:35+00:00",
-      "timestamp": 1771508719
+      "timestamp": 1771512505,
+      "summary": "From Burden to Breakthrough Brownfield multi-dwelling unit ( MDUs) are often viewed as complex and costly to upgrade. In reality, many properties already have existing coax or fiber that can be leveraged, and residents in those buildings are demanding more bandwidth. With the right approach and technology, these legacy buildings can be transformed from perceived burdens into strategic assets that support new revenue and sustainable growth."
     },
     {
       "title": "The Economics of Hybrid Streaming Architectures",
@@ -1180,7 +1297,8 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/video-streaming/vos-media-software-image.jpg",
       "pubDate": "2025-09-02T12:00:00+00:00",
-      "timestamp": 1771508719
+      "timestamp": 1771512505,
+      "summary": "Streaming viewership continues to grow — not only in the U.S. as shown by Nielsen’s The Gauge, but also globally. In Europe, TF1 and RTL mention in their Q1 2025 financial reports that their respective streaming platforms increased digital ad revenue by approximately 30% year-over-year."
     },
     {
       "title": "The Everything Era: What NAB 2025 Really Told Us About Streaming’s Future",
@@ -1190,7 +1308,8 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/video-streaming/services/Harmonic-video-service-tools.webp",
       "pubDate": "2025-06-09T14:05:14+00:00",
-      "timestamp": 1771508719
+      "timestamp": 1771512505,
+      "summary": "This year’s NAB wasn’t defined by spectacle. It was defined by perspective. Yes, there was plenty of AI on display."
     },
     {
       "title": "Unified DOCSIS 4.0",
@@ -1200,7 +1319,8 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/DOCSIS_40_Blog_Image.png",
       "pubDate": "2025-04-08T09:18:01+00:00",
-      "timestamp": 1771508719
+      "timestamp": 1771512505,
+      "summary": "Improving quality of experience for each subscriber is the next frontier in subscriber satisfaction and retention. Unified DOCSIS 4.0 takes DOCSIS 4.0 to a new level, offering a revolutionary solution that empowers operators with access to both Full Duplex (FDX) and Frequency Division Duplex (FDD)&nbsp; DOCSIS 4.0 technologies. With virtualized solutions, operators can leverage the valuable combination of edge compute infrastructure with cloud services to adapt and perform for best quality of experience."
     },
     {
       "title": "OLT and ONT Interoperability: A New Path Forward",
@@ -1210,7 +1330,8 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/Blog_Open_ONU_Harmonic_2025_Linkedin_Article.png",
       "pubDate": "2025-03-12T17:00:52+00:00",
-      "timestamp": 1771508719
+      "timestamp": 1771512505,
+      "summary": "The Evolution of Fiber Broadband Networks&nbsp;&nbsp; &nbsp; As fixed-line fiber optic networks continue their rapid expansion, operators face a persistent challenge: achieving true interoperability between optical network terminals (ONTs) or optical network units (ONUs) and optical line terminals (OLTs). While passive optical network (PON) technologies have advanced significantly, the promise of seamless multi-vendor integration&nbsp;remains&nbsp;largely unfulfilled.&nbsp; &nbsp;."
     },
     {
       "title": "Harmonic Leads Broadband Industry Transformation",
@@ -1220,7 +1341,8 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/harmonic-leader-cos-image-blog-article.jpg",
       "pubDate": "2025-02-21T14:53:46+00:00",
-      "timestamp": 1771508719
+      "timestamp": 1771512505,
+      "summary": "The broadband industry is in a period of critical transformation driven by the rise of DOCSIS 4.0, deeper fiber deployments and the increasing demand for higher bandwidth. This has resulted in heightened economic and competitive pressures for broadband operators. Choosing the right technology partner with the necessary expertise, leadership and business stability will determine the success of their business evolution and longevity.&nbsp;."
     },
     {
       "title": "How Cloud-Based Playout-to-Delivery Drives Cost Efficiency",
@@ -1230,7 +1352,8 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/blog-how-cloud-based-playout-to-delivery-drives-cost-efficiency.png",
       "pubDate": "2025-02-13T14:57:40+00:00",
-      "timestamp": 1771508719
+      "timestamp": 1771512505,
+      "summary": "More and more broadcasters and content owners are moving their playout workflows to the public cloud. A recent survey of over 200 media and entertainment executives show that 30 percent of them have considered migrating to cloud playout for broadcast. The main reasons driving this decision include scalability, better end-user experience, the willingness to upgrade technology, shorter time to market of services and cost reduction."
     },
     {
       "title": "Broadband Operators Pick up the Pace with vCMTS and DAA Adoption",
@@ -1240,7 +1363,8 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/broadband%20operators%20vcmts%20daa.jpg",
       "pubDate": "2025-02-06T14:19:07+00:00",
-      "timestamp": 1771508719
+      "timestamp": 1771512505,
+      "summary": "Adoption and deployment of DAA enabled with a virtualized broadband platform are accelerating, marking a significant shift in how operators evolve their networks. What factors are driving this transformation and why now? A combination of economic pressures, competitive threats, and technological necessity are driving operators to quickly adopt and deploy more effective solutions."
     },
     {
       "title": "How Harmonic's Customer Migrated Seamlessly from Satellite to SRT Distribution",
@@ -1250,7 +1374,8 @@
       "source": "Harmonic",
       "image": "https://www.harmonicinc.com/hubfs/Blog_Main_Image_SRT_Distribution.png",
       "pubDate": "2024-12-04T11:21:56+00:00",
-      "timestamp": 1771508719
+      "timestamp": 1771512505,
+      "summary": "In the evolving video distribution landscape, modernizing infrastructure is crucial for broadcast networks to meet the demands of high-quality, flexible content delivery. This blog explores how one tier-1 broadcaster successfully modernized its video distribution infrastructure with Harmonic's advanced solution."
     }
   ]
 }
