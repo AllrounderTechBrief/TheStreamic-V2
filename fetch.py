@@ -30,7 +30,7 @@ CLOUDFLARE_WORKER = "https://broken-king-b4dc.itabmum.workers.dev"
 # ─── HTML Scraper Feature Flag ────────────────────────────────────────────────
 # Set to True to activate optional HTML scrapers for TVBEurope & NCS Digital.
 # Keep False for standard RSS-only behaviour (default / production).
-ENABLE_HTML_SCRAPERS = False
+ENABLE_HTML_SCRAPERS = True
 # ─────────────────────────────────────────────────────────────────────────────
 
 DATA_DIR = Path("data")
@@ -97,8 +97,8 @@ FEED_GROUPS = {
         'https://www.rapidtvnews.com/news.rss',
         'https://tvnewscheck.com/feed/',
         # Optional HTML scrapers — uncomment + set ENABLE_HTML_SCRAPERS=True to test
-        # 'HTML|TVBEurope|https://www.tvbeurope.com/',
-        # 'HTML|NCS|https://digital.newscaststudio.com/',
+         'HTML|TVBEurope|https://www.tvbeurope.com/',
+         'HTML|NCS|https://digital.newscaststudio.com/',
     ],
 
     'playout': [
