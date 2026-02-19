@@ -76,6 +76,10 @@ FEED_GROUPS = {
         'https://www.tvtechnology.com/news/rss.xml',
         'https://www.broadcastbeat.com/feed/',
         'https://www.svgeurope.org/feed/'
+        # --- Added feeds ---
+'https://www.tvtechnology.com/.rss/full/',
+'https://www.rapidtvnews.com/news.rss',
+'https://tvnewscheck.com/feed/',
     ],
 
     'playout': [
@@ -85,6 +89,9 @@ FEED_GROUPS = {
         'https://www.harmonicinc.com/insights/blog/rss.xml',
         'https://www.evertz.com/news/rss',
         'https://www.imaginecommunications.com/news/rss.xml'
+        # --- Added feed ---
+'https://www.fiercevideo.com/rss',
+``
     ],
 
     'infrastructure': [
