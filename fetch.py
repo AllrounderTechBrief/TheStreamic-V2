@@ -10,6 +10,9 @@ This version:
 - Adds Infra vendors: Avid Press (Notified) / Adobe Developer (OpenRSS)
 - Renames 'audio-ai' -> 'ai-post-production'
 - Adds 8 verified AI Post Production feeds
+- Adds 4 new RSS feeds: TV Technology Full, RapidTVNews, TVNewsCheck, FierceVideo
+- Adds auto-summary field (3 sentences, no external API)
+- Adds OPTIONAL HTML scrapers for TVBEurope & NCS Digital (off by default)
 """
 
 import feedparser
@@ -23,6 +26,13 @@ from pathlib import Path
 
 # ===== CONFIGURATION =====
 CLOUDFLARE_WORKER = "https://broken-king-b4dc.itabmum.workers.dev"
+
+# ─── HTML Scraper Feature Flag ────────────────────────────────────────────────
+# Set to True to activate optional HTML scrapers for TVBEurope & NCS Digital.
+# Keep False for standard RSS-only behaviour (default / production).
+ENABLE_HTML_SCRAPERS = False
+# ─────────────────────────────────────────────────────────────────────────────
+
 DATA_DIR = Path("data")
 OUTPUT_FILE = DATA_DIR / "news.json"
 ARCHIVE_FILE = DATA_DIR / "archive.json"
@@ -48,6 +58,9 @@ DIRECT_FEEDS = [
     'https://blog.telestream.com/feed/',
     'https://openrss.org/https://bitmovin.com/blog/',
 
+    # New: FierceVideo - direct fetch to avoid Cloudflare blocking
+    'https://www.fiercevideo.com/rss',
+
     # Infrastructure - MAM/PAM / Vendors
     'https://api.client.notified.com/api/rss/publish/view/47032?type=press',   # Avid Press (Notified)
     'https://openrss.org/https://blog.developer.adobe.com/',                   # Adobe Developers via OpenRSS
@@ -70,12 +83,22 @@ DIRECT_FEEDS = [
 
 
 # ===== FEED GROUPS =====
+# HTML scraper markers follow the format:  "HTML|KEY|https://url"
+# They are ONLY processed when ENABLE_HTML_SCRAPERS = True.
+# To activate, uncomment the two HTML| lines inside 'newsroom' below.
 FEED_GROUPS = {
     'newsroom': [
         'https://www.newscaststudio.com/feed/',
         'https://www.tvtechnology.com/news/rss.xml',
         'https://www.broadcastbeat.com/feed/',
-        'https://www.svgeurope.org/feed/'
+        'https://www.svgeurope.org/feed/',
+        # New RSS feeds
+        'https://www.tvtechnology.com/.rss/full/',
+        'https://www.rapidtvnews.com/news.rss',
+        'https://tvnewscheck.com/feed/',
+        # Optional HTML scrapers — uncomment + set ENABLE_HTML_SCRAPERS=True to test
+        # 'HTML|TVBEurope|https://www.tvbeurope.com/',
+        # 'HTML|NCS|https://digital.newscaststudio.com/',
     ],
 
     'playout': [
@@ -141,7 +164,10 @@ FEED_GROUPS = {
         'https://www.broadcastnow.co.uk/full-rss/',
         'https://www.haivision.com/feed/',
         'https://blog.telestream.com/feed/',
-        'https://openrss.org/https://bitmovin.com/blog/'
+        'https://openrss.org/https://bitmovin.com/blog/',
+
+        # New: FierceVideo (also in DIRECT_FEEDS)
+        'https://www.fiercevideo.com/rss',
     ],
 
     # Renamed from 'audio-ai' -> 'ai-post-production'
@@ -159,6 +185,7 @@ FEED_GROUPS = {
 
 
 # ===== HELPER FUNCTIONS =====
+
 def should_use_direct_fetch(feed_url: str) -> bool:
     """Check if feed should bypass Cloudflare Worker"""
     return feed_url in DIRECT_FEEDS
@@ -282,7 +309,29 @@ def extract_og_image(article_url: str, timeout: int = ARTICLE_FETCH_TIMEOUT):
         return None
 
 
-def process_entries(entries, category, source_name):
+def _make_summary(entry) -> str:
+    """
+    Derive a plain-text 3-sentence summary from an entry's description/summary field.
+    No external API — purely our own transformation of the feed's own text.
+    Returns empty string if no description is available.
+    """
+    raw = ''
+    if hasattr(entry, 'get'):
+        raw = entry.get('summary') or entry.get('description') or ''
+    # Strip HTML tags
+    clean = re.sub(r'<[^>]+>', ' ', raw)
+    clean = re.sub(r'\s+', ' ', clean).strip()
+    if not clean:
+        return ''
+    # Split into sentences on '. ' boundaries
+    sentences = [s.strip() for s in re.split(r'\.\s+', clean) if s.strip()]
+    snippet = '. '.join(sentences[:3])
+    if snippet and not snippet.endswith('.'):
+        snippet += '.'
+    return snippet
+
+
+def process_entries(entries, category: str, source_name: str) -> list:
     """Convert feed entries into our normalized item dicts"""
     items = []
     article_fetch_count = 0
@@ -317,6 +366,9 @@ def process_entries(entries, category, source_name):
             if not pub_date_iso:
                 pub_date_iso = datetime.now(timezone.utc).isoformat()
 
+            # summary — additive field, safe to ignore in templates
+            summary = _make_summary(entry)
+
             items.append({
                 'title': title,
                 'link': link,
@@ -325,7 +377,8 @@ def process_entries(entries, category, source_name):
                 'source': source_name,
                 'image': image,
                 'pubDate': pub_date_iso,
-                'timestamp': int(time.time())
+                'timestamp': int(time.time()),
+                'summary': summary,
             })
         except Exception as e:
             print(f" ⚠ Error processing entry: {e}")
@@ -339,7 +392,7 @@ def get_source_name(feed_url: str) -> str:
     u = (feed_url or '').lower()
 
     # Common sources
-    if 'newscaststudio' in u: return 'NewscastStudio'
+    if 'newscaststudio' in u and 'digital' not in u: return 'NewscastStudio'
     if 'tvtechnology' in u: return 'TV Technology'
     if 'broadcastbeat' in u: return 'BroadcastBeat'
     if 'svgeurope' in u: return 'SVG Europe'
@@ -368,6 +421,15 @@ def get_source_name(feed_url: str) -> str:
     if 'telestream' in u: return 'Telestream'
     if 'bitmovin.com' in u or 'openrss.org/https://bitmovin.com' in u: return 'Bitmovin'
 
+    # New RSS sources
+    if 'fiercevideo' in u: return 'FierceVideo'
+    if 'rapidtvnews' in u: return 'RapidTVNews'
+    if 'tvnewscheck' in u: return 'TVNewsCheck'
+
+    # HTML scraper sources
+    if 'tvbeurope' in u: return 'TVBEurope'
+    if 'digital.newscaststudio' in u: return 'NCS Digital'
+
     # AI Post Production
     if 'premiumbeat' in u: return 'PremiumBeat'
     if 'premieregal' in u: return 'Premiere Gal'
@@ -392,7 +454,7 @@ def get_source_name(feed_url: str) -> str:
     return 'Technology News'
 
 
-def validate_news_data(items):
+def validate_news_data(items: list) -> bool:
     """Validate that we have minimum items per category (soft check)"""
     counts = {}
     for it in items:
@@ -408,7 +470,7 @@ def validate_news_data(items):
     return True
 
 
-def deduplicate_by_guid(items):
+def deduplicate_by_guid(items: list) -> list:
     """Remove duplicate articles by GUID"""
     seen = set()
     out = []
@@ -421,11 +483,11 @@ def deduplicate_by_guid(items):
     return out
 
 
-def balance_categories(all_items):
+def balance_categories(all_items: list) -> list:
     """Balance items across categories; keep newest first within each"""
     all_items = deduplicate_by_guid(all_items)
 
-    by_cat = {}
+    by_cat: dict = {}
     for it in all_items:
         cat = it.get('category', '')
         by_cat.setdefault(cat, []).append(it)
@@ -441,34 +503,32 @@ def balance_categories(all_items):
     return balanced[:MAX_NEWS_ITEMS]
 
 
-def extract_featured_priority(items):
+def extract_featured_priority(items: list) -> list:
     """
     Extract the newest article from each category for Featured page priority.
-    Returns list of 7 items (one per category) in fixed order.
+    Returns list of up to 7 items (one per category) in fixed order.
     """
     categories = [
         'newsroom',
-        'playout', 
+        'playout',
         'infrastructure',
         'graphics',
         'cloud',
         'streaming',
         'ai-post-production'
     ]
-    
+
     priority_items = []
     for cat in categories:
-        # Find newest item for this category
         cat_items = [item for item in items if item.get('category', '').lower() == cat]
         if cat_items:
-            # Sort by pubDate to get newest
             cat_items_sorted = sorted(
                 cat_items,
                 key=lambda x: x.get('pubDate', x.get('timestamp', 0)),
                 reverse=True
             )
             priority_items.append(cat_items_sorted[0])
-    
+
     return priority_items
 
 
@@ -479,8 +539,76 @@ def save_json_atomically(data, filepath: Path):
     tmp.replace(filepath)
 
 
+def _process_html_marker(marker: str, category: str) -> list:
+    """
+    Parse an 'HTML|KEY|url' marker and call the appropriate scraper.
+    Returns a list of item dicts ready to append to all_items.
+    Called only when ENABLE_HTML_SCRAPERS is True.
+    """
+    parts = marker.split('|', 2)
+    if len(parts) != 3:
+        print(f" ⚠ Malformed HTML marker (expected HTML|KEY|url): {marker}")
+        return []
+
+    _, scraper_key, scraper_url = parts
+    scraper_key = scraper_key.strip()
+    scraper_url = scraper_url.strip()
+
+    try:
+        from scrapers.html_sources import fetch_tvbeurope_headlines, fetch_ncs_digital_headlines
+    except ImportError as e:
+        print(f" ⚠ Cannot import html_sources scraper: {e}")
+        return []
+
+    scraper_map = {
+        'TVBEurope': fetch_tvbeurope_headlines,
+        'NCS': fetch_ncs_digital_headlines,
+    }
+    fn = scraper_map.get(scraper_key)
+    if not fn:
+        print(f" ⚠ Unknown HTML scraper key '{scraper_key}'. Valid keys: {list(scraper_map)}")
+        return []
+
+    try:
+        raw_items = fn(scraper_url)
+    except Exception as e:
+        print(f" ⚠ HTML scraper '{scraper_key}' failed: {e}")
+        return []
+
+    source_name = get_source_name(scraper_url)
+    now_iso = datetime.now(timezone.utc).isoformat()
+
+    normalised = []
+    for r in raw_items:
+        title = (r.get('title') or '').strip()
+        link = (r.get('link') or '').strip()
+        if not title or not link:
+            continue
+        # Build summary from title text (no body scraping — copyright safe)
+        sentences = [s.strip() for s in title.split('. ') if s.strip()]
+        summary = '. '.join(sentences[:3])
+        if summary and not summary.endswith('.'):
+            summary += '.'
+        normalised.append({
+            'title': title,
+            'link': link,
+            'guid': r.get('guid', link),
+            'category': category,
+            'source': r.get('source', source_name),
+            'image': r.get('image'),
+            'pubDate': r.get('pubDate', now_iso),
+            'timestamp': int(time.time()),
+            'summary': summary,
+        })
+
+    print(f" ✓ {source_name} (HTML): {len(normalised)} items")
+    return normalised
+
+
 def main():
     print("🚀 Starting The Streamic RSS Aggregator\n")
+    if ENABLE_HTML_SCRAPERS:
+        print("ℹ️  HTML scrapers ENABLED\n")
     DATA_DIR.mkdir(exist_ok=True)
 
     all_items = []
@@ -489,6 +617,16 @@ def main():
         print(f"\n📰 Processing {category.upper()} ({len(feed_urls)} feeds)")
         for feed_url in feed_urls:
             try:
+                # ── HTML scraper path ─────────────────────────────────────
+                if feed_url.startswith('HTML|'):
+                    if not ENABLE_HTML_SCRAPERS:
+                        # Silently skip — flag is off
+                        continue
+                    items = _process_html_marker(feed_url, category)
+                    all_items.extend(items)
+                    continue
+
+                # ── Normal RSS path ───────────────────────────────────────
                 feed = fetch_feed_with_fallback(feed_url)
                 if not feed or not feed.entries:
                     print(f" ⚠ No entries from {feed_url[:80]}")
@@ -499,6 +637,7 @@ def main():
                 items = process_entries(entries, category, source_name)
                 all_items.extend(items)
                 print(f" ✓ {source_name}: {len(items)} items")
+
             except Exception as e:
                 print(f" ✗ Error with {feed_url[:80]}: {e}")
                 continue
