@@ -58,13 +58,21 @@ def _fetch_html(url: str) -> Optional[str]:
 
 
 def _normalise_href(href: str, base: str) -> str:
-    """Resolve relative URLs against base."""
+    """
+    Resolve relative URLs against base.
+    Returns empty string for anything that isn't a real http(s) URL —
+    catches about:blank, javascript:, bare #anchors, and empty hrefs.
+    """
     href = (href or '').strip()
     if not href or href.startswith('#'):
         return ''
-    if href.startswith('http'):
-        return href
-    return urljoin(base, href)
+    if href.lower().startswith('javascript'):
+        return ''
+    resolved = href if href.startswith('http') else urljoin(base, href)
+    # Final guard — about:blank, data:, etc. are rejected here
+    if not resolved.startswith('http'):
+        return ''
+    return resolved
 
 
 def _parse_anchors(
@@ -75,19 +83,29 @@ def _parse_anchors(
 ) -> list[dict]:
     """
     Try CSS selectors in order; return items from the first one that yields
-    results. Items contain: title, link, guid, image, pubDate.
+    real article links. Filters out nav labels, about:blank, and homepage links.
     """
     soup = BeautifulSoup(html, 'html.parser')
     now_iso = datetime.now(timezone.utc).isoformat()
+    base_norm = base_url.rstrip('/')
 
     for selector in selectors:
         anchors = soup.select(selector)
         results = []
-        for anchor in anchors[:limit]:
+        for anchor in anchors[:limit * 3]:  # oversample so filtering doesn't starve results
             title = anchor.get_text(strip=True)
             href = _normalise_href(anchor.get('href', ''), base_url)
-            if not title or not href:
+
+            # Must have a valid http(s) link that isn't the homepage itself
+            if not href or href.rstrip('/') == base_norm:
                 continue
+            # Title must be long enough to be a real headline (skips "News", nav labels)
+            if len(title) < 12:
+                continue
+            # Skip short all-caps navigation labels like "BROADCAST NEWS"
+            if title.isupper() and len(title) < 40:
+                continue
+
             results.append({
                 'title': title,
                 'link': href,
@@ -95,6 +113,9 @@ def _parse_anchors(
                 'image': None,
                 'pubDate': now_iso,
             })
+            if len(results) >= limit:
+                break
+
         if results:
             return results
 
