@@ -245,8 +245,6 @@ body {
  border-radius: 24px;
  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
  position: relative;
- /* overflow: hidden removed — was blocking height expansion on iOS Safari/WebKit
- even when child's max-height changed. border-radius works without it. */
  border: 1px solid rgba(255,255,255,0.05);
 }
 .editorial-label {
@@ -321,7 +319,6 @@ body {
  text-transform: uppercase;
  letter-spacing: 1px;
  transition: all 0.3s ease;
- /* Prevent text selection/highlight on mobile tap */
  -webkit-user-select: none;
  user-select: none;
  -webkit-tap-highlight-color: transparent;
@@ -344,11 +341,6 @@ body {
  .editorial-container #daily-headline {
    font-size: 22px;
  }
-
- /* ——— MOBILE FIX (WebKit) ———
-    Remove multi-column layout entirely on mobile to prevent
-    the known iOS Safari repaint bug when toggling max-height.
- */
  .editorial-analysis,
  .editorial-container #daily-insight {
    column-count: unset !important;
@@ -357,7 +349,6 @@ body {
    max-height: 140px;
    overflow: hidden;
  }
- /* Expanded state explicit inside mobile query */
  .editorial-analysis.expanded,
  .editorial-container #daily-insight.expanded {
    max-height: none !important;
@@ -644,6 +635,88 @@ main {
    grid-template-columns: 1fr;
  }
 }
+/* =========== COOKIE CONSENT BANNER =========== */
+.cookie-consent {
+ position: fixed;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ background: rgba(255, 255, 255, 0.98);
+ backdrop-filter: blur(20px);
+ -webkit-backdrop-filter: blur(20px);
+ border-top: 1px solid rgba(0, 0, 0, 0.1);
+ padding: 20px;
+ z-index: 10000;
+ box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+.cookie-consent-content {
+ max-width: 1200px;
+ margin: 0 auto;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 20px;
+ flex-wrap: wrap;
+}
+.cookie-text {
+ flex: 1;
+ min-width: 300px;
+}
+.cookie-text p {
+ font-size: 14px;
+ color: #1d1d1f;
+ line-height: 1.5;
+ margin: 0;
+}
+.cookie-buttons {
+ display: flex;
+ gap: 12px;
+ flex-shrink: 0;
+}
+.cookie-btn {
+ padding: 10px 24px;
+ font-size: 14px;
+ font-weight: 600;
+ border: none;
+ border-radius: 50px;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ white-space: nowrap;
+}
+.cookie-decline {
+ background: #f5f5f7;
+ color: #1d1d1f;
+}
+.cookie-decline:hover {
+ background: #e8e8ed;
+}
+.cookie-accept {
+ background: #000;
+ color: #fff;
+}
+.cookie-accept:hover {
+ background: #333;
+}
+@media (max-width: 768px) {
+ .cookie-consent {
+   padding: 16px;
+ }
+ .cookie-consent-content {
+   flex-direction: column;
+   align-items: stretch;
+   text-align: center;
+ }
+ .cookie-text {
+   min-width: 100%;
+ }
+ .cookie-buttons {
+   width: 100%;
+   justify-content: center;
+ }
+ .cookie-btn {
+   flex: 1;
+ }
+}
 /* =========== SUBSCRIBE MODAL =========== */
 .subscribe-modal {
  display: none;
@@ -710,7 +783,7 @@ main {
  color: #6e6e73;
  margin-bottom: 24px;
 }
-#subscribeForm input[type="email"] {
+.subscribe-modal-input {
  width: 100%;
  padding: 14px 20px;
  font-size: 16px;
@@ -719,11 +792,11 @@ main {
  margin-bottom: 16px;
  transition: all 0.2s;
 }
-#subscribeForm input[type="email"]:focus {
+.subscribe-modal-input:focus {
  outline: none;
  border-color: #000;
 }
-.subscribe-submit-btn {
+.subscribe-modal-btn {
  width: 100%;
  padding: 14px 20px;
  font-size: 16px;
@@ -735,8 +808,16 @@ main {
  cursor: pointer;
  transition: all 0.3s ease;
 }
-.subscribe-submit-btn:hover {
+.subscribe-modal-btn:hover {
  background: #333;
+}
+.subscribe-success {
+ padding: 20px;
+ background: #d4edda;
+ border: 1px solid #c3e6cb;
+ border-radius: 12px;
+ color: #155724;
+ text-align: center;
 }
 /* =========== LOAD MORE BUTTON =========== */
 .btn-view-more {
@@ -778,9 +859,6 @@ main {
    display: flex;
    flex-direction: column;
  }
- /* Articles first */
  .featured-reorder-wrapper .category-content { order: 1; }
- /* Weekly Curation second — appears after Load More */
  .featured-reorder-wrapper .editorial-container { order: 2; margin-top: 10px; margin-bottom: 30px; }
 }
-/* ——————————————————————————————————————————————————————————————— */

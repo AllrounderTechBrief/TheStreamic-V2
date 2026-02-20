@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Consent Mode v2 - MUST be first -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    
+    // Set default consent to 'denied' BEFORE loading gtag
     gtag('consent', 'default', {
       'ad_storage': 'denied',
       'ad_user_data': 'denied',
@@ -11,33 +14,47 @@
       'analytics_storage': 'denied'
     });
   </script>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRBRD5YQYT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TRBRD5YQYT');
+  </script>
+  
+  <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8033069131874524" crossorigin="anonymous"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Featured broadcast technology news: breaking stories, industry trends, and curated insights from global media technology leaders." />
-  <meta name="author" content="The Streamic" />
-  <link rel="canonical" href="https://www.thestreamic.in/featured.html" />
-  <title>Featured – The Streamic</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Featured broadcast technology news covering newsroom systems, playout automation, infrastructure, graphics, cloud, streaming, and AI post-production.">
+  <meta name="keywords" content="broadcast technology, media infrastructure, newsroom systems, playout automation, streaming, cloud production">
+  <meta name="author" content="The Streamic">
+  <link rel="canonical" href="https://www.thestreamic.in/featured.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Featured - The Streamic">
+  <meta property="og:description" content="Latest broadcast technology updates across all categories">
+  <title>Featured - The Streamic | Broadcast Technology News</title>
+  
+  <link rel="stylesheet" href="style.css">
 </head>
-<body data-category="featured">
+<body>
+  
   <nav class="site-nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo-container">
-        <img src="assets/logo.png" alt="The Streamic Logo" class="nav-logo-image" onload="this.closest('.nav-logo-container').classList.add('logo-loaded')" />
-        <span class="nav-logo">THE STREAMIC</span>
+      <a href="index.html" class="nav-logo-container" id="logoContainer">
+        <img src="assets/logo.png" alt="The Streamic" class="nav-logo-image" id="logoImage">
+        <span class="nav-logo" id="logoText">THE STREAMIC</span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
       <ul class="nav-links">
         <li><a href="featured.html" class="active">FEATURED</a></li>
         <li><a href="infrastructure.html">INFRASTRUCTURE</a></li>
         <li><a href="graphics.html">GRAPHICS</a></li>
         <li><a href="cloud.html">CLOUD PRODUCTION</a></li>
         <li><a href="streaming.html">STREAMING</a></li>
-        <li><a href="ai-post-production.html">AI & POST-PRODUCTION</a></li>
+        <li><a href="ai-post-production.html">AI & POST</a></li>
         <li><a href="playout.html">PLAYOUT</a></li>
       </ul>
       <div class="header-subscribe">
@@ -47,38 +64,20 @@
     </div>
   </nav>
 
-  <section class="category-hero">
-    <div class="category-hero-content">
-      <h1>Featured</h1>
-      <p>Breaking stories, industry trends, and curated insights from media technology leaders</p>
+  <main>
+    <div class="category-content">
+      <div class="bento-grid-large" id="newsGrid"></div>
+      <div class="list-grid" id="listGrid"></div>
     </div>
-  </section>
-
-  <div class="featured-reorder-wrapper">
-    <div class="editorial-container">
-      <div class="editorial-inner">
-        <span class="editorial-label">WEEKLY CURATION</span>
-        <h2 id="daily-headline">Loading this week's featured story...</h2>
-        <div id="daily-insight" class="editorial-analysis">
-          <p>Fetching analysis...</p>
-        </div>
-        <button id="readMoreBtn" class="read-more-btn" aria-expanded="false">Read More</button>
-      </div>
-    </div>
-
-    <main class="category-content">
-      <div id="bentoGridLarge" class="bento-grid-large"></div>
-      <div id="listGrid" class="list-grid"></div>
-    </main>
-  </div>
+  </main>
 
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-grid">
         <div class="foot-col">
           <h4>About</h4>
-          <p>A dedicated media tech desk by Prerak Mehta. Sharing insights on the future of broadcast, cloud playout, and digital media.</p>
-          <p class="footer-tagline">Explore our dedicated sections for deep dives into Cloud Playout, Real-time Graphics, and Global Streaming workflows. Every page on The Streamic is curated to provide specialized knowledge, helping you stay ahead of the technical shifts in each specific domain of the broadcast chain.</p>
+          <p>An independent resource for systems architects and media technologists tracking the evolution of broadcast infrastructure.</p>
+          <p class="footer-tagline">Real-time insights. Industry-leading coverage.</p>
         </div>
         <div class="foot-col">
           <h4>Categories</h4>
@@ -97,274 +96,201 @@
           <a href="vlog.html">Editor's Desk</a>
           <a href="terms.html">Terms of Service</a>
           <a href="privacy.html">Privacy Policy</a>
-          <a href="rss-policy.html">RSS Policy</a>
         </div>
         <div class="foot-col">
           <h4>Stay Connected</h4>
           <a href="https://twitter.com/thestreamic" target="_blank" rel="noopener">Twitter</a>
           <a href="https://linkedin.com/company/thestreamic" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="mailto:itabmum@gmail.com">Email Us</a>
+          <a href="mailto:info@thestreamic.in">Email Us</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-note">© 2026 The Streamic. Founded and Curated by Prerak Mehta. Built for the Global Broadcast Community.</p>
+        <p class="footer-note">&copy; 2026 The Streamic. All rights reserved.</p>
+        <p class="footer-tech">Powered by RSS aggregation & smart content curation</p>
       </div>
     </div>
   </footer>
 
-  <!-- Subscribe modal -->
-  <div id="subscribeModal" class="subscribe-modal" style="display:none;">
-    <div class="subscribe-modal-overlay" onclick="closeSubscribeModal()"></div>
-    <div class="subscribe-modal-content">
-      <button class="subscribe-modal-close" onclick="closeSubscribeModal()">×</button>
-      <h2>Join the Future of Broadcast</h2>
-      <p>Get the latest technology insights delivered to your inbox</p>
-      <form id="subscribeForm" onsubmit="return handleSubscribe(event)">
-        <input type="email" id="emailInput" placeholder="Your email address" required>
-        <button type="submit" class="subscribe-submit-btn">Subscribe</button>
-      </form>
-      <p id="subscribeMessage" style="margin-top:15px;display:none;"></p>
-    </div>
- Got it, Prerak. I inspected your three files and reproduced the issue. Here’s what’s going on and a clean fix you can drop in.
-
----
-
-## What’s causing **Read More** to fail on Mobile
-
-- **Old cached CSS on mobile** is likely still applying `overflow: hidden` to the `.editorial-inner` container. That prevents the inner content from expanding, so the button appears to do nothing until the stylesheet eventually refreshes in cache (minutes later). Your latest `style.css` already removed that rule and relies on the child’s `.expanded` class—but the `<link>` to CSS doesn’t have a cache‑buster, so phones can keep the old one. [2](https://virginmediaie-my.sharepoint.com/personal/prerak_mehta_virginmedia_ie/Documents/Microsoft%20Copilot%20Chat%20Files/style.css)  
-- Your inline handler uses both `touchstart` (+ `preventDefault`) and `click` to avoid the iOS double‑tap issue. That’s fine, but we can make it **simpler and more reliable** with a single **Pointer Events** listener (`pointerup`) and keep `touch-action: manipulation` in CSS (you already have it). This removes edge cases where `touchstart` might be swallowed by the browser when the page is still settling. [1](https://virginmediaie-my.sharepoint.com/personal/prerak_mehta_virginmedia_ie/Documents/Microsoft%20Copilot%20Chat%20Files/featured.html)[2](https://virginmediaie-my.sharepoint.com/personal/prerak_mehta_virginmedia_ie/Documents/Microsoft%20Copilot%20Chat%20Files/style.css)
-
----
-
-## What I changed
-
-1. **Cache-bust CSS**: `style.css?v=20260220` (any new version string works). This forces mobile Safari/Chrome to pull the updated stylesheet immediately. [1](https://virginmediaie-my.sharepoint.com/personal/prerak_mehta_virginmedia_ie/Documents/Microsoft%20Copilot%20Chat%20Files/featured.html)  
-2. **Force safety on container**: Explicit `overflow: visible !important;` on `.editorial-inner` (mobile breakpoint) so even if a stale rule exists somewhere, the Weekly Curation can still expand. [2](https://virginmediaie-my.sharepoint.com/personal/prerak_mehta_virginmedia_ie/Documents/Microsoft%20Copilot%20Chat%20Files/style.css)  
-3. **Unify the button handler** with **Pointer Events** (`pointerup`) for consistent tap behavior across iOS/Android. [1](https://virginmediaie-my.sharepoint.com/personal/prerak_mehta_virginmedia_ie/Documents/Microsoft%20Copilot%20Chat%20Files/featured.html)
-
----
-
-## Drop‑in Files
-
-> Replace your three files with the versions below.  
-> (No data changes; layout and loading remain the same.)
-
-### `featured.html`
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'denied'
-    });
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8033069131874524" crossorigin="anonymous"></script>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Featured broadcast technology news: breaking stories, industry trends, and curated insights from global media technology leaders." />
-  <meta name="author" content="The Streamic" />
-  <link rel="canonical" href="https://www.thestreamic.in/featured.html" />
-  <title>Featured – The Streamic</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Cache-busted CSS to ensure the no-overflow rule reaches mobile immediately -->
-  <link rel="stylesheet" href="style.css?v=20260220" />
-</head>
-<body data-category="featured">
-  <nav class="site-nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo-container">
-        <img src="assets/logo.png" alt="The Streamic Logo" class="nav-logo-image" onload="this.closest('.nav-logo-container').classList.add('logo-loaded')" />
-        <span class="nav-logo">THE STREAMIC</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
-      <ul class="nav-links">
-        <li><a href="featured.html" class="active">FEATURED</a></li>
-        <li><a href="infrastructure.html">INFRASTRUCTURE</a></li>
-        <li><a href="graphics.html">GRAPHICS</a></li>
-        <li><a href="cloud.html">CLOUD PRODUCTION</a></li>
-        <li><a href="streaming.html">STREAMING</a></li>
-        <li><a href="ai-post-production.html">AI & POST-PRODUCTION</a></li>
-        <li><a href="playout.html">PLAYOUT</a></li>
-      </ul>
-      <div class="header-subscribe">
-        <a href="vlog.html" class="editors-desk-link">Editor's Desk</a>
-        <button onclick="showSubscribeModal()" class="header-subscribe-btn">Subscribe</button>
+  <!-- Cookie Consent Banner -->
+  <div id="cookieConsent" class="cookie-consent" style="display: none;">
+    <div class="cookie-consent-content">
+      <div class="cookie-text">
+        <p>We use cookies to personalize content and ads, and to analyze our traffic. By clicking "Accept", you consent to our use of cookies.</p>
+      </div>
+      <div class="cookie-buttons">
+        <button onclick="declineCookies()" class="cookie-btn cookie-decline">Decline</button>
+        <button onclick="acceptCookies()" class="cookie-btn cookie-accept">Accept</button>
       </div>
     </div>
-  </nav>
-
-  <section class="category-hero">
-    <div class="category-hero-content">
-      <h1>Featured</h1>
-      <p>Breaking stories, industry trends, and curated insights from media technology leaders</p>
-    </div>
-  </section>
-
-  <div class="featured-reorder-wrapper">
-    <!-- Weekly Curation -->
-    <div class="editorial-container">
-      <div class="editorial-inner">
-        <span class="editorial-label">WEEKLY CURATION</span>
-        <h2 id="daily-headline">Loading this week's featured story...</h2>
-        <div id="daily-insight" class="editorial-analysis">
-          <p>Fetching analysis...</p>
-        </div>
-        <button id="readMoreBtn" class="read-more-btn">Read More</button>
-      </div>
-    </div>
-
-    <!-- Articles -->
-    <main class="category-content">
-      <div id="bentoGridLarge" class="bento-grid-large"></div>
-      <div id="listGrid" class="list-grid"></div>
-    </main>
   </div>
-
-  <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-grid">
-        <div class="foot-col">
-          <h4>About</h4>
-          <p>A dedicated media tech desk by Prerak Mehta. Sharing insights on the future of broadcast, cloud playout, and digital media.</p>
-          <p class="footer-tagline">Explore our dedicated sections for deep dives into Cloud Playout, Real-time Graphics, and Global Streaming workflows. Every page on The Streamic is curated to provide specialized knowledge, helping you stay ahead of the technical shifts in each specific domain of the broadcast chain.</p>
-        </div>
-        <div class="foot-col">
-          <h4>Categories</h4>
-          <a href="featured.html">Featured</a>
-          <a href="infrastructure.html">Infrastructure</a>
-          <a href="graphics.html">Graphics</a>
-          <a href="cloud.html">Cloud Production</a>
-          <a href="streaming.html">Streaming</a>
-          <a href="ai-post-production.html">AI & Post-Production</a>
-          <a href="playout.html">Playout</a>
-        </div>
-        <div class="foot-col">
-          <h4>Resources</h4>
-          <a href="about.html">About Us</a>
-          <a href="contact.html">Contact</a>
-          <a href="vlog.html">Editor's Desk</a>
-          <a href="terms.html">Terms of Service</a>
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="rss-policy.html">RSS Policy</a>
-        </div>
-        <div class="foot-col">
-          <h4>Stay Connected</h4>
-          <a href="https://twitter.com/thestreamic" target="_blank" rel="noopener">Twitter</a>
-          <a href="https://linkedin.com/company/thestreamic" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="mailto:itabmum@gmail.com">Email Us</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-note">© 2026 The Streamic. Founded and Curated by Prerak Mehta. Built for the Global Broadcast Community.</p>
-      </div>
-    </div>
-  </footer>
 
   <!-- Subscribe Modal -->
-  <div id="subscribeModal" class="subscribe-modal" style="display:none;">
+  <div id="subscribeModal" class="subscribe-modal" style="display: none;">
     <div class="subscribe-modal-overlay" onclick="closeSubscribeModal()"></div>
     <div class="subscribe-modal-content">
-      <button class="subscribe-modal-close" onclick="closeSubscribeModal()">×</button>
+      <button class="subscribe-modal-close" onclick="closeSubscribeModal()">&times;</button>
       <h2>Join the Future of Broadcast</h2>
       <p>Get the latest technology insights delivered to your inbox</p>
       <form id="subscribeForm" onsubmit="return handleSubscribe(event)">
-        <input type="email" id="emailInput" placeholder="Your email address" required>
-        <button type="submit" class="subscribe-submit-btn">Subscribe</button>
+        <input 
+          type="email" 
+          class="subscribe-modal-input" 
+          placeholder="Enter your email"
+          required
+          id="subscribeEmail"
+        >
+        <button type="submit" class="subscribe-modal-btn">Subscribe</button>
       </form>
-      <p id="subscribeMessage" style="margin-top:15px;display:none;"></p>
+      <div id="subscribeSuccess" class="subscribe-success" style="display: none;">
+        <p>✓ Welcome to the Future of Broadcast. You are subscribed!</p>
+      </div>
     </div>
   </div>
 
-  <!-- main.js cache-busted -->
-  <script src="main.js?v=20260220" defer></script>
-
-  <!-- Headlines loader (unchanged) -->
   <script>
-    fetch('headlines.txt')
-      .then(response => {
-        if (!response.ok) { throw new Error('Could not load headlines.txt'); }
-        return response.text();
-      })
-      .then(content => {
-        const parts = content.split('---').map(part => part.trim());
-        if (parts.length >= 2) {
-          const headline = parts[0];
-          const analysis = parts.slice(1).join('---').trim();
-          document.getElementById('daily-headline').textContent = headline;
-          document.getElementById('daily-insight').innerHTML =
-            '<p>' + analysis.replace(/\n\n/g, '</p><p>') + '</p>';
-        } else {
-          document.getElementById('daily-headline').textContent = 'Featured Technology Insights';
-          document.getElementById('daily-insight').innerHTML = '<p>' + content + '</p>';
+    // ===== COOKIE CONSENT FUNCTIONS =====
+    function acceptCookies() {
+      console.log('User accepted cookies');
+      
+      // Update Google Consent Mode
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+        console.log('Google consent updated to granted');
+      }
+      
+      // Save user choice
+      localStorage.setItem('cookieConsent', 'accepted');
+      
+      // Hide banner
+      const banner = document.getElementById('cookieConsent');
+      if (banner) {
+        banner.style.display = 'none';
+      }
+    }
+
+    function declineCookies() {
+      console.log('User declined cookies');
+      
+      // Keep consent as denied (default state)
+      localStorage.setItem('cookieConsent', 'declined');
+      
+      // Hide banner
+      const banner = document.getElementById('cookieConsent');
+      if (banner) {
+        banner.style.display = 'none';
+      }
+    }
+
+    // Check cookie consent status on page load
+    (function() {
+      const consent = localStorage.getItem('cookieConsent');
+      console.log('Cookie consent status:', consent);
+      
+      if (!consent) {
+        // No choice made yet - show banner
+        const banner = document.getElementById('cookieConsent');
+        if (banner) {
+          banner.style.display = 'block';
+          console.log('Showing cookie banner');
         }
-      })
-      .catch(error => {
-        console.log('Headlines fetch error:', error);
-        document.getElementById('daily-headline').textContent = 'Featured Technology Insights';
-        document.getElementById('daily-insight').innerHTML =
-          '<p>Highlighting the most significant developments shaping broadcast technology, from infrastructure transformation to emerging production paradigms. Our editorial team curates breakthrough announcements, strategic partnerships, and technology shifts across the broadcast ecosystem.</p>';
-      });
-  </script>
+      } else if (consent === 'accepted') {
+        // User previously accepted - update consent
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            'ad_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'analytics_storage': 'granted'
+          });
+          console.log('Restored accepted consent from localStorage');
+        }
+      } else {
+        console.log('User previously declined cookies');
+      }
+    })();
 
-  <!-- Read More: unified pointer event handler -->
-  <script>
-    (function () {
-      const insight = document.getElementById('daily-insight');
-      const btn = document.getElementById('readMoreBtn');
-      if (!insight || !btn) return;
-
-      const toggle = () => {
-        insight.classList.toggle('expanded');
-        btn.textContent = insight.classList.contains('expanded') ? 'Read Less' : 'Read More';
-      };
-
-      // One reliable handler for mouse/touch/pen
-      btn.addEventListener('pointerup', (e) => {
-        e.preventDefault();
-        toggle();
-      }, { passive: false });
-    }());
-  </script>
-
-  <!-- Subscribe modal helpers -->
-  <script>
+    // ===== SUBSCRIBE MODAL FUNCTIONS =====
     function showSubscribeModal() {
-      document.getElementById('subscribeModal').style.display = 'flex';
+      const modal = document.getElementById('subscribeModal');
+      if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
     }
+
     function closeSubscribeModal() {
-      document.getElementById('subscribeModal').style.display = 'none';
+      const modal = document.getElementById('subscribeModal');
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
     }
+
     function handleSubscribe(event) {
       event.preventDefault();
-      const email = document.getElementById('emailInput').value;
-      const message = document.getElementById('subscribeMessage');
-      if (email) {
-        message.textContent = 'Thank you for subscribing!';
-        message.style.color = '#28a745';
-        message.style.display = 'block';
-        setTimeout(() => {
-          document.getElementById('subscribeForm').reset();
-          message.style.display = 'none';
-          closeSubscribeModal();
-        }, 2000);
+      
+      const email = document.getElementById('subscribeEmail').value.trim();
+      
+      if (!email.includes('@') || !email.includes('.')) {
+        alert('Please enter a valid email address');
+        return false;
       }
+      
+      const formData = new FormData();
+      formData.append('entry.592345898', email);
+      
+      fetch('https://docs.google.com/forms/d/e/1FAIpQLSdbeoEH4KHqRG7jFWMB4u8cEH27AMPAmPYEuYKtrn9sDewG2A/formResponse', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      }).then(() => {
+        document.getElementById('subscribeForm').style.display = 'none';
+        document.getElementById('subscribeSuccess').style.display = 'block';
+        setTimeout(closeSubscribeModal, 3000);
+      }).catch(() => {
+        document.getElementById('subscribeForm').style.display = 'none';
+        document.getElementById('subscribeSuccess').style.display = 'block';
+        setTimeout(closeSubscribeModal, 3000);
+      });
+      
       return false;
     }
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeSubscribeModal();
+
+    // Close modal on ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeSubscribeModal();
+      }
     });
+
+    // ===== LOGO LOADING =====
+    (function() {
+      const logoImg = document.getElementById('logoImage');
+      const logoContainer = document.getElementById('logoContainer');
+      
+      if (logoImg && logoContainer) {
+        logoImg.addEventListener('load', function() {
+          logoContainer.classList.add('logo-loaded');
+        });
+        
+        logoImg.addEventListener('error', function() {
+          // Keep fallback text visible if image fails
+          console.log('Logo image failed to load, showing text fallback');
+        });
+        
+        // If image already loaded (cached)
+        if (logoImg.complete) {
+          logoContainer.classList.add('logo-loaded');
+        }
+      }
+    })();
   </script>
+
+  <script src="main.js"></script>
 </body>
 </html>
