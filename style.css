@@ -54,45 +54,56 @@ body {
   gap: 40px;
 }
 
-/* FIX 1: Logo Container - Proper Clickable Link */
 .nav-logo-container {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .nav-logo-image {
-  height: 40px;       /* taller to match nav stripe + show logo text clearly */
+  height: 38px;
   width: auto;
   display: block;
   object-fit: contain;
 }
 
+/* FIX: Explicit colour so it's not browser-default purple link colour */
 .nav-logo {
-   /* logo PNG already contains "The Streamic" text */
+  font-size: 17px;
+  font-weight: 700;
+  color: #1d1d1f;
+  text-decoration: none;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
 }
 
 .nav-logo:hover {
+  color: #1d1d1f;
   opacity: 0.7;
 }
 
-/* FIX 2: HIDE HAMBURGER MENU COMPLETELY (No Three Lines) */
-.nav-toggle {
-  display: none !important; /* Force hide on ALL screen sizes */
+/* When logo image loads, hide the fallback text span */
+.nav-logo-container.logo-loaded .nav-logo {
+  display: none;
 }
 
-/* FIX 3: Navigation Links - ALWAYS VISIBLE on All Screens */
+/* FIX 2: HIDE HAMBURGER MENU COMPLETELY */
+.nav-toggle {
+  display: none !important;
+}
+
+/* FIX 3: Navigation Links - ALWAYS VISIBLE */
 .nav-links {
-  display: flex !important; /* Force display even on mobile */
+  display: flex !important;
   gap: 24px;
   list-style: none;
   align-items: center;
   flex: 1;
-  position: static !important; /* Override any mobile absolute positioning */
-  background: transparent !important; /* No background dropdown */
-  flex-direction: row !important; /* Always horizontal */
+  position: static !important;
+  background: transparent !important;
+  flex-direction: row !important;
   padding: 0 !important;
   border: none !important;
 }
@@ -105,7 +116,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.2s ease;
-  white-space: nowrap; /* Prevent text wrapping */
+  white-space: nowrap;
 }
 
 .nav-links a:hover,
@@ -113,13 +124,12 @@ body {
   color: #000;
 }
 
-/* FIX 4: Header Subscribe - Always Visible */
 .header-subscribe {
   margin-left: auto;
   display: flex;
   align-items: center;
   gap: 20px;
-  position: static !important; /* Override any absolute positioning */
+  position: static !important;
   flex-shrink: 0;
 }
 
@@ -154,18 +164,17 @@ body {
   transform: translateY(-1px);
 }
 
-/* MOBILE NAVIGATION - Horizontally Scrollable (No Hamburger) */
+/* MOBILE NAVIGATION - Horizontally Scrollable */
 @media (max-width: 1024px) {
   .nav-inner {
     gap: 20px;
-    flex-wrap: nowrap; /* Don't wrap to next line */
-    overflow-x: auto; /* Enable horizontal scroll */
+    flex-wrap: nowrap;
+    overflow-x: auto;
     overflow-y: hidden;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    scrollbar-width: none; /* Hide scrollbar on Firefox */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
   
-  /* Hide scrollbar on Chrome/Safari */
   .nav-inner::-webkit-scrollbar {
     display: none;
   }
@@ -199,11 +208,14 @@ body {
   }
   
   .nav-logo-image {
-    height: 32px;  /* larger on mobile so logo text is legible */
+    height: 30px;
   }
-  
+
+  /* Keep nav-logo text visible as fallback when image fails; hidden via JS when loaded */
   .nav-logo {
-    display: none; /* hidden — text is part of logo image */
+    font-size: 14px;
+    font-weight: 700;
+    color: #1d1d1f;
   }
   
   .nav-links {
@@ -215,7 +227,7 @@ body {
   }
 }
 
-/* =========== HERO (COMPACT FOR ABOVE FOLD) =========== */
+/* =========== HERO =========== */
 .category-hero {
   background: #fff;
   padding: 30px 22px 10px;
@@ -258,7 +270,7 @@ body {
   }
 }
 
-/* =========== EDITORIAL BOX (ELEGANT AWWWARDS) =========== */
+/* =========== EDITORIAL BOX =========== */
 .editorial-container {
   width: 96%;
   max-width: 1360px;
@@ -275,6 +287,11 @@ body {
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* FIX: Allow overflow when content is expanded */
+.editorial-inner.is-expanded {
+  overflow: visible;
 }
 
 .editorial-label {
@@ -328,13 +345,13 @@ body {
 /* Expanded State */
 .editorial-analysis.expanded,
 .editorial-container #daily-insight.expanded {
-  max-height: none !important;   /* override any max-height from responsive CSS */
+  max-height: none !important;
   overflow: visible;
 }
 
 .editorial-analysis.expanded::after,
 .editorial-container #daily-insight.expanded::after {
-  display: none !important;      /* kill the fade overlay when expanded */
+  display: none !important;
 }
 
 .editorial-analysis p,
@@ -391,7 +408,7 @@ body {
     height: 50px;
   }
 
-  /* Expanded state must also be explicit inside mobile query */
+  /* Expanded state explicit inside mobile query */
   .editorial-analysis.expanded,
   .editorial-container #daily-insight.expanded {
     max-height: none !important;
@@ -518,13 +535,12 @@ main {
   }
 }
 
-/* MOBILE: SINGLE COLUMN AT 96% WIDTH */
+/* MOBILE */
 @media (max-width: 768px) {
   main {
     padding: 0 0 40px;
   }
   
-  /* FORCE SINGLE COLUMN */
   .bento-grid-large,
   .news-grid,
   .card-container {
@@ -534,7 +550,6 @@ main {
     display: grid !important;
   }
   
-  /* FORCE 96% WIDTH */
   .bento-card-large {
     width: 96% !important;
     max-width: 96% !important;
@@ -862,7 +877,6 @@ main {
   display: none;
 }
 
-/* Horizontal scroll styling (subtle) */
 *::-webkit-scrollbar {
   height: 4px;
 }
