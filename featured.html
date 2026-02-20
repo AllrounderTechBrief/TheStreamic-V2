@@ -40,7 +40,7 @@
   
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-category="featured">
   
   <nav class="site-nav">
     <div class="nav-inner">
@@ -66,8 +66,8 @@
 
   <main>
     <div class="category-content">
-      <div class="bento-grid-large" id="newsGrid"></div>
-      <div class="list-grid" id="listGrid"></div>
+      <div id="bentoGridLarge" class="bento-grid-large"></div>
+      <div id="listGrid" class="list-grid"></div>
     </div>
   </main>
 
@@ -279,11 +279,9 @@
         });
         
         logoImg.addEventListener('error', function() {
-          // Keep fallback text visible if image fails
           console.log('Logo image failed to load, showing text fallback');
         });
         
-        // If image already loaded (cached)
         if (logoImg.complete) {
           logoContainer.classList.add('logo-loaded');
         }
