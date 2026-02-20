@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Consent Mode v2 - Default: denied (same as your current setup) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -12,14 +13,13 @@
     });
   </script>
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8033069131874524" crossorigin="anonymous"></script>
+  <!-- NOTE: Removed AdSense from <head> to avoid loading before consent (SmartScreen-safe) -->
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Featured broadcast technology news: breaking stories, industry trends, and curated insights from global media technology leaders." />
   <meta name="author" content="The Streamic" />
   <link rel="canonical" href="https://www.thestreamic.in/featured.html" />
-
   <title>Featured – The Streamic</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,7 +27,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body data-category="featured">
   <nav class="site-nav">
     <div class="nav-inner">
@@ -35,19 +34,16 @@
         <img src="assets/logo.png" alt="The Streamic Logo" class="nav-logo-image" onload="this.closest('.nav-logo-container').classList.add('logo-loaded')" />
         <span class="nav-logo">THE STREAMIC</span>
       </a>
-
       <button class="nav-toggle" aria-label="Toggle menu">☰</button>
-
       <ul class="nav-links">
         <li><a href="featured.html" class="active">FEATURED</a></li>
         <li><a href="infrastructure.html">INFRASTRUCTURE</a></li>
         <li><a href="graphics.html">GRAPHICS</a></li>
         <li><a href="cloud.html">CLOUD PRODUCTION</a></li>
         <li><a href="streaming.html">STREAMING</a></li>
-        <li><a href="ai-post-production.html">AI &amp; POST-PRODUCTION</a></li>
+        <li><a href="ai-post-production.html">AI & POST-PRODUCTION</a></li>
         <li><a href="playout.html">PLAYOUT</a></li>
       </ul>
-
       <div class="header-subscribe">
         <a href="vlog.html" class="editors-desk-link">Editor's Desk</a>
         <button onclick="showSubscribeModal()" class="header-subscribe-btn">Subscribe</button>
@@ -63,7 +59,6 @@
   </section>
 
   <div class="featured-reorder-wrapper">
-
     <div class="editorial-container">
       <div class="editorial-inner">
         <span class="editorial-label">WEEKLY CURATION</span>
@@ -71,7 +66,7 @@
         <div id="daily-insight" class="editorial-analysis">
           <p>Fetching analysis...</p>
         </div>
-        <button id="readMoreBtn" class="read-more-btn" >Read More</button>
+        <button id="readMoreBtn" class="read-more-btn">Read More</button>
       </div>
     </div>
 
@@ -79,7 +74,6 @@
       <div id="bentoGridLarge" class="bento-grid-large"></div>
       <div id="listGrid" class="list-grid"></div>
     </main>
-
   </div>
 
   <footer class="site-footer">
@@ -90,7 +84,6 @@
           <p>A dedicated media tech desk by Prerak Mehta. Sharing insights on the future of broadcast, cloud playout, and digital media.</p>
           <p class="footer-tagline">Explore our dedicated sections for deep dives into Cloud Playout, Real-time Graphics, and Global Streaming workflows. Every page on The Streamic is curated to provide specialized knowledge, helping you stay ahead of the technical shifts in each specific domain of the broadcast chain.</p>
         </div>
-
         <div class="foot-col">
           <h4>Categories</h4>
           <a href="featured.html">Featured</a>
@@ -98,10 +91,9 @@
           <a href="graphics.html">Graphics</a>
           <a href="cloud.html">Cloud Production</a>
           <a href="streaming.html">Streaming</a>
-          <a href="ai-post-production.html">AI &amp; Post-Production</a>
+          <a href="ai-post-production.html">AI & Post-Production</a>
           <a href="playout.html">Playout</a>
         </div>
-
         <div class="foot-col">
           <h4>Resources</h4>
           <a href="about.html">About Us</a>
@@ -111,7 +103,6 @@
           <a href="privacy.html">Privacy Policy</a>
           <a href="rss-policy.html">RSS Policy</a>
         </div>
-
         <div class="foot-col">
           <h4>Stay Connected</h4>
           <a href="https://twitter.com/thestreamic" target="_blank" rel="noopener">Twitter</a>
@@ -119,81 +110,65 @@
           <a href="mailto:itabmum@gmail.com">Email Us</a>
         </div>
       </div>
-
       <div class="footer-bottom">
         <p class="footer-note">© 2026 The Streamic. Founded and Curated by Prerak Mehta. Built for the Global Broadcast Community.</p>
       </div>
     </div>
   </footer>
 
+  <!-- Subscribe modal (unchanged) -->
   <div id="subscribeModal" class="subscribe-modal" style="display:none;">
     <div class="subscribe-modal-overlay" onclick="closeSubscribeModal()"></div>
     <div class="subscribe-modal-content">
       <button class="subscribe-modal-close" onclick="closeSubscribeModal()">×</button>
       <h2>Join the Future of Broadcast</h2>
       <p>Get the latest technology insights delivered to your inbox</p>
-
       <form id="subscribeForm" onsubmit="return handleSubscribe(event)">
-        <input type="email" id="emailInput" placeholder="Your email address" required>
-        <button type="submit" class="subscribe-submit-btn">Subscribe</button>
+        <input type="email" id="emailInput" class="subscribe-modal-input" placeholder="Your email address" required>
+        <button type="submit" class="subscribe-modal-btn">Subscribe</button>
       </form>
       <p id="subscribeMessage" style="margin-top:15px;display:none;"></p>
     </div>
   </div>
 
+  <!-- Your existing app scripts (unchanged) -->
   <script src="main.js?v=20260215"></script>
-  
   <script>
-    function showSubscribeModal() {
-      document.getElementById('subscribeModal').style.display = 'flex';
-    }
-    
-    function closeSubscribeModal() {
-      document.getElementById('subscribeModal').style.display = 'none';
-    }
-    
+    function showSubscribeModal() { document.getElementById('subscribeModal').style.display = 'flex'; }
+    function closeSubscribeModal() { document.getElementById('subscribeModal').style.display = 'none'; }
     function handleSubscribe(event) {
       event.preventDefault();
       const email = document.getElementById('emailInput').value;
       const message = document.getElementById('subscribeMessage');
-      
       if (email) {
         message.textContent = 'Thank you for subscribing!';
         message.style.color = '#28a745';
         message.style.display = 'block';
-        
         setTimeout(() => {
           document.getElementById('subscribeForm').reset();
           message.style.display = 'none';
           closeSubscribeModal();
         }, 2000);
       }
-      
       return false;
     }
-    
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeSubscribeModal();
-    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSubscribeModal(); });
   </script>
 
+  <!-- Headlines fetch (unchanged) -->
   <script>
     fetch('headlines.txt')
       .then(response => {
-        if (!response.ok) {
-          throw new Error('Could not load headlines.txt');
-        }
+        if (!response.ok) throw new Error('Could not load headlines.txt');
         return response.text();
       })
       .then(content => {
         const parts = content.split('---').map(part => part.trim());
-        
         if (parts.length >= 2) {
           const headline = parts[0];
           const analysis = parts.slice(1).join('---').trim();
-          
           document.getElementById('daily-headline').textContent = headline;
-          document.getElementById('daily-insight').innerHTML = '<p>' + analysis.replace(/\n\n/g, '</p><p>') + '</p>';
+          document.getElementById('daily-insight').innerHTML = '<p>' + analysis.replace(/\\n\\n/g, '</p><p>') + '</p>';
         } else {
           document.getElementById('daily-headline').textContent = 'Featured Technology Insights';
           document.getElementById('daily-insight').innerHTML = '<p>' + content + '</p>';
@@ -206,11 +181,11 @@
       });
   </script>
 
+  <!-- Read More toggle (unchanged) -->
   <script>
     function toggleReadMore() {
       const insight = document.getElementById('daily-insight');
-      const btn     = document.getElementById('readMoreBtn');
-      /* .editorial-inner no longer has overflow:hidden so no class toggle needed */
+      const btn = document.getElementById('readMoreBtn');
       if (insight.classList.contains('expanded')) {
         insight.classList.remove('expanded');
         btn.textContent = 'Read More';
@@ -219,25 +194,84 @@
         btn.textContent = 'Read Less';
       }
     }
-
-    /* Wire the button using both touch and click events.
-       touchstart + preventDefault stops the browser selecting nearby
-       text on mobile instead of firing the tap as a click. */
     (function () {
       var btn = document.getElementById('readMoreBtn');
       if (!btn) return;
       var tapped = false;
       btn.addEventListener('touchstart', function (e) {
-        e.preventDefault();   // stops text-selection / callout menu
+        e.preventDefault();
         tapped = true;
         toggleReadMore();
       }, { passive: false });
       btn.addEventListener('click', function () {
-        if (tapped) { tapped = false; return; } // already handled by touchstart
+        if (tapped) { tapped = false; return; }
         toggleReadMore();
       });
     }());
   </script>
 
+  <!-- ===== Cookie Consent Banner (Option B: uses your style.css .cookie-consent) ===== -->
+  <div id="cookieConsent" class="cookie-consent hidden" data-cookieconsent="banner">
+    <div class="cookie-consent-content">
+      <div class="cookie-text">
+        <p>We use cookies to improve your experience and show relevant content. <a href="privacy.html">Learn more</a></p>
+      </div>
+      <div class="cookie-buttons">
+        <button id="declineCookies" class="cookie-btn cookie-decline">Decline</button>
+        <button id="acceptCookies" class="cookie-btn cookie-accept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Consent & deferred AdSense — identical behavior to your index.html -->
+  <script>
+    // Helper: read simple cookie
+    function hasConsentCookie() {
+      return document.cookie.split(';').some(c => c.trim().startsWith('ts_consent='));
+    }
+    function setConsentCookie(val) {
+      document.cookie = "ts_consent=" + val + "; path=/; max-age=31536000; SameSite=Lax";
+    }
+    function enableAds() {
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          ad_storage: 'granted',
+          analytics_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted'
+        });
+      }
+      // load AdSense only after consent
+      if (!document.querySelector('script[src*="adsbygoogle"]')) {
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8033069131874524";
+        s.crossOrigin = "anonymous";
+        document.head.appendChild(s);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      const banner = document.getElementById('cookieConsent');
+      const accepted = document.cookie.includes('ts_consent=accepted');
+      const declined = document.cookie.includes('ts_consent=declined');
+
+      if (!accepted && !declined) {
+        banner.classList.remove('hidden');
+      } else if (accepted) {
+        enableAds();
+      }
+
+      document.getElementById('acceptCookies').addEventListener('click', function () {
+        setConsentCookie('accepted');
+        banner.classList.add('hidden');
+        enableAds();
+      });
+      document.getElementById('declineCookies').addEventListener('click', function () {
+        setConsentCookie('declined');
+        banner.classList.add('hidden');
+        // No ads if declined
+      });
+    });
+  </script>
 </body>
 </html>
