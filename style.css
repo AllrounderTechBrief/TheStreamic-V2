@@ -64,18 +64,14 @@ body {
 }
 
 .nav-logo-image {
-  height: 28px;
+  height: 40px;       /* taller to match nav stripe + show logo text clearly */
   width: auto;
   display: block;
+  object-fit: contain;
 }
 
 .nav-logo {
-  font-size: 18px;
-  font-weight: 700;
-  color: #1d1d1f;
-  text-decoration: none;
-  letter-spacing: -0.5px;
-  transition: opacity 0.2s ease;
+  display: none;  /* logo PNG already contains "The Streamic" text */
 }
 
 .nav-logo:hover {
@@ -203,11 +199,11 @@ body {
   }
   
   .nav-logo-image {
-    height: 24px;
+    height: 32px;  /* larger on mobile so logo text is legible */
   }
   
   .nav-logo {
-    font-size: 16px;
+    display: none; /* hidden — text is part of logo image */
   }
   
   .nav-links {
@@ -332,12 +328,13 @@ body {
 /* Expanded State */
 .editorial-analysis.expanded,
 .editorial-container #daily-insight.expanded {
-  max-height: none;
+  max-height: none !important;   /* override any max-height from responsive CSS */
+  overflow: visible;
 }
 
 .editorial-analysis.expanded::after,
 .editorial-container #daily-insight.expanded::after {
-  display: none;
+  display: none !important;      /* kill the fade overlay when expanded */
 }
 
 .editorial-analysis p,
@@ -392,6 +389,18 @@ body {
   .editorial-analysis::after,
   .editorial-container #daily-insight::after {
     height: 50px;
+  }
+
+  /* Expanded state must also be explicit inside mobile query */
+  .editorial-analysis.expanded,
+  .editorial-container #daily-insight.expanded {
+    max-height: none !important;
+    overflow: visible;
+  }
+
+  .editorial-analysis.expanded::after,
+  .editorial-container #daily-insight.expanded::after {
+    display: none !important;
   }
 }
 

@@ -12,8 +12,7 @@
     });
   </script>
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8033069131874524" crossorigin="anonymous"></script>
-
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Broadcast playout, automation, master control, channel management, and playout technology news from industry leaders." />
@@ -162,6 +161,61 @@
       if (e.key === 'Escape') closeSubscribeModal();
     });
   </script>
+
+
+  <!-- ── Cookie Consent Banner ─────────────────────────────────────────── -->
+  <div id="cookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(15,15,15,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);color:#fff;padding:18px 24px;z-index:10001;border-top:1px solid rgba(255,255,255,0.08);box-shadow:0 -4px 24px rgba(0,0,0,0.3);">
+    <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+      <p style="flex:1;min-width:200px;font-size:13px;line-height:1.55;margin:0;color:rgba(255,255,255,0.85);">
+        We use cookies to personalise content and ads, and to analyse our traffic.
+        <a href="privacy.html" style="color:#4A90E2;text-decoration:none;font-weight:500;">Privacy Policy</a>
+      </p>
+      <div style="display:flex;gap:10px;flex-shrink:0;">
+        <button onclick="declineCookies()" style="padding:9px 20px;background:transparent;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);border-radius:980px;cursor:pointer;font-size:13px;font-weight:500;white-space:nowrap;transition:border-color 0.2s;">Decline</button>
+        <button onclick="acceptCookies()" style="padding:9px 24px;background:#0071e3;border:none;color:#fff;border-radius:980px;cursor:pointer;font-size:13px;font-weight:600;white-space:nowrap;transition:background 0.2s;">Accept</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    /* Cookie consent + deferred AdSense (fixes Edge org-block warning) */
+    function _loadAdSense() {
+      if (document.querySelector('script[src*="adsbygoogle"]')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8033069131874524';
+      s.crossOrigin = 'anonymous';
+      document.head.appendChild(s);
+    }
+    function acceptCookies() {
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          ad_storage: 'granted', ad_user_data: 'granted',
+          ad_personalization: 'granted', analytics_storage: 'granted'
+        });
+      }
+      localStorage.setItem('cookieConsent', 'accepted');
+      const el = document.getElementById('cookieConsent');
+      if (el) el.style.display = 'none';
+      _loadAdSense(); /* only now load ads — after explicit consent */
+    }
+    function declineCookies() {
+      localStorage.setItem('cookieConsent', 'declined');
+      const el = document.getElementById('cookieConsent');
+      if (el) el.style.display = 'none';
+      /* AdSense never loads if declined — no Edge org-block warning */
+    }
+    window.addEventListener('DOMContentLoaded', function () {
+      const consent = localStorage.getItem('cookieConsent');
+      if (!consent) {
+        const el = document.getElementById('cookieConsent');
+        if (el) el.style.display = 'block';
+      } else if (consent === 'accepted') {
+        /* Returning visitor who already accepted */
+        acceptCookies();
+      }
+    });
+  </script>
+  <!-- ─────────────────────────────────────────────────────────────────── -->
 
 </body>
 </html>
