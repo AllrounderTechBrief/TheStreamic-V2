@@ -890,3 +890,16 @@ main {
   background: rgba(0,0,0,0.2);
   border-radius: 4px;
 }
+
+/* ── MOBILE ONLY: Weekly Curation after articles (featured page) ──────── */
+@media (max-width: 768px) {
+  .featured-reorder-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  /* Articles first */
+  .featured-reorder-wrapper .category-content  { order: 1; }
+  /* Weekly Curation second — appears after Load More */
+  .featured-reorder-wrapper .editorial-container { order: 2; margin-top: 10px; margin-bottom: 30px; }
+}
+/* ─────────────────────────────────────────────────────────────────────── */

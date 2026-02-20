@@ -62,21 +62,25 @@
     </div>
   </section>
 
-  <div class="editorial-container">
-    <div class="editorial-inner">
-      <span class="editorial-label">WEEKLY CURATION</span>
-      <h2 id="daily-headline">Loading this week's featured story...</h2>
-      <div id="daily-insight" class="editorial-analysis">
-        <p>Fetching analysis...</p>
-      </div>
-      <button id="readMoreBtn" class="read-more-btn" >Read More</button>
-    </div>
-  </div>
+  <div class="featured-reorder-wrapper">
 
-  <main class="category-content">
-    <div id="bentoGridLarge" class="bento-grid-large"></div>
-    <div id="listGrid" class="list-grid"></div>
-  </main>
+    <div class="editorial-container">
+      <div class="editorial-inner">
+        <span class="editorial-label">WEEKLY CURATION</span>
+        <h2 id="daily-headline">Loading this week's featured story...</h2>
+        <div id="daily-insight" class="editorial-analysis">
+          <p>Fetching analysis...</p>
+        </div>
+        <button id="readMoreBtn" class="read-more-btn" >Read More</button>
+      </div>
+    </div>
+
+    <main class="category-content">
+      <div id="bentoGridLarge" class="bento-grid-large"></div>
+      <div id="listGrid" class="list-grid"></div>
+    </main>
+
+  </div>
 
   <footer class="site-footer">
     <div class="footer-content">
@@ -204,20 +208,14 @@
 
   <script>
     function toggleReadMore() {
-      var insight = document.getElementById('daily-insight');
-      var btn     = document.getElementById('readMoreBtn');
+      const insight = document.getElementById('daily-insight');
+      const btn     = document.getElementById('readMoreBtn');
+      /* .editorial-inner no longer has overflow:hidden so no class toggle needed */
       if (insight.classList.contains('expanded')) {
         insight.classList.remove('expanded');
-        /* Reset inline styles so CSS max-height:120px takes over again */
-        insight.style.maxHeight  = '';
-        insight.style.overflow   = '';
-        insight.style.webkitMaskImage = '';
         btn.textContent = 'Read More';
       } else {
         insight.classList.add('expanded');
-        /* Inline styles override all CSS including !important — fixes iOS Safari */
-        insight.style.maxHeight  = 'none';
-        insight.style.overflow   = 'visible';
         btn.textContent = 'Read Less';
       }
     }
