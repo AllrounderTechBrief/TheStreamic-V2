@@ -71,7 +71,7 @@ body {
 }
 
 .nav-logo {
-  display: none;  /* logo PNG already contains "The Streamic" text */
+   /* logo PNG already contains "The Streamic" text */
 }
 
 .nav-logo:hover {
