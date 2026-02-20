@@ -6,7 +6,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     
-    // Set default consent to 'denied' BEFORE loading gtag
     gtag('consent', 'default', {
       'ad_storage': 'denied',
       'ad_user_data': 'denied',
@@ -65,9 +64,24 @@
   </nav>
 
   <main>
-    <div class="category-content">
-      <div id="bentoGridLarge" class="bento-grid-large"></div>
-      <div id="listGrid" class="list-grid"></div>
+    <div class="featured-reorder-wrapper">
+      <!-- Weekly Curation Editorial Box -->
+      <div class="editorial-container">
+        <div class="editorial-inner">
+          <span class="editorial-label">Weekly Curation</span>
+          <h2 id="daily-headline">Loading this week's insights...</h2>
+          <div id="daily-insight" class="editorial-analysis">
+            <p>Analyzing the latest developments in broadcast technology...</p>
+          </div>
+          <button class="read-more-btn" id="readMoreBtn" onclick="toggleReadMore()">Read More</button>
+        </div>
+      </div>
+
+      <!-- Article Content -->
+      <div class="category-content">
+        <div id="bentoGridLarge" class="bento-grid-large"></div>
+        <div id="listGrid" class="list-grid"></div>
+      </div>
     </div>
   </main>
 
@@ -150,9 +164,6 @@
   <script>
     // ===== COOKIE CONSENT FUNCTIONS =====
     function acceptCookies() {
-      console.log('User accepted cookies');
-      
-      // Update Google Consent Mode
       if (typeof gtag === 'function') {
         gtag('consent', 'update', {
           'ad_storage': 'granted',
@@ -160,59 +171,48 @@
           'ad_personalization': 'granted',
           'analytics_storage': 'granted'
         });
-        console.log('Google consent updated to granted');
       }
-      
-      // Save user choice
       localStorage.setItem('cookieConsent', 'accepted');
-      
-      // Hide banner
       const banner = document.getElementById('cookieConsent');
-      if (banner) {
-        banner.style.display = 'none';
-      }
+      if (banner) banner.style.display = 'none';
     }
 
     function declineCookies() {
-      console.log('User declined cookies');
-      
-      // Keep consent as denied (default state)
       localStorage.setItem('cookieConsent', 'declined');
-      
-      // Hide banner
       const banner = document.getElementById('cookieConsent');
-      if (banner) {
-        banner.style.display = 'none';
-      }
+      if (banner) banner.style.display = 'none';
     }
 
-    // Check cookie consent status on page load
     (function() {
       const consent = localStorage.getItem('cookieConsent');
-      console.log('Cookie consent status:', consent);
-      
       if (!consent) {
-        // No choice made yet - show banner
         const banner = document.getElementById('cookieConsent');
-        if (banner) {
-          banner.style.display = 'block';
-          console.log('Showing cookie banner');
-        }
-      } else if (consent === 'accepted') {
-        // User previously accepted - update consent
-        if (typeof gtag === 'function') {
-          gtag('consent', 'update', {
-            'ad_storage': 'granted',
-            'ad_user_data': 'granted',
-            'ad_personalization': 'granted',
-            'analytics_storage': 'granted'
-          });
-          console.log('Restored accepted consent from localStorage');
-        }
-      } else {
-        console.log('User previously declined cookies');
+        if (banner) banner.style.display = 'block';
+      } else if (consent === 'accepted' && typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
       }
     })();
+
+    // ===== READ MORE TOGGLE =====
+    function toggleReadMore() {
+      const content = document.getElementById('daily-insight');
+      const btn = document.getElementById('readMoreBtn');
+      
+      if (content && btn) {
+        if (content.classList.contains('expanded')) {
+          content.classList.remove('expanded');
+          btn.textContent = 'Read More';
+        } else {
+          content.classList.add('expanded');
+          btn.textContent = 'Read Less';
+        }
+      }
+    }
 
     // ===== SUBSCRIBE MODAL FUNCTIONS =====
     function showSubscribeModal() {
@@ -233,9 +233,7 @@
 
     function handleSubscribe(event) {
       event.preventDefault();
-      
       const email = document.getElementById('subscribeEmail').value.trim();
-      
       if (!email.includes('@') || !email.includes('.')) {
         alert('Please enter a valid email address');
         return false;
@@ -261,11 +259,8 @@
       return false;
     }
 
-    // Close modal on ESC key
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeSubscribeModal();
-      }
+      if (e.key === 'Escape') closeSubscribeModal();
     });
 
     // ===== LOGO LOADING =====
@@ -276,10 +271,6 @@
       if (logoImg && logoContainer) {
         logoImg.addEventListener('load', function() {
           logoContainer.classList.add('logo-loaded');
-        });
-        
-        logoImg.addEventListener('error', function() {
-          console.log('Logo image failed to load, showing text fallback');
         });
         
         if (logoImg.complete) {
