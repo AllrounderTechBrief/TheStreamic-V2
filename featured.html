@@ -69,7 +69,7 @@
       <div id="daily-insight" class="editorial-analysis">
         <p>Fetching analysis...</p>
       </div>
-      <button id="readMoreBtn" class="read-more-btn" onclick="toggleReadMore()">Read More</button>
+      <button id="readMoreBtn" class="read-more-btn" >Read More</button>
     </div>
   </div>
 
@@ -205,18 +205,34 @@
   <script>
     function toggleReadMore() {
       const insight = document.getElementById('daily-insight');
-      const inner   = document.querySelector('.editorial-inner');
       const btn     = document.getElementById('readMoreBtn');
+      /* .editorial-inner no longer has overflow:hidden so no class toggle needed */
       if (insight.classList.contains('expanded')) {
         insight.classList.remove('expanded');
-        if (inner) inner.classList.remove('is-expanded');
         btn.textContent = 'Read More';
       } else {
         insight.classList.add('expanded');
-        if (inner) inner.classList.add('is-expanded');
         btn.textContent = 'Read Less';
       }
     }
+
+    /* Wire the button using both touch and click events.
+       touchstart + preventDefault stops the browser selecting nearby
+       text on mobile instead of firing the tap as a click. */
+    (function () {
+      var btn = document.getElementById('readMoreBtn');
+      if (!btn) return;
+      var tapped = false;
+      btn.addEventListener('touchstart', function (e) {
+        e.preventDefault();   // stops text-selection / callout menu
+        tapped = true;
+        toggleReadMore();
+      }, { passive: false });
+      btn.addEventListener('click', function () {
+        if (tapped) { tapped = false; return; } // already handled by touchstart
+        toggleReadMore();
+      });
+    }());
   </script>
 
 </body>
