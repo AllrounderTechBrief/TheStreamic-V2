@@ -204,14 +204,20 @@
 
   <script>
     function toggleReadMore() {
-      const insight = document.getElementById('daily-insight');
-      const btn     = document.getElementById('readMoreBtn');
-      /* .editorial-inner no longer has overflow:hidden so no class toggle needed */
+      var insight = document.getElementById('daily-insight');
+      var btn     = document.getElementById('readMoreBtn');
       if (insight.classList.contains('expanded')) {
         insight.classList.remove('expanded');
+        /* Reset inline styles so CSS max-height:120px takes over again */
+        insight.style.maxHeight  = '';
+        insight.style.overflow   = '';
+        insight.style.webkitMaskImage = '';
         btn.textContent = 'Read More';
       } else {
         insight.classList.add('expanded');
+        /* Inline styles override all CSS including !important — fixes iOS Safari */
+        insight.style.maxHeight  = 'none';
+        insight.style.overflow   = 'visible';
         btn.textContent = 'Read Less';
       }
     }
