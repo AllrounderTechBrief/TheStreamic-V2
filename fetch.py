@@ -29,18 +29,21 @@ MAX_ARTICLE_FETCHES = 8
 MIN_PER_CATEGORY = 18
 MIN_REQUIRED_EACH = 3
 MAX_NEWS_ITEMS = 300
+MAX_ITEMS_PER_SOURCE = 8  # Prevent any single source from dominating the feed
 
 # ===== DIRECT FETCH FEEDS (Bypass Cloudflare Worker) =====
 DIRECT_FEEDS = [
-    # Streaming category
+    # Streaming category - broadcast-focused
     'https://www.streamingmediablog.com/feed',
     'https://www.dacast.com/feed',
     'https://onthefly.stream/blog/feed',
     'https://yololiv.com/blog/feed',
+    'https://www.broadcastnow.co.uk/full-rss/',
+    'https://www.haivision.com/blog/feed/',
+    # General tech - lower priority, kept at bottom of streaming
     'https://techcrunch.com/feed',
     'https://www.engadget.com/rss.xml',
     'https://www.wired.com/feed/rss',
-    'https://www.broadcastnow.co.uk/full-rss/',
     # Infrastructure category - MAM/PAM
     'https://chesa.com/feed',
     'https://cloudinary.com/blog/feed',
@@ -55,6 +58,14 @@ DIRECT_FEEDS = [
     'https://www.inbroadcast.com/rss.xml',
     'https://www.imaginecommunications.com/news/rss.xml'
 ]
+
+# ===== LOW PRIORITY FEEDS (general tech, shown last, capped at fewer items) =====
+LOW_PRIORITY_FEEDS = [
+    'https://techcrunch.com/feed',
+    'https://www.engadget.com/rss.xml',
+    'https://www.wired.com/feed/rss',
+]
+MAX_ITEMS_LOW_PRIORITY = 3  # Max items from any low-priority general tech feed
 
 # ===== FEED GROUPS =====
 FEED_GROUPS = {
@@ -110,23 +121,31 @@ FEED_GROUPS = {
         'https://blog.frame.io/feed/'
     ],
     'streaming': [
+        # === PRIMARY: Broadcast & professional streaming sources ===
         'https://www.thebroadcastbridge.com/rss/streaming',
         'https://www.tvtechnology.com/streaming/rss.xml',
-        # Direct fetch streaming feeds
         'https://www.streamingmediablog.com/feed',
         'https://www.dacast.com/feed',
+        'https://www.broadcastnow.co.uk/full-rss/',
+        'https://www.haivision.com/blog/feed/',
         'https://onthefly.stream/blog/feed',
         'https://yololiv.com/blog/feed',
+        # === LOW PRIORITY: General tech (capped at MAX_ITEMS_LOW_PRIORITY each) ===
         'https://techcrunch.com/feed',
         'https://www.engadget.com/rss.xml',
         'https://www.wired.com/feed/rss',
-        'https://www.broadcastnow.co.uk/full-rss/'
     ],
-    'audio-ai': [
+    'ai-post-production': [
+        # === PRIMARY: Broadcast AI & post-production sources ===
+        'https://www.thebroadcastbridge.com/rss/ai',
+        'https://www.tvtechnology.com/ai/rss.xml',
         'https://www.thebroadcastbridge.com/rss/audio',
         'https://www.tvtechnology.com/audio/rss.xml',
-        'https://www.thebroadcastbridge.com/rss/ai',
-        'https://www.tvtechnology.com/ai/rss.xml'
+        'https://motionographer.com/feed/',
+        'https://blog.frame.io/feed/',
+        'https://www.broadcastbeat.com/feed/',
+        'https://www.provideocoalition.com/feed/',
+        'https://nofilmschool.com/rss',
     ]
 }
 
@@ -266,7 +285,7 @@ def extract_og_image(article_url, timeout=ARTICLE_FETCH_TIMEOUT):
     except:
         return None
 
-def process_entries(entries, category, source_name):
+def process_entries(entries, category, source_name, feed_url=''):
     """Process feed entries into standardized items"""
     items = []
     article_fetch_count = 0
@@ -313,7 +332,8 @@ def process_entries(entries, category, source_name):
                 'source': source_name,
                 'image': image,
                 'pubDate': pub_date,
-                'timestamp': int(time.time())
+                'timestamp': int(time.time()),
+                '_low_priority': feed_url in LOW_PRIORITY_FEEDS
             })
             
         except Exception as e:
@@ -366,6 +386,12 @@ def get_source_name(feed_url):
         return 'Google Cloud'
     elif 'microsoft.com' in feed_url:
         return 'Microsoft Security'
+    elif 'haivision' in feed_url:
+        return 'Haivision'
+    elif 'provideocoalition' in feed_url:
+        return 'Pro Video Coalition'
+    elif 'nofilmschool' in feed_url:
+        return 'No Film School'
     elif 'streamingmediablog' in feed_url:
         return 'Streaming Media Blog'
     elif 'dacast' in feed_url:
@@ -435,7 +461,7 @@ def deduplicate_by_guid(items):
     return unique_items
 
 def balance_categories(all_items):
-    """Balance items across categories"""
+    """Balance items across categories, with per-source cap to prevent domination"""
     all_items = deduplicate_by_guid(all_items)
     
     category_items = {}
@@ -454,7 +480,17 @@ def balance_categories(all_items):
     
     balanced = []
     for cat, items in category_items.items():
-        balanced.extend(items[:MIN_PER_CATEGORY])
+        # Apply per-source cap within each category
+        source_counts = {}
+        capped_items = []
+        for item in items:
+            src = item.get('source', '')
+            limit = MAX_ITEMS_LOW_PRIORITY if item.get('_low_priority') else MAX_ITEMS_PER_SOURCE
+            src_count = source_counts.get(src, 0)
+            if src_count < limit:
+                capped_items.append(item)
+                source_counts[src] = src_count + 1
+        balanced.extend(capped_items[:MIN_PER_CATEGORY])
     
     balanced.sort(key=lambda x: x.get('pubDate', ''), reverse=True)
     
@@ -491,7 +527,7 @@ def main():
                 entries = feed.entries[:MAX_ITEMS_PER_FEED]
                 source_name = get_source_name(feed_url)
                 
-                items = process_entries(entries, category, source_name)
+                items = process_entries(entries, category, source_name, feed_url)
                 all_items.extend(items)
                 
                 print(f"  ✓ {source_name}: {len(items)} items")
