@@ -33,8 +33,10 @@ MAX_ITEMS_PER_SOURCE = 8  # Prevent any single source from dominating the feed
 
 # ===== DIRECT FETCH FEEDS (Bypass Cloudflare Worker) =====
 DIRECT_FEEDS = [
-    # Streaming & encoding vendors
+    # Streaming & encoding vendors (direct fetch — bypass worker)
     'https://www.streamingmediablog.com/feed',
+    'https://feeds.feedburner.com/StreamingMediaEurope',
+    'https://www.streaminglearningcenter.com/rss.xml',
     'https://www.dacast.com/feed',
     'https://onthefly.stream/blog/feed',
     'https://yololiv.com/blog/feed',
@@ -43,6 +45,10 @@ DIRECT_FEEDS = [
     'https://mux.com/blog/feed/',
     'https://www.limelight.com/resources/blog/feed/',
     'https://www.jwplayer.com/blog/feed/',
+    'https://www.telestream.net/blog/rss.xml',
+    'https://bitmovin.com/blog/feed/',
+    'https://www.brightcove.com/en/blog/rss/',
+    'https://kaltura.com/blog/feed/',
     # Playout vendors
     'https://www.pebble.tv/feed/',
     'https://www.playboxtechnology.com/feed/',
@@ -66,19 +72,12 @@ DIRECT_FEEDS = [
     # Industry news
     'https://www.tvbeurope.com/feed/',
     'https://www.digitaltvnews.net/?feed=rss2',
-    # General tech - LOW PRIORITY, capped
-    'https://techcrunch.com/feed',
-    'https://www.engadget.com/rss.xml',
-    'https://www.wired.com/feed/rss',
+    # General tech removed — not relevant to broadcast / streaming technology
 ]
 
-# ===== LOW PRIORITY FEEDS (general tech, shown last, capped at fewer items) =====
-LOW_PRIORITY_FEEDS = [
-    'https://techcrunch.com/feed',
-    'https://www.engadget.com/rss.xml',
-    'https://www.wired.com/feed/rss',
-]
-MAX_ITEMS_LOW_PRIORITY = 3  # Max items from any low-priority general tech feed
+# ===== LOW PRIORITY FEEDS (none currently — general tech removed from all categories) =====
+LOW_PRIORITY_FEEDS = []
+MAX_ITEMS_LOW_PRIORITY = 3  # Reserved for future use
 
 # Featured page: rotate through these categories in order to build the top 10
 FEATURED_ROTATION = ['playout', 'infrastructure', 'ai-post-production', 'cloud']
@@ -154,24 +153,30 @@ FEED_GROUPS = {
         'https://www.newscaststudio.com/feed/',
     ],
     'streaming': [
-        # === PRIMARY: Specialist streaming & encoding vendors (confirmed working) ===
-        'https://www.streamingmediablog.com/feed',     # Streaming Media Blog
-        'https://www.haivision.com/blog/feed/',         # Haivision
-        'https://www.wowza.com/blog/feed/',             # Wowza
-        'https://mux.com/blog/feed/',                   # Mux video infra
-        'https://www.limelight.com/resources/blog/feed/', # Limelight/Edgio CDN
-        'https://www.jwplayer.com/blog/feed/',          # JW Player
-        'https://www.dacast.com/feed',                  # DaCast
-        'https://onthefly.stream/blog/feed',            # OnTheFly
-        'https://yololiv.com/blog/feed',                # YoloLiv
-        # Broadcast streaming trade press
+        # === TIER 1: Specialist streaming & video technology press ===
+        'https://www.streamingmediablog.com/feed',          # Streaming Media Blog — primary source
+        'https://feeds.feedburner.com/StreamingMediaEurope', # Streaming Media Europe
+        'https://www.streaminglearningcenter.com/rss.xml',  # Streaming Learning Center (Jan Ozer)
+        # === TIER 2: Encoding, transcoding & CDN vendors ===
+        'https://www.haivision.com/blog/feed/',             # Haivision (confirmed working)
+        'https://www.wowza.com/blog/feed/',                 # Wowza (confirmed working)
+        'https://mux.com/blog/feed/',                       # Mux (confirmed working)
+        'https://www.limelight.com/resources/blog/feed/',   # Limelight/Edgio CDN
+        'https://www.jwplayer.com/blog/feed/',              # JW Player
+        'https://www.telestream.net/blog/rss.xml',          # Telestream (Vantage/Wirecast)
+        'https://bitmovin.com/blog/feed/',                  # Bitmovin encoding/player
+        'https://www.brightcove.com/en/blog/rss/',          # Brightcove
+        'https://kaltura.com/blog/feed/',                   # Kaltura video platform
+        'https://aws.amazon.com/blogs/media/feed/',         # AWS Elemental / MediaLive
+        # === TIER 3: Live streaming platforms ===
+        'https://www.dacast.com/feed',                      # DaCast (confirmed working)
+        'https://onthefly.stream/blog/feed',                # OnTheFly (confirmed working)
+        'https://yololiv.com/blog/feed',                    # YoloLiv (confirmed working)
+        # === TIER 4: Broadcast streaming trade press ===
         'https://www.tvtechnology.com/news/rss.xml',
         'https://www.tvbeurope.com/feed/',
         'https://www.digitaltvnews.net/?feed=rss2',
-        # === LOW PRIORITY: General tech (capped at MAX_ITEMS_LOW_PRIORITY each) ===
-        'https://techcrunch.com/feed',
-        'https://www.engadget.com/rss.xml',
-        'https://www.wired.com/feed/rss',
+        # NOTE: TechCrunch / Engadget / Wired REMOVED from streaming — not streaming tech
     ],
     'ai-post-production': [
         # === PRIMARY: Specialist post-production & AI press (confirmed working) ===
@@ -531,6 +536,16 @@ def get_source_name(feed_url):
         return 'Videomaker'
     elif 'cloudflare' in feed_url:
         return 'Cloudflare'
+    elif 'telestream' in feed_url:
+        return 'Telestream'
+    elif 'brightcove' in feed_url:
+        return 'Brightcove'
+    elif 'kaltura' in feed_url:
+        return 'Kaltura'
+    elif 'streaminglearningcenter' in feed_url:
+        return 'Streaming Learning Center'
+    elif 'StreamingMediaEurope' in feed_url or 'streamingeuro' in feed_url.lower():
+        return 'Streaming Media Europe'
     else:
         return 'Technology News'
 
