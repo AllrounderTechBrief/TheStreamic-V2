@@ -204,25 +204,55 @@
     return out;
   }
 
+  // Legacy kept for reference (no longer used for category pages)
   function smartSort(items) {
-    // First, sort by pubDate (newest first)
     items.sort((a, b) => {
       const dateA = a.pubDate ? new Date(a.pubDate) : new Date(a.timestamp * 1000);
       const dateB = b.pubDate ? new Date(b.pubDate) : new Date(b.timestamp * 1000);
-      return dateB - dateA; // Newest first
+      return dateB - dateA;
     });
-
-    // Then prioritize items with images
     const withImages = items.filter(it => isValidImageUrl(it.image));
     const withoutImages = items.filter(it => !isValidImageUrl(it.image));
-
-    // Dynamic per-source cap: scale up when few sources exist
-    // e.g. 1 source with 10 items → cap=10; 3 sources → cap=6 (minimum)
     const uniqueSources = new Set(items.map(it => (it.source || '').trim().toLowerCase())).size;
     const dynamicCap = Math.max(6, Math.ceil(items.length / Math.max(uniqueSources, 1)));
     const diversified = capPerSource(withImages, dynamicCap);
-
     return [...diversified, ...withoutImages];
+  }
+
+  /**
+   * interleaveBySource — round-robin across sources so no single publisher
+   * dominates the top of a category page (e.g. Vizrt in Graphics).
+   * Each source bucket is sorted newest-first internally.
+   */
+  function interleaveBySource(items) {
+    // Group into source buckets, preserving insertion order
+    const buckets = new Map();
+    items.forEach(item => {
+      const src = (item.source || 'unknown').trim();
+      if (!buckets.has(src)) buckets.set(src, []);
+      buckets.get(src).push(item);
+    });
+
+    // Sort each bucket newest-first
+    buckets.forEach(bucket => {
+      bucket.sort((a, b) => {
+        const da = a.pubDate ? new Date(a.pubDate) : new Date(a.timestamp * 1000);
+        const db = b.pubDate ? new Date(b.pubDate) : new Date(b.timestamp * 1000);
+        return db - da;
+      });
+    });
+
+    // Round-robin: take one from each source in turn
+    const sources = [...buckets.keys()];
+    const result = [];
+    const maxLen = Math.max(...sources.map(s => buckets.get(s).length));
+    for (let i = 0; i < maxLen; i++) {
+      for (const src of sources) {
+        const bucket = buckets.get(src);
+        if (i < bucket.length) result.push(bucket[i]);
+      }
+    }
+    return result;
   }
 
   // -------------------------------------------
@@ -393,9 +423,9 @@
           return;
         }
         
-        // For non-featured pages, apply smart sort
+        // For non-featured pages, interleave by source so no single publisher dominates
         // For featured, we already have the order we want (priority + sorted rest)
-        allItems = (cat === 'featured' || !cat) ? filtered : smartSort(filtered);
+        allItems = (cat === 'featured' || !cat) ? filtered : interleaveBySource(filtered);
         
         largeGrid.innerHTML = '';
         renderNextBatch();
