@@ -278,34 +278,54 @@
     throw new Error('Invalid JSON shape');
   }
 
+  // Sources that are general consumer/tech press — never shown on specialist pages.
+  // Client-side safety net so stale news.json data cannot pollute category pages.
+  const BLOCKED_SOURCES_BY_CATEGORY = {
+    'streaming':          ['techcrunch', 'engadget', 'wired'],
+    'infrastructure':     ['techcrunch', 'engadget', 'wired'],
+    'cloud':              ['techcrunch', 'engadget', 'wired'],
+    'ai-post-production': ['techcrunch', 'engadget', 'wired'],
+    'playout':            ['techcrunch', 'engadget', 'wired'],
+    'graphics':           ['techcrunch', 'engadget', 'wired'],
+    'newsroom':           ['techcrunch', 'engadget', 'wired'],
+  };
+
   function filterByCategory(items, category) {
     const cat = (category || '').trim().toLowerCase();
 
     // FEATURED or empty => show everything (homepage / featured landing)
     if (!cat || cat === 'featured') return items;
 
-    // 🔁 New category name
+    // Block general-tech sources from every specialist category
+    const blocked = BLOCKED_SOURCES_BY_CATEGORY[cat] || [];
+    const notBlocked = it => !blocked.includes((it.source || '').trim().toLowerCase());
+
+    // ai-post-production
     if (cat === 'ai-post-production') {
-      return items.filter(it => (it.category || '').toLowerCase() === 'ai-post-production');
+      return items.filter(it =>
+        (it.category || '').toLowerCase() === 'ai-post-production' && notBlocked(it)
+      );
     }
 
-    // Handle cloud-production and cloud alias
+    // cloud-production / cloud alias
     if (cat === 'cloud-production' || cat === 'cloud') {
       return items.filter(it => {
         const c = (it.category || '').toLowerCase();
-        return c === 'cloud' || c === 'cloud-production';
+        return (c === 'cloud' || c === 'cloud-production') && notBlocked(it);
       });
     }
 
-    // Handle infrastructure (includes security feeds)
+    // infrastructure
     if (cat === 'infrastructure') {
       return items.filter(it => {
         const c = (it.category || '').toLowerCase();
-        return c === 'infrastructure' || c === 'security';
+        return (c === 'infrastructure' || c === 'security') && notBlocked(it);
       });
     }
 
-    return items.filter(it => (it.category || '').toLowerCase() === cat);
+    return items.filter(it =>
+      (it.category || '').toLowerCase() === cat && notBlocked(it)
+    );
   }
 
   // -------------------------------------------
