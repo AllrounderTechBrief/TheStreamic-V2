@@ -84,6 +84,10 @@ LOW_PRIORITY_FEEDS = [
 ]
 MAX_ITEMS_LOW_PRIORITY = 3  # Max items from any low-priority general tech feed
 
+# Featured page: rotate through these categories in order to build the top 10
+FEATURED_ROTATION = ['playout', 'infrastructure', 'ai-post-production', 'cloud']
+FEATURED_PRIORITY_COUNT = 10  # How many items to pin at the top of featured
+
 # ===== FEED GROUPS =====
 FEED_GROUPS = {
     'newsroom': [
@@ -541,6 +545,74 @@ def get_source_name(feed_url):
     else:
         return 'Technology News'
 
+def interleave_by_source(items):
+    """Round-robin interleave items by source so no single source dominates the top.
+    Each source's items are sorted newest-first internally."""
+    from collections import OrderedDict
+
+    buckets = OrderedDict()
+    for item in items:
+        src = item.get('source', 'unknown')
+        if src not in buckets:
+            buckets[src] = []
+        buckets[src].append(item)
+
+    # Sort each bucket newest-first
+    for src in buckets:
+        buckets[src].sort(key=lambda x: x.get('pubDate', ''), reverse=True)
+
+    result = []
+    max_len = max((len(v) for v in buckets.values()), default=0)
+    for i in range(max_len):
+        for src, bucket in buckets.items():
+            if i < len(bucket):
+                result.append(bucket[i])
+    return result
+
+
+def generate_featured_priority(category_items):
+    """Build the featured top-10 by rotating through FEATURED_ROTATION categories.
+    Takes the freshest available item from each category in turn until count reached."""
+    # Build sorted pools for each rotation category (prefer items with images)
+    pools = {}
+    for cat in FEATURED_ROTATION:
+        all_cat = sorted(
+            category_items.get(cat, []),
+            key=lambda x: x.get('pubDate', ''),
+            reverse=True
+        )
+        with_img = [it for it in all_cat if it.get('image')]
+        pools[cat] = with_img if with_img else all_cat
+
+    pointers = {cat: 0 for cat in FEATURED_ROTATION}
+    seen_guids = set()
+    featured = []
+
+    while len(featured) < FEATURED_PRIORITY_COUNT:
+        made_progress = False
+        for cat in FEATURED_ROTATION:
+            if len(featured) >= FEATURED_PRIORITY_COUNT:
+                break
+            pool = pools[cat]
+            ptr = pointers[cat]
+            while ptr < len(pool):
+                item = pool[ptr]
+                ptr += 1
+                guid = item.get('guid') or item.get('link', '')
+                if guid not in seen_guids:
+                    featured.append(item)
+                    seen_guids.add(guid)
+                    made_progress = True
+                    break
+            pointers[cat] = ptr
+        if not made_progress:
+            break  # All pools exhausted before reaching count
+
+    print(f"  ⭐ Featured priority: {len(featured)} items "
+          f"({', '.join(it['category'] for it in featured[:4])}…)")
+    return featured
+
+
 def validate_news_data(items):
     """Validate that we have minimum items per category"""
     category_counts = {}
@@ -577,40 +649,49 @@ def deduplicate_by_guid(items):
     return unique_items
 
 def balance_categories(all_items):
-    """Balance items across categories, with per-source cap to prevent domination"""
+    """Balance items across categories, interleaved by source within each category.
+    Returns (balanced_list, category_items_dict) for downstream use."""
     all_items = deduplicate_by_guid(all_items)
-    
+
+    # Strip internal flag before saving
+    for item in all_items:
+        item.pop('_low_priority', None)
+
     category_items = {}
-    
     for item in all_items:
         cat = item['category']
         if cat not in category_items:
             category_items[cat] = []
         category_items[cat].append(item)
-    
-    for cat in category_items:
-        category_items[cat].sort(
-            key=lambda x: x.get('pubDate', ''),
-            reverse=True
-        )
-    
+
+    # Sort each category newest-first, apply per-source cap, then interleave by source
     balanced = []
     for cat, items in category_items.items():
-        # Apply per-source cap within each category
+        items.sort(key=lambda x: x.get('pubDate', ''), reverse=True)
+
+        # Per-source cap (low-priority items already have _low_priority stripped; use source cap)
         source_counts = {}
-        capped_items = []
+        capped = []
         for item in items:
             src = item.get('source', '')
-            limit = MAX_ITEMS_LOW_PRIORITY if item.get('_low_priority') else MAX_ITEMS_PER_SOURCE
-            src_count = source_counts.get(src, 0)
-            if src_count < limit:
-                capped_items.append(item)
-                source_counts[src] = src_count + 1
-        balanced.extend(capped_items[:MIN_PER_CATEGORY])
-    
+            limit = MAX_ITEMS_PER_SOURCE
+            if source_counts.get(src, 0) < limit:
+                capped.append(item)
+                source_counts[src] = source_counts.get(src, 0) + 1
+
+        capped = capped[:MIN_PER_CATEGORY]
+
+        # Interleave by source so no single vendor dominates the top
+        interleaved = interleave_by_source(capped)
+
+        # Update category_items with the capped+interleaved list for featured generation
+        category_items[cat] = interleaved
+        balanced.extend(interleaved)
+
+    # Global sort newest-first for non-featured category pages
     balanced.sort(key=lambda x: x.get('pubDate', ''), reverse=True)
-    
-    return balanced[:MAX_NEWS_ITEMS]
+
+    return balanced[:MAX_NEWS_ITEMS], category_items
 
 def save_json_atomically(data, filepath):
     """Save JSON file atomically"""
@@ -658,9 +739,13 @@ def main():
         print("❌ No items collected. Exiting.")
         return
     
-    balanced_items = balance_categories(all_items)
+    balanced_items, category_items = balance_categories(all_items)
     
     print(f"⚖️  Balanced to: {len(balanced_items)} items")
+
+    # Generate featured priority: top 10 rotating Playout → Infra → AI/Post → Cloud
+    print("\n⭐ Building featured priority rotation…")
+    featured_priority = generate_featured_priority(category_items)
     
     validation_passed = validate_news_data(balanced_items)
     
@@ -677,9 +762,13 @@ def main():
         if not validation_passed:
             print("\n⚠️  Validation failed but no existing file. Saving anyway.")
     
-    save_json_atomically(balanced_items, OUTPUT_FILE)
+    output_data = {
+        'featured_priority': featured_priority,
+        'items': balanced_items
+    }
+    save_json_atomically(output_data, OUTPUT_FILE)
     
-    print(f"✅ Saved {len(balanced_items)} items to {OUTPUT_FILE}")
+    print(f"✅ Saved {len(balanced_items)} items + {len(featured_priority)} featured priority to {OUTPUT_FILE}")
     print("\n🎉 Aggregation complete!")
 
 if __name__ == "__main__":
