@@ -9,6 +9,8 @@
     gtag("js", new Date());
     gtag("config", "G-0VSHDN3ZR6");
   </script>
+
+  <!-- Default consent (blocked until user accepts) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -19,10 +21,14 @@
       'analytics_storage': 'denied'
     });
   </script>
+
+  <!-- AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8033069131874524" crossorigin="anonymous"></script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Editor's Desk - The Streamic</title>
+
   <link rel="stylesheet" href="style.css">
   <style>
     .article-header {
@@ -30,7 +36,6 @@
       padding-left: 24px;
       margin-bottom: 40px;
     }
-    
     .article-date {
       font-size: 14px;
       color: var(--slate-gray);
@@ -38,7 +43,6 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-    
     .article-title {
       font-size: 42px;
       font-weight: 700;
@@ -46,7 +50,6 @@
       margin-bottom: 16px;
       color: var(--deep-black);
     }
-    
     .article-intro {
       font-size: 19px;
       line-height: 1.6;
@@ -54,11 +57,9 @@
       margin-bottom: 40px;
       font-style: italic;
     }
-    
     .trend-section {
       margin-bottom: 48px;
     }
-    
     .trend-number {
       display: inline-block;
       width: 40px;
@@ -74,7 +75,6 @@
       float: left;
       margin-top: 4px;
     }
-    
     .trend-title {
       font-size: 28px;
       font-weight: 700;
@@ -82,14 +82,12 @@
       color: var(--deep-black);
       overflow: hidden;
     }
-    
     .trend-content {
       font-size: 17px;
       line-height: 1.7;
       color: #424245;
       clear: both;
     }
-    
     .closing-note {
       background: var(--light-bg);
       padding: 32px;
@@ -97,23 +95,31 @@
       margin-top: 48px;
       border-left: 4px solid var(--gold-accent);
     }
-    
     .closing-note p {
       font-size: 17px;
       line-height: 1.6;
       color: #424245;
       margin: 0;
     }
-    
+    /* Optional: teaser styling */
+    .post-teaser {
+      margin: 40px 0 0;
+    }
+    .post-teaser h2 a {
+      color: var(--deep-black);
+      text-decoration: none;
+    }
+    .post-teaser h2 a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 768px) {
       .article-title {
         font-size: 32px;
       }
-      
       .trend-title {
         font-size: 24px;
       }
-      
       .trend-number {
         width: 36px;
         height: 36px;
@@ -138,13 +144,16 @@
         <li><a href="graphics.html">GRAPHICS</a></li>
         <li><a href="cloud.html">CLOUD PRODUCTION</a></li>
         <li><a href="streaming.html">STREAMING</a></li>
-        <li><a href="ai-post-production.html">AI & POST-PRODUCTION</a></li>
+        <li><a href="ai-post-production.html">AI &amp; POST-PRODUCTION</a></li>
         <li><a href="playout.html">PLAYOUT</a></li>
       </ul>
     </div>
   </nav>
 
-<div class="vlog-container" style="max-width: 980px; margin: 0 auto; padding: 0 24px;">
+  <!-- CONTENT CONTAINER -->
+  <div class="vlog-container" style="max-width: 980px; margin: 0 auto; padding: 0 24px;">
+
+    <!-- ARTICLE #1 -->
     <div class="article-header">
       <p class="article-date">February 10, 2026 • Editor's Desk</p>
       <h1 class="article-title">The Future of TV: 4 Trends Changing How We Watch</h1>
@@ -199,12 +208,17 @@
       <p><strong>Looking Ahead:</strong> These four trends aren't isolated developments—they're interconnected pieces of a larger transformation. As operational AI makes content more discoverable, IP-native workflows make production more flexible, hybrid cloud architectures make it all scalable, and content authentication ensures it stays trustworthy, we're witnessing the emergence of a fundamentally new broadcast paradigm. The future of TV isn't just about new technology; it's about reimagining what's possible.</p>
     </div>
 
-  </div>
-<div style="margin:40px 0;">
-    <h2><a href="post-ai-sports.html">5 Ways AI is Transforming Live Sports Broadcasting</a></h2>
-    <p>How automation and intelligent cameras are reshaping sports production in 2026...</p>
-</div>
+    <!-- VISUAL SEPARATOR BEFORE TEASERS -->
+    <hr style="margin: 60px 0; border: 0; border-top: 1px solid #ddd;">
+
+    <!-- TEASERS / LINKS TO OTHER POSTS (INSIDE vlog-container) -->
+    <div class="post-teaser">
+      <h2><a href="post-ai-sports.html">5 Ways AI is Transforming Live Sports Broadcasting</a></h2>
+      <p>How automation and intelligent cameras are reshaping sports production in 2026...</p>
+    </div>
+
   </div>  <!-- END of vlog-container -->
+
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-links">
@@ -254,7 +268,9 @@
       }
     });
 
-    document.querySelector('.nav-toggle')?.addEventListener('click', () => document.querySelector('.nav-links').classList.toggle('active'));
+    document.querySelector('.nav-toggle')?.addEventListener('click', () => 
+      document.querySelector('.nav-links').classList.toggle('active')
+    );
   </script>
 </body>
 </html>
