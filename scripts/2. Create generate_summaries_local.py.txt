@@ -1,0 +1,43 @@
+import os
+import json
+import subprocess
+
+ARTICLES_DIR = "articles"
+SUMMARIES_DIR = "data/summaries"
+
+os.makedirs(SUMMARIES_DIR, exist_ok=True)
+
+def run_llm(prompt):
+    result = subprocess.run(
+        ["ollama", "run", "mistral"],
+        input=prompt.encode("utf-8"),
+        stdout=subprocess.PIPE
+    )
+    return result.stdout.decode("utf-8")
+
+for filename in os.listdir(ARTICLES_DIR):
+    if not filename.endswith(".md"):
+        continue
+
+    slug = filename.replace(".md", "")
+    summary_path = f"{SUMMARIES_DIR}/{slug}.json"
+
+    # Skip if summary already exists
+    if os.path.exists(summary_path):
+        continue
+
+    with open(f"{ARTICLES_DIR}/{filename}", "r", encoding="utf-8") as f:
+        article = f.read()
+
+    prompt = f"""
+Rewrite this article into a detailed, human-like summary:
+
+{article}
+"""
+
+    summary = run_llm(prompt).strip()
+
+    with open(summary_path, "w", encoding="utf-8") as f:
+        json.dump({"slug": slug, "summary": summary}, f, indent=2)
+
+    print(f"Generated summary for {slug}")
