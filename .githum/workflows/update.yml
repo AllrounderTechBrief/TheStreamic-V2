@@ -4,13 +4,6 @@ on:
   schedule:
     - cron: "0 */6 * * *"
   workflow_dispatch:
-    inputs:
-      rewrite_only:
-        description: "Run RSS rewrite + build only (skip deep-dive generation)"
-        required: false
-        default: "false"
-        type: choice
-        options: ["false", "true"]
 
 permissions:
   contents: write
@@ -20,7 +13,7 @@ env:
 
 jobs:
   build:
-    name: Fetch + Rewrite + Build Site
+    name: Fetch RSS + Generate Originals + Build Site
     runs-on: ubuntu-latest
 
     steps:
@@ -40,18 +33,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install feedparser beautifulsoup4 python-slugify jinja2 requests
 
-      - name: Fetch RSS metadata (skip on rewrite_only)
-        if: github.event.inputs.rewrite_only != 'true'
+      - name: Fetch RSS metadata
         run: python scripts/fetch_rss.py
 
-      - name: Generate original articles — deterministic templates
-        if: github.event.inputs.rewrite_only != 'true'
+      - name: Generate original articles (deterministic, no LLM)
         run: python scripts/generate_originals.py
 
-      - name: Rewrite RSS → 300-word cards + full article pages
-        run: python scripts/rewrite_feed.py
-
-      - name: Build site (category pages + articles + sitemap)
+      - name: Build site
         run: python scripts/build.py
 
       - name: Verify build output
@@ -59,16 +47,14 @@ jobs:
           test -f docs/index.html     || (echo "ERROR: docs/index.html missing"  && exit 1)
           test -f docs/streaming.html || (echo "ERROR: streaming.html missing"   && exit 1)
           test -f docs/sitemap.xml    || (echo "ERROR: sitemap.xml missing"      && exit 1)
-          echo "Article pages : $(find docs/articles -name '*.html' 2>/dev/null | wc -l)"
+          echo "Article count : $(find docs/articles -name '*.html' 2>/dev/null | wc -l)"
           echo "Category pages: $(find docs -maxdepth 1 -name '*.html' | wc -l)"
 
       - name: Commit site
         run: |
           git config user.name  "Streamic Bot"
-          git config user.email "technodate3@gmail.com"
+          git config user.email "bot@thestreamic.in"
           git add docs/ data/*.json || true
-          git add *.html *.xml *.txt style.css main.js CNAME .nojekyll 2>/dev/null || true
-          git add articles/ assets/ 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes."
           else
