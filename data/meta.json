@@ -1,0 +1,65 @@
+{
+  "Home": {
+    "title": "The Streamic — Broadcast & Streaming Technology News",
+    "description": "Independent broadcast and streaming technology publication. Expert coverage of ST 2110, cloud production, OTT, AI post-production, graphics, playout, and newsroom technology.",
+    "h1": "The Streamic",
+    "h2": "Independent Broadcast & Streaming Technology News",
+    "slug": "featured"
+  },
+  "Featured": {
+    "title": "Featured — The Streamic",
+    "description": "Featured broadcast and streaming technology stories from The Streamic editorial team.",
+    "h1": "Featured Stories",
+    "h2": "Top broadcast and streaming technology coverage",
+    "slug": "featured"
+  },
+  "Streaming": {
+    "title": "Streaming Technology News — The Streamic",
+    "description": "OTT, IPTV, ABR, low-latency streaming, CDN delivery, and video platform news for broadcast professionals.",
+    "h1": "Streaming Technology",
+    "h2": "OTT, CDN, and low-latency delivery news",
+    "slug": "streaming"
+  },
+  "Cloud Production": {
+    "title": "Cloud Production News — The Streamic",
+    "description": "Cloud-native broadcast, remote production, REMI workflows, and cloud playout news for media professionals.",
+    "h1": "Cloud Production",
+    "h2": "Cloud-native and remote production workflows",
+    "slug": "cloud"
+  },
+  "AI & Post-Production": {
+    "title": "AI & Post-Production — The Streamic",
+    "description": "AI-driven editing, automated workflows, MAM, colour grading, and post-production technology for broadcast.",
+    "h1": "AI & Post-Production",
+    "h2": "AI-driven editing and post-production workflows",
+    "slug": "ai-post-production"
+  },
+  "Graphics": {
+    "title": "Broadcast Graphics News — The Streamic",
+    "description": "Real-time graphics, virtual sets, motion design, and broadcast visual technology news.",
+    "h1": "Graphics Technology",
+    "h2": "Real-time graphics and broadcast visual technology",
+    "slug": "graphics"
+  },
+  "Playout": {
+    "title": "Playout & Master Control News — The Streamic",
+    "description": "Channel-in-a-box, master control, broadcast automation, and playout technology news.",
+    "h1": "Playout Technology",
+    "h2": "Channel playout and broadcast automation",
+    "slug": "playout"
+  },
+  "Infrastructure": {
+    "title": "Broadcast Infrastructure News — The Streamic",
+    "description": "SMPTE ST 2110, IP routing, network infrastructure, storage, and broadcast facility technology.",
+    "h1": "Infrastructure",
+    "h2": "ST 2110, IP infrastructure, and broadcast networks",
+    "slug": "infrastructure"
+  },
+  "Newsroom": {
+    "title": "Newsroom Technology — The Streamic",
+    "description": "NRCS, news production, remote journalism, and newsroom technology for broadcast professionals.",
+    "h1": "Newsroom Technology",
+    "h2": "NRCS, news production, and newsroom workflows",
+    "slug": "newsroom"
+  }
+}

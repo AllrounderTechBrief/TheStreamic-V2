@@ -1,0 +1,49 @@
+diff --git a/fetch.py b/fetch.py
+index 1111111..2222222 100644
+--- a/fetch.py
++++ b/fetch.py
+@@ -145,6 +145,12 @@ FEED_GROUPS = {
+         'https://www.broadcastbeat.com/feed/',
+         'https://www.svgeurope.org/feed/',
+
++        # Added feeds (TV Technology full feed, RapidTVNews, TVNewsCheck)
++        'https://www.tvtechnology.com/.rss/full/',
++        'https://www.rapidtvnews.com/news.rss',
++        'https://tvnewscheck.com/feed/',
++
+     ],
+
+@@ -204,6 +210,10 @@ FEED_GROUPS = {
+         'https://openrss.org/https://bitmovin.com/blog/'
++
++        # Added: FierceVideo RSS
++        'https://www.fiercevideo.com/rss',
++
+     ],
+
+diff --git a/fetch.py b/fetch.py
+index 3333333..4444444 100644
+--- a/fetch.py
++++ b/fetch.py
+@@ -365,6 +365,20 @@ def process_entries(entries, category, source_name):
+             guid = entry.get('id', link)
+
++            # === Auto-summary (3 lines) ===
++            description = (entry.get('summary') or entry.get('description') or '').strip()
++            clean_desc = re.sub(r'\s+', ' ', description)
++            sentences = clean_desc.split('. ')
++            summary = '. '.join(sentences[:3]).strip()
++            if summary and not summary.endswith('.'):
++                summary += '.'
++
+             if not title or not link:
+                 continue
+
+@@ -412,6 +426,7 @@ def process_entries(entries, category, source_name):
+             items.append({
+                 'title': title,
+                 'link': link,
++                'summary': summary,
+                 'guid': guid,
+                 'category': category,
+                 'source': source_name,

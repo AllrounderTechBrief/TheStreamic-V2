@@ -1,0 +1,253 @@
+/* =========================================================
+   RESPONSIVE — MOBILE FIRST (overwrites above at breakpoints)
+========================================================= */
+
+/* ── nc-rich card (used in category pages + featured) ── */
+
+/* ── Pagination bar ─────────────────────────────────────────────── */
+.pag-bar {
+  display: flex; align-items: center; gap: 14px; justify-content: center;
+  padding: 24px 0 12px; margin-top: 8px;
+  border-top: 1px solid var(--border-color);
+}
+.pag-link {
+  padding: 8px 20px; border-radius: 8px; font-size: 13px; font-weight: 600;
+  background: var(--deep-black); color: #fff; text-decoration: none;
+  transition: background 0.15s;
+}
+.pag-link:hover { background: var(--apple-blue); }
+.pag-disabled { opacity: 0.35; pointer-events: none; }
+.pag-info { font-size: 12px; color: var(--slate-gray); }
+
+/* =============================================================
+   THE STREAMIC — NEW CARD DESIGN (TheTechBrief-inspired style)
+   Numbered cards, category badge, key-insight box, clean layout
+============================================================== */
+
+/* ── Grid ── */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+/* ── Card shell ── */
+.ts-card {
+  background: #fff;
+  border: 1px solid #e8e8ed;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+.ts-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  transform: translateY(-3px);
+}
+
+/* ── Card image ── */
+.ts-card-img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 180px;
+  flex-shrink: 0;
+}
+.ts-card-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.35s ease;
+}
+.ts-card:hover .ts-card-img-wrap img { transform: scale(1.04); }
+
+/* ── Card number badge ── */
+.ts-card-num {
+  position: absolute;
+  top: 10px; left: 10px;
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 11px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  letter-spacing: -0.3px;
+  z-index: 2;
+}
+
+/* ── Card body ── */
+.ts-card-body {
+  padding: 15px 16px 16px;
+  display: flex; flex-direction: column; flex: 1;
+}
+
+/* ── Category row: badge left, category name right ── */
+.ts-card-meta {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  margin-bottom: 9px;
+}
+.ts-card-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.6px;
+  color: #fff;
+  white-space: nowrap;
+}
+.ts-card-cat-name {
+  font-size: 11px; color: #86868b; font-weight: 500;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  max-width: 45%;
+  text-align: right;
+}
+
+/* ── Title ── */
+.ts-card-title {
+  font-family: Montserrat, sans-serif;
+  font-size: 14.5px; font-weight: 700;
+  line-height: 1.35; color: #1d1d1f;
+  margin-bottom: 9px;
+}
+.ts-card-title a {
+  color: inherit; text-decoration: none;
+}
+.ts-card-title a:hover { color: var(--apple-blue); }
+
+/* ── Summary (intro paragraph) ── */
+.ts-card-summary {
+  font-size: 12.5px; line-height: 1.6;
+  color: #444; margin-bottom: 11px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Key Insight box ── */
+.ts-card-insight {
+  background: #f0f6ff;
+  border-left: 3px solid var(--apple-blue);
+  border-radius: 0 6px 6px 0;
+  padding: 8px 11px;
+  margin-bottom: 11px;
+  font-size: 11.5px; line-height: 1.55;
+  color: #3a3a4a; font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ts-card-insight-label {
+  font-size: 9px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--apple-blue); font-style: normal;
+  display: block; margin-bottom: 3px;
+}
+
+/* ── Footer: read link + date ── */
+.ts-card-footer {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  margin-top: auto; padding-top: 9px;
+  border-top: 1px solid #f0f0f5;
+  font-size: 11px;
+}
+.ts-card-read {
+  color: var(--apple-blue); font-weight: 700;
+  text-decoration: none; font-size: 12px;
+  display: flex; align-items: center; gap: 4px;
+}
+.ts-card-read:hover { text-decoration: underline; }
+.ts-card-read svg {
+  width: 12px; height: 12px; fill: currentColor;
+}
+.ts-card-date { color: #86868b; font-size: 11px; }
+
+/* ── Streamic fallback placeholder ── */
+.ts-card-img-placeholder {
+  width: 100%; height: 180px;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8edf8 100%);
+  display: flex; align-items: center; justify-content: center;
+  color: #a0a8c0; font-size: 13px; font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* =============================================================
+   RESPONSIVE — MOBILE & TABLET
+============================================================== */
+
+/* ── Tablet (≤960px): 2-column grid ── */
+@media (max-width: 960px) {
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .page-wrap { padding: 0 16px; }
+  .bento-grid-large,
+  .card-container { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ── Mobile (≤600px): 1-column grid, compact cards ── */
+@media (max-width: 600px) {
+  .news-grid,
+  .bento-grid-large,
+  .card-container { grid-template-columns: 1fr !important; gap: 12px; }
+
+  .ts-card-img-wrap,
+  .ts-card-img-placeholder { height: 160px; }
+
+  .ts-card-body { padding: 12px 13px 13px; }
+
+  .ts-card-title { font-size: 14px; }
+
+  .ts-card-insight { display: none; } /* hide on mobile to keep cards compact */
+
+  .page-wrap { padding: 0 12px; }
+  .section-hdr h2 { font-size: 15px; }
+  .page-section { padding: 20px 0; }
+
+  /* Hero: stack vertically */
+  .ts-hero-inner {
+    grid-template-columns: 1fr;
+    height: auto;
+    max-height: none;
+  }
+  .ts-hero-img-wrap { height: 200px; max-height: 200px; }
+  .ts-hero-img-wrap img { height: 200px; max-height: 200px; }
+  .ts-hero-body { padding: 18px 14px 20px; }
+  .ts-hero-title { font-size: 17px; }
+  .ts-hero-dek { font-size: 13px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .ts-hero-eyebrow { font-size: 11px; }
+  .ts-hero-cta { font-size: 12px; padding: 8px 14px; }
+
+  /* Category pill bar scrolls horizontally */
+  .ts-catbar-inner { padding: 8px 12px; gap: 6px; }
+  .ts-cat-pill { font-size: 11px; padding: 5px 11px; }
+
+  /* Nav: mobile hamburger */
+  .nav-links { display: none; flex-direction: column; width: 100%;
+    background: var(--deep-black); position: absolute;
+    top: 60px; left: 0; right: 0; z-index: 999; }
+  .nav-links.nav-open { display: flex; }
+  .nav-links li a { padding: 12px 18px; font-size: 13px;
+    border-bottom: 1px solid rgba(255,255,255,.07); }
+  .nav-toggle { display: flex !important; }
+  .nav-inner { position: relative; }
+
+  /* Footer: single column */
+  .footer-inner { flex-direction: column; gap: 20px; }
+  .footer-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── Very small screens (≤400px) ── */
+@media (max-width: 400px) {
+  .ts-card-num { width: 22px; height: 22px; font-size: 9px; }
+  .ts-card-badge { font-size: 9px; padding: 2px 7px; }
+  .ts-card-title { font-size: 13px; }
+  .ts-card-summary { -webkit-line-clamp: 2; }
+  .ts-hero-title { font-size: 15px; }
+}
