@@ -184,6 +184,33 @@
   "graphics": [],
   "cloud": [
     {
+      "guid": "2cccdd3d39aa5c63",
+      "category": "cloud",
+      "title": "Caretta Research: Broadcasters Rebuild Live Operations Around IP as Satellite Use Declines",
+      "url": "https://www.broadcastbeat.com/caretta-research-broadcasters-rebuild-live-operations-around-ip-as-satellite-use-declines/",
+      "source": "broadcastbeat.com",
+      "published": "2026-03-20",
+      "teaser": "Broadcasters are rebuilding live operations workflows around IP delivery as satellite and dedicated fibre distribution decline, according to new research from Caretta Research produced in partnership with Zixi. The shift is already transforming live sports production. By moving c"
+    },
+    {
+      "guid": "a5b34273eee82005",
+      "category": "cloud",
+      "title": "Cine Gear Connect NY Ramps Up for March 28, ’26",
+      "url": "https://www.broadcastbeat.com/cine-gear-connect-brings-a-focused-all-day-experience-to-industry-city-ny-2/",
+      "source": "broadcastbeat.com",
+      "published": "2026-03-20",
+      "teaser": "Cine Gear Connect NY, presented by Universal Production Services, is filling in the slate for a full day of panels, peers, learning the latest, and mixing it up from breakfast to happy hour. Back at the fabulous Industry City in Brooklyn, the session lineup starts with ICG IATSE "
+    },
+    {
+      "guid": "540b27cc19415171",
+      "category": "cloud",
+      "title": "Glensound celebrates its diamond anniversary at NAB Show",
+      "url": "https://www.broadcastbeat.com/glensound-celebrates-its-diamond-anniversary-at-nab-show/",
+      "source": "broadcastbeat.com",
+      "published": "2026-03-20",
+      "teaser": "60 years of audio innovation, driven by the people who use it Glensound returns to the 2026 NAB Show (Booth C5311, Central Hall, Las Vegas Convention Center, 19–22 April) in its 60th anniversary year, bringing a range of networked audio solutions spanning broadcast, live events, "
+    },
+    {
       "guid": "2978d8fc9087ab7a",
       "category": "cloud",
       "title": "Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid",
@@ -290,33 +317,6 @@
       "source": "broadcastbeat.com",
       "published": "2026-03-19",
       "teaser": "Expanded partnership to power satellite-to-IP migration at scale LTN has expanded its technology partnership with Harmonic to support the anticipated volume of broadcast and cable networks preparing to navigate the realities associated with C-band spectrum scarcity as a result of"
-    },
-    {
-      "guid": "34761767138cc0a0",
-      "category": "cloud",
-      "title": "Pebble demonstrates partnerships, performance and future-ready playout at NAB Show",
-      "url": "https://www.broadcastbeat.com/pebble-demonstrates-partnerships-performance-and-future-ready-playout-at-nab-show/",
-      "source": "broadcastbeat.com",
-      "published": "2026-03-19",
-      "teaser": "Broadcast playout leader highlights innovation and industry collaboration Pebble, the leading automation, content management and integrated channel specialist, is bringing its feature-rich solutions to NAB Show (booth W2725, Las Vegas Convention Centre, 19 – 22 April 2026). The c"
-    },
-    {
-      "guid": "1aec4b6c9aaa0065",
-      "category": "cloud",
-      "title": "Tuxera showcases stunning performance with Fusion SMB and introduces Fusion NFS at NAB Show",
-      "url": "https://www.broadcastbeat.com/tuxera-showcases-stunning-performance-with-fusion-smb-and-introduces-fusion-nfs-at-nab-show/",
-      "source": "broadcastbeat.com",
-      "published": "2026-03-19",
-      "teaser": "Tuxera, a leading provider of quality-assured file systems and networking technologies, is highlighting remarkable advances in performance at NAB Show (booth N1660, Las Vegas Convention Centre, 19 – 22 April, 2026). Alongside the Tuxera Fusion SMB platform, giving media users unp"
-    },
-    {
-      "guid": "1d0b6fed234250ad",
-      "category": "cloud",
-      "title": "Magewell Connecting Any Source, Anywhere, in Any Form Factor at 2026 NAB Show in Stand C6113",
-      "url": "https://www.broadcastbeat.com/magewell-connecting-any-source-anywhere-in-any-form-factor-at-2026-nab-show-in-stand-c6113/",
-      "source": "broadcastbeat.com",
-      "published": "2026-03-19",
-      "teaser": "NANJING, China — March 19th, 2026: Magewell – a developer of innovative, high-performance video I/O and IP workflow solutions – will be at the 2026 NAB Show in stand C6113. In addition to several new product introductions, the company continues to create deep integrations with ne"
     }
   ],
   "streaming": [
@@ -413,6 +413,33 @@
   ],
   "playout": [
     {
+      "guid": "2cccdd3d39aa5c63",
+      "category": "playout",
+      "title": "Caretta Research: Broadcasters Rebuild Live Operations Around IP as Satellite Use Declines",
+      "url": "https://www.broadcastbeat.com/caretta-research-broadcasters-rebuild-live-operations-around-ip-as-satellite-use-declines/",
+      "source": "broadcastbeat.com",
+      "published": "2026-03-20",
+      "teaser": "Broadcasters are rebuilding live operations workflows around IP delivery as satellite and dedicated fibre distribution decline, according to new research from Caretta Research produced in partnership with Zixi. The shift is already transforming live sports production. By moving c"
+    },
+    {
+      "guid": "a5b34273eee82005",
+      "category": "playout",
+      "title": "Cine Gear Connect NY Ramps Up for March 28, ’26",
+      "url": "https://www.broadcastbeat.com/cine-gear-connect-brings-a-focused-all-day-experience-to-industry-city-ny-2/",
+      "source": "broadcastbeat.com",
+      "published": "2026-03-20",
+      "teaser": "Cine Gear Connect NY, presented by Universal Production Services, is filling in the slate for a full day of panels, peers, learning the latest, and mixing it up from breakfast to happy hour. Back at the fabulous Industry City in Brooklyn, the session lineup starts with ICG IATSE "
+    },
+    {
+      "guid": "540b27cc19415171",
+      "category": "playout",
+      "title": "Glensound celebrates its diamond anniversary at NAB Show",
+      "url": "https://www.broadcastbeat.com/glensound-celebrates-its-diamond-anniversary-at-nab-show/",
+      "source": "broadcastbeat.com",
+      "published": "2026-03-20",
+      "teaser": "60 years of audio innovation, driven by the people who use it Glensound returns to the 2026 NAB Show (Booth C5311, Central Hall, Las Vegas Convention Center, 19–22 April) in its 60th anniversary year, bringing a range of networked audio solutions spanning broadcast, live events, "
+    },
+    {
       "guid": "2978d8fc9087ab7a",
       "category": "playout",
       "title": "Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid",
@@ -519,37 +546,37 @@
       "source": "broadcastbeat.com",
       "published": "2026-03-19",
       "teaser": "Expanded partnership to power satellite-to-IP migration at scale LTN has expanded its technology partnership with Harmonic to support the anticipated volume of broadcast and cable networks preparing to navigate the realities associated with C-band spectrum scarcity as a result of"
-    },
-    {
-      "guid": "34761767138cc0a0",
-      "category": "playout",
-      "title": "Pebble demonstrates partnerships, performance and future-ready playout at NAB Show",
-      "url": "https://www.broadcastbeat.com/pebble-demonstrates-partnerships-performance-and-future-ready-playout-at-nab-show/",
-      "source": "broadcastbeat.com",
-      "published": "2026-03-19",
-      "teaser": "Broadcast playout leader highlights innovation and industry collaboration Pebble, the leading automation, content management and integrated channel specialist, is bringing its feature-rich solutions to NAB Show (booth W2725, Las Vegas Convention Centre, 19 – 22 April 2026). The c"
-    },
-    {
-      "guid": "1aec4b6c9aaa0065",
-      "category": "playout",
-      "title": "Tuxera showcases stunning performance with Fusion SMB and introduces Fusion NFS at NAB Show",
-      "url": "https://www.broadcastbeat.com/tuxera-showcases-stunning-performance-with-fusion-smb-and-introduces-fusion-nfs-at-nab-show/",
-      "source": "broadcastbeat.com",
-      "published": "2026-03-19",
-      "teaser": "Tuxera, a leading provider of quality-assured file systems and networking technologies, is highlighting remarkable advances in performance at NAB Show (booth N1660, Las Vegas Convention Centre, 19 – 22 April, 2026). Alongside the Tuxera Fusion SMB platform, giving media users unp"
-    },
-    {
-      "guid": "1d0b6fed234250ad",
-      "category": "playout",
-      "title": "Magewell Connecting Any Source, Anywhere, in Any Form Factor at 2026 NAB Show in Stand C6113",
-      "url": "https://www.broadcastbeat.com/magewell-connecting-any-source-anywhere-in-any-form-factor-at-2026-nab-show-in-stand-c6113/",
-      "source": "broadcastbeat.com",
-      "published": "2026-03-19",
-      "teaser": "NANJING, China — March 19th, 2026: Magewell – a developer of innovative, high-performance video I/O and IP workflow solutions – will be at the 2026 NAB Show in stand C6113. In addition to several new product introductions, the company continues to create deep integrations with ne"
     }
   ],
   "infrastructure": [
     {
+      "guid": "2cccdd3d39aa5c63",
+      "category": "infrastructure",
+      "title": "Caretta Research: Broadcasters Rebuild Live Operations Around IP as Satellite Use Declines",
+      "url": "https://www.broadcastbeat.com/caretta-research-broadcasters-rebuild-live-operations-around-ip-as-satellite-use-declines/",
+      "source": "broadcastbeat.com",
+      "published": "2026-03-20",
+      "teaser": "Broadcasters are rebuilding live operations workflows around IP delivery as satellite and dedicated fibre distribution decline, according to new research from Caretta Research produced in partnership with Zixi. The shift is already transforming live sports production. By moving c"
+    },
+    {
+      "guid": "a5b34273eee82005",
+      "category": "infrastructure",
+      "title": "Cine Gear Connect NY Ramps Up for March 28, ’26",
+      "url": "https://www.broadcastbeat.com/cine-gear-connect-brings-a-focused-all-day-experience-to-industry-city-ny-2/",
+      "source": "broadcastbeat.com",
+      "published": "2026-03-20",
+      "teaser": "Cine Gear Connect NY, presented by Universal Production Services, is filling in the slate for a full day of panels, peers, learning the latest, and mixing it up from breakfast to happy hour. Back at the fabulous Industry City in Brooklyn, the session lineup starts with ICG IATSE "
+    },
+    {
+      "guid": "540b27cc19415171",
+      "category": "infrastructure",
+      "title": "Glensound celebrates its diamond anniversary at NAB Show",
+      "url": "https://www.broadcastbeat.com/glensound-celebrates-its-diamond-anniversary-at-nab-show/",
+      "source": "broadcastbeat.com",
+      "published": "2026-03-20",
+      "teaser": "60 years of audio innovation, driven by the people who use it Glensound returns to the 2026 NAB Show (Booth C5311, Central Hall, Las Vegas Convention Center, 19–22 April) in its 60th anniversary year, bringing a range of networked audio solutions spanning broadcast, live events, "
+    },
+    {
       "guid": "2978d8fc9087ab7a",
       "category": "infrastructure",
       "title": "Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid",
@@ -656,33 +683,6 @@
       "source": "broadcastbeat.com",
       "published": "2026-03-19",
       "teaser": "Expanded partnership to power satellite-to-IP migration at scale LTN has expanded its technology partnership with Harmonic to support the anticipated volume of broadcast and cable networks preparing to navigate the realities associated with C-band spectrum scarcity as a result of"
-    },
-    {
-      "guid": "34761767138cc0a0",
-      "category": "infrastructure",
-      "title": "Pebble demonstrates partnerships, performance and future-ready playout at NAB Show",
-      "url": "https://www.broadcastbeat.com/pebble-demonstrates-partnerships-performance-and-future-ready-playout-at-nab-show/",
-      "source": "broadcastbeat.com",
-      "published": "2026-03-19",
-      "teaser": "Broadcast playout leader highlights innovation and industry collaboration Pebble, the leading automation, content management and integrated channel specialist, is bringing its feature-rich solutions to NAB Show (booth W2725, Las Vegas Convention Centre, 19 – 22 April 2026). The c"
-    },
-    {
-      "guid": "1aec4b6c9aaa0065",
-      "category": "infrastructure",
-      "title": "Tuxera showcases stunning performance with Fusion SMB and introduces Fusion NFS at NAB Show",
-      "url": "https://www.broadcastbeat.com/tuxera-showcases-stunning-performance-with-fusion-smb-and-introduces-fusion-nfs-at-nab-show/",
-      "source": "broadcastbeat.com",
-      "published": "2026-03-19",
-      "teaser": "Tuxera, a leading provider of quality-assured file systems and networking technologies, is highlighting remarkable advances in performance at NAB Show (booth N1660, Las Vegas Convention Centre, 19 – 22 April, 2026). Alongside the Tuxera Fusion SMB platform, giving media users unp"
-    },
-    {
-      "guid": "1d0b6fed234250ad",
-      "category": "infrastructure",
-      "title": "Magewell Connecting Any Source, Anywhere, in Any Form Factor at 2026 NAB Show in Stand C6113",
-      "url": "https://www.broadcastbeat.com/magewell-connecting-any-source-anywhere-in-any-form-factor-at-2026-nab-show-in-stand-c6113/",
-      "source": "broadcastbeat.com",
-      "published": "2026-03-19",
-      "teaser": "NANJING, China — March 19th, 2026: Magewell – a developer of innovative, high-performance video I/O and IP workflow solutions – will be at the 2026 NAB Show in stand C6113. In addition to several new product introductions, the company continues to create deep integrations with ne"
     }
   ],
   "ai-post-production": [
@@ -869,6 +869,33 @@
   ],
   "newsroom": [
     {
+      "guid": "2cccdd3d39aa5c63",
+      "category": "newsroom",
+      "title": "Caretta Research: Broadcasters Rebuild Live Operations Around IP as Satellite Use Declines",
+      "url": "https://www.broadcastbeat.com/caretta-research-broadcasters-rebuild-live-operations-around-ip-as-satellite-use-declines/",
+      "source": "broadcastbeat.com",
+      "published": "2026-03-20",
+      "teaser": "Broadcasters are rebuilding live operations workflows around IP delivery as satellite and dedicated fibre distribution decline, according to new research from Caretta Research produced in partnership with Zixi. The shift is already transforming live sports production. By moving c"
+    },
+    {
+      "guid": "a5b34273eee82005",
+      "category": "newsroom",
+      "title": "Cine Gear Connect NY Ramps Up for March 28, ’26",
+      "url": "https://www.broadcastbeat.com/cine-gear-connect-brings-a-focused-all-day-experience-to-industry-city-ny-2/",
+      "source": "broadcastbeat.com",
+      "published": "2026-03-20",
+      "teaser": "Cine Gear Connect NY, presented by Universal Production Services, is filling in the slate for a full day of panels, peers, learning the latest, and mixing it up from breakfast to happy hour. Back at the fabulous Industry City in Brooklyn, the session lineup starts with ICG IATSE "
+    },
+    {
+      "guid": "540b27cc19415171",
+      "category": "newsroom",
+      "title": "Glensound celebrates its diamond anniversary at NAB Show",
+      "url": "https://www.broadcastbeat.com/glensound-celebrates-its-diamond-anniversary-at-nab-show/",
+      "source": "broadcastbeat.com",
+      "published": "2026-03-20",
+      "teaser": "60 years of audio innovation, driven by the people who use it Glensound returns to the 2026 NAB Show (Booth C5311, Central Hall, Las Vegas Convention Center, 19–22 April) in its 60th anniversary year, bringing a range of networked audio solutions spanning broadcast, live events, "
+    },
+    {
       "guid": "2978d8fc9087ab7a",
       "category": "newsroom",
       "title": "Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid",
@@ -975,33 +1002,6 @@
       "source": "broadcastbeat.com",
       "published": "2026-03-19",
       "teaser": "Expanded partnership to power satellite-to-IP migration at scale LTN has expanded its technology partnership with Harmonic to support the anticipated volume of broadcast and cable networks preparing to navigate the realities associated with C-band spectrum scarcity as a result of"
-    },
-    {
-      "guid": "34761767138cc0a0",
-      "category": "newsroom",
-      "title": "Pebble demonstrates partnerships, performance and future-ready playout at NAB Show",
-      "url": "https://www.broadcastbeat.com/pebble-demonstrates-partnerships-performance-and-future-ready-playout-at-nab-show/",
-      "source": "broadcastbeat.com",
-      "published": "2026-03-19",
-      "teaser": "Broadcast playout leader highlights innovation and industry collaboration Pebble, the leading automation, content management and integrated channel specialist, is bringing its feature-rich solutions to NAB Show (booth W2725, Las Vegas Convention Centre, 19 – 22 April 2026). The c"
-    },
-    {
-      "guid": "1aec4b6c9aaa0065",
-      "category": "newsroom",
-      "title": "Tuxera showcases stunning performance with Fusion SMB and introduces Fusion NFS at NAB Show",
-      "url": "https://www.broadcastbeat.com/tuxera-showcases-stunning-performance-with-fusion-smb-and-introduces-fusion-nfs-at-nab-show/",
-      "source": "broadcastbeat.com",
-      "published": "2026-03-19",
-      "teaser": "Tuxera, a leading provider of quality-assured file systems and networking technologies, is highlighting remarkable advances in performance at NAB Show (booth N1660, Las Vegas Convention Centre, 19 – 22 April, 2026). Alongside the Tuxera Fusion SMB platform, giving media users unp"
-    },
-    {
-      "guid": "1d0b6fed234250ad",
-      "category": "newsroom",
-      "title": "Magewell Connecting Any Source, Anywhere, in Any Form Factor at 2026 NAB Show in Stand C6113",
-      "url": "https://www.broadcastbeat.com/magewell-connecting-any-source-anywhere-in-any-form-factor-at-2026-nab-show-in-stand-c6113/",
-      "source": "broadcastbeat.com",
-      "published": "2026-03-19",
-      "teaser": "NANJING, China — March 19th, 2026: Magewell – a developer of innovative, high-performance video I/O and IP workflow solutions – will be at the 2026 NAB Show in stand C6113. In addition to several new product introductions, the company continues to create deep integrations with ne"
     }
   ]
 }
