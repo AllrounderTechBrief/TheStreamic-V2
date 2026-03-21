@@ -68,6 +68,10 @@ jobs:
       # ── Step 4: Groq summary generation (unique per article) ──────────────
       # Writes to data/summaries/<slug>.json — build.py reads these automatically.
       # Runs every build if GROQ_API_KEY is set; silently skips if not.
+      - name: Generate editorial deep-dive articles
+        if: github.event.inputs.summaries_only != 'true'
+        run: python scripts/generate_editorial.py
+
       - name: Generate unique article summaries via Groq
         if: vars.GROQ_API_KEY != ''
         env:

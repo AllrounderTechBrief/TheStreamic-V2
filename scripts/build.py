@@ -338,8 +338,9 @@ def footer(base=""):
 
 def horiz_card(a, base=""):
     """
-    Magazine-style horizontal card: full-width, image left 40%, text right 60%.
-    Used for top-3 articles on category pages — detailed, spacious, editorial.
+    TVBEurope-style single featured card:
+    image left (~38%), text right — compact, editorial.
+    Only used for the #1 article on each category page.
     """
     href     = f"{base}articles/{a['slug']}.html"
     fallback = f"{base}assets/fallback.jpg"
@@ -350,29 +351,30 @@ def horiz_card(a, base=""):
     cat_label= e(a.get("cat_label",""))
     date_str = d(a.get("published",""))
     rt       = read_time(a.get("word_count",600))
-    summary  = e((a.get("card_summary") or a.get("dek") or a.get("meta_description",""))[:320])
+    summary  = e((a.get("card_summary") or a.get("dek") or a.get("meta_description",""))[:280])
 
-    if img_url:
-        img_html = f'''<a href="{href}" class="hc-img-link">
-          <img src="{img_url}" alt="{title}" loading="lazy"
-               onerror="this.src=\'{fallback}\'">
-        </a>'''
-    else:
-        img_html = f'''<a href="{href}" class="hc-img-link hc-img-placeholder">
-          <span>The Streamic</span></a>'''
+    img_html = f'''<a href="{href}" class="hc-img-link" tabindex="-1" aria-hidden="true">
+      <img src="{img_url}" alt="{title}" loading="lazy"
+           onerror="this.src=\'{fallback}\'">
+    </a>''' if img_url else f'''<a href="{href}" class="hc-img-link hc-img-placeholder">
+      <span>The Streamic</span></a>'''
 
-    return f"""    <article class="hc-article">
-      {img_html}
-      <div class="hc-body">
-        <a class="hc-badge" href="../{a.get('cat_page','featured.html')}" style="background:{cat_col};">{cat_icon} {cat_label}</a>
-        <h2 class="hc-title"><a href="{href}">{title}</a></h2>
-        <p class="hc-summary">{summary}</p>
-        <div class="hc-footer">
-          <a href="{href}" class="hc-read">Read full article &rarr;</a>
-          <span class="hc-meta">{date_str} &middot; {rt}</span>
-        </div>
+    return f"""  <article class="hc-article">
+    {img_html}
+    <div class="hc-body">
+      <div class="hc-meta-row">
+        <a class="hc-badge" href="{base}{a.get('cat_page','featured.html')}" style="background:{cat_col};" tabindex="-1">{cat_icon} {cat_label}</a>
+        <span class="hc-date">{date_str}</span>
       </div>
-    </article>"""
+      <h2 class="hc-title"><a href="{href}">{title}</a></h2>
+      <p class="hc-summary">{summary}</p>
+      <div class="hc-footer">
+        <a href="{href}" class="hc-read">Read full article &rarr;</a>
+        <span class="hc-rt">{rt}</span>
+      </div>
+    </div>
+  </article>"""
+
 
 def card(a, base="", num=0):
     """
@@ -597,15 +599,15 @@ def category_page(cat, arts):
 
     for page in range(total_pages):
         slice_arts = all_arts[page * PAGE_SIZE:(page + 1) * PAGE_SIZE]
-        # First 3 articles: horizontal magazine layout; rest: standard grid
-        top3   = slice_arts[:3]
-        rest   = slice_arts[3:]
-        horiz_html = "\n".join(horiz_card(a) for a in top3)
-        grid_html  = "\n".join(card(a, num=i+4) for i, a in enumerate(rest))
+        # First article: TVBEurope-style magazine card; rest: numbered grid
+        first  = slice_arts[:1]
+        rest   = slice_arts[1:]
+        horiz_html = horiz_card(first[0]) if first else ""
+        grid_html  = "\n".join(card(a, num=i+2) for i, a in enumerate(rest))
         if rest:
-            cards_html = f'<div class="hc-list">{horiz_html}</div>\n<div class="news-grid">{grid_html}</div>'
+            cards_html = f'<div class="hc-featured-wrap">{horiz_html}</div>\n<div class="news-grid">{grid_html}</div>'
         else:
-            cards_html = f'<div class="hc-list">{horiz_html}</div>'
+            cards_html = f'<div class="hc-featured-wrap">{horiz_html}</div>'
         pag = _pagination_html(cat, page, total_pages) if total_pages > 1 else ""
         out_html = f"""{head(title_base, desc, f"{BASE_URL}/{cat}.html", "style.css")}
 <body>
