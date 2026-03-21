@@ -25,6 +25,50 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
 </head>
+
+<div id="ts-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;
+  background:#1d1d1f;color:#fff;padding:16px 24px;
+  box-shadow:0 -4px 20px rgba(0,0,0,.3);font-size:13px;line-height:1.5;">
+  <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <strong style="font-size:14px;">We use cookies</strong>
+      <p style="margin:4px 0 0;color:rgba(255,255,255,.7);">
+        We use analytics and advertising cookies to improve your experience.
+        <a href="/privacy.html" style="color:#FFD700;">Privacy Policy</a>
+      </p>
+    </div>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button onclick="tsCC(false)"
+        style="padding:9px 20px;border-radius:8px;border:1px solid rgba(255,255,255,.3);
+        background:transparent;color:#fff;font-size:13px;font-weight:600;cursor:pointer;">
+        Reject optional</button>
+      <button onclick="tsCC(true)"
+        style="padding:9px 20px;border-radius:8px;border:none;
+        background:#FFD700;color:#000;font-size:13px;font-weight:700;cursor:pointer;">
+        Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var K="ts_cc",s=localStorage.getItem(K),b=document.getElementById("ts-cookie-banner");
+  if(!s&&b){b.style.display="block";}
+  window.tsCC=function(ok){
+    localStorage.setItem(K,ok?"granted":"denied");
+    if(b)b.style.display="none";
+    if(typeof gtag!="undefined"){
+      gtag("consent","update",{analytics_storage:ok?"granted":"denied",
+        ad_storage:ok?"granted":"denied",ad_user_data:ok?"granted":"denied",
+        ad_personalization:ok?"granted":"denied"});
+    }
+  };
+  if(s==="granted"&&typeof gtag!="undefined"){
+    gtag("consent","update",{analytics_storage:"granted",ad_storage:"granted",
+      ad_user_data:"granted",ad_personalization:"granted"});
+  }
+})();
+</script>
+
 <body>
   <nav class="site-nav">
     <div class="nav-inner">
@@ -60,7 +104,7 @@
       <div style="font-size:13px;color:#86868b;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid #d2d2d7;display:flex;gap:14px;flex-wrap:wrap;">
         <span>By <strong style="color:#1d1d1f;">The Streamic Editorial Team</strong></span>
         <span><time datetime="2026-03-19">March 19, 2026</time></span>
-        <span>270 words &middot; 1 min read</span>
+        <span>372 words &middot; 2 min read</span>
       </div>
       <figure style="margin:0 0 28px 0;">
         <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Garden Studios drives virtual production capabilities forward" loading="eager"
@@ -76,23 +120,17 @@
       </div>
       <div style="font-size:16px;line-height:1.78;color:#1d1d1f;">
         <p><strong>Garden Studios drives virtual production capabilities forward. The stage layout reduces vehicle repositioning, with approximately 90 per cent of camera angles achievable using a single 180-degree rotation The post Garden Studios drives virtual production capabilities forward appeared first on TVBEurope .</strong></p>
-<h2>What is happening</h2>
-<p>The development fits into a pattern of incremental but steady evolution in this part of the stack.</p>
-<p>The change consolidates capabilities that were previously fragmented across multiple vendor offerings.</p>
-<p>The shift reflects a wider move across the industry toward more flexible, scalable approaches.</p>
-<h2>Why it matters</h2>
-<p>Reliability expectations in broadcast leave little room for disruption during transitions. This is especially relevant across the broadcast and streaming technology sector.</p>
-<p>The stakes are higher than they might appear, given how deeply embedded these workflows are.</p>
-<p>Operations leaders will want clear metrics before and after any significant change here.</p>
-<h2>Operational considerations</h2>
-<p>Rollback plans and staged rollouts reduce the risk of disruption during transitions.</p>
-<p>Teams running 24/7 operations should plan transitions around maintenance windows where possible.</p>
-<p>Change management processes need to be engaged early, particularly for teams with on-air obligations.</p>
-<h2>Looking ahead</h2>
-<p>Interoperability between solutions is expected to improve as the market matures.</p>
-<p>The vendor landscape is likely to evolve further as the market responds to demand.</p>
-<p>The foundations being laid now are likely to support capabilities that are not yet fully defined.</p>
-<p>The stage layout reduces vehicle repositioning, with approximately 90 per cent of camera angles achievable using a single 180-degree rotation The post Garden Studios drives virtual production capabilities forward appeared first on TVBEurope . Teams that engage early and plan carefully will be best placed to benefit.</p>
+<p>The broadcast and streaming technology sector continues to evolve rapidly, with engineering teams under pressure to modernise infrastructure while maintaining the reliability that on-air operations demand.</p>
+<p>Media technology decisions made this year will shape production and delivery capabilities for the next half-decade, making it important for teams to engage with emerging developments early.</p>
+<p>The announcement reflects sustained demand from broadcast operators for solutions that combine reliability with the operational flexibility that modern workflows require. This is particularly relevant across the broadcast and streaming technology sector.</p>
+<p>The market context matters here: this development arrives at a moment when budget cycles are tight and technology choices are subject to closer scrutiny than they were two years ago.</p>
+<p>Third-party validation and real-world deployment evidence are accumulating at a rate that should give procurement and engineering teams reasonable confidence in progressing from evaluation to pilot.</p>
+<p><em>For engineering and operations teams:</em> Monitoring and observability tooling may need updating to provide adequate visibility into the new layer of the stack, and this work often takes longer than the initial integration.</p>
+<p>Integration testing in an environment that accurately reflects production conditions remains the most reliable way to surface issues before they affect on-air operations.</p>
+<p>A staged deployment approach, beginning with lower-criticality workflows before progressing to on-air systems, is standard practice and applies here as it would to any significant infrastructure change.</p>
+<p>The talent market for engineers with relevant expertise remains tight, and organisations that develop this capability internally are building a competitive advantage that extends beyond any single deployment.</p>
+<p>Early-adopter organisations are generating operational data that will be valuable to the wider community, and the industry forums and user groups that aggregate this experience are worth monitoring.</p>
+<p>The stage layout reduces vehicle repositioning, with approximately 90 per cent of camera angles achievable using a single 180-degree rotation The post Garden Studios drives virtual production capabilities forward appeared first on TVBEurope . Teams that engage early and plan methodically will be best placed to benefit as the technology matures.</p>
       </div>
       <div style="margin:24px 0 0 0;">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8033069131874524" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -133,7 +171,7 @@
   },
   "mainEntityOfPage": "https://www.thestreamic.in/articles/2026-03-19-featured-garden-studios-drives-virtual-production-capa.html",
   "articleSection": "Featured",
-  "wordCount": 270
+  "wordCount": 372
 }</script>
   <footer class="site-footer">
     <div class="footer-inner">

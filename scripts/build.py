@@ -205,6 +205,53 @@ CONSENT = f"""<script>
   <script>gtag('js',new Date());gtag('config','{GA_TAG}');</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADS_ID}" crossorigin="anonymous"></script>"""
 
+
+# ── GDPR Cookie Consent Banner ──────────────────────────────────────────────
+_COOKIE_BANNER = '''
+<div id="ts-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;
+  background:#1d1d1f;color:#fff;padding:16px 24px;
+  box-shadow:0 -4px 20px rgba(0,0,0,.3);font-size:13px;line-height:1.5;">
+  <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <strong style="font-size:14px;">We use cookies</strong>
+      <p style="margin:4px 0 0;color:rgba(255,255,255,.7);">
+        We use analytics and advertising cookies to improve your experience.
+        <a href="/privacy.html" style="color:#FFD700;">Privacy Policy</a>
+      </p>
+    </div>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button onclick="tsCC(false)"
+        style="padding:9px 20px;border-radius:8px;border:1px solid rgba(255,255,255,.3);
+        background:transparent;color:#fff;font-size:13px;font-weight:600;cursor:pointer;">
+        Reject optional</button>
+      <button onclick="tsCC(true)"
+        style="padding:9px 20px;border-radius:8px;border:none;
+        background:#FFD700;color:#000;font-size:13px;font-weight:700;cursor:pointer;">
+        Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var K="ts_cc",s=localStorage.getItem(K),b=document.getElementById("ts-cookie-banner");
+  if(!s&&b){b.style.display="block";}
+  window.tsCC=function(ok){
+    localStorage.setItem(K,ok?"granted":"denied");
+    if(b)b.style.display="none";
+    if(typeof gtag!="undefined"){
+      gtag("consent","update",{analytics_storage:ok?"granted":"denied",
+        ad_storage:ok?"granted":"denied",ad_user_data:ok?"granted":"denied",
+        ad_personalization:ok?"granted":"denied"});
+    }
+  };
+  if(s==="granted"&&typeof gtag!="undefined"){
+    gtag("consent","update",{analytics_storage:"granted",ad_storage:"granted",
+      ad_user_data:"granted",ad_personalization:"granted"});
+  }
+})();
+</script>
+'''
+
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">'
 
 
@@ -229,7 +276,8 @@ def head(title, desc, canon, css_rel, og_img=""):
 {og}  <meta name="twitter:card" content="summary_large_image">
   {FONTS}
   <link rel="stylesheet" href="{css_rel}">
-</head>"""
+</head>
+{_COOKIE_BANNER}"""
 
 
 def nav(active="", base=""):
@@ -286,6 +334,45 @@ def footer(base=""):
   </footer>
   <script>(function(){{var t=document.querySelector('.nav-toggle'),n=document.querySelector('.nav-links');if(!t||!n)return;t.addEventListener('click',function(){{n.classList.toggle('nav-open');}});}})();</script>"""
 
+
+
+def horiz_card(a, base=""):
+    """
+    Magazine-style horizontal card: full-width, image left 40%, text right 60%.
+    Used for top-3 articles on category pages — detailed, spacious, editorial.
+    """
+    href     = f"{base}articles/{a['slug']}.html"
+    fallback = f"{base}assets/fallback.jpg"
+    img_url  = e(a.get("image_url",""))
+    title    = e(a.get("title",""))
+    cat_col  = a.get("cat_color","#0071e3")
+    cat_icon = a.get("cat_icon","")
+    cat_label= e(a.get("cat_label",""))
+    date_str = d(a.get("published",""))
+    rt       = read_time(a.get("word_count",600))
+    summary  = e((a.get("card_summary") or a.get("dek") or a.get("meta_description",""))[:320])
+
+    if img_url:
+        img_html = f'''<a href="{href}" class="hc-img-link">
+          <img src="{img_url}" alt="{title}" loading="lazy"
+               onerror="this.src=\'{fallback}\'">
+        </a>'''
+    else:
+        img_html = f'''<a href="{href}" class="hc-img-link hc-img-placeholder">
+          <span>The Streamic</span></a>'''
+
+    return f"""    <article class="hc-article">
+      {img_html}
+      <div class="hc-body">
+        <a class="hc-badge" href="../{a.get('cat_page','featured.html')}" style="background:{cat_col};">{cat_icon} {cat_label}</a>
+        <h2 class="hc-title"><a href="{href}">{title}</a></h2>
+        <p class="hc-summary">{summary}</p>
+        <div class="hc-footer">
+          <a href="{href}" class="hc-read">Read full article &rarr;</a>
+          <span class="hc-meta">{date_str} &middot; {rt}</span>
+        </div>
+      </div>
+    </article>"""
 
 def card(a, base="", num=0):
     """
@@ -510,7 +597,15 @@ def category_page(cat, arts):
 
     for page in range(total_pages):
         slice_arts = all_arts[page * PAGE_SIZE:(page + 1) * PAGE_SIZE]
-        cards_html = "\n".join(card(a, num=i+1) for i, a in enumerate(slice_arts))
+        # First 3 articles: horizontal magazine layout; rest: standard grid
+        top3   = slice_arts[:3]
+        rest   = slice_arts[3:]
+        horiz_html = "\n".join(horiz_card(a) for a in top3)
+        grid_html  = "\n".join(card(a, num=i+4) for i, a in enumerate(rest))
+        if rest:
+            cards_html = f'<div class="hc-list">{horiz_html}</div>\n<div class="news-grid">{grid_html}</div>'
+        else:
+            cards_html = f'<div class="hc-list">{horiz_html}</div>'
         pag = _pagination_html(cat, page, total_pages) if total_pages > 1 else ""
         out_html = f"""{head(title_base, desc, f"{BASE_URL}/{cat}.html", "style.css")}
 <body>
@@ -519,9 +614,7 @@ def category_page(cat, arts):
     <div class="page-wrap">
       <div class="page-section">
         <div class="section-hdr"><h2>{h2}</h2></div>
-        <div class="news-grid">
 {cards_html}
-        </div>
         {pag}
       </div>
     </div>
@@ -594,9 +687,7 @@ def index_page(arts):
           <h2>&#128240; Latest Broadcast &amp; Streaming News</h2>
           <span class="ts-updated">Updated every 6 hours</span>
         </div>
-        <div class="news-grid">
 {cards_html}
-        </div>
       </div>
     </div>
   </main>
@@ -689,9 +780,7 @@ def home_with_hero(feat_arts: list, all_arts: list) -> str:
           <h2>&#128240; Latest Broadcast &amp; Streaming News</h2>
           <span class="ts-updated">Updated every 6 hours</span>
         </div>
-        <div class="news-grid">
 {cards_html}
-        </div>
       </div>
     </div>
   </main>

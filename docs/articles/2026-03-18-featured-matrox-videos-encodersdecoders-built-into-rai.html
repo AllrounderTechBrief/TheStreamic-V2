@@ -25,6 +25,50 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
 </head>
+
+<div id="ts-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;
+  background:#1d1d1f;color:#fff;padding:16px 24px;
+  box-shadow:0 -4px 20px rgba(0,0,0,.3);font-size:13px;line-height:1.5;">
+  <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <strong style="font-size:14px;">We use cookies</strong>
+      <p style="margin:4px 0 0;color:rgba(255,255,255,.7);">
+        We use analytics and advertising cookies to improve your experience.
+        <a href="/privacy.html" style="color:#FFD700;">Privacy Policy</a>
+      </p>
+    </div>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button onclick="tsCC(false)"
+        style="padding:9px 20px;border-radius:8px;border:1px solid rgba(255,255,255,.3);
+        background:transparent;color:#fff;font-size:13px;font-weight:600;cursor:pointer;">
+        Reject optional</button>
+      <button onclick="tsCC(true)"
+        style="padding:9px 20px;border-radius:8px;border:none;
+        background:#FFD700;color:#000;font-size:13px;font-weight:700;cursor:pointer;">
+        Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var K="ts_cc",s=localStorage.getItem(K),b=document.getElementById("ts-cookie-banner");
+  if(!s&&b){b.style.display="block";}
+  window.tsCC=function(ok){
+    localStorage.setItem(K,ok?"granted":"denied");
+    if(b)b.style.display="none";
+    if(typeof gtag!="undefined"){
+      gtag("consent","update",{analytics_storage:ok?"granted":"denied",
+        ad_storage:ok?"granted":"denied",ad_user_data:ok?"granted":"denied",
+        ad_personalization:ok?"granted":"denied"});
+    }
+  };
+  if(s==="granted"&&typeof gtag!="undefined"){
+    gtag("consent","update",{analytics_storage:"granted",ad_storage:"granted",
+      ad_user_data:"granted",ad_personalization:"granted"});
+  }
+})();
+</script>
+
 <body>
   <nav class="site-nav">
     <div class="nav-inner">
@@ -60,7 +104,7 @@
       <div style="font-size:13px;color:#86868b;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid #d2d2d7;display:flex;gap:14px;flex-wrap:wrap;">
         <span>By <strong style="color:#1d1d1f;">The Streamic Editorial Team</strong></span>
         <span><time datetime="2026-03-18">March 18, 2026</time></span>
-        <span>268 words &middot; 1 min read</span>
+        <span>374 words &middot; 2 min read</span>
       </div>
       <figure style="margin:0 0 28px 0;">
         <img src="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Matrox Video’s encoders/decoders built into Rai’s IP workflow" loading="eager"
@@ -76,23 +120,17 @@
       </div>
       <div style="font-size:16px;line-height:1.78;color:#1d1d1f;">
         <p><strong>Matrox Video’s encoders/decoders built into Rai’s IP workflow. The ConvertIP DSS and DSH models support SDI- and HDMI-to-ST 2110 conversion, as well as providing monitoring capabilities The post Matrox Video’s encoders/decoders built into Rai’s IP workflow appeared first on TVBEurope .</strong></p>
-<h2>What is happening</h2>
-<p>The development fits into a pattern of incremental but steady evolution in this part of the stack.</p>
-<p>The pace of change here has accelerated noticeably over the past eighteen months.</p>
-<p>The change consolidates capabilities that were previously fragmented across multiple vendor offerings.</p>
-<h2>Why it matters</h2>
-<p>Teams that engage early will have more time to adapt than those reacting after deployment. This is especially relevant across the broadcast and streaming technology sector.</p>
-<p>The change touches areas that are tightly coupled with other systems, so ripple effects are expected.</p>
-<p>For broadcast engineers and operations teams, the implications are direct and practical.</p>
-<h2>Operational considerations</h2>
-<p>Change management processes need to be engaged early, particularly for teams with on-air obligations.</p>
-<p>Rollback plans and staged rollouts reduce the risk of disruption during transitions.</p>
-<p>Monitoring coverage should be confirmed before any significant change goes into production.</p>
-<h2>Looking ahead</h2>
-<p>Teams that invest in documentation and internal knowledge transfer now will be better positioned.</p>
-<p>Interoperability between solutions is expected to improve as the market matures.</p>
-<p>Industry forums and user groups are already discussing implementation patterns worth monitoring.</p>
-<p>The ConvertIP DSS and DSH models support SDI- and HDMI-to-ST 2110 conversion, as well as providing monitoring capabilities The post Matrox Video’s encoders/decoders built into Rai’s IP workflow appeared first on TVBEurope . Teams that engage early and plan carefully will be best placed to benefit.</p>
+<p>For broadcast engineers and technology decision-makers, staying current with vendor developments, standards progress, and deployment case studies has become an operational requirement, not just a professional interest.</p>
+<p>Standards bodies, vendors, and broadcaster engineering teams are increasingly aligned on the direction of travel, even if the timeline and implementation specifics continue to vary by organisation.</p>
+<p>The technical underpinnings of this development are well understood by senior engineers, and the question for most organisations is now one of timing and internal readiness rather than feasibility. This is particularly relevant across the broadcast and streaming technology sector.</p>
+<p>The practical significance of this development lies not in the technology itself but in the operational workflows it enables and the engineering effort it removes from day-to-day operations.</p>
+<p>The vendor roadmap signals continued investment in this area, which reduces the risk of early-adopter exposure and supports longer-term planning commitments.</p>
+<p><em>For engineering and operations teams:</em> A staged deployment approach, beginning with lower-criticality workflows before progressing to on-air systems, is standard practice and applies here as it would to any significant infrastructure change.</p>
+<p>Monitoring and observability tooling may need updating to provide adequate visibility into the new layer of the stack, and this work often takes longer than the initial integration.</p>
+<p>The support model offered by the vendor — including response times, escalation paths, and on-site capability — should be reviewed in parallel with the technical evaluation.</p>
+<p>Standards progress in this area is expected to continue, with formal specifications that support broader interoperability likely to arrive within the next twelve to eighteen months.</p>
+<p>The talent market for engineers with relevant expertise remains tight, and organisations that develop this capability internally are building a competitive advantage that extends beyond any single deployment.</p>
+<p>The ConvertIP DSS and DSH models support SDI- and HDMI-to-ST 2110 conversion, as well as providing monitoring capabilities The post Matrox Video’s encoders/decoders built into Rai’s IP workflow appeared first on TVBEurope . Teams that engage early and plan methodically will be best placed to benefit as the technology matures.</p>
       </div>
       <div style="margin:24px 0 0 0;">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8033069131874524" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -133,7 +171,7 @@
   },
   "mainEntityOfPage": "https://www.thestreamic.in/articles/2026-03-18-featured-matrox-videos-encodersdecoders-built-into-rai.html",
   "articleSection": "Featured",
-  "wordCount": 268
+  "wordCount": 374
 }</script>
   <footer class="site-footer">
     <div class="footer-inner">

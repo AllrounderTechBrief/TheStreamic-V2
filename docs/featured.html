@@ -24,6 +24,50 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
+<div id="ts-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;
+  background:#1d1d1f;color:#fff;padding:16px 24px;
+  box-shadow:0 -4px 20px rgba(0,0,0,.3);font-size:13px;line-height:1.5;">
+  <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <strong style="font-size:14px;">We use cookies</strong>
+      <p style="margin:4px 0 0;color:rgba(255,255,255,.7);">
+        We use analytics and advertising cookies to improve your experience.
+        <a href="/privacy.html" style="color:#FFD700;">Privacy Policy</a>
+      </p>
+    </div>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button onclick="tsCC(false)"
+        style="padding:9px 20px;border-radius:8px;border:1px solid rgba(255,255,255,.3);
+        background:transparent;color:#fff;font-size:13px;font-weight:600;cursor:pointer;">
+        Reject optional</button>
+      <button onclick="tsCC(true)"
+        style="padding:9px 20px;border-radius:8px;border:none;
+        background:#FFD700;color:#000;font-size:13px;font-weight:700;cursor:pointer;">
+        Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var K="ts_cc",s=localStorage.getItem(K),b=document.getElementById("ts-cookie-banner");
+  if(!s&&b){b.style.display="block";}
+  window.tsCC=function(ok){
+    localStorage.setItem(K,ok?"granted":"denied");
+    if(b)b.style.display="none";
+    if(typeof gtag!="undefined"){
+      gtag("consent","update",{analytics_storage:ok?"granted":"denied",
+        ad_storage:ok?"granted":"denied",ad_user_data:ok?"granted":"denied",
+        ad_personalization:ok?"granted":"denied"});
+    }
+  };
+  if(s==="granted"&&typeof gtag!="undefined"){
+    gtag("consent","update",{analytics_storage:"granted",ad_storage:"granted",
+      ad_user_data:"granted",ad_personalization:"granted"});
+  }
+})();
+</script>
+
 <body>
   <nav class="site-nav">
     <div class="nav-inner">
@@ -59,7 +103,7 @@
         <h2 class="ts-hero-title"><a href="articles/2026-03-20-featured-camera-test-chart-company-dsc-labs-reborn.html">Camera test chart company DSC Labs reborn</a></h2>
         <p class="ts-hero-dek">Camera test chart company DSC Labs reborn Digital imaging technician and image workflow specialist Matt Conrad acquired DSC Labs last summer and has been appoin</p>
         <div class="ts-hero-footer">
-          <span>&#128337; 1 min read</span>
+          <span>&#128337; 2 min read</span>
           <a href="articles/2026-03-20-featured-camera-test-chart-company-dsc-labs-reborn.html" class="ts-hero-cta">Read full article &#8594;</a>
         </div>
       </div>
@@ -77,7 +121,6 @@
           <h2>&#128240; Latest Broadcast &amp; Streaming News</h2>
           <span class="ts-updated">Updated every 6 hours</span>
         </div>
-        <div class="news-grid">
       <article class="ts-card">
         <a href="articles/2026-03-20-featured-report-sports-rights-holders-need-to-diversif.html" style="text-decoration:none;color:inherit;">
           <div class="ts-card-img-wrap">
@@ -187,92 +230,11 @@
         </div>
       </article>
       <article class="ts-card">
-        <a href="articles/2026-03-20-playout-celebrating-the-greatest-creators-one-battle-a.html" style="text-decoration:none;color:inherit;">
-          <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid" loading="lazy"
-             onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">05</span>
-      </div>
-        </a>
-        <div class="ts-card-body">
-          <div class="ts-card-meta">
-            <span class="ts-card-badge" style="background:#34C759;">▶️ Playout</span>
-            <span class="ts-card-cat-name">Playout</span>
-          </div>
-          <div class="ts-card-title"><a href="articles/2026-03-20-playout-celebrating-the-greatest-creators-one-battle-a.html">Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid</a></div>
-          <div class="ts-card-summary">Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid Avid® today celebrated the filmmakers, editors and sound teams that worked with Avid Media Composer® and Pro Tools® to create the vast majority of this year’s Academy Award®-winning pi</div>
-          <div class="ts-card-insight">
-            <span class="ts-card-insight-label">Key Insight</span>
-            Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid Avid
-          </div>
-          <div class="ts-card-footer">
-            <a href="articles/2026-03-20-playout-celebrating-the-greatest-creators-one-battle-a.html" class="ts-card-read">Read full article
-              <svg viewBox="0 0 12 12"><path d="M1 6h10M6 1l5 5-5 5"/></svg>
-            </a>
-            <span class="ts-card-date">March 20, 2026</span>
-          </div>
-        </div>
-      </article>
-      <article class="ts-card">
-        <a href="articles/2026-03-20-infrastructu-celebrating-the-greatest-creators-one-bat.html" style="text-decoration:none;color:inherit;">
-          <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid" loading="lazy"
-             onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">06</span>
-      </div>
-        </a>
-        <div class="ts-card-body">
-          <div class="ts-card-meta">
-            <span class="ts-card-badge" style="background:#8E8E93;">🏗️ Infrastructure</span>
-            <span class="ts-card-cat-name">Infrastructure</span>
-          </div>
-          <div class="ts-card-title"><a href="articles/2026-03-20-infrastructu-celebrating-the-greatest-creators-one-bat.html">Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid</a></div>
-          <div class="ts-card-summary">Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid Avid® today celebrated the filmmakers, editors and sound teams that worked with Avid Media Composer® and Pro Tools® to create the vast majority of this year’s Academy Award®-winning pi</div>
-          <div class="ts-card-insight">
-            <span class="ts-card-insight-label">Key Insight</span>
-            Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid Avid
-          </div>
-          <div class="ts-card-footer">
-            <a href="articles/2026-03-20-infrastructu-celebrating-the-greatest-creators-one-bat.html" class="ts-card-read">Read full article
-              <svg viewBox="0 0 12 12"><path d="M1 6h10M6 1l5 5-5 5"/></svg>
-            </a>
-            <span class="ts-card-date">March 20, 2026</span>
-          </div>
-        </div>
-      </article>
-      <article class="ts-card">
-        <a href="articles/2026-03-20-newsroom-celebrating-the-greatest-creators-one-battle-.html" style="text-decoration:none;color:inherit;">
-          <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid" loading="lazy"
-             onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">07</span>
-      </div>
-        </a>
-        <div class="ts-card-body">
-          <div class="ts-card-meta">
-            <span class="ts-card-badge" style="background:#D4AF37;">📰 Newsroom</span>
-            <span class="ts-card-cat-name">Newsroom</span>
-          </div>
-          <div class="ts-card-title"><a href="articles/2026-03-20-newsroom-celebrating-the-greatest-creators-one-battle-.html">Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid</a></div>
-          <div class="ts-card-summary">Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid Avid® today celebrated the filmmakers, editors and sound teams that worked with Avid Media Composer® and Pro Tools® to create the vast majority of this year’s Academy Award®-winning pi</div>
-          <div class="ts-card-insight">
-            <span class="ts-card-insight-label">Key Insight</span>
-            Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid Avid
-          </div>
-          <div class="ts-card-footer">
-            <a href="articles/2026-03-20-newsroom-celebrating-the-greatest-creators-one-battle-.html" class="ts-card-read">Read full article
-              <svg viewBox="0 0 12 12"><path d="M1 6h10M6 1l5 5-5 5"/></svg>
-            </a>
-            <span class="ts-card-date">March 20, 2026</span>
-          </div>
-        </div>
-      </article>
-      <article class="ts-card">
         <a href="articles/featured-technology-trends-broadcast-2026.html" style="text-decoration:none;color:inherit;">
           <div class="ts-card-img-wrap">
         <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="How Featured Technology Is Evolving in 2026" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">08</span>
+        <span class="ts-card-num">05</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -297,9 +259,9 @@
       <article class="ts-card">
         <a href="articles/featured-workflow-insights-broadcast-professionals.html" style="text-decoration:none;color:inherit;">
           <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="The State of Featured: What Broadcast Professionals Need to Know" loading="lazy"
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="The State of Featured: What Broadcast Professionals Need to Know" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">09</span>
+        <span class="ts-card-num">06</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -326,7 +288,7 @@
           <div class="ts-card-img-wrap">
         <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Inside Featured: Key Trends and Operational Priorities" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">10</span>
+        <span class="ts-card-num">07</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -353,7 +315,7 @@
           <div class="ts-card-img-wrap">
         <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="How Cloud Production Technology Is Evolving in 2026" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">11</span>
+        <span class="ts-card-num">08</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -380,7 +342,7 @@
           <div class="ts-card-img-wrap">
         <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="The State of Cloud Production: What Broadcast Professionals Need to Know" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">12</span>
+        <span class="ts-card-num">09</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -407,7 +369,7 @@
           <div class="ts-card-img-wrap">
         <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Inside Cloud Production: Key Trends and Operational Priorities" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">13</span>
+        <span class="ts-card-num">10</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -434,7 +396,7 @@
           <div class="ts-card-img-wrap">
         <img src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="How Streaming Technology Is Evolving in 2026" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">14</span>
+        <span class="ts-card-num">11</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -459,9 +421,9 @@
       <article class="ts-card">
         <a href="articles/streaming-workflow-insights-broadcast-professionals.html" style="text-decoration:none;color:inherit;">
           <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="The State of Streaming: What Broadcast Professionals Need to Know" loading="lazy"
+        <img src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="The State of Streaming: What Broadcast Professionals Need to Know" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">15</span>
+        <span class="ts-card-num">12</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -488,7 +450,7 @@
           <div class="ts-card-img-wrap">
         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Inside Streaming: Key Trends and Operational Priorities" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">16</span>
+        <span class="ts-card-num">13</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -515,7 +477,7 @@
           <div class="ts-card-img-wrap">
         <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="How Playout Technology Is Evolving in 2026" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">17</span>
+        <span class="ts-card-num">14</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -542,7 +504,7 @@
           <div class="ts-card-img-wrap">
         <img src="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="The State of Playout: What Broadcast Professionals Need to Know" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">18</span>
+        <span class="ts-card-num">15</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -569,7 +531,7 @@
           <div class="ts-card-img-wrap">
         <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Inside Playout: Key Trends and Operational Priorities" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">19</span>
+        <span class="ts-card-num">16</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -596,7 +558,7 @@
           <div class="ts-card-img-wrap">
         <img src="https://images.unsplash.com/photo-1545987796-200677ee1011?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="How Infrastructure Technology Is Evolving in 2026" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">20</span>
+        <span class="ts-card-num">17</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -623,7 +585,7 @@
           <div class="ts-card-img-wrap">
         <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="The State of Infrastructure: What Broadcast Professionals Need to Know" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">21</span>
+        <span class="ts-card-num">18</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -650,7 +612,7 @@
           <div class="ts-card-img-wrap">
         <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Inside Infrastructure: Key Trends and Operational Priorities" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">22</span>
+        <span class="ts-card-num">19</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -677,7 +639,7 @@
           <div class="ts-card-img-wrap">
         <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="How AI &amp; Post-Production Technology Is Evolving in 2026" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">23</span>
+        <span class="ts-card-num">20</span>
       </div>
         </a>
         <div class="ts-card-body">
@@ -699,7 +661,87 @@
           </div>
         </div>
       </article>
+      <article class="ts-card">
+        <a href="articles/ai-post-production-workflow-insights-broadcast-professionals.html" style="text-decoration:none;color:inherit;">
+          <div class="ts-card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="The State of AI &amp; Post-Production: What Broadcast Professionals Need to Know" loading="lazy"
+             onerror="this.src='assets/fallback.jpg'">
+        <span class="ts-card-num">21</span>
+      </div>
+        </a>
+        <div class="ts-card-body">
+          <div class="ts-card-meta">
+            <span class="ts-card-badge" style="background:#FF2D55;">🎬 AI &amp; Post-Production</span>
+            <span class="ts-card-cat-name">AI &amp; Post-Production</span>
+          </div>
+          <div class="ts-card-title"><a href="articles/ai-post-production-workflow-insights-broadcast-professionals.html">The State of AI &amp; Post-Production: What Broadcast Professionals Need to Know</a></div>
+          <div class="ts-card-summary">The State of AI &amp; Post-Production: What Broadcast Professionals Need to Know An independent editorial overview of the technology forces reshaping ai &amp; post-production for broadcast engineers and media operations professionals. Understanding what is changing helps teams plan ahead and avoid surprises</div>
+          <div class="ts-card-insight">
+            <span class="ts-card-insight-label">Key Insight</span>
+            The State of AI &amp; Post-Production: What Broadcast Professionals Need to Know An independent editorial overview of the te
+          </div>
+          <div class="ts-card-footer">
+            <a href="articles/ai-post-production-workflow-insights-broadcast-professionals.html" class="ts-card-read">Read full article
+              <svg viewBox="0 0 12 12"><path d="M1 6h10M6 1l5 5-5 5"/></svg>
+            </a>
+            <span class="ts-card-date">March 20, 2026</span>
+          </div>
         </div>
+      </article>
+      <article class="ts-card">
+        <a href="articles/ai-post-production-infrastructure-operations-guide-2026.html" style="text-decoration:none;color:inherit;">
+          <div class="ts-card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1605106702734-205df224ecce?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Inside AI &amp; Post-Production: Key Trends and Operational Priorities" loading="lazy"
+             onerror="this.src='assets/fallback.jpg'">
+        <span class="ts-card-num">22</span>
+      </div>
+        </a>
+        <div class="ts-card-body">
+          <div class="ts-card-meta">
+            <span class="ts-card-badge" style="background:#FF2D55;">🎬 AI &amp; Post-Production</span>
+            <span class="ts-card-cat-name">AI &amp; Post-Production</span>
+          </div>
+          <div class="ts-card-title"><a href="articles/ai-post-production-infrastructure-operations-guide-2026.html">Inside AI &amp; Post-Production: Key Trends and Operational Priorities</a></div>
+          <div class="ts-card-summary">Inside AI &amp; Post-Production: Key Trends and Operational Priorities An independent editorial overview of the technology forces reshaping ai &amp; post-production for broadcast engineers and media operations professionals. Understanding what is changing helps teams plan ahead and avoid surprises. Organisa</div>
+          <div class="ts-card-insight">
+            <span class="ts-card-insight-label">Key Insight</span>
+            Inside AI &amp; Post-Production: Key Trends and Operational Priorities An independent editorial overview of the technology f
+          </div>
+          <div class="ts-card-footer">
+            <a href="articles/ai-post-production-infrastructure-operations-guide-2026.html" class="ts-card-read">Read full article
+              <svg viewBox="0 0 12 12"><path d="M1 6h10M6 1l5 5-5 5"/></svg>
+            </a>
+            <span class="ts-card-date">March 20, 2026</span>
+          </div>
+        </div>
+      </article>
+      <article class="ts-card">
+        <a href="articles/newsroom-technology-trends-broadcast-2026.html" style="text-decoration:none;color:inherit;">
+          <div class="ts-card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="How Newsroom Technology Is Evolving in 2026" loading="lazy"
+             onerror="this.src='assets/fallback.jpg'">
+        <span class="ts-card-num">23</span>
+      </div>
+        </a>
+        <div class="ts-card-body">
+          <div class="ts-card-meta">
+            <span class="ts-card-badge" style="background:#D4AF37;">📰 Newsroom</span>
+            <span class="ts-card-cat-name">Newsroom</span>
+          </div>
+          <div class="ts-card-title"><a href="articles/newsroom-technology-trends-broadcast-2026.html">How Newsroom Technology Is Evolving in 2026</a></div>
+          <div class="ts-card-summary">How Newsroom Technology Is Evolving in 2026 An independent editorial overview of the technology forces reshaping newsroom for broadcast engineers and media operations professionals. Understanding what is changing helps teams plan ahead and avoid surprises. Organisations tracking this should review t</div>
+          <div class="ts-card-insight">
+            <span class="ts-card-insight-label">Key Insight</span>
+            How Newsroom Technology Is Evolving in 2026 An independent editorial overview of the technology forces reshaping newsroo
+          </div>
+          <div class="ts-card-footer">
+            <a href="articles/newsroom-technology-trends-broadcast-2026.html" class="ts-card-read">Read full article
+              <svg viewBox="0 0 12 12"><path d="M1 6h10M6 1l5 5-5 5"/></svg>
+            </a>
+            <span class="ts-card-date">March 20, 2026</span>
+          </div>
+        </div>
+      </article>
       </div>
     </div>
   </main>

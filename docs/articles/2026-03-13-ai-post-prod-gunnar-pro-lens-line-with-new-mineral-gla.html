@@ -25,6 +25,50 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
 </head>
+
+<div id="ts-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;
+  background:#1d1d1f;color:#fff;padding:16px 24px;
+  box-shadow:0 -4px 20px rgba(0,0,0,.3);font-size:13px;line-height:1.5;">
+  <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <strong style="font-size:14px;">We use cookies</strong>
+      <p style="margin:4px 0 0;color:rgba(255,255,255,.7);">
+        We use analytics and advertising cookies to improve your experience.
+        <a href="/privacy.html" style="color:#FFD700;">Privacy Policy</a>
+      </p>
+    </div>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button onclick="tsCC(false)"
+        style="padding:9px 20px;border-radius:8px;border:1px solid rgba(255,255,255,.3);
+        background:transparent;color:#fff;font-size:13px;font-weight:600;cursor:pointer;">
+        Reject optional</button>
+      <button onclick="tsCC(true)"
+        style="padding:9px 20px;border-radius:8px;border:none;
+        background:#FFD700;color:#000;font-size:13px;font-weight:700;cursor:pointer;">
+        Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var K="ts_cc",s=localStorage.getItem(K),b=document.getElementById("ts-cookie-banner");
+  if(!s&&b){b.style.display="block";}
+  window.tsCC=function(ok){
+    localStorage.setItem(K,ok?"granted":"denied");
+    if(b)b.style.display="none";
+    if(typeof gtag!="undefined"){
+      gtag("consent","update",{analytics_storage:ok?"granted":"denied",
+        ad_storage:ok?"granted":"denied",ad_user_data:ok?"granted":"denied",
+        ad_personalization:ok?"granted":"denied"});
+    }
+  };
+  if(s==="granted"&&typeof gtag!="undefined"){
+    gtag("consent","update",{analytics_storage:"granted",ad_storage:"granted",
+      ad_user_data:"granted",ad_personalization:"granted"});
+  }
+})();
+</script>
+
 <body>
   <nav class="site-nav">
     <div class="nav-inner">
@@ -60,7 +104,7 @@
       <div style="font-size:13px;color:#86868b;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid #d2d2d7;display:flex;gap:14px;flex-wrap:wrap;">
         <span>By <strong style="color:#1d1d1f;">The Streamic Editorial Team</strong></span>
         <span><time datetime="2026-03-13">March 13, 2026</time></span>
-        <span>277 words &middot; 1 min read</span>
+        <span>367 words &middot; 2 min read</span>
       </div>
       <figure style="margin:0 0 28px 0;">
         <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Gunnar Pro Lens Line With New Mineral Glass Tech Targets Post Pros" loading="eager"
@@ -76,24 +120,18 @@
       </div>
       <div style="font-size:16px;line-height:1.78;color:#1d1d1f;">
         <p><strong>Gunnar Pro Lens Line With New Mineral Glass Tech Targets Post Pros. If you work in this industry, you are on the computer all the time and dealing with eye strain.</strong></p>
-<h2>What is happening</h2>
-<p>Cross-team coordination has become a recurring theme, and this development speaks directly to that.</p>
+<p>The integration of software-defined approaches into traditionally hardware-centric broadcast workflows is progressing steadily, with reliability and support maturity keeping pace with capability.</p>
 <p>Gunnar Optiks (aka Gunnar), which makes computer eyewear designed to reduce this strain, has launched its new plastic-free mineral glass lenses, available in both Clear Pro and Amber t</p>
-<p>The change consolidates capabilities that were previously fragmented across multiple vendor offerings.</p>
-<p>Adoption is being driven by a combination of operational need and competitive pressure.</p>
-<h2>Why it matters</h2>
-<p>Teams that engage early will have more time to adapt than those reacting after deployment. This is especially relevant for AI-assisted post-production and editing pipelines.</p>
-<p>Broadcast environments have tight SLAs, and any change needs to be validated against them.</p>
-<p>Reliability expectations in broadcast leave little room for disruption during transitions.</p>
-<h2>Operational considerations</h2>
-<p>Rollback plans and staged rollouts reduce the risk of disruption during transitions.</p>
-<p>Vendor support timelines and SLA commitments are worth reviewing in parallel with internal planning.</p>
-<p>Teams running 24/7 operations should plan transitions around maintenance windows where possible.</p>
-<h2>Looking ahead</h2>
-<p>Workflow automation opportunities will expand once this layer is more consistently implemented.</p>
-<p>The vendor landscape is likely to evolve further as the market responds to demand.</p>
-<p>Organisations that have documented their current baseline will find future comparisons easier.</p>
-<p>Gunnar Optiks (aka Gunnar), which makes computer eyewear designed to reduce this strain, has launched its new plastic-free mineral glass lenses, available in both Clear Pro and Amber t Teams that engage early and plan carefully will be best placed to benefit.</p>
+<p>Standards bodies, vendors, and broadcaster engineering teams are increasingly aligned on the direction of travel, even if the timeline and implementation specifics continue to vary by organisation.</p>
+<p>This development builds on a multi-year trajectory of investment and standardisation that has been tracked closely by engineering teams planning infrastructure transitions. This is particularly relevant for AI-assisted post-production and editing pipelines.</p>
+<p>The market context matters here: this development arrives at a moment when budget cycles are tight and technology choices are subject to closer scrutiny than they were two years ago.</p>
+<p>The announcement reflects sustained demand from broadcast operators for solutions that combine reliability with the operational flexibility that modern workflows require.</p>
+<p><em>For engineering and operations teams:</em> Monitoring and observability tooling may need updating to provide adequate visibility into the new layer of the stack, and this work often takes longer than the initial integration.</p>
+<p>Staff capability and training requirements should be factored into any deployment timeline, alongside the technical integration work itself.</p>
+<p>Integration testing in an environment that accurately reflects production conditions remains the most reliable way to surface issues before they affect on-air operations.</p>
+<p>The transition towards more software-defined, cloud-integrated broadcast infrastructure is structural rather than cyclical, and planning should reflect that permanence rather than treating it as a passing trend.</p>
+<p>Early-adopter organisations are generating operational data that will be valuable to the wider community, and the industry forums and user groups that aggregate this experience are worth monitoring.</p>
+<p>Gunnar Optiks (aka Gunnar), which makes computer eyewear designed to reduce this strain, has launched its new plastic-free mineral glass lenses, available in both Clear Pro and Amber t Teams that engage early and plan methodically will be best placed to benefit as the technology matures.</p>
       </div>
       <div style="margin:24px 0 0 0;">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8033069131874524" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -134,7 +172,7 @@
   },
   "mainEntityOfPage": "https://www.thestreamic.in/articles/2026-03-13-ai-post-prod-gunnar-pro-lens-line-with-new-mineral-gla.html",
   "articleSection": "AI & Post-Production",
-  "wordCount": 277
+  "wordCount": 367
 }</script>
   <footer class="site-footer">
     <div class="footer-inner">

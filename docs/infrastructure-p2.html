@@ -24,6 +24,50 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
+<div id="ts-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;
+  background:#1d1d1f;color:#fff;padding:16px 24px;
+  box-shadow:0 -4px 20px rgba(0,0,0,.3);font-size:13px;line-height:1.5;">
+  <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <strong style="font-size:14px;">We use cookies</strong>
+      <p style="margin:4px 0 0;color:rgba(255,255,255,.7);">
+        We use analytics and advertising cookies to improve your experience.
+        <a href="/privacy.html" style="color:#FFD700;">Privacy Policy</a>
+      </p>
+    </div>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button onclick="tsCC(false)"
+        style="padding:9px 20px;border-radius:8px;border:1px solid rgba(255,255,255,.3);
+        background:transparent;color:#fff;font-size:13px;font-weight:600;cursor:pointer;">
+        Reject optional</button>
+      <button onclick="tsCC(true)"
+        style="padding:9px 20px;border-radius:8px;border:none;
+        background:#FFD700;color:#000;font-size:13px;font-weight:700;cursor:pointer;">
+        Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var K="ts_cc",s=localStorage.getItem(K),b=document.getElementById("ts-cookie-banner");
+  if(!s&&b){b.style.display="block";}
+  window.tsCC=function(ok){
+    localStorage.setItem(K,ok?"granted":"denied");
+    if(b)b.style.display="none";
+    if(typeof gtag!="undefined"){
+      gtag("consent","update",{analytics_storage:ok?"granted":"denied",
+        ad_storage:ok?"granted":"denied",ad_user_data:ok?"granted":"denied",
+        ad_personalization:ok?"granted":"denied"});
+    }
+  };
+  if(s==="granted"&&typeof gtag!="undefined"){
+    gtag("consent","update",{analytics_storage:"granted",ad_storage:"granted",
+      ad_user_data:"granted",ad_personalization:"granted"});
+  }
+})();
+</script>
+
 <body>
   <nav class="site-nav">
     <div class="nav-inner">
@@ -51,62 +95,36 @@
     <div class="page-wrap">
       <div class="page-section">
         <div class="section-hdr"><h2>&#127959;&#65039; Infrastructure &amp; IP</h2></div>
-        <div class="news-grid">
-      <article class="ts-card">
-        <a href="articles/rss-623daa2db74c71ec.html" style="text-decoration:none;color:inherit;">
-          <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=800&amp;auto=format&amp;fit=crop" alt="SNS at NAB Show 2026" loading="lazy"
-             onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">01</span>
-      </div>
+<div class="hc-list">    <article class="hc-article">
+      <a href="articles/rss-623daa2db74c71ec.html" class="hc-img-link">
+          <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=800&amp;auto=format&amp;fit=crop" alt="SNS at NAB Show 2026" loading="lazy"
+               onerror="this.src='assets/fallback.jpg'">
         </a>
-        <div class="ts-card-body">
-          <div class="ts-card-meta">
-            <span class="ts-card-badge" style="background:#8E8E93;">🏗️ Infrastructure</span>
-            <span class="ts-card-cat-name">Infrastructure</span>
-          </div>
-          <div class="ts-card-title"><a href="articles/rss-623daa2db74c71ec.html">SNS at NAB Show 2026</a></div>
-          <div class="ts-card-summary">Visit SNS at NAB Show 2026 to see what's new in shared storage, media management, and workflow automation for creative teams.</div>
-          <div class="ts-card-insight">
-            <span class="ts-card-insight-label">Key Insight</span>
-            Visit SNS at NAB Show 2026 to see what's new in shared storage, media management, and workflow automation for creative t
-          </div>
-          <div class="ts-card-footer">
-            <a href="articles/rss-623daa2db74c71ec.html" class="ts-card-read">Read full article
-              <svg viewBox="0 0 12 12"><path d="M1 6h10M6 1l5 5-5 5"/></svg>
-            </a>
-            <span class="ts-card-date">March 01, 2026</span>
-          </div>
+      <div class="hc-body">
+        <a class="hc-badge" href="../featured.html" style="background:#8E8E93;">🏗️ Infrastructure</a>
+        <h2 class="hc-title"><a href="articles/rss-623daa2db74c71ec.html">SNS at NAB Show 2026</a></h2>
+        <p class="hc-summary">Visit SNS at NAB Show 2026 to see what's new in shared storage, media management, and workflow automation for creative teams.</p>
+        <div class="hc-footer">
+          <a href="articles/rss-623daa2db74c71ec.html" class="hc-read">Read full article &rarr;</a>
+          <span class="hc-meta">March 01, 2026 &middot; 1 min read</span>
         </div>
-      </article>
-      <article class="ts-card">
-        <a href="articles/rss-98c10ff85e5762ea.html" style="text-decoration:none;color:inherit;">
-          <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1581092583537-20d51b4b4f1b?w=800&amp;auto=format&amp;fit=crop" alt="Freeview NZ satellite TV service to move to Koreasat 6" loading="lazy"
-             onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">02</span>
       </div>
+    </article>
+    <article class="hc-article">
+      <a href="articles/rss-98c10ff85e5762ea.html" class="hc-img-link">
+          <img src="https://images.unsplash.com/photo-1581092583537-20d51b4b4f1b?w=800&amp;auto=format&amp;fit=crop" alt="Freeview NZ satellite TV service to move to Koreasat 6" loading="lazy"
+               onerror="this.src='assets/fallback.jpg'">
         </a>
-        <div class="ts-card-body">
-          <div class="ts-card-meta">
-            <span class="ts-card-badge" style="background:#8E8E93;">🏗️ Infrastructure</span>
-            <span class="ts-card-cat-name">Infrastructure</span>
-          </div>
-          <div class="ts-card-title"><a href="articles/rss-98c10ff85e5762ea.html">Freeview NZ satellite TV service to move to Koreasat 6</a></div>
-          <div class="ts-card-summary">February 21, 2025 — Freeview New Zealand's satellite TV service is to move to Koreasat 6 in early April.</div>
-          <div class="ts-card-insight">
-            <span class="ts-card-insight-label">Key Insight</span>
-            February 21, 2025 — Freeview New Zealand's satellite TV service is to move to Koreasat 6 in early April.
-          </div>
-          <div class="ts-card-footer">
-            <a href="articles/rss-98c10ff85e5762ea.html" class="ts-card-read">Read full article
-              <svg viewBox="0 0 12 12"><path d="M1 6h10M6 1l5 5-5 5"/></svg>
-            </a>
-            <span class="ts-card-date">March 01, 2026</span>
-          </div>
+      <div class="hc-body">
+        <a class="hc-badge" href="../featured.html" style="background:#8E8E93;">🏗️ Infrastructure</a>
+        <h2 class="hc-title"><a href="articles/rss-98c10ff85e5762ea.html">Freeview NZ satellite TV service to move to Koreasat 6</a></h2>
+        <p class="hc-summary">February 21, 2025 — Freeview New Zealand's satellite TV service is to move to Koreasat 6 in early April.</p>
+        <div class="hc-footer">
+          <a href="articles/rss-98c10ff85e5762ea.html" class="hc-read">Read full article &rarr;</a>
+          <span class="hc-meta">March 01, 2026 &middot; 1 min read</span>
         </div>
-      </article>
-        </div>
+      </div>
+    </article></div>
         <div class="pag-bar"><a href="infrastructure.html" class="pag-link">&larr; Newer</a>&nbsp;<span class="pag-info">Page 2 of 2</span>&nbsp;<span class="pag-link pag-disabled">Older &rarr;</span></div>
       </div>
     </div>

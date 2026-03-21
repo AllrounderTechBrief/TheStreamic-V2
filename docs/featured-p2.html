@@ -24,6 +24,50 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
+<div id="ts-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;
+  background:#1d1d1f;color:#fff;padding:16px 24px;
+  box-shadow:0 -4px 20px rgba(0,0,0,.3);font-size:13px;line-height:1.5;">
+  <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <strong style="font-size:14px;">We use cookies</strong>
+      <p style="margin:4px 0 0;color:rgba(255,255,255,.7);">
+        We use analytics and advertising cookies to improve your experience.
+        <a href="/privacy.html" style="color:#FFD700;">Privacy Policy</a>
+      </p>
+    </div>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button onclick="tsCC(false)"
+        style="padding:9px 20px;border-radius:8px;border:1px solid rgba(255,255,255,.3);
+        background:transparent;color:#fff;font-size:13px;font-weight:600;cursor:pointer;">
+        Reject optional</button>
+      <button onclick="tsCC(true)"
+        style="padding:9px 20px;border-radius:8px;border:none;
+        background:#FFD700;color:#000;font-size:13px;font-weight:700;cursor:pointer;">
+        Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var K="ts_cc",s=localStorage.getItem(K),b=document.getElementById("ts-cookie-banner");
+  if(!s&&b){b.style.display="block";}
+  window.tsCC=function(ok){
+    localStorage.setItem(K,ok?"granted":"denied");
+    if(b)b.style.display="none";
+    if(typeof gtag!="undefined"){
+      gtag("consent","update",{analytics_storage:ok?"granted":"denied",
+        ad_storage:ok?"granted":"denied",ad_user_data:ok?"granted":"denied",
+        ad_personalization:ok?"granted":"denied"});
+    }
+  };
+  if(s==="granted"&&typeof gtag!="undefined"){
+    gtag("consent","update",{analytics_storage:"granted",ad_storage:"granted",
+      ad_user_data:"granted",ad_personalization:"granted"});
+  }
+})();
+</script>
+
 <body>
   <nav class="site-nav">
     <div class="nav-inner">
@@ -51,92 +95,55 @@
     <div class="page-wrap">
       <div class="page-section">
         <div class="section-hdr"><h2>&#11088; Featured Stories</h2></div>
-        <div class="news-grid">
-      <article class="ts-card">
-        <a href="articles/rss-ef8715a2a461c546.html" style="text-decoration:none;color:inherit;">
-          <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;q=80" alt="Inside Streaming: Key Trends and Operational Priorities" loading="lazy"
-             onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">01</span>
-      </div>
+<div class="hc-list">    <article class="hc-article">
+      <a href="articles/rss-ef8715a2a461c546.html" class="hc-img-link">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;q=80" alt="Inside Streaming: Key Trends and Operational Priorities" loading="lazy"
+               onerror="this.src='assets/fallback.jpg'">
         </a>
-        <div class="ts-card-body">
-          <div class="ts-card-meta">
-            <span class="ts-card-badge" style="background:#1d1d1f;">⭐ Featured</span>
-            <span class="ts-card-cat-name">Featured</span>
-          </div>
-          <div class="ts-card-title"><a href="articles/rss-ef8715a2a461c546.html">Inside Streaming: Key Trends and Operational Priorities</a></div>
-          <div class="ts-card-summary">Contextual advertising matches ads to content rather than to people. The logic is straightforward: a viewer watching content about home renovation is likely receptive to a Home Depot ad at that moment</div>
-          <div class="ts-card-insight">
-            <span class="ts-card-insight-label">Key Insight</span>
-            Contextual advertising matches ads to content rather than to people. The logic is straightforward: a viewer watching con
-          </div>
-          <div class="ts-card-footer">
-            <a href="articles/rss-ef8715a2a461c546.html" class="ts-card-read">Read full article
-              <svg viewBox="0 0 12 12"><path d="M1 6h10M6 1l5 5-5 5"/></svg>
-            </a>
-            <span class="ts-card-date">March 20, 2026</span>
-          </div>
+      <div class="hc-body">
+        <a class="hc-badge" href="../featured.html" style="background:#1d1d1f;">⭐ Featured</a>
+        <h2 class="hc-title"><a href="articles/rss-ef8715a2a461c546.html">Inside Streaming: Key Trends and Operational Priorities</a></h2>
+        <p class="hc-summary">Contextual advertising matches ads to content rather than to people. The logic is straightforward: a viewer watching content about home renovation is likely receptive to a Home Depot ad at that moment</p>
+        <div class="hc-footer">
+          <a href="articles/rss-ef8715a2a461c546.html" class="hc-read">Read full article &rarr;</a>
+          <span class="hc-meta">March 20, 2026 &middot; 1 min read</span>
         </div>
-      </article>
-      <article class="ts-card">
-        <a href="articles/rss-f136f4718ee8e008.html" style="text-decoration:none;color:inherit;">
-          <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;q=80" alt="Inside Featured: Key Trends and Operational Priorities" loading="lazy"
-             onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">02</span>
       </div>
+    </article>
+    <article class="hc-article">
+      <a href="articles/rss-f136f4718ee8e008.html" class="hc-img-link">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;q=80" alt="Inside Featured: Key Trends and Operational Priorities" loading="lazy"
+               onerror="this.src='assets/fallback.jpg'">
         </a>
-        <div class="ts-card-body">
-          <div class="ts-card-meta">
-            <span class="ts-card-badge" style="background:#1d1d1f;">⭐ Featured</span>
-            <span class="ts-card-cat-name">Featured</span>
-          </div>
-          <div class="ts-card-title"><a href="articles/rss-f136f4718ee8e008.html">Inside Featured: Key Trends and Operational Priorities</a></div>
-          <div class="ts-card-summary">A recent RTS Technology Centre event brought together production innovators and industry specialists to examine how accessible design and inclusive production practices are reshaping the way content i</div>
-          <div class="ts-card-insight">
-            <span class="ts-card-insight-label">Key Insight</span>
-            A recent RTS Technology Centre event brought together production innovators and industry specialists to examine how acce
-          </div>
-          <div class="ts-card-footer">
-            <a href="articles/rss-f136f4718ee8e008.html" class="ts-card-read">Read full article
-              <svg viewBox="0 0 12 12"><path d="M1 6h10M6 1l5 5-5 5"/></svg>
-            </a>
-            <span class="ts-card-date">March 20, 2026</span>
-          </div>
+      <div class="hc-body">
+        <a class="hc-badge" href="../featured.html" style="background:#1d1d1f;">⭐ Featured</a>
+        <h2 class="hc-title"><a href="articles/rss-f136f4718ee8e008.html">Inside Featured: Key Trends and Operational Priorities</a></h2>
+        <p class="hc-summary">A recent RTS Technology Centre event brought together production innovators and industry specialists to examine how accessible design and inclusive production practices are reshaping the way content i</p>
+        <div class="hc-footer">
+          <a href="articles/rss-f136f4718ee8e008.html" class="hc-read">Read full article &rarr;</a>
+          <span class="hc-meta">March 20, 2026 &middot; 1 min read</span>
         </div>
-      </article>
-      <article class="ts-card">
-        <a href="articles/rss-f2d6a0112c752151.html" style="text-decoration:none;color:inherit;">
-          <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1453738773917-9c3eff1db985?w=900&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;q=80" alt="The State of Newsroom: What Broadcast Professionals Need to Know" loading="lazy"
-             onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">03</span>
       </div>
+    </article>
+    <article class="hc-article">
+      <a href="articles/rss-f2d6a0112c752151.html" class="hc-img-link">
+          <img src="https://images.unsplash.com/photo-1453738773917-9c3eff1db985?w=900&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;q=80" alt="The State of Newsroom: What Broadcast Professionals Need to Know" loading="lazy"
+               onerror="this.src='assets/fallback.jpg'">
         </a>
-        <div class="ts-card-body">
-          <div class="ts-card-meta">
-            <span class="ts-card-badge" style="background:#1d1d1f;">⭐ Featured</span>
-            <span class="ts-card-cat-name">Featured</span>
-          </div>
-          <div class="ts-card-title"><a href="articles/rss-f2d6a0112c752151.html">The State of Newsroom: What Broadcast Professionals Need to Know</a></div>
-          <div class="ts-card-summary">Stockholm, Sweden March 19, 2026– As live production scales to higher UHD and full HD volumes, efficiency and density have become critical requirements. At NAB Show 2026, Net Insight introduces its fu</div>
-          <div class="ts-card-insight">
-            <span class="ts-card-insight-label">Key Insight</span>
-            Stockholm, Sweden March 19, 2026– As live production scales to higher UHD and full HD volumes, efficiency and density ha
-          </div>
-          <div class="ts-card-footer">
-            <a href="articles/rss-f2d6a0112c752151.html" class="ts-card-read">Read full article
-              <svg viewBox="0 0 12 12"><path d="M1 6h10M6 1l5 5-5 5"/></svg>
-            </a>
-            <span class="ts-card-date">March 20, 2026</span>
-          </div>
+      <div class="hc-body">
+        <a class="hc-badge" href="../featured.html" style="background:#1d1d1f;">⭐ Featured</a>
+        <h2 class="hc-title"><a href="articles/rss-f2d6a0112c752151.html">The State of Newsroom: What Broadcast Professionals Need to Know</a></h2>
+        <p class="hc-summary">Stockholm, Sweden March 19, 2026– As live production scales to higher UHD and full HD volumes, efficiency and density have become critical requirements. At NAB Show 2026, Net Insight introduces its fu</p>
+        <div class="hc-footer">
+          <a href="articles/rss-f2d6a0112c752151.html" class="hc-read">Read full article &rarr;</a>
+          <span class="hc-meta">March 20, 2026 &middot; 1 min read</span>
         </div>
-      </article>
-      <article class="ts-card">
+      </div>
+    </article></div>
+<div class="news-grid">      <article class="ts-card">
         <a href="articles/2026-03-19-featured-opinion-just-because-we-can.html" style="text-decoration:none;color:inherit;">
           <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Opinion: Just because we can…" loading="lazy"
+        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Opinion: Just because we can…" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
         <span class="ts-card-num">04</span>
       </div>
@@ -298,7 +305,7 @@
       <article class="ts-card">
         <a href="articles/2026-03-18-featured-lisa-nandy-suggests-bbc-could-be-given-perman.html" style="text-decoration:none;color:inherit;">
           <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Lisa Nandy suggests BBC could be given permanent charter" loading="lazy"
+        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Lisa Nandy suggests BBC could be given permanent charter" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
         <span class="ts-card-num">10</span>
       </div>
@@ -406,7 +413,7 @@
       <article class="ts-card">
         <a href="articles/2026-03-17-featured-sam-tewunga-moves-into-ceo-role-at-uktv.html" style="text-decoration:none;color:inherit;">
           <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Sam Tewunga moves into CEO role at UKTV" loading="lazy"
+        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Sam Tewunga moves into CEO role at UKTV" loading="lazy"
              onerror="this.src='assets/fallback.jpg'">
         <span class="ts-card-num">14</span>
       </div>
@@ -564,8 +571,7 @@
             <span class="ts-card-date">March 16, 2026</span>
           </div>
         </div>
-      </article>
-        </div>
+      </article></div>
         <div class="pag-bar"><a href="featured.html" class="pag-link">&larr; Newer</a>&nbsp;<span class="pag-info">Page 2 of 2</span>&nbsp;<span class="pag-link pag-disabled">Older &rarr;</span></div>
       </div>
     </div>

@@ -69,176 +69,192 @@ def _unique_picks(pool, seed, count):
     picks = [pool[indexed[i % n]] for i in range(count)]
     return picks
 
-# ── Large sentence pools — unique per section ────────────────────────────────
-# Each pool has 12+ items so 3 picks are always unique even for similar slugs
-_POOLS = {
-    "what_happening": [
-        "The shift reflects a wider move across the industry toward more flexible, scalable approaches.",
-        "The development fits into a pattern of incremental but steady evolution in this part of the stack.",
-        "At a technical level, this addresses a longstanding gap that teams have been working around.",
-        "Observers have been anticipating movement in this direction, and the timing aligns with broader trends.",
-        "The change consolidates capabilities that were previously fragmented across multiple vendor offerings.",
-        "Adoption is being driven by a combination of operational need and competitive pressure.",
-        "This reflects growing demand for solutions that reduce complexity without sacrificing reliability.",
-        "The pace of change here has accelerated noticeably over the past eighteen months.",
-        "Practitioners report that the friction points this addresses have been a persistent concern.",
-        "Vendors are responding to feedback that has been building in the market for some time.",
-        "The underlying technical challenge being addressed here is well understood by most engineers.",
-        "Cross-team coordination has become a recurring theme, and this development speaks directly to that.",
-        "Industry groups have been pushing for exactly this kind of alignment for several years.",
-        "The gap between vendor capability and common deployment practice is finally starting to close.",
-        "Signal clarity on the technical direction makes planning significantly easier for engineering teams.",
+# ── Per-category editorial paragraph pools ────────────────────────────────────
+# 12+ unique sentences per slot — unique picks guaranteed via _unique_picks()
+
+_PARAS = {
+    # Opening context (slot 0)
+    "context": [
+        "The broadcast and streaming technology sector continues to evolve rapidly, with engineering teams under pressure to modernise infrastructure while maintaining the reliability that on-air operations demand.",
+        "Across the industry, the gap between what is technically possible and what is operationally deployed is narrowing, driven by vendor innovation and the competitive pressure on broadcasters to reduce costs.",
+        "Media technology decisions made this year will shape production and delivery capabilities for the next half-decade, making it important for teams to engage with emerging developments early.",
+        "The pace of change in broadcast IP, cloud, and streaming infrastructure has accelerated, and the choices available to engineering and operations teams have never been more varied or complex.",
+        "Industry analysts and practitioners alike are tracking a cluster of converging trends that together are redefining what efficient broadcast and media technology operations look like.",
+        "For broadcast engineers and technology decision-makers, staying current with vendor developments, standards progress, and deployment case studies has become an operational requirement, not just a professional interest.",
+        "The economics of media production and distribution continue to shift, with cloud-native approaches and IP-based infrastructure challenging long-standing assumptions about cost, flexibility, and scale.",
+        "Standards bodies, vendors, and broadcaster engineering teams are increasingly aligned on the direction of travel, even if the timeline and implementation specifics continue to vary by organisation.",
+        "New deployments and announced capabilities are revealing practical pathways that were theoretical just eighteen months ago, giving forward-planning teams more concrete options to evaluate.",
+        "The integration of software-defined approaches into traditionally hardware-centric broadcast workflows is progressing steadily, with reliability and support maturity keeping pace with capability.",
+        "Competitive dynamics between established broadcast technology vendors and cloud-native entrants are producing a more varied product landscape, with genuine choice available at most layers of the stack.",
+        "Regional differences in broadcast infrastructure maturity, regulatory environment, and audience behaviour mean that the right technology path varies, but the underlying trends apply broadly.",
     ],
-    "why_matters": [
-        "For broadcast engineers and operations teams, the implications are direct and practical.",
-        "Decisions made now will shape workflows for several years, making early clarity valuable.",
-        "The change touches areas that are tightly coupled with other systems, so ripple effects are expected.",
-        "Teams that engage early will have more time to adapt than those reacting after deployment.",
-        "From a budget perspective, timing matters — planning cycles are already underway at most organisations.",
-        "The stakes are higher than they might appear, given how deeply embedded these workflows are.",
-        "Reliability expectations in broadcast leave little room for disruption during transitions.",
-        "Second-order effects on adjacent systems are worth mapping before committing to a path.",
-        "This is the kind of change where getting the sequencing right matters as much as the decision itself.",
-        "Operations leaders will want clear metrics before and after any significant change here.",
-        "The cost of delay is not always visible until it compounds — acting with information is better.",
-        "Broadcast environments have tight SLAs, and any change needs to be validated against them.",
+    # Development specifics (slot 1)
+    "development": [
+        "This development builds on a multi-year trajectory of investment and standardisation that has been tracked closely by engineering teams planning infrastructure transitions.",
+        "The announcement reflects sustained demand from broadcast operators for solutions that combine reliability with the operational flexibility that modern workflows require.",
+        "Engineering teams evaluating this should look beyond the headline capability to assess integration complexity, vendor support commitments, and total cost of ownership over a three-to-five-year horizon.",
+        "The practical significance of this development lies not in the technology itself but in the operational workflows it enables and the engineering effort it removes from day-to-day operations.",
+        "Organisations that have been piloting similar approaches in test environments are likely to accelerate their evaluation timelines in response to developments like this one.",
+        "The market context matters here: this development arrives at a moment when budget cycles are tight and technology choices are subject to closer scrutiny than they were two years ago.",
+        "What distinguishes this from earlier announcements in the same space is the combination of maturity, interoperability, and vendor ecosystem support that now surrounds it.",
+        "Teams with legacy infrastructure commitments will need to assess transition pathways carefully, but the direction of travel is sufficiently clear that deferring evaluation carries its own risk.",
+        "The technical underpinnings of this development are well understood by senior engineers, and the question for most organisations is now one of timing and internal readiness rather than feasibility.",
+        "Interoperability with existing deployed infrastructure is typically the first question engineering teams ask, and in this case the answer is more straightforward than previous generations of similar technology.",
+        "Third-party validation and real-world deployment evidence are accumulating at a rate that should give procurement and engineering teams reasonable confidence in progressing from evaluation to pilot.",
+        "The vendor roadmap signals continued investment in this area, which reduces the risk of early-adopter exposure and supports longer-term planning commitments.",
     ],
-    "operational": [
-        "From an operational standpoint, the first step is typically an internal audit of current practices.",
-        "Integration points with existing tools and platforms should be mapped before any migration begins.",
-        "Vendor support timelines and SLA commitments are worth reviewing in parallel with internal planning.",
-        "Rollback plans and staged rollouts reduce the risk of disruption during transitions.",
-        "Monitoring coverage should be confirmed before any significant change goes into production.",
-        "Staff training and documentation updates are often underestimated but consistently matter.",
-        "Pilot environments that reflect production load are essential for validating behaviour before cutover.",
-        "Change management processes need to be engaged early, particularly for teams with on-air obligations.",
-        "Dependencies on third-party systems should be verified and contracts checked for compatibility clauses.",
-        "A clear escalation path during the transition period reduces the blast radius if something goes wrong.",
-        "Labelling, versioning, and audit trails become more important during periods of active change.",
-        "Teams running 24/7 operations should plan transitions around maintenance windows where possible.",
+    # Operational impact (slot 2)
+    "operations": [
+        "Operationally, the most immediate consideration is how this fits into existing change management and validation processes, particularly for teams running 24/7 operations with minimal maintenance windows.",
+        "Engineering teams will want to validate behaviour under realistic production loads before any commitment to deployment, with particular attention to failure modes and recovery characteristics.",
+        "Staff capability and training requirements should be factored into any deployment timeline, alongside the technical integration work itself.",
+        "Monitoring and observability tooling may need updating to provide adequate visibility into the new layer of the stack, and this work often takes longer than the initial integration.",
+        "The support model offered by the vendor — including response times, escalation paths, and on-site capability — should be reviewed in parallel with the technical evaluation.",
+        "Organisations with multiple sites or complex interconnected systems will need to consider rollout sequencing carefully to manage dependencies and minimise risk during the transition period.",
+        "Documentation and internal knowledge transfer are consistently underestimated in technology deployments of this kind and should be scoped as explicit work items rather than assumed to happen organically.",
+        "A staged deployment approach, beginning with lower-criticality workflows before progressing to on-air systems, is standard practice and applies here as it would to any significant infrastructure change.",
+        "The total engineering effort required should be assessed against available resource capacity, with a realistic view of parallel project commitments that may compete for the same team members.",
+        "Change control processes, particularly in regulated or compliance-sensitive environments, will need to be engaged early to avoid delays in the later stages of deployment.",
+        "Baseline performance metrics should be captured before deployment to support the post-deployment validation process and to provide evidence for internal stakeholders.",
+        "Integration testing in an environment that accurately reflects production conditions remains the most reliable way to surface issues before they affect on-air operations.",
     ],
-    "looking_ahead": [
-        "The trajectory suggests further consolidation and standardisation over the next twelve months.",
-        "Teams that invest in documentation and internal knowledge transfer now will be better positioned.",
-        "The vendor landscape is likely to evolve further as the market responds to demand.",
-        "Standards bodies are tracking this area closely, and formal guidance is expected in due course.",
-        "Longer term, the change may open up new options for cost reduction and operational simplicity.",
-        "Early adopters will likely share operational findings that benefit the broader community.",
-        "The next development cycle will probably bring refinements based on real-world deployment feedback.",
-        "Interoperability between solutions is expected to improve as the market matures.",
-        "Organisations that have documented their current baseline will find future comparisons easier.",
-        "Workflow automation opportunities will expand once this layer is more consistently implemented.",
-        "Industry forums and user groups are already discussing implementation patterns worth monitoring.",
-        "The foundations being laid now are likely to support capabilities that are not yet fully defined.",
+    # Forward-looking (slot 3)
+    "outlook": [
+        "The vendor community is actively developing capabilities in adjacent areas, and teams that establish competency with current-generation solutions will be better positioned to evaluate what comes next.",
+        "Standards progress in this area is expected to continue, with formal specifications that support broader interoperability likely to arrive within the next twelve to eighteen months.",
+        "Early-adopter organisations are generating operational data that will be valuable to the wider community, and the industry forums and user groups that aggregate this experience are worth monitoring.",
+        "The competitive landscape among vendors is healthy, with genuine differentiation available across price, capability, and support model, which gives buyers negotiating leverage and strategic options.",
+        "Organisations that have invested in building internal IP and cloud competency are finding that this investment pays dividends as the range of available solutions expands.",
+        "The pace of feature development from leading vendors suggests that the capability available in twelve months will be meaningfully different from what is available today, which has implications for procurement timing.",
+        "Longer-term cost implications — including licensing model changes, infrastructure requirements, and staffing adjustments — should be modelled alongside the initial deployment investment.",
+        "The talent market for engineers with relevant expertise remains tight, and organisations that develop this capability internally are building a competitive advantage that extends beyond any single deployment.",
+        "Industry certification and training programmes are expanding to match the pace of technology change, providing a structured pathway for teams to build and validate the skills they need.",
+        "The transition towards more software-defined, cloud-integrated broadcast infrastructure is structural rather than cyclical, and planning should reflect that permanence rather than treating it as a passing trend.",
+        "Partnerships between broadcast technology vendors and cloud platform providers are deepening, which is expanding the range of validated, supported deployment architectures available to engineering teams.",
+        "Teams that document their evaluation and deployment experience contribute to a body of shared knowledge that benefits the entire sector and helps accelerate adoption of well-understood patterns.",
     ],
 }
 
-# ── Category-specific context sentences (injected into lead) ──────────────────
 _CAT_CONTEXT = {
-    "streaming":      "for streaming and video delivery infrastructure",
-    "cloud":          "for cloud-based production and media workflows",
+    "streaming":          "for streaming delivery and OTT platform operations",
+    "cloud":              "for cloud-based production and media workflows",
     "ai-post-production": "for AI-assisted post-production and editing pipelines",
-    "graphics":       "for broadcast graphics and real-time rendering systems",
-    "playout":        "for playout automation and channel management",
-    "infrastructure": "for broadcast IP infrastructure and facility design",
-    "newsroom":       "for newsroom control systems and news production workflows",
-    "featured":       "across the broadcast and streaming technology sector",
+    "graphics":           "for broadcast graphics and real-time rendering systems",
+    "playout":            "for playout automation and channel management",
+    "infrastructure":     "for broadcast IP infrastructure and facility design",
+    "newsroom":           "for newsroom control systems and news production workflows",
+    "featured":           "across the broadcast and streaming technology sector",
 }
 
-# ── Card summary (~300 words) ─────────────────────────────────────────────────
-_CARD_EXPANSIONS = [
-    "Understanding what is changing helps teams plan ahead and avoid surprises.",
-    "Organisations tracking this should review their current approach against the new expectations.",
-    "Practical impact will vary by scale, but the direction is clear across the sector.",
-    "Early movers tend to gain an efficiency edge before the change becomes the norm.",
-    "Teams should discuss this in their next planning cycle and note the timeline.",
-    "Budgets, staffing, and tooling may all need revisiting in light of this development.",
-    "Keeping a close eye on vendor roadmaps and standards bodies will pay off here.",
-    "The operational details matter as much as the headline — check the specifics carefully.",
-    "Documentation and internal alignment are often the first practical steps teams take.",
-    "A phased approach reduces risk while still capturing the benefit of acting early.",
-]
 
-def build_card_summary(title, teaser, target=CARD_WORDS):
+def _unique_picks(pool, seed, count):
+    """Pick `count` UNIQUE items from pool — deterministic, no repeats."""
+    import hashlib as _h
+    indexed = list(range(len(pool)))
+    indexed.sort(key=lambda i: int(_h.md5(f"{seed}:{i}".encode()).hexdigest(), 16))
+    return [pool[indexed[i % len(pool)]] for i in range(count)]
+
+
+def build_article_body(title, teaser, slug, cat="featured"):
+    """
+    700-850 word flowing editorial article. No repetitive H2 headers.
+    Each article uses unique sentences and real teaser content for specificity.
+    """
+    import re as _re
+    sents = _split_sents(f"{title}. {teaser}")
+    lead  = " ".join(sents[:2]) if len(sents) >= 2 else sents[0] if sents else title
+    ctx   = _CAT_CONTEXT.get(cat, "across the broadcast and streaming technology sector")
+
+    # Pick unique paragraphs for each slot
+    ctx_paras  = _unique_picks(_PARAS["context"],     f"{slug}:ctx",  2)
+    dev_paras  = _unique_picks(_PARAS["development"], f"{slug}:dev",  3)
+    ops_paras  = _unique_picks(_PARAS["operations"],  f"{slug}:ops",  3)
+    fwd_paras  = _unique_picks(_PARAS["outlook"],     f"{slug}:fwd",  2)
+
+    # Inject real teaser sentences as specific context
+    specific = sents[2:6] if len(sents) > 2 else []
+    spec1 = specific[0] if len(specific) > 0 else ""
+    spec2 = specific[1] if len(specific) > 1 else ""
+    spec3 = specific[2] if len(specific) > 2 else ""
+
+    parts = [f"<p><strong>{lead}</strong></p>"]
+
+    # Opening context section (no H2)
+    parts.append(f"<p>{ctx_paras[0]}</p>")
+    if spec1: parts.append(f"<p>{spec1}</p>")
+    parts.append(f"<p>{ctx_paras[1]}</p>")
+
+    # Development section
+    parts.append(f"<p>{dev_paras[0]} This is particularly relevant {ctx}.</p>")
+    if spec2: parts.append(f"<p>{spec2}</p>")
+    parts.append(f"<p>{dev_paras[1]}</p>")
+    parts.append(f"<p>{dev_paras[2]}</p>")
+
+    # Operational section
+    parts.append(f"<p><em>For engineering and operations teams:</em> {ops_paras[0]}</p>")
+    if spec3: parts.append(f"<p>{spec3}</p>")
+    parts.append(f"<p>{ops_paras[1]}</p>")
+    parts.append(f"<p>{ops_paras[2]}</p>")
+
+    # Forward outlook
+    parts.append(f"<p>{fwd_paras[0]}</p>")
+    parts.append(f"<p>{fwd_paras[1]}</p>")
+
+    # Conclusion
+    concl = sents[-1] if sents else f"The sector continues to develop {ctx}."
+    closer = "Teams that engage early and plan methodically will be best placed to benefit as the technology matures."
+    parts.append(f"<p>{concl} {closer}</p>")
+
+    body = "\n".join(parts)
+    wc   = len(_re.sub(r"<[^>]+>", " ", body).split())
+    return body, wc
+
+
+def build_card_summary(title, teaser, target=300):
+    """Build ~300-word card excerpt from title + teaser only."""
     base = " ".join(filter(None, [title, teaser])).strip()
-    if not base:
-        return ""
+    if not base: return ""
     sents = _split_sents(base)
     out = []
     for s in sents:
         if len(" ".join(out).split()) < int(target * 0.6):
             out.append(s)
+    expansions = [
+        "Understanding what is changing helps teams plan ahead and avoid surprises.",
+        "Organisations tracking this should review their current approach against the new expectations.",
+        "Practical impact will vary by scale, but the direction is clear across the sector.",
+        "Early movers tend to gain an efficiency edge before the change becomes the norm.",
+        "Teams should discuss this in their next planning cycle and note the timeline.",
+        "Budgets, staffing, and tooling may all need revisiting in light of this development.",
+        "Keeping a close eye on vendor roadmaps and standards bodies will pay off here.",
+        "The operational details matter as much as the headline — check the specifics carefully.",
+    ]
     i = 0
-    while len(" ".join(out).split()) < target and i < len(_CARD_EXPANSIONS):
-        out.append(_CARD_EXPANSIONS[i]); i += 1
+    while len(" ".join(out).split()) < target and i < len(expansions):
+        out.append(expansions[i]); i += 1
     words = " ".join(out).split()
-    return " ".join(words[:int(target * 1.1)])
+    return " ".join(words[:int(target*1.1)])
 
-# ── Full article body ─────────────────────────────────────────────────────────
-def build_article_body(title, teaser, slug, cat="featured"):
-    """
-    700-900 word deterministic article. Each H2 section uses UNIQUE sentences
-    (guaranteed no repetition) plus title/teaser-derived sentences for specificity.
-    """
-    sents = _split_sents(f"{title}. {teaser}")
-    lead_sents = sents[:2] if len(sents) >= 2 else (sents + ["Further context is emerging as the sector responds."])[:2]
-    lead = " ".join(lead_sents)
-    ctx  = _CAT_CONTEXT.get(cat, "for broadcast and streaming operations teams")
 
-    # Pick 3 UNIQUE sentences per section using deterministic shuffle
-    what_op = _unique_picks(_POOLS["what_happening"], f"{slug}:what", 3)
-    why_op  = _unique_picks(_POOLS["why_matters"],    f"{slug}:why",  3)
-    ops_op  = _unique_picks(_POOLS["operational"],    f"{slug}:ops",  3)
-    fwd_op  = _unique_picks(_POOLS["looking_ahead"],  f"{slug}:fwd",  3)
+def make_slug(title, pub_date, cat=""):
+    """YYYY-MM-DD-<cat>-<title>, URL-safe, ≤80 chars."""
+    import re as _re
+    date_part  = (pub_date or "2026-01-01")[:10]
+    cat_part   = _re.sub(r"[^\w]", "-", (cat or "").lower()).strip("-")[:12]
+    title_part = _re.sub(r"[^\w\s-]", "", title.lower())
+    title_part = _re.sub(r"[\s_]+", "-", title_part).strip("-")
+    prefix     = f"{date_part}-{cat_part}-" if cat_part else f"{date_part}-"
+    return f"{prefix}{title_part[:65 - len(prefix)]}"
 
-    # Derive specific sentences from the title/teaser to make each article unique
-    # Take up to 2 sentences from the real teaser to inject as specific context
-    specific = sents[2:5] if len(sents) > 2 else []
 
-    parts = [f"<p><strong>{lead}</strong></p>"]
 
-    parts.append("<h2>What is happening</h2>")
-    parts.append(f"<p>{what_op[0]}</p>")
-    if specific:
-        parts.append(f"<p>{specific[0]}</p>")
-    parts.append(f"<p>{what_op[1]}</p>")
-    parts.append(f"<p>{what_op[2]}</p>")
-
-    parts.append("<h2>Why it matters</h2>")
-    parts.append(f"<p>{why_op[0]} This is especially relevant {ctx}.</p>")
-    if len(specific) > 1:
-        parts.append(f"<p>{specific[1]}</p>")
-    parts.append(f"<p>{why_op[1]}</p>")
-    parts.append(f"<p>{why_op[2]}</p>")
-
-    parts.append("<h2>Operational considerations</h2>")
-    parts.append(f"<p>{ops_op[0]}</p>")
-    if len(specific) > 2:
-        parts.append(f"<p>{specific[2]}</p>")
-    parts.append(f"<p>{ops_op[1]}</p>")
-    parts.append(f"<p>{ops_op[2]}</p>")
-
-    parts.append("<h2>Looking ahead</h2>")
-    parts.append(f"<p>{fwd_op[0]}</p>")
-    parts.append(f"<p>{fwd_op[1]}</p>")
-    parts.append(f"<p>{fwd_op[2]}</p>")
-
-    # Conclusion uses the last real teaser sentence + generic closer
-    concl_a = sents[-1] if sents else f"The sector is adjusting to the implications {ctx}."
-    concl_b = "Teams that engage early and plan carefully will be best placed to benefit."
-    parts.append(f"<p>{concl_a} {concl_b}</p>")
-
-    body = "\n".join(parts)
-    wc   = len(re.sub(r"<[^>]+>", " ", body).split())
-    return body, wc
-
-# ── Image picker ──────────────────────────────────────────────────────────────
 def pick_image(cat, slug, pools):
+    """Stable image pick per slug from cat_pools."""
+    import hashlib as _h
     cat_pool = pools.get("cat_pools", {}).get(cat, [])
     if not cat_pool:
-        all_ids  = [pid for lst in pools.get("cat_pools", {}).values() for pid in lst]
-        cat_pool = all_ids or ["photo-1598488035139-bdbb2231ce04"]
-    idx = int(hashlib.md5(slug.encode()).hexdigest(), 16) % len(cat_pool)
+        cat_pool = [p for lst in pools.get("cat_pools", {}).values() for p in lst] or ["photo-1598488035139-bdbb2231ce04"]
+    idx = int(_h.md5(slug.encode()).hexdigest(), 16) % len(cat_pool)
     return {
         "image_url":         f"https://images.unsplash.com/{cat_pool[idx]}?w=900&auto=format&fit=crop&q=80",
         "image_credit":      "Photo: Unsplash — free to use under the Unsplash License",
@@ -246,16 +262,7 @@ def pick_image(cat, slug, pools):
         "image_license_url": "https://unsplash.com/license",
     }
 
-# ── Slug builder ──────────────────────────────────────────────────────────────
-def make_slug(title, pub_date, cat=""):
-    date_part  = (pub_date or datetime.now(timezone.utc).strftime("%Y-%m-%d"))[:10]
-    cat_part   = re.sub(r"[^\w]", "-", (cat or "").lower()).strip("-")[:12]
-    title_part = re.sub(r"[^\w\s-]", "", title.lower())
-    title_part = re.sub(r"[\s_]+", "-", title_part).strip("-")
-    prefix     = f"{date_part}-{cat_part}-" if cat_part else f"{date_part}-"
-    return f"{prefix}{title_part[:65 - len(prefix)]}"
 
-# ── Main ──────────────────────────────────────────────────────────────────────
 def main():
     print("=== rewrite_feed.py ===")
 

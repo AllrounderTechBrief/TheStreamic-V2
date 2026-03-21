@@ -24,6 +24,50 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
+<div id="ts-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;
+  background:#1d1d1f;color:#fff;padding:16px 24px;
+  box-shadow:0 -4px 20px rgba(0,0,0,.3);font-size:13px;line-height:1.5;">
+  <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <strong style="font-size:14px;">We use cookies</strong>
+      <p style="margin:4px 0 0;color:rgba(255,255,255,.7);">
+        We use analytics and advertising cookies to improve your experience.
+        <a href="/privacy.html" style="color:#FFD700;">Privacy Policy</a>
+      </p>
+    </div>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button onclick="tsCC(false)"
+        style="padding:9px 20px;border-radius:8px;border:1px solid rgba(255,255,255,.3);
+        background:transparent;color:#fff;font-size:13px;font-weight:600;cursor:pointer;">
+        Reject optional</button>
+      <button onclick="tsCC(true)"
+        style="padding:9px 20px;border-radius:8px;border:none;
+        background:#FFD700;color:#000;font-size:13px;font-weight:700;cursor:pointer;">
+        Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var K="ts_cc",s=localStorage.getItem(K),b=document.getElementById("ts-cookie-banner");
+  if(!s&&b){b.style.display="block";}
+  window.tsCC=function(ok){
+    localStorage.setItem(K,ok?"granted":"denied");
+    if(b)b.style.display="none";
+    if(typeof gtag!="undefined"){
+      gtag("consent","update",{analytics_storage:ok?"granted":"denied",
+        ad_storage:ok?"granted":"denied",ad_user_data:ok?"granted":"denied",
+        ad_personalization:ok?"granted":"denied"});
+    }
+  };
+  if(s==="granted"&&typeof gtag!="undefined"){
+    gtag("consent","update",{analytics_storage:"granted",ad_storage:"granted",
+      ad_user_data:"granted",ad_personalization:"granted"});
+  }
+})();
+</script>
+
 <body>
   <nav class="site-nav">
     <div class="nav-inner">
@@ -51,89 +95,52 @@
     <div class="page-wrap">
       <div class="page-section">
         <div class="section-hdr"><h2>&#9729;&#65039; Cloud Production News</h2></div>
-        <div class="news-grid">
-      <article class="ts-card">
-        <a href="articles/2026-03-20-cloud-celebrating-the-greatest-creators-one-battle-aft.html" style="text-decoration:none;color:inherit;">
-          <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid" loading="lazy"
-             onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">01</span>
-      </div>
+<div class="hc-list">    <article class="hc-article">
+      <a href="articles/2026-03-20-cloud-celebrating-the-greatest-creators-one-battle-aft.html" class="hc-img-link">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid" loading="lazy"
+               onerror="this.src='assets/fallback.jpg'">
         </a>
-        <div class="ts-card-body">
-          <div class="ts-card-meta">
-            <span class="ts-card-badge" style="background:#5856d6;">☁️ Cloud Production</span>
-            <span class="ts-card-cat-name">Cloud Production</span>
-          </div>
-          <div class="ts-card-title"><a href="articles/2026-03-20-cloud-celebrating-the-greatest-creators-one-battle-aft.html">Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid</a></div>
-          <div class="ts-card-summary">Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid Avid® today celebrated the filmmakers, editors and sound teams that worked with Avid Media Composer® and Pro Tools® to create the vast majority of this year’s Academy Award®-winning pi</div>
-          <div class="ts-card-insight">
-            <span class="ts-card-insight-label">Key Insight</span>
-            Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid Avid
-          </div>
-          <div class="ts-card-footer">
-            <a href="articles/2026-03-20-cloud-celebrating-the-greatest-creators-one-battle-aft.html" class="ts-card-read">Read full article
-              <svg viewBox="0 0 12 12"><path d="M1 6h10M6 1l5 5-5 5"/></svg>
-            </a>
-            <span class="ts-card-date">March 20, 2026</span>
-          </div>
+      <div class="hc-body">
+        <a class="hc-badge" href="../cloud.html" style="background:#5856d6;">☁️ Cloud Production</a>
+        <h2 class="hc-title"><a href="articles/2026-03-20-cloud-celebrating-the-greatest-creators-one-battle-aft.html">Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid</a></h2>
+        <p class="hc-summary">Celebrating the greatest creators: One Battle After Another and F1 among majority of Oscar® wins created using Avid Avid® today celebrated the filmmakers, editors and sound teams that worked with Avid Media Composer® and Pro Tools® to create the vast majority of this year’s Academy Award®-winning pictures. In total, 87</p>
+        <div class="hc-footer">
+          <a href="articles/2026-03-20-cloud-celebrating-the-greatest-creators-one-battle-aft.html" class="hc-read">Read full article &rarr;</a>
+          <span class="hc-meta">March 20, 2026 &middot; 2 min read</span>
         </div>
-      </article>
-      <article class="ts-card">
-        <a href="articles/cloud-technology-trends-broadcast-2026.html" style="text-decoration:none;color:inherit;">
-          <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="How Cloud Production Technology Is Evolving in 2026" loading="lazy"
-             onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">02</span>
       </div>
+    </article>
+    <article class="hc-article">
+      <a href="articles/cloud-technology-trends-broadcast-2026.html" class="hc-img-link">
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="How Cloud Production Technology Is Evolving in 2026" loading="lazy"
+               onerror="this.src='assets/fallback.jpg'">
         </a>
-        <div class="ts-card-body">
-          <div class="ts-card-meta">
-            <span class="ts-card-badge" style="background:#5856d6;">☁️ Cloud Production</span>
-            <span class="ts-card-cat-name">Cloud Production</span>
-          </div>
-          <div class="ts-card-title"><a href="articles/cloud-technology-trends-broadcast-2026.html">How Cloud Production Technology Is Evolving in 2026</a></div>
-          <div class="ts-card-summary">How Cloud Production Technology Is Evolving in 2026 An independent editorial overview of the technology forces reshaping cloud production for broadcast engineers and media operations professionals. Understanding what is changing helps teams plan ahead and avoid surprises. Organisations tracking this</div>
-          <div class="ts-card-insight">
-            <span class="ts-card-insight-label">Key Insight</span>
-            How Cloud Production Technology Is Evolving in 2026 An independent editorial overview of the technology forces reshaping
-          </div>
-          <div class="ts-card-footer">
-            <a href="articles/cloud-technology-trends-broadcast-2026.html" class="ts-card-read">Read full article
-              <svg viewBox="0 0 12 12"><path d="M1 6h10M6 1l5 5-5 5"/></svg>
-            </a>
-            <span class="ts-card-date">March 20, 2026</span>
-          </div>
+      <div class="hc-body">
+        <a class="hc-badge" href="../cloud.html" style="background:#5856d6;">☁️ Cloud Production</a>
+        <h2 class="hc-title"><a href="articles/cloud-technology-trends-broadcast-2026.html">How Cloud Production Technology Is Evolving in 2026</a></h2>
+        <p class="hc-summary">How Cloud Production Technology Is Evolving in 2026 An independent editorial overview of the technology forces reshaping cloud production for broadcast engineers and media operations professionals. Understanding what is changing helps teams plan ahead and avoid surprises. Organisations tracking this should review their</p>
+        <div class="hc-footer">
+          <a href="articles/cloud-technology-trends-broadcast-2026.html" class="hc-read">Read full article &rarr;</a>
+          <span class="hc-meta">March 20, 2026 &middot; 1 min read</span>
         </div>
-      </article>
-      <article class="ts-card">
-        <a href="articles/cloud-workflow-insights-broadcast-professionals.html" style="text-decoration:none;color:inherit;">
-          <div class="ts-card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="The State of Cloud Production: What Broadcast Professionals Need to Know" loading="lazy"
-             onerror="this.src='assets/fallback.jpg'">
-        <span class="ts-card-num">03</span>
       </div>
+    </article>
+    <article class="hc-article">
+      <a href="articles/cloud-workflow-insights-broadcast-professionals.html" class="hc-img-link">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="The State of Cloud Production: What Broadcast Professionals Need to Know" loading="lazy"
+               onerror="this.src='assets/fallback.jpg'">
         </a>
-        <div class="ts-card-body">
-          <div class="ts-card-meta">
-            <span class="ts-card-badge" style="background:#5856d6;">☁️ Cloud Production</span>
-            <span class="ts-card-cat-name">Cloud Production</span>
-          </div>
-          <div class="ts-card-title"><a href="articles/cloud-workflow-insights-broadcast-professionals.html">The State of Cloud Production: What Broadcast Professionals Need to Know</a></div>
-          <div class="ts-card-summary">The State of Cloud Production: What Broadcast Professionals Need to Know An independent editorial overview of the technology forces reshaping cloud production for broadcast engineers and media operations professionals. Understanding what is changing helps teams plan ahead and avoid surprises. Organi</div>
-          <div class="ts-card-insight">
-            <span class="ts-card-insight-label">Key Insight</span>
-            The State of Cloud Production: What Broadcast Professionals Need to Know An independent editorial overview of the techno
-          </div>
-          <div class="ts-card-footer">
-            <a href="articles/cloud-workflow-insights-broadcast-professionals.html" class="ts-card-read">Read full article
-              <svg viewBox="0 0 12 12"><path d="M1 6h10M6 1l5 5-5 5"/></svg>
-            </a>
-            <span class="ts-card-date">March 20, 2026</span>
-          </div>
+      <div class="hc-body">
+        <a class="hc-badge" href="../cloud.html" style="background:#5856d6;">☁️ Cloud Production</a>
+        <h2 class="hc-title"><a href="articles/cloud-workflow-insights-broadcast-professionals.html">The State of Cloud Production: What Broadcast Professionals Need to Know</a></h2>
+        <p class="hc-summary">The State of Cloud Production: What Broadcast Professionals Need to Know An independent editorial overview of the technology forces reshaping cloud production for broadcast engineers and media operations professionals. Understanding what is changing helps teams plan ahead and avoid surprises. Organisations tracking thi</p>
+        <div class="hc-footer">
+          <a href="articles/cloud-workflow-insights-broadcast-professionals.html" class="hc-read">Read full article &rarr;</a>
+          <span class="hc-meta">March 20, 2026 &middot; 1 min read</span>
         </div>
-      </article>
-      <article class="ts-card">
+      </div>
+    </article></div>
+<div class="news-grid">      <article class="ts-card">
         <a href="articles/cloud-infrastructure-operations-guide-2026.html" style="text-decoration:none;color:inherit;">
           <div class="ts-card-img-wrap">
         <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&amp;auto=format&amp;fit=crop&amp;q=80" alt="Inside Cloud Production: Key Trends and Operational Priorities" loading="lazy"
@@ -645,8 +652,7 @@
             <span class="ts-card-date">March 01, 2026</span>
           </div>
         </div>
-      </article>
-        </div>
+      </article></div>
         
       </div>
     </div>
