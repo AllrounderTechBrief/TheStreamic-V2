@@ -280,144 +280,6 @@ main {
 }
 .category-content { margin-top: 40px; }
 
-/* ==============================================================
-   NEWS GRID — 3 columns (matches original bento grid)
-============================================================== */
-.news-grid,
-.bento-grid-large,
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 40px;
-}
-
-/* ==============================================================
-   TS-CARD — Numbered card (TheTechBrief-inspired style)
-============================================================== */
-.ts-card {
-  background: #fff;
-  border: 1px solid #e8e8ed;
-  border-radius: 16px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: box-shadow 0.2s, transform 0.2s;
-  position: relative;
-}
-.ts-card:hover {
-  box-shadow: var(--card-hover-shadow);
-  transform: translateY(-3px);
-}
-
-/* Image */
-.ts-card-img-wrap {
-  position: relative;
-  overflow: hidden;
-  height: 180px;
-  flex-shrink: 0;
-}
-.ts-card-img-wrap img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
-  transition: transform 0.35s ease;
-}
-.ts-card:hover .ts-card-img-wrap img { transform: scale(1.04); }
-.ts-card-img-placeholder {
-  width: 100%; height: 180px;
-  background: linear-gradient(135deg, #f0f4ff 0%, #e8edf8 100%);
-  display: flex; align-items: center; justify-content: center;
-  color: #a0a8c0; font-size: 13px; font-weight: 600; letter-spacing: 1px;
-}
-
-/* Number badge */
-.ts-card-num {
-  position: absolute;
-  top: 10px; left: 10px;
-  width: 28px; height: 28px;
-  border-radius: 8px;
-  background: rgba(0,0,0,0.65);
-  backdrop-filter: blur(6px);
-  color: #fff;
-  font-size: 11px; font-weight: 800;
-  display: flex; align-items: center; justify-content: center;
-  letter-spacing: -0.3px;
-  z-index: 2;
-}
-
-/* Body */
-.ts-card-body {
-  padding: 15px 16px 16px;
-  display: flex; flex-direction: column; flex: 1;
-}
-.ts-card-meta {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  margin-bottom: 9px;
-}
-.ts-card-badge {
-  display: inline-flex; align-items: center; gap: 4px;
-  padding: 3px 10px;
-  border-radius: 6px;
-  font-size: 10px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 0.6px;
-  color: #fff; white-space: nowrap;
-}
-.ts-card-cat-name {
-  font-size: 11px; color: var(--slate-gray); font-weight: 500;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  max-width: 45%; text-align: right;
-}
-.ts-card-title {
-  font-size: 14.5px; font-weight: 700;
-  line-height: 1.35; color: var(--deep-black);
-  margin-bottom: 9px;
-}
-.ts-card-title a { color: inherit; text-decoration: none; }
-.ts-card-title a:hover { color: var(--apple-blue); }
-.ts-card-summary {
-  font-size: 12.5px; line-height: 1.6; color: #444;
-  margin-bottom: 11px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.ts-card-insight {
-  background: #f0f6ff;
-  border-left: 3px solid var(--apple-blue);
-  border-radius: 0 6px 6px 0;
-  padding: 8px 11px;
-  margin-bottom: 11px;
-  font-size: 11.5px; line-height: 1.55;
-  color: #3a3a4a; font-style: italic;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.ts-card-insight-label {
-  font-size: 9px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 1px;
-  color: var(--apple-blue); font-style: normal;
-  display: block; margin-bottom: 3px;
-}
-.ts-card-footer {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  margin-top: auto; padding-top: 9px;
-  border-top: 1px solid #f0f0f5;
-  font-size: 11px;
-}
-.ts-card-read {
-  color: var(--apple-blue); font-weight: 700;
-  text-decoration: none; font-size: 12px;
-  display: flex; align-items: center; gap: 4px;
-}
-.ts-card-read:hover { text-decoration: underline; }
-.ts-card-read svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; }
-.ts-card-date { color: var(--slate-gray); font-size: 11px; }
-
 /* =============================================================
    FEATURED MAGAZINE CARD (TVBEurope style — first article per category)
    Compact: image left ~38%, text right, clean editorial
@@ -720,6 +582,167 @@ main {
 .pag-link:hover { background: var(--apple-blue); }
 .pag-disabled { opacity: 0.35; pointer-events: none; }
 .pag-info { font-size: 12px; color: var(--slate-gray); }
+
+/* =============================================================
+   TVBEUROPE BENTO GRID — 12-column, first card large
+   #bentoGridLarge  <ul> container
+   .bento-grid-item <li> cards — first child is the big one
+============================================================== */
+
+/* ── Grid container ── */
+#bentoGridLarge {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ── Base card (mobile = full width, horizontal) ── */
+.bento-grid-item {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: row;   /* image left, text right — all small cards */
+  gap: 0;
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.bento-grid-item:hover {
+  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-2px);
+}
+
+/* ── Image container ── */
+.bento-image-container {
+  flex-shrink: 0;
+  width: 38%;
+  overflow: hidden;
+  position: relative;
+}
+.bento-image-container img,
+.ts-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+.bento-grid-item:hover .bento-image-container img { transform: scale(1.04); }
+
+/* ── Content container ── */
+.bento-content-container {
+  flex: 1;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+}
+.bento-content-container h3 {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--deep-black);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.bento-content-container h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.bento-content-container h3 a:hover { color: var(--apple-blue); }
+.bento-content-container p {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--slate-gray);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.bento-content-container .source-credit {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8b95a5;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-top: auto;
+}
+
+/* ── Desktop: 4/12 small cards, 8/12 first big card ── */
+@media (min-width: 1024px) {
+  .bento-grid-item {
+    grid-column: span 4;
+  }
+
+  /* THE TVBEUROPE FIRST-CARD FIX */
+  .bento-grid-item:first-child {
+    grid-column: span 8;
+    flex-direction: column;  /* Image on top, text below */
+    grid-row: span 2;        /* Fills 2 rows of height */
+  }
+  .bento-grid-item:first-child .bento-image-container {
+    width: 100%;
+    height: 340px;
+  }
+  .bento-grid-item:first-child .bento-image-container img {
+    height: 340px;
+  }
+  .bento-grid-item:first-child .bento-content-container {
+    padding: 22px 24px;
+    gap: 10px;
+  }
+  .bento-grid-item:first-child .bento-content-container h3 {
+    font-size: 20px;
+    font-weight: 800;
+    -webkit-line-clamp: 3;
+    letter-spacing: -0.3px;
+  }
+  .bento-grid-item:first-child .bento-content-container p {
+    font-size: 14px;
+    -webkit-line-clamp: 4;
+  }
+  .bento-grid-item:first-child .bento-content-container .source-credit {
+    font-size: 12px;
+  }
+}
+
+/* ── Tablet: 2 columns ── */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .bento-grid-item { grid-column: span 6; }
+  .bento-image-container { width: 42%; min-height: 140px; }
+}
+
+/* ── Mobile small: 1 column, compact ── */
+@media (max-width: 639px) {
+  #bentoGridLarge { gap: 14px; }
+  .bento-grid-item { flex-direction: column; }
+  .bento-image-container { width: 100%; height: 175px; }
+  .bento-image-container img { height: 175px; }
+  .bento-content-container { padding: 13px 14px; }
+  .bento-content-container h3 { font-size: 14px; }
+  .bento-content-container p { font-size: 12px; -webkit-line-clamp: 2; }
+}
+
+/* ── Keep backward compat with .news-grid used on category pages ── */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+@media (max-width: 960px) { .news-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+@media (max-width: 600px) { .news-grid { grid-template-columns: 1fr; gap: 12px; } }
 
 /* =========== FOOTER =========== */
 .site-footer {
@@ -1128,4 +1151,12 @@ main {
   .hc-body { padding: 14px 15px; gap: 7px; }
   .hc-title { font-size: 15px; }
   .hc-summary { -webkit-line-clamp: 2; font-size: 13px; }
+}
+
+/* Editorial deep-dive list on featured page */
+.editorial-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 8px;
 }
