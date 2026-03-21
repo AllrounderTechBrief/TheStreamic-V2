@@ -51,6 +51,41 @@ CAT_H2 = {
 }
 
 
+
+# ── Groq summary loader (data/summaries/<slug>.json → applied during build) ──
+_SUMMARIES_CACHE: dict = {}
+
+def _load_summary(slug: str) -> dict:
+    """Load Groq-generated summary if it exists; returns empty dict otherwise."""
+    if slug in _SUMMARIES_CACHE:
+        return _SUMMARIES_CACHE[slug]
+    path = os.path.join(ROOT, "data", "summaries", f"{slug}.json")
+    if os.path.exists(path):
+        try:
+            with open(path, encoding="utf-8") as _f:
+                data = json.load(_f)
+                _SUMMARIES_CACHE[slug] = data
+                return data
+        except Exception:
+            pass
+    _SUMMARIES_CACHE[slug] = {}
+    return {}
+
+def enrich_with_summary(a: dict) -> dict:
+    """Return enriched article dict with Groq summary applied if available."""
+    s = _load_summary(a.get("slug", ""))
+    if not s:
+        return a
+    enriched = dict(a)
+    if s.get("card_summary"):
+        enriched["card_summary"] = s["card_summary"]
+    if s.get("body_html"):
+        enriched["body_html"]    = s["body_html"]
+    if s.get("word_count"):
+        enriched["word_count"]   = s["word_count"]
+    return enriched
+
+
 def e(s): return str(s).replace("&","&amp;").replace("<","&lt;").replace(">","&gt;").replace('"',"&quot;")
 def d(iso):
     try: return datetime.strptime(iso,"%Y-%m-%d").strftime("%B %d, %Y")
@@ -672,8 +707,14 @@ def main():
 
     os.makedirs(ARTS_D, exist_ok=True)
 
+    # Load how many summaries are available
+    summaries_dir = os.path.join(ROOT, "data", "summaries")
+    sum_count = len(os.listdir(summaries_dir)) if os.path.isdir(summaries_dir) else 0
+    if sum_count: print(f"  ✓ {sum_count} Groq summaries loaded from data/summaries/")
+
     written = 0
     for a in arts:
+        a = enrich_with_summary(a)   # apply Groq summary if available
         html = article_page(a)
         # 1. Canonical slug file
         w(os.path.join(ARTS_D, f"{a['slug']}.html"), html)

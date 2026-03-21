@@ -11,6 +11,12 @@ on:
         default: "false"
         type: choice
         options: ["false", "true"]
+      summaries_only:
+        description: "Run Groq summary generation + build only"
+        required: false
+        default: "false"
+        type: choice
+        options: ["false", "true"]
 
 permissions:
   contents: write
@@ -20,7 +26,7 @@ env:
 
 jobs:
   build:
-    name: Fetch + Rewrite + Build Site
+    name: Fetch + Rewrite + Summarise + Build
     runs-on: ubuntu-latest
 
     steps:
@@ -40,20 +46,40 @@ jobs:
           python -m pip install --upgrade pip
           pip install feedparser beautifulsoup4 python-slugify jinja2 requests
 
-      - name: Fetch RSS metadata (skip on rewrite_only)
-        if: github.event.inputs.rewrite_only != 'true'
+      # ── Step 1: Fetch fresh RSS metadata ──────────────────────────────────
+      - name: Fetch RSS metadata
+        if: >
+          github.event.inputs.rewrite_only != 'true' &&
+          github.event.inputs.summaries_only != 'true'
         run: python scripts/fetch_rss.py
 
-      - name: Generate original articles — deterministic templates
-        if: github.event.inputs.rewrite_only != 'true'
+      # ── Step 2: Generate deterministic original articles ─────────────────
+      - name: Generate original articles (deterministic, no LLM)
+        if: >
+          github.event.inputs.rewrite_only != 'true' &&
+          github.event.inputs.summaries_only != 'true'
         run: python scripts/generate_originals.py
 
-      - name: Rewrite RSS → 300-word cards + full article pages
+      # ── Step 3: Rewrite RSS → 300-word cards + full article pages ─────────
+      - name: Rewrite RSS → originals
+        if: github.event.inputs.summaries_only != 'true'
         run: python scripts/rewrite_feed.py
 
-      - name: Build site (category pages + articles + sitemap)
+      # ── Step 4: Groq summary generation (unique per article) ──────────────
+      # Writes to data/summaries/<slug>.json — build.py reads these automatically.
+      # Runs every build if GROQ_API_KEY is set; silently skips if not.
+      - name: Generate unique article summaries via Groq
+        if: vars.GROQ_API_KEY != ''
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          python scripts/generate_summaries.py || echo "Groq step failed — continuing with cached summaries"
+
+      # ── Step 5: Build site ────────────────────────────────────────────────
+      - name: Build site
         run: python scripts/build.py
 
+      # ── Step 6: Verify output ─────────────────────────────────────────────
       - name: Verify build output
         run: |
           test -f docs/index.html     || (echo "ERROR: docs/index.html missing"  && exit 1)
@@ -61,12 +87,14 @@ jobs:
           test -f docs/sitemap.xml    || (echo "ERROR: sitemap.xml missing"      && exit 1)
           echo "Article pages : $(find docs/articles -name '*.html' 2>/dev/null | wc -l)"
           echo "Category pages: $(find docs -maxdepth 1 -name '*.html' | wc -l)"
+          echo "Groq summaries: $(find data/summaries -name '*.json' 2>/dev/null | wc -l)"
 
+      # ── Step 7: Commit everything ─────────────────────────────────────────
       - name: Commit site
         run: |
           git config user.name  "Streamic Bot"
           git config user.email "technodate3@gmail.com"
-          git add docs/ data/*.json || true
+          git add docs/ data/*.json data/summaries/ || true
           git add *.html *.xml *.txt style.css main.js CNAME .nojekyll 2>/dev/null || true
           git add articles/ assets/ 2>/dev/null || true
           if git diff --cached --quiet; then
