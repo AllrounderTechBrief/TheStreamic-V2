@@ -98,21 +98,24 @@ def groq_call(prompt: str, max_tokens: int = 1200) -> str:
         raise RuntimeError(f"Groq HTTP {e.code}: {body[:300]}")
 
 # ── Prompt builders ───────────────────────────────────────────────────────────
-_CARD_PROMPT = """You are a senior editor at a broadcast technology publication.
-Write a ~280-word editorial summary of this news item for a card excerpt.
+_CARD_PROMPT = """You are a senior broadcast technology editor at The Streamic.
+Write a 330-word ORIGINAL technical analysis. This is NOT a summary — it is your editorial perspective on why this news matters to broadcast engineers and CTOs in 2026.
 
-Rules:
-- Original prose only — do NOT copy the title or teaser verbatim.
-- Neutral, factual, newsroom voice. Short sentences.
-- Explain what is happening and why it matters to broadcast engineers.
-- No brand-puff phrases (leading, cutting-edge, revolutionary, excited to announce).
-- No em-dashes. No bullet points. Plain paragraphs only.
-- Do NOT mention the publication name or say "in this article".
-
+SOURCE MATERIAL (use ONLY as seed — do not copy it):
 Title: {title}
-Teaser: {teaser}
+Brief: {teaser}
 
-Write the card summary now (280 words, plain text, no markdown):"""
+OUTPUT REQUIREMENTS (ALL MANDATORY):
+1. Write exactly two paragraphs totalling 325–335 words.
+2. Paragraph 1 — "The Signal" (~165 words): State what happened in one sentence. Then immediately pivot to the strategic implication — how does this affect ST 2110 adoption, operational AI rollouts, hybrid cloud strategy, or IP infrastructure planning? Make the "So What for engineers" explicit.
+3. Paragraph 2 — "The Detail" (~165 words): Go deeper. Cite specific technical standards (SMPTE, NMOS, AES67, HLS, HEVC, AV1), vendor ecosystem context, latency/bitrate numbers if relevant, or workflow implications for playout, newsroom, or post-production teams.
+4. End with exactly this attribution line on a new line:
+   Source: {source_name} — Original reporting via {source_name}.
+5. FORBIDDEN words/phrases: "delivers", "seamless", "game-changer", "innovative", "revolutionary", "state-of-the-art", "excited to announce", "proud to", "cutting-edge", "best-in-class".
+6. NEVER start two consecutive sentences with the same word.
+7. Do NOT restate the title. Do NOT begin "The article...", "This story...", "According to...".
+
+Write the two-paragraph analysis now (330 words, transformative, original):"""
 
 _ARTICLE_PROMPT = """You are a senior editor at a broadcast technology publication.
 Write a 750-word article about this news item for our website.
@@ -228,7 +231,7 @@ def main():
 
         try:
             card_summary = groq_call(
-                _CARD_PROMPT.format(title=title, teaser=teaser),
+                _CARD_PROMPT.format(title=title, teaser=teaser, source_name=(src_dom or 'the original source')),
                 max_tokens=600   # 330 words ~ 440 tokens, buffer for safety
             )
             time.sleep(SLEEP_SECS)

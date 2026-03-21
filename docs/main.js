@@ -101,45 +101,74 @@
     const li = document.createElement('li');
     li.className = 'bento-grid-item';
 
-    const imgUrl  = pickImage(item);
-    const title   = item.title  || 'Untitled';
-    const url     = item.link   || '#';
-    const summary = truncate(
-      item.summary || item.dek || item.teaser || item.description || '', SUMMARY_LIMIT);
-    const source  = item.source || item.sourceName || item.sourceLabel || '';
+    // Resolve item fields — fetch.py uses 'link' or 'url'
+    const imgUrl = pickImage(item);
+    const title  = (item.title  || 'Untitled').trim();
+    const url    = (item.link || item.url || '#').trim();
+    const source = (item.source || item.sourceName || item.sourceLabel || '').trim();
 
-    // Image container
+    // Summary: prefer Groq-generated card_summary; fall back to RSS teaser
+    const rawSummary = item.card_summary || item.summary || item.dek
+                     || item.teaser || item.description || '';
+    const summary = truncate(rawSummary, SUMMARY_LIMIT);
+
+    // ── Image container ──────────────────────────────────────────────────────
     const imgWrap = document.createElement('div');
     imgWrap.className = 'bento-image-container';
-    imgWrap.appendChild(makeLazyImg(imgUrl, title));
+    const imgLink = document.createElement('a');
+    imgLink.href   = url;
+    imgLink.target = '_blank';
+    imgLink.rel    = 'noopener noreferrer nofollow';
+    imgLink.setAttribute('aria-label', title);
+    imgLink.appendChild(makeLazyImg(imgUrl, title));
+    imgWrap.appendChild(imgLink);
     li.appendChild(imgWrap);
 
-    // Content container
+    // ── Content container ────────────────────────────────────────────────────
     const content = document.createElement('div');
     content.className = 'bento-content-container';
 
+    // Title — clickable, opens source in new tab
     const h3 = document.createElement('h3');
-    const a  = document.createElement('a');
-    a.href       = url;
-    a.target     = '_blank';
-    a.rel        = 'noopener noreferrer';
-    a.textContent = title;
-    h3.appendChild(a);
+    h3.className = 'ts-card-title';
+    const titleLink = document.createElement('a');
+    titleLink.href   = url;
+    titleLink.target = '_blank';
+    titleLink.rel    = 'noopener noreferrer nofollow';
+    titleLink.textContent = title;
+    h3.appendChild(titleLink);
     content.appendChild(h3);
 
+    // Summary paragraph
     if (summary) {
-      const p  = document.createElement('p');
+      const p = document.createElement('p');
+      p.className = 'ts-card-summary';
       p.textContent = summary;
       content.appendChild(p);
     }
 
+    // Footer: source credit + Read Full Story link
+    const footer = document.createElement('div');
+    footer.className = 'ts-card-footer';
+
     if (source) {
-      const span  = document.createElement('span');
-      span.className = 'source-credit';
-      span.textContent = source;
-      content.appendChild(span);
+      const srcSpan = document.createElement('span');
+      srcSpan.className = 'ts-source source-credit';
+      srcSpan.textContent = source;
+      footer.appendChild(srcSpan);
     }
 
+    if (url && url !== '#') {
+      const readLink = document.createElement('a');
+      readLink.href      = url;
+      readLink.target    = '_blank';
+      readLink.rel       = 'noopener noreferrer nofollow';
+      readLink.className = 'ts-read-more';
+      readLink.textContent = 'Read Full Story →';
+      footer.appendChild(readLink);
+    }
+
+    content.appendChild(footer);
     li.appendChild(content);
     return li;
   }
