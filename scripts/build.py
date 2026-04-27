@@ -774,15 +774,19 @@ def _bento_item(a, base=""):
     summary = e((a.get("card_summary") or a.get("dek") or a.get("meta_description",""))[:280])
     source  = e(a.get("source_domain",""))
     fallback = f"{base}assets/fallback.jpg"
+
+    summary_html = f"<p>{summary}</p>" if summary else ""
+    source_html = f'<span class="source-credit">{source}</span>' if source else ""
+
     return f"""        <li class="bento-grid-item">
           <div class="bento-image-container">
             <a href="{href}"><img src="{img_url}" alt="{title}" loading="lazy"
-               onerror="this.src=\'{fallback}\'"></a>
+               onerror="this.src='{fallback}'"></a>
           </div>
           <div class="bento-content-container">
             <h3><a href="{href}">{title}</a></h3>
-            {"<p>" + summary + "</p>" if summary else ""}
-            {"<span class=\"source-credit\">" + source + "</span>" if source else ""}
+            {summary_html}
+            {source_html}
           </div>
         </li>"""
 
