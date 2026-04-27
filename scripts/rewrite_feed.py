@@ -1,16 +1,32 @@
 """
 scripts/rewrite_feed.py
 =======================
-RSS metadata → 300-word card excerpts + 700-900-word full article pages.
-Input:  data/news.json   (title/url/source/published/teaser per category)
-Output: data/generated_articles.json  (merged / appended)
+
+RSS metadata -> Streamic-style original editorial article records.
+
+Input:
+  data/news.json
+
+Supported input formats:
+  1) Flat list:
+     [{"title": "...", "url": "...", "source": "...", "teaser": "..."}]
+
+  2) Dict of categories:
+     {"streaming": [{...}], "cloud": [{...}]}
+
+  3) Client format:
+     {"featured_priority": [...], "items": [...]}
+
+Output:
+  data/generated_articles.json
 
 Rules:
-  - RSS title + teaser as seed only — no scraping of full bodies.
-  - All article text is original editorial prose (deterministic templates).
-  - Each article uses UNIQUE sentences — guaranteed no repetition per section.
-  - Images from data/image_pools.json cat_pools[category], hashed by slug.
-  - AdSense-safe: no copied text, no brand puff, no obvious LLM artifacts.
+  - RSS title + teaser are used as seed/context only.
+  - No full-page scraping.
+  - No LLM.
+  - No external network calls.
+  - Original deterministic editorial prose.
+  - AdSense safer: stronger analysis, practical workflow value, less feed-like output.
 """
 
 import hashlib
@@ -19,315 +35,494 @@ import os
 import re
 from datetime import datetime, timezone
 
+
 # ── Paths ────────────────────────────────────────────────────────────────────
-ROOT     = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-NEWS_F   = os.path.join(ROOT, "data", "news.json")
-POOLS_F  = os.path.join(ROOT, "data", "image_pools.json")
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+NEWS_F = os.path.join(ROOT, "data", "news.json")
+POOLS_F = os.path.join(ROOT, "data", "image_pools.json")
 OUTPUT_F = os.path.join(ROOT, "data", "generated_articles.json")
 
-ITEMS_PER_CAT  = 36
-MAX_TOTAL_KEPT = 400
-CARD_WORDS     = 300
+ITEMS_PER_CAT = int(os.environ.get("ITEMS_PER_CAT", "36"))
+MAX_TOTAL_KEPT = int(os.environ.get("MAX_TOTAL_KEPT", "400"))
+CARD_WORDS = int(os.environ.get("CARD_WORDS", "90"))
 
-# ── Category metadata ─────────────────────────────────────────────────────────
+
+# ── Category metadata ────────────────────────────────────────────────────────
 CAT_META = {
-    "featured":           {"label":"Featured",            "icon":"⭐","color":"#1d1d1f","page":"featured.html"},
-    "streaming":          {"label":"Streaming",           "icon":"📡","color":"#0071e3","page":"streaming.html"},
-    "cloud":              {"label":"Cloud Production",    "icon":"☁️","color":"#5856d6","page":"cloud.html"},
-    "graphics":           {"label":"Graphics",            "icon":"🎨","color":"#FF9500","page":"graphics.html"},
-    "playout":            {"label":"Playout",             "icon":"▶️","color":"#34C759","page":"playout.html"},
-    "infrastructure":     {"label":"Infrastructure",      "icon":"🏗️","color":"#8E8E93","page":"infrastructure.html"},
-    "ai-post-production": {"label":"AI & Post-Production","icon":"🎬","color":"#FF2D55","page":"ai-post-production.html"},
-    "newsroom":           {"label":"Newsroom",            "icon":"📰","color":"#D4AF37","page":"newsroom.html"},
+    "featured": {"label": "Featured", "icon": "⭐", "color": "#1d1d1f", "page": "featured.html"},
+    "streaming": {"label": "Streaming", "icon": "📡", "color": "#0071e3", "page": "streaming.html"},
+    "cloud": {"label": "Cloud Production", "icon": "☁️", "color": "#5856d6", "page": "cloud.html"},
+    "graphics": {"label": "Graphics", "icon": "🎨", "color": "#FF9500", "page": "graphics.html"},
+    "playout": {"label": "Playout", "icon": "▶️", "color": "#34C759", "page": "playout.html"},
+    "infrastructure": {"label": "Infrastructure", "icon": "🏗️", "color": "#8E8E93", "page": "infrastructure.html"},
+    "ai-post-production": {"label": "AI & Post-Production", "icon": "🎬", "color": "#FF2D55", "page": "ai-post-production.html"},
+    "newsroom": {"label": "Newsroom", "icon": "📰", "color": "#D4AF37", "page": "newsroom.html"},
 }
 
-# ── Boilerplate stripper ──────────────────────────────────────────────────────
+CATEGORY_KEYWORDS = {
+    "streaming": [
+        "streaming", "ott", "cdn", "hls", "dash", "cmaf", "abr", "codec", "encoder",
+        "encoding", "transcode", "vod", "video delivery", "latency", "av1", "hevc",
+    ],
+    "cloud": [
+        "cloud", "remote production", "remi", "aws", "azure", "virtualized", "virtualised",
+        "saas", "cloud production", "cloud playout", "data center", "datacenter",
+    ],
+    "graphics": [
+        "graphics", "virtual production", "unreal", "vizrt", "ar", "xr", "augmented",
+        "virtual set", "render", "motion graphics",
+    ],
+    "playout": [
+        "playout", "automation", "master control", "mcr", "channel-in-a-box",
+        "channel in a box", "transmission", "on-air", "schedule",
+    ],
+    "infrastructure": [
+        "smpte", "st 2110", "2110", "nmos", "ptp", "sdn", "ip routing", "broadcast ip",
+        "infrastructure", "storage", "network", "switch", "fiber", "fibre", "sdi",
+    ],
+    "ai-post-production": [
+        "ai", "artificial intelligence", "machine learning", "post-production",
+        "post production", "editing", "avid", "media composer", "davinci", "premiere",
+        "mam", "pam", "metadata", "qc", "quality control", "archive", "transcription",
+    ],
+    "newsroom": [
+        "newsroom", "nrcs", "inews", "journalist", "news production", "rundown",
+        "editorial workflow", "wire service", "breaking news",
+    ],
+}
+
+CAT_CONTEXT = {
+    "streaming": "streaming delivery, CDN behaviour, player compatibility, encoding strategy, and incident response",
+    "cloud": "cloud production, REMI reliability, latency management, access control, and cost visibility",
+    "graphics": "real-time graphics, template control, data-feed accuracy, virtual sets, and on-air execution",
+    "playout": "playout automation, schedule integrity, compliance, disaster recovery, and master control operations",
+    "infrastructure": "IP infrastructure, timing, routing, storage, interoperability, observability, and support ownership",
+    "ai-post-production": "AI-assisted post-production, metadata trust, archive search, automated QC, and editorial review",
+    "newsroom": "NRCS integration, newsroom automation, rundown speed, verified media handling, and multi-platform publishing",
+    "featured": "broadcast engineering, media operations, streaming workflows, and infrastructure decision-making",
+}
+
+
+# ── Boilerplate stripper ─────────────────────────────────────────────────────
 _BOILERPLATE = re.compile(
     r"\b(today announced|is pleased to announce|proud to introduce|"
     r"we are excited|leading provider of|industry-leading|state-of-the-art|"
-    r"cutting-edge|revolutionary|game-changing|best-in-class|world-class)\b",
+    r"cutting-edge|revolutionary|game-changing|best-in-class|world-class|"
+    r"seamless|transformative|next-generation)\b",
     re.IGNORECASE,
 )
 
-def _clean(text):
-    return re.sub(r"\s{2,}", " ", _BOILERPLATE.sub("", text or "")).strip()
 
-def _split_sents(text):
-    return [s.strip() for s in re.split(r"(?<=[.!?])\s+", _clean(text)) if s.strip()]
+def clean(text):
+    """Clean RSS text safely."""
+    if text is None:
+        return ""
+    text = str(text)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = _BOILERPLATE.sub("", text)
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
 
-# ── Unique picker — guarantees NO repeated sentences in one article ────────────
-def _unique_picks(pool, seed, count):
+
+def split_sents(text):
+    text = clean(text)
+    return [s.strip() for s in re.split(r"(?<=[.!?])\s+", text) if s.strip()]
+
+
+def domain_from_url(url):
+    url = clean(url)
+    m = re.search(r"https?://([^/]+)", url)
+    if not m:
+        return ""
+    return m.group(1).lower().replace("www.", "")
+
+
+def detect_category(item):
+    """Detect Streamic category from item fields."""
+    existing = clean(item.get("category") or item.get("cat") or "").lower()
+    existing = existing.replace("_", "-").replace(" ", "-")
+    if existing in CAT_META:
+        return existing
+
+    haystack = " ".join([
+        clean(item.get("title")),
+        clean(item.get("teaser")),
+        clean(item.get("summary")),
+        clean(item.get("description")),
+        clean(item.get("source")),
+        clean(item.get("url")),
+    ]).lower()
+
+    best_cat = "featured"
+    best_score = 0
+    for cat, kws in CATEGORY_KEYWORDS.items():
+        score = sum(1 for kw in kws if kw in haystack)
+        if score > best_score:
+            best_cat = cat
+            best_score = score
+    return best_cat
+
+
+def normalise_news(raw):
     """
-    Pick `count` UNIQUE items from pool using seed for deterministic shuffle.
-    Never returns the same item twice, regardless of pool size.
+    Return dict:
+      {category: [item, item]}
+    Works for flat list, dict-of-categories, and {"featured_priority": [], "items": []}.
     """
-    n = len(pool)
-    # Generate a deterministic permutation via seeded hash
-    indexed = list(range(n))
-    indexed.sort(key=lambda i: int(hashlib.md5(f"{seed}:{i}".encode()).hexdigest(), 16))
-    # Take the first `count` unique indices
-    picks = [pool[indexed[i % n]] for i in range(count)]
-    return picks
+    by_cat = {cat: [] for cat in CAT_META}
 
-# ── Per-category editorial paragraph pools ────────────────────────────────────
-# 12+ unique sentences per slot — unique picks guaranteed via _unique_picks()
+    if isinstance(raw, list):
+        for item in raw:
+            if isinstance(item, dict):
+                by_cat.setdefault(detect_category(item), []).append(item)
+        return by_cat
 
-_PARAS = {
-    # Opening context (slot 0)
-    "context": [
-        "The broadcast and streaming technology sector continues to evolve rapidly, with engineering teams under pressure to modernise infrastructure while maintaining the reliability that on-air operations demand.",
-        "Across the industry, the gap between what is technically possible and what is operationally deployed is narrowing, driven by vendor innovation and the competitive pressure on broadcasters to reduce costs.",
-        "Media technology decisions made this year will shape production and delivery capabilities for the next half-decade, making it important for teams to engage with emerging developments early.",
-        "The pace of change in broadcast IP, cloud, and streaming infrastructure has accelerated, and the choices available to engineering and operations teams have never been more varied or complex.",
-        "Industry analysts and practitioners alike are tracking a cluster of converging trends that together are redefining what efficient broadcast and media technology operations look like.",
-        "For broadcast engineers and technology decision-makers, staying current with vendor developments, standards progress, and deployment case studies has become an operational requirement, not just a professional interest.",
-        "The economics of media production and distribution continue to shift, with cloud-native approaches and IP-based infrastructure challenging long-standing assumptions about cost, flexibility, and scale.",
-        "Standards bodies, vendors, and broadcaster engineering teams are increasingly aligned on the direction of travel, even if the timeline and implementation specifics continue to vary by organisation.",
-        "New deployments and announced capabilities are revealing practical pathways that were theoretical just eighteen months ago, giving forward-planning teams more concrete options to evaluate.",
-        "The integration of software-defined approaches into traditionally hardware-centric broadcast workflows is progressing steadily, with reliability and support maturity keeping pace with capability.",
-        "Competitive dynamics between established broadcast technology vendors and cloud-native entrants are producing a more varied product landscape, with genuine choice available at most layers of the stack.",
-        "Regional differences in broadcast infrastructure maturity, regulatory environment, and audience behaviour mean that the right technology path varies, but the underlying trends apply broadly.",
-    ],
-    # Development specifics (slot 1)
-    "development": [
-        "This development builds on a multi-year trajectory of investment and standardisation that has been tracked closely by engineering teams planning infrastructure transitions.",
-        "The announcement reflects sustained demand from broadcast operators for solutions that combine reliability with the operational flexibility that modern workflows require.",
-        "Engineering teams evaluating this should look beyond the headline capability to assess integration complexity, vendor support commitments, and total cost of ownership over a three-to-five-year horizon.",
-        "The practical significance of this development lies not in the technology itself but in the operational workflows it enables and the engineering effort it removes from day-to-day operations.",
-        "Organisations that have been piloting similar approaches in test environments are likely to accelerate their evaluation timelines in response to developments like this one.",
-        "The market context matters here: this development arrives at a moment when budget cycles are tight and technology choices are subject to closer scrutiny than they were two years ago.",
-        "What distinguishes this from earlier announcements in the same space is the combination of maturity, interoperability, and vendor ecosystem support that now surrounds it.",
-        "Teams with legacy infrastructure commitments will need to assess transition pathways carefully, but the direction of travel is sufficiently clear that deferring evaluation carries its own risk.",
-        "The technical underpinnings of this development are well understood by senior engineers, and the question for most organisations is now one of timing and internal readiness rather than feasibility.",
-        "Interoperability with existing deployed infrastructure is typically the first question engineering teams ask, and in this case the answer is more straightforward than previous generations of similar technology.",
-        "Third-party validation and real-world deployment evidence are accumulating at a rate that should give procurement and engineering teams reasonable confidence in progressing from evaluation to pilot.",
-        "The vendor roadmap signals continued investment in this area, which reduces the risk of early-adopter exposure and supports longer-term planning commitments.",
-    ],
-    # Operational impact (slot 2)
-    "operations": [
-        "Operationally, the most immediate consideration is how this fits into existing change management and validation processes, particularly for teams running 24/7 operations with minimal maintenance windows.",
-        "Engineering teams will want to validate behaviour under realistic production loads before any commitment to deployment, with particular attention to failure modes and recovery characteristics.",
-        "Staff capability and training requirements should be factored into any deployment timeline, alongside the technical integration work itself.",
-        "Monitoring and observability tooling may need updating to provide adequate visibility into the new layer of the stack, and this work often takes longer than the initial integration.",
-        "The support model offered by the vendor — including response times, escalation paths, and on-site capability — should be reviewed in parallel with the technical evaluation.",
-        "Organisations with multiple sites or complex interconnected systems will need to consider rollout sequencing carefully to manage dependencies and minimise risk during the transition period.",
-        "Documentation and internal knowledge transfer are consistently underestimated in technology deployments of this kind and should be scoped as explicit work items rather than assumed to happen organically.",
-        "A staged deployment approach, beginning with lower-criticality workflows before progressing to on-air systems, is standard practice and applies here as it would to any significant infrastructure change.",
-        "The total engineering effort required should be assessed against available resource capacity, with a realistic view of parallel project commitments that may compete for the same team members.",
-        "Change control processes, particularly in regulated or compliance-sensitive environments, will need to be engaged early to avoid delays in the later stages of deployment.",
-        "Baseline performance metrics should be captured before deployment to support the post-deployment validation process and to provide evidence for internal stakeholders.",
-        "Integration testing in an environment that accurately reflects production conditions remains the most reliable way to surface issues before they affect on-air operations.",
-    ],
-    # Forward-looking (slot 3)
-    "outlook": [
-        "The vendor community is actively developing capabilities in adjacent areas, and teams that establish competency with current-generation solutions will be better positioned to evaluate what comes next.",
-        "Standards progress in this area is expected to continue, with formal specifications that support broader interoperability likely to arrive within the next twelve to eighteen months.",
-        "Early-adopter organisations are generating operational data that will be valuable to the wider community, and the industry forums and user groups that aggregate this experience are worth monitoring.",
-        "The competitive landscape among vendors is healthy, with genuine differentiation available across price, capability, and support model, which gives buyers negotiating leverage and strategic options.",
-        "Organisations that have invested in building internal IP and cloud competency are finding that this investment pays dividends as the range of available solutions expands.",
-        "The pace of feature development from leading vendors suggests that the capability available in twelve months will be meaningfully different from what is available today, which has implications for procurement timing.",
-        "Longer-term cost implications — including licensing model changes, infrastructure requirements, and staffing adjustments — should be modelled alongside the initial deployment investment.",
-        "The talent market for engineers with relevant expertise remains tight, and organisations that develop this capability internally are building a competitive advantage that extends beyond any single deployment.",
-        "Industry certification and training programmes are expanding to match the pace of technology change, providing a structured pathway for teams to build and validate the skills they need.",
-        "The transition towards more software-defined, cloud-integrated broadcast infrastructure is structural rather than cyclical, and planning should reflect that permanence rather than treating it as a passing trend.",
-        "Partnerships between broadcast technology vendors and cloud platform providers are deepening, which is expanding the range of validated, supported deployment architectures available to engineering teams.",
-        "Teams that document their evaluation and deployment experience contribute to a body of shared knowledge that benefits the entire sector and helps accelerate adoption of well-understood patterns.",
-    ],
-}
+    if isinstance(raw, dict):
+        if "items" in raw or "featured_priority" in raw:
+            merged = []
+            if isinstance(raw.get("featured_priority"), list):
+                merged.extend(raw.get("featured_priority", []))
+            if isinstance(raw.get("items"), list):
+                merged.extend(raw.get("items", []))
+            for item in merged:
+                if isinstance(item, dict):
+                    by_cat.setdefault(detect_category(item), []).append(item)
+            return by_cat
 
-_CAT_CONTEXT = {
-    "streaming":          "for streaming delivery and OTT platform operations",
-    "cloud":              "for cloud-based production and media workflows",
-    "ai-post-production": "for AI-assisted post-production and editing pipelines",
-    "graphics":           "for broadcast graphics and real-time rendering systems",
-    "playout":            "for playout automation and channel management",
-    "infrastructure":     "for broadcast IP infrastructure and facility design",
-    "newsroom":           "for newsroom control systems and news production workflows",
-    "featured":           "across the broadcast and streaming technology sector",
-}
+        for cat, items in raw.items():
+            if not isinstance(items, list):
+                continue
+            cat_slug = cat if cat in CAT_META else detect_category({"category": cat})
+            by_cat.setdefault(cat_slug, [])
+            for item in items:
+                if isinstance(item, dict):
+                    item.setdefault("category", cat_slug)
+                    by_cat[cat_slug].append(item)
+        return by_cat
+
+    raise SystemExit(f"ERROR: Unsupported data/news.json format: {type(raw).__name__}")
 
 
-def _unique_picks(pool, seed, count):
-    """Pick `count` UNIQUE items from pool — deterministic, no repeats."""
-    import hashlib as _h
+def load_pools():
+    """Load image pools. Fall back to safe built-in pools if file is missing."""
+    default = {
+        "cat_pools": {
+            "featured": ["photo-1598488035139-bdbb2231ce04", "photo-1574717024653-61fd2cf4d44d"],
+            "streaming": ["photo-1616401784845-180882ba9ba8", "photo-1574717025058-97e3af4ef9b5"],
+            "cloud": ["photo-1544197150-b99a580bb7a8", "photo-1531297484001-80022131f5a1"],
+            "graphics": ["photo-1547658719-da2b51169166", "photo-1504639725590-34d0984388bd"],
+            "playout": ["photo-1612420696760-0a0f34d3e7d0", "photo-1478737270239-2f02b77fc618"],
+            "infrastructure": ["photo-1486312338219-ce68d2c6f44d", "photo-1558494949-ef010cbdcc31"],
+            "ai-post-production": ["photo-1677442135703-1787eea5ce01", "photo-1572044162444-ad60f128bdea"],
+            "newsroom": ["photo-1504711434969-e33886168f5c", "photo-1585829365295-ab7cd400c167"],
+        }
+    }
+
+    if not os.path.exists(POOLS_F):
+        return default
+
+    try:
+        with open(POOLS_F, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, dict) and isinstance(data.get("cat_pools"), dict):
+            return data
+    except Exception:
+        pass
+
+    return default
+
+
+def unique_picks(pool, seed, count):
+    if not pool:
+        return []
     indexed = list(range(len(pool)))
-    indexed.sort(key=lambda i: int(_h.md5(f"{seed}:{i}".encode()).hexdigest(), 16))
+    indexed.sort(key=lambda i: int(hashlib.md5(f"{seed}:{i}".encode()).hexdigest(), 16))
     return [pool[indexed[i % len(pool)]] for i in range(count)]
 
 
-def build_article_body(title, teaser, slug, cat="featured"):
-    """
-    700-850 word flowing editorial article. No repetitive H2 headers.
-    Each article uses unique sentences and real teaser content for specificity.
-    """
-    import re as _re
-    sents = _split_sents(f"{title}. {teaser}")
-    lead  = " ".join(sents[:2]) if len(sents) >= 2 else sents[0] if sents else title
-    ctx   = _CAT_CONTEXT.get(cat, "across the broadcast and streaming technology sector")
-
-    # Pick unique paragraphs for each slot
-    ctx_paras  = _unique_picks(_PARAS["context"],     f"{slug}:ctx",  2)
-    dev_paras  = _unique_picks(_PARAS["development"], f"{slug}:dev",  3)
-    ops_paras  = _unique_picks(_PARAS["operations"],  f"{slug}:ops",  3)
-    fwd_paras  = _unique_picks(_PARAS["outlook"],     f"{slug}:fwd",  2)
-
-    # Inject real teaser sentences as specific context
-    specific = sents[2:6] if len(sents) > 2 else []
-    spec1 = specific[0] if len(specific) > 0 else ""
-    spec2 = specific[1] if len(specific) > 1 else ""
-    spec3 = specific[2] if len(specific) > 2 else ""
-
-    parts = [f"<p><strong>{lead}</strong></p>"]
-
-    # Opening context section (no H2)
-    parts.append(f"<p>{ctx_paras[0]}</p>")
-    if spec1: parts.append(f"<p>{spec1}</p>")
-    parts.append(f"<p>{ctx_paras[1]}</p>")
-
-    # Development section
-    parts.append(f"<p>{dev_paras[0]} This is particularly relevant {ctx}.</p>")
-    if spec2: parts.append(f"<p>{spec2}</p>")
-    parts.append(f"<p>{dev_paras[1]}</p>")
-    parts.append(f"<p>{dev_paras[2]}</p>")
-
-    # Operational section
-    parts.append(f"<p><em>For engineering and operations teams:</em> {ops_paras[0]}</p>")
-    if spec3: parts.append(f"<p>{spec3}</p>")
-    parts.append(f"<p>{ops_paras[1]}</p>")
-    parts.append(f"<p>{ops_paras[2]}</p>")
-
-    # Forward outlook
-    parts.append(f"<p>{fwd_paras[0]}</p>")
-    parts.append(f"<p>{fwd_paras[1]}</p>")
-
-    # Conclusion
-    concl = sents[-1] if sents else f"The sector continues to develop {ctx}."
-    closer = "Teams that engage early and plan methodically will be best placed to benefit as the technology matures."
-    parts.append(f"<p>{concl} {closer}</p>")
-
-    body = "\n".join(parts)
-    wc   = len(_re.sub(r"<[^>]+>", " ", body).split())
-    return body, wc
-
-
-def build_card_summary(title, teaser, target=300):
-    """Build ~300-word card excerpt from title + teaser only."""
-    base = " ".join(filter(None, [title, teaser])).strip()
-    if not base: return ""
-    sents = _split_sents(base)
-    out = []
-    for s in sents:
-        if len(" ".join(out).split()) < int(target * 0.6):
-            out.append(s)
-    expansions = [
-        "Understanding what is changing helps teams plan ahead and avoid surprises.",
-        "Organisations tracking this should review their current approach against the new expectations.",
-        "Practical impact will vary by scale, but the direction is clear across the sector.",
-        "Early movers tend to gain an efficiency edge before the change becomes the norm.",
-        "Teams should discuss this in their next planning cycle and note the timeline.",
-        "Budgets, staffing, and tooling may all need revisiting in light of this development.",
-        "Keeping a close eye on vendor roadmaps and standards bodies will pay off here.",
-        "The operational details matter as much as the headline — check the specifics carefully.",
-    ]
-    i = 0
-    while len(" ".join(out).split()) < target and i < len(expansions):
-        out.append(expansions[i]); i += 1
-    words = " ".join(out).split()
-    return " ".join(words[:int(target*1.1)])
+PARAS = {
+    "context": [
+        "The useful question is not whether the announcement sounds modern, but whether it can survive the realities of broadcast operations.",
+        "Most media technology changes become valuable only when they reduce operational friction without weakening control, visibility, or reliability.",
+        "The broadcast sector is moving quickly, but engineering teams still need technology that behaves predictably under deadline pressure.",
+        "A strong workflow improvement is not measured by a feature list; it is measured by how clearly it helps operators, engineers, and editorial teams do their work.",
+        "The gap between a product claim and a production-ready workflow is where most broadcast technology decisions succeed or fail.",
+        "For media organisations, every new system must be judged against integration effort, support ownership, and failure behaviour.",
+        "Technology adoption in broadcast rarely fails because the idea is weak; it fails when operational details are underestimated.",
+        "Engineering teams should treat this as a signal to review workflow assumptions rather than as a reason to chase the newest platform immediately.",
+    ],
+    "development": [
+        "The development matters because it points to a wider shift in how media systems are being designed, integrated, and supported.",
+        "The strongest value will come where the technology removes manual handling and improves confidence in the chain.",
+        "The practical impact depends on how well it connects with existing systems rather than how impressive it looks in isolation.",
+        "For facilities with mixed legacy and modern infrastructure, transition planning is as important as the headline capability.",
+        "If the workflow touches production, publishing, or transmission, observability and rollback paths need to be defined before deployment.",
+        "The real test is whether the system reduces pressure during live or deadline-driven operations, not whether it performs well in a controlled demonstration.",
+        "Teams should look for evidence of interoperability, operational transparency, and clear vendor support before treating the move as mature.",
+        "This kind of change is most useful when it supports existing professional judgement instead of replacing it with another opaque layer.",
+    ],
+    "operations": [
+        "Operations teams should begin with a limited workflow test using real media, real users, and realistic failure scenarios.",
+        "The first review should cover permissions, monitoring, metadata behaviour, storage paths, network dependencies, and support escalation.",
+        "Training should not be treated as an afterthought because adoption often fails when the interface changes faster than the operating culture.",
+        "A system that saves time for one team but creates manual checking for another has not truly simplified the workflow.",
+        "Change control should include measurable success criteria such as reduced handoffs, faster retrieval, lower incident count, or clearer fault isolation.",
+        "The support model matters because blurred ownership between vendor, IT, engineering, and operations can increase downtime.",
+        "Baseline metrics should be captured before rollout so the organisation can prove whether the new workflow actually improves performance.",
+        "The safest deployments are staged, documented, reversible, and monitored from the beginning.",
+    ],
+    "outlook": [
+        "The broader direction is clear: broadcast workflows are becoming more software-defined, data-aware, and connected across production and delivery.",
+        "Vendors that expose open interfaces and respect operational realities will be better placed than platforms that rely only on closed ecosystems.",
+        "The next phase of adoption will reward teams that combine engineering discipline with editorial and operational understanding.",
+        "The organisations that benefit most will be those that test carefully, document lessons, and avoid treating every announcement as a finished solution.",
+        "The value is real, but only when deployment planning is grounded in the day-to-day reality of media operations.",
+        "For The Streamic, this is less a standalone story and more a sign of how media technology is moving toward integrated, accountable workflows.",
+    ],
+}
 
 
 def make_slug(title, pub_date, cat=""):
-    """YYYY-MM-DD-<cat>-<title>, URL-safe, ≤80 chars."""
-    import re as _re
-    date_part  = (pub_date or "2026-01-01")[:10]
-    cat_part   = _re.sub(r"[^\w]", "-", (cat or "").lower()).strip("-")[:12]
-    title_part = _re.sub(r"[^\w\s-]", "", title.lower())
-    title_part = _re.sub(r"[\s_]+", "-", title_part).strip("-")
-    prefix     = f"{date_part}-{cat_part}-" if cat_part else f"{date_part}-"
-    return f"{prefix}{title_part[:65 - len(prefix)]}"
+    date_part = (pub_date or "2026-01-01")[:10]
+    cat_part = re.sub(r"[^\w]+", "-", (cat or "").lower()).strip("-")[:18]
+    title_part = re.sub(r"[^\w\s-]", "", (title or "").lower())
+    title_part = re.sub(r"[\s_]+", "-", title_part).strip("-")
+    if not title_part:
+        title_part = "streamic-analysis"
+    prefix = f"{date_part}-{cat_part}-" if cat_part else f"{date_part}-"
+    return f"{prefix}{title_part[:80 - len(prefix)]}".strip("-")
 
+
+def editorial_title(title, cat):
+    title = clean(title)
+    if not title:
+        return f"{CAT_META.get(cat, CAT_META['featured'])['label']} Workflow Reality Check"
+
+    low = title.lower()
+    if any(x in low for x in ["launch", "unveil", "introduc", "announce"]):
+        return f"What {title} Could Mean for Broadcast Operations"
+    if any(x in low for x in ["partner", "collaborat", "integrat"]):
+        return f"Why {title} Matters Beyond the Partnership Headline"
+    if any(x in low for x in ["ai", "artificial intelligence", "automation"]):
+        return f"{title}: The Real Workflow Question for Media Teams"
+    if cat == "streaming":
+        return f"{title}: The Delivery Infrastructure Angle"
+    if cat == "infrastructure":
+        return f"{title}: The Engineering Reality Check"
+    return f"{title}: What Media Technology Teams Should Take From It"
+
+
+def build_card_summary(title, teaser, cat, target_words=CARD_WORDS):
+    label = CAT_META.get(cat, CAT_META["featured"])["label"].lower()
+    base = clean(teaser) or clean(title)
+
+    sentence = (
+        f"The Streamic looks at this {label} development through an operational lens: "
+        f"what may change in real workflows, where the integration risk sits, and why engineers should read beyond the headline."
+    )
+
+    if base:
+        sentence += f" The source signal points to {base[:160]}."
+
+    words = sentence.split()
+    return " ".join(words[:target_words])
+
+
+def build_article_body(title, teaser, slug, cat="featured"):
+    clean_title = clean(title)
+    clean_teaser = clean(teaser)
+    ctx = CAT_CONTEXT.get(cat, CAT_CONTEXT["featured"])
+
+    lead = (
+        f"<p><strong>The Streamic view:</strong> {clean_title} should be read as an operational signal, not just an industry headline. "
+        f"For broadcast and media teams, the important question is how this affects {ctx}.</p>"
+    )
+
+    source_context = ""
+    if clean_teaser:
+        source_context = (
+            f"<p>The public summary suggests: “{clean_teaser[:220]}”. "
+            f"That gives useful context, but it does not answer the engineering question: whether the workflow becomes easier to operate, easier to monitor, and safer to support.</p>"
+        )
+    else:
+        source_context = (
+            "<p>The available RSS metadata gives the headline signal, but the value for readers comes from interpreting what the development may mean in production environments.</p>"
+        )
+
+    ctx_pick = unique_picks(PARAS["context"], f"{slug}:ctx", 3)
+    dev_pick = unique_picks(PARAS["development"], f"{slug}:dev", 4)
+    ops_pick = unique_picks(PARAS["operations"], f"{slug}:ops", 5)
+    out_pick = unique_picks(PARAS["outlook"], f"{slug}:out", 3)
+
+    body = [
+        lead,
+        source_context,
+        "<h2>Why this matters beyond the headline</h2>",
+        f"<p>{ctx_pick[0]} {ctx_pick[1]}</p>",
+        f"<p>{ctx_pick[2]} In this case, the value should be measured against practical broadcast requirements rather than announcement language.</p>",
+        "<h2>The operational angle</h2>",
+        f"<p>{dev_pick[0]} {dev_pick[1]}</p>",
+        f"<p>{dev_pick[2]} {dev_pick[3]}</p>",
+        "<h2>What teams should check</h2>",
+        "<ul>",
+        f"<li><strong>Integration:</strong> {ops_pick[0]}</li>",
+        f"<li><strong>Visibility:</strong> {ops_pick[1]}</li>",
+        f"<li><strong>Training:</strong> {ops_pick[2]}</li>",
+        f"<li><strong>Ownership:</strong> {ops_pick[3]}</li>",
+        f"<li><strong>Measurement:</strong> {ops_pick[4]}</li>",
+        "</ul>",
+        "<h2>The hidden risk</h2>",
+        "<p>The hidden risk is partial success. A tool can work in a demonstration, handle a clean workflow, and still create friction when mixed media, legacy systems, deadline pressure, or unclear support boundaries appear. That is why engineering validation should include real operators, real assets, and real failure scenarios.</p>",
+        "<h2>The Streamic assessment</h2>",
+        f"<p>{out_pick[0]} {out_pick[1]}</p>",
+        f"<p>{out_pick[2]} The practical takeaway is to separate the announcement from the deployment reality. If the change improves reliability, reduces manual handling, and gives teams better operational clarity, it deserves attention. If it only adds another layer, it may create more noise than value.</p>",
+    ]
+
+    html = "\n".join(body)
+    wc = len(re.sub(r"<[^>]+>", " ", html).split())
+    return html, wc
 
 
 def pick_image(cat, slug, pools):
-    """Stable image pick per slug from cat_pools."""
-    import hashlib as _h
-    cat_pool = pools.get("cat_pools", {}).get(cat, [])
-    if not cat_pool:
-        cat_pool = [p for lst in pools.get("cat_pools", {}).values() for p in lst] or ["photo-1598488035139-bdbb2231ce04"]
-    idx = int(_h.md5(slug.encode()).hexdigest(), 16) % len(cat_pool)
+    cat_pools = pools.get("cat_pools", {})
+    pool = cat_pools.get(cat) or cat_pools.get("featured") or []
+    if not pool:
+        pool = ["photo-1598488035139-bdbb2231ce04"]
+
+    idx = int(hashlib.md5(slug.encode()).hexdigest(), 16) % len(pool)
+    photo_id = pool[idx]
+
     return {
-        "image_url":         f"https://images.unsplash.com/{cat_pool[idx]}?w=900&auto=format&fit=crop&q=80",
-        "image_credit":      "Photo: Unsplash — free to use under the Unsplash License",
-        "image_license":     "Unsplash License",
+        "image_url": f"https://images.unsplash.com/{photo_id}?w=900&auto=format&fit=crop&q=80",
+        "image_credit": "Photo: Unsplash — free to use under the Unsplash License",
+        "image_license": "Unsplash License",
         "image_license_url": "https://unsplash.com/license",
     }
+
+
+def load_existing():
+    if not os.path.exists(OUTPUT_F):
+        return []
+    try:
+        with open(OUTPUT_F, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data if isinstance(data, list) else []
+    except Exception:
+        return []
+
+
+def item_key(item):
+    return clean(item.get("url")) or clean(item.get("link")) or clean(item.get("guid")) or clean(item.get("title")).lower()
 
 
 def main():
     print("=== rewrite_feed.py ===")
 
-    with open(NEWS_F,  "r", encoding="utf-8") as f: news  = json.load(f)
-    with open(POOLS_F, "r", encoding="utf-8") as f: pools = json.load(f)
+    if not os.path.exists(NEWS_F):
+        raise SystemExit(f"ERROR: Missing {NEWS_F}")
 
-    existing = []
-    if os.path.exists(OUTPUT_F):
-        with open(OUTPUT_F, "r", encoding="utf-8") as f:
-            try: existing = json.load(f)
-            except json.JSONDecodeError: existing = []
+    with open(NEWS_F, "r", encoding="utf-8") as f:
+        raw_news = json.load(f)
 
-    existing_slugs = {a["slug"] for a in existing}
-    new_articles   = []
-    today          = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    pools = load_pools()
+    news_by_cat = normalise_news(raw_news)
 
-    for cat, items in news.items():
+    existing = load_existing()
+    existing_slugs = {a.get("slug") for a in existing if isinstance(a, dict) and a.get("slug")}
+    existing_keys = {a.get("source_url") for a in existing if isinstance(a, dict) and a.get("source_url")}
+
+    new_articles = []
+    seen_input = set()
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    for cat, items in news_by_cat.items():
         if not items:
-            print(f"  {cat}: 0 items (skipped)"); continue
+            print(f"  {cat}: 0 items")
+            continue
 
-        cm    = CAT_META.get(cat, {"label":cat.title(),"icon":"📡","color":"#0071e3","page":f"{cat}.html"})
+        cm = CAT_META.get(cat, {
+            "label": cat.title(),
+            "icon": "📡",
+            "color": "#0071e3",
+            "page": f"{cat}.html",
+        })
+
         count = 0
 
         for item in items[:ITEMS_PER_CAT]:
-            title  = (item.get("title") or "").strip()
-            teaser = (item.get("teaser") or "").strip()
-            pub    = (item.get("published") or today)[:10]
-            src_url= item.get("url") or item.get("link", "")
-            src_dom= item.get("source", "")
-            if not title: continue
+            if not isinstance(item, dict):
+                continue
 
+            title_raw = clean(item.get("title"))
+            if not title_raw:
+                continue
+
+            key = item_key(item)
+            if key and key in seen_input:
+                continue
+            seen_input.add(key)
+
+            src_url = clean(item.get("url") or item.get("link"))
+            if src_url and src_url in existing_keys:
+                continue
+
+            teaser = clean(item.get("teaser") or item.get("summary") or item.get("description"))
+            pub = clean(item.get("published") or item.get("pubDate") or today)[:10] or today
+            src_dom = clean(item.get("source")) or domain_from_url(src_url)
+
+            title = editorial_title(title_raw, cat)
             slug = make_slug(title, pub, cat)
-            if slug in existing_slugs: continue
 
-            card_summary          = build_card_summary(title, teaser)
-            body_html, word_count = build_article_body(title, teaser, slug, cat)
-            image_meta            = pick_image(cat, slug, pools)
+            # Avoid slug collision.
+            if slug in existing_slugs:
+                suffix = hashlib.md5((src_url or title).encode()).hexdigest()[:6]
+                slug = f"{slug[:72]}-{suffix}"
+            if slug in existing_slugs:
+                continue
+
+            card_summary = build_card_summary(title_raw, teaser, cat)
+            body_html, word_count = build_article_body(title_raw, teaser, slug, cat)
+            image_meta = pick_image(cat, slug, pools)
+
+            guid = clean(item.get("guid"))
+            if not guid:
+                guid = hashlib.md5((src_url or slug).encode()).hexdigest()[:16]
 
             new_articles.append({
-                "category":         cat,
-                "cat_label":        cm["label"],
-                "cat_icon":         cm["icon"],
-                "cat_color":        cm["color"],
-                "cat_page":         cm["page"],
-                "title":            title,
-                "slug":             slug,
-                "dek":              teaser[:160] if teaser else title,
-                "meta_description": teaser[:200] if teaser else title,
-                "card_summary":     card_summary,
-                "body_html":        body_html,
-                "word_count":       word_count,
-                "source_url":       src_url,
-                "source_domain":    src_dom,
-                "published":        pub,
+                "category": cat,
+                "cat_label": cm["label"],
+                "cat_icon": cm["icon"],
+                "cat_color": cm["color"],
+                "cat_page": cm["page"],
+                "title": title,
+                "slug": slug,
+                "guid": guid,
+                "legacy_slug": f"rss-{guid[:16]}" if guid else None,
+                "dek": card_summary,
+                "meta_description": card_summary[:200],
+                "card_summary": card_summary,
+                "body_html": body_html,
+                "word_count": word_count,
+                "source_url": src_url,
+                "source_domain": src_dom,
+                "published": pub,
+                "editorial": True,
+                "type_label": "STREAMIC ANALYSIS",
                 **image_meta,
             })
+
             existing_slugs.add(slug)
+            if src_url:
+                existing_keys.add(src_url)
             count += 1
 
         print(f"  {cat}: {count} new articles")
 
     merged = new_articles + existing
-    merged.sort(key=lambda a: a["published"], reverse=True)
+    merged.sort(key=lambda a: clean(a.get("published")), reverse=True)
     merged = merged[:MAX_TOTAL_KEPT]
 
+    os.makedirs(os.path.dirname(OUTPUT_F), exist_ok=True)
     with open(OUTPUT_F, "w", encoding="utf-8") as f:
         json.dump(merged, f, indent=2, ensure_ascii=False)
 
