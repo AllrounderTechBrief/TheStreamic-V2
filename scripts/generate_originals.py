@@ -313,58 +313,141 @@ def _topic_image(title, cat_slug, seed=''):
     idx = int(_hl.md5((seed+title).encode()).hexdigest(),16) % len(all_pids)
     _used.add(all_pids[idx]); return f'https://images.unsplash.com/{all_pids[idx]}?w=800&auto=format&fit=crop'
 
-def main():
+def def main():
     with open(NEWS_F, "r", encoding="utf-8") as f:
         news = json.load(f)
-    with open(IMAGES_F, "r", encoding="utf-8") as f:
-        images_list = json.load(f)
 
-    images_by_slug = {img["slug"]: img for img in images_list}
-    images_by_cat  = {img.get("category", ""): img for img in images_list}
+    with open(IMAGES_F, "r", encoding="utf-8") as f:
+        images_raw = json.load(f)
+
+    # Support images.json as either list or dict
+    if isinstance(images_raw, list):
+        images_list = images_raw
+    elif isinstance(images_raw, dict):
+        images_list = list(images_raw.values())
+    else:
+        images_list = []
+
+    images_by_slug = {
+        img.get("slug"): img
+        for img in images_list
+        if isinstance(img, dict) and img.get("slug")
+    }
+
+    images_by_cat = {
+        img.get("category", ""): img
+        for img in images_list
+        if isinstance(img, dict)
+    }
+
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     articles = []
 
-    for category, items in news.items():
+    # Support both news formats:
+    # 1) Dict format: {"streaming": [items], "cloud": [items]}
+    # 2) Flat list format: [{item}, {item}]
+    if isinstance(news, dict):
+        news_iterable = news.items()
+    elif isinstance(news, list):
+        news_iterable = [("featured", news)]
+    else:
+        raise SystemExit(f"ERROR: Unsupported news.json format: {type(news).__name__}")
+
+    for category, items in news_iterable:
+        if not isinstance(items, list):
+            print(f"  ⚠  Skipping {category}: expected list, got {type(items).__name__}")
+            continue
+
         if not items:
             print(f"  ⚠  No news items for {category}, skipping.")
             continue
-        cat_meta = CAT_META.get(category, {"label": category.title(), "icon": "📺", "color": "#333", "page": f"{category}.html"})
+
+        cat_meta = CAT_META.get(
+            category,
+            {
+                "label": category.title(),
+                "icon": "📺",
+                "color": "#333",
+                "page": f"{category}.html",
+            },
+        )
+
         body_html = BODY_TEMPLATES.get(category, BODY_TEMPLATES["fallback"])
         count = min(ARTICLES_PER_CATEGORY, len(items))
+
         for i in range(count):
             feed_item = items[i]
+
+            if not isinstance(feed_item, dict):
+                print(f"  ⚠  Skipping invalid item in {category}: not an object")
+                continue
+
             slug = make_slug(category, i)
+
             img_obj = images_by_slug.get(slug) or images_by_cat.get(category)
-            image_url     = img_obj["image_url"] if img_obj else CAT_IMAGES.get(category, CAT_IMAGES["featured"])
-            image_credit  = img_obj.get("credit", "Unsplash — free to use under the Unsplash License") if img_obj else "Unsplash — free to use under the Unsplash License"
-            image_license = img_obj.get("license", "Unsplash License") if img_obj else "Unsplash License"
-            image_lic_url = img_obj.get("license_url", "https://unsplash.com/license") if img_obj else "https://unsplash.com/license"
+
+            image_credit = (
+                img_obj.get("credit", "Unsplash — free to use under the Unsplash License")
+                if img_obj else
+                "Unsplash — free to use under the Unsplash License"
+            )
+
+            image_license = (
+                img_obj.get("license", "Unsplash License")
+                if img_obj else
+                "Unsplash License"
+            )
+
+            image_lic_url = (
+                img_obj.get("license_url", "https://unsplash.com/license")
+                if img_obj else
+                "https://unsplash.com/license"
+            )
+
             wc = word_count(body_html)
-            # Carry the RSS guid through so build.py can write a legacy
-            # rss-<guid>.html alias alongside the slug file.
-            item_guid = feed_item.get("guid", "")
-            legacy_slug = f"rss-{item_guid[:16]}" if item_guid and len(item_guid) == 16 else None
-            # Use RSS teaser as the card summary — real content, not generic text
-            rss_teaser = (feed_item.get("teaser") or "").strip()
+
+            item_guid = str(feed_item.get("guid", "") or "")
+            legacy_slug = f"rss-{item_guid[:16]}" if item_guid and len(item_guid) >= 16 else None
+
+            rss_teaser = (feed_item.get("teaser") or feed_item.get("summary") or feed_item.get("description") or "").strip()
             card_summary = rss_teaser[:200] if rss_teaser else build_meta(category, i)
-            # Use unique topic-relevant image per article
+
             unique_img = _topic_image(build_title(category, i), category, slug)
+
             articles.append({
-                "category": category, "cat_label": cat_meta["label"],
-                "cat_icon": cat_meta["icon"], "cat_color": cat_meta["color"],
-                "cat_page": cat_meta["page"], "title": build_title(category, i),
+                "category": category,
+                "cat_label": cat_meta["label"],
+                "cat_icon": cat_meta["icon"],
+                "cat_color": cat_meta["color"],
+                "cat_page": cat_meta["page"],
+                "title": build_title(category, i),
                 "slug": slug,
                 "guid": item_guid,
                 "legacy_slug": legacy_slug,
                 "dek": build_dek(category),
                 "meta_description": card_summary,
-                "body_html": body_html.strip(), "word_count": wc,
-                "source_url": feed_item["url"], "source_domain": feed_item["source"],
-                "published": today, "image_url": unique_img,
-                "image_credit": "Unsplash — free to use under the Unsplash License",
-                "image_license": "Unsplash License",
-                "image_license_url": "https://unsplash.com/license",
+                "body_html": body_html.strip(),
+                "word_count": wc,
+                "source_url": feed_item.get("url", ""),
+                "source_domain": feed_item.get("source", ""),
+                "published": today,
+                "image_url": unique_img,
+                "image_credit": image_credit,
+                "image_license": image_license,
+                "image_license_url": image_lic_url,
             })
+
+        print(f"  {category}: {count} articles ({word_count(body_html)} words)")
+
+    if not articles:
+        raise SystemExit("ERROR: No articles generated — aborting.")
+
+    os.makedirs(os.path.dirname(OUTPUT_F), exist_ok=True)
+
+    with open(OUTPUT_F, "w", encoding="utf-8") as f:
+        json.dump(articles, f, indent=2, ensure_ascii=False)
+
+    print(f"\n✓ {len(articles)} articles → data/generated_articles.json")
         print(f"  {category}: {count} articles ({word_count(body_html)} words)")
 
     if not articles:
