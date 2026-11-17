@@ -1,90 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.thestreamic.in/index.html</loc><lastmod>2026-11-16</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.thestreamic.in/featured.html</loc><lastmod>2026-11-16</lastmod><changefreq>daily</changefreq><priority>0.95</priority></url>
-  <url><loc>https://www.thestreamic.in/streaming.html</loc><lastmod>2026-11-16</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thestreamic.in/cloud.html</loc><lastmod>2026-11-16</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thestreamic.in/graphics.html</loc><lastmod>2026-11-16</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thestreamic.in/playout.html</loc><lastmod>2026-11-16</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thestreamic.in/infrastructure.html</loc><lastmod>2026-11-16</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thestreamic.in/ai-post-production.html</loc><lastmod>2026-11-16</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thestreamic.in/newsroom.html</loc><lastmod>2026-11-16</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thestreamic.in/howto.html</loc><lastmod>2026-11-16</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thestreamic.in/about.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thestreamic.in/contact.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://www.thestreamic.in/privacy.html</loc><lastmod>2026-11-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-graphics-vizrt-powers-a-new-era-of-corporate-viewer-engagement-with-e.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-graphics-vizrt-revolutionizes-corporate-communications-with-ai-powere.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-graphics-what-vizrt-launches-sports-production-bundles-to-empower-us.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-graphics-vizrt-ai-keyer-kills-the-green-screen-and-creates-virtual-sc.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-graphics-vizrt-graphics-chosen-as-the-official-technical-supplier-of.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-graphics-vizrt-strengthens-its-presence-in-the-uk-and-ireland-with-ne.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-graphics-vizrt-graphics-help-girraphic-deliver-exclusive-mma-event-in.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-what-telegram-widgets-hit-by-rce-demos-malware-warning.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://www.secu.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-australian-retail-giant-coles-investigates-cybersecuri.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/index.html</loc><lastmod>2026-11-17</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.thestreamic.in/featured.html</loc><lastmod>2026-11-17</lastmod><changefreq>daily</changefreq><priority>0.95</priority></url>
+  <url><loc>https://www.thestreamic.in/streaming.html</loc><lastmod>2026-11-17</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thestreamic.in/cloud.html</loc><lastmod>2026-11-17</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thestreamic.in/graphics.html</loc><lastmod>2026-11-17</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thestreamic.in/playout.html</loc><lastmod>2026-11-17</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thestreamic.in/infrastructure.html</loc><lastmod>2026-11-17</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thestreamic.in/ai-post-production.html</loc><lastmod>2026-11-17</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thestreamic.in/newsroom.html</loc><lastmod>2026-11-17</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thestreamic.in/howto.html</loc><lastmod>2026-11-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thestreamic.in/about.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thestreamic.in/contact.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.thestreamic.in/privacy.html</loc><lastmod>2026-11-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-17-graphics-vizrt-powers-a-new-era-of-corporate-viewer-engagement-with-e.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-17-graphics-vizrt-revolutionizes-corporate-communications-with-ai-powere.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-17-graphics-what-vizrt-launches-sports-production-bundles-to-empower-us.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-17-graphics-vizrt-ai-keyer-kills-the-green-screen-and-creates-virtual-sc.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-17-graphics-vizrt-graphics-chosen-as-the-official-technical-supplier-of.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-17-graphics-vizrt-strengthens-its-presence-in-the-uk-and-ireland-with-ne.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-17-graphics-vizrt-graphics-help-girraphic-deliver-exclusive-mma-event-in.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/epg-enriched-ad-requests-with-cloudfront-functions-and-aws-elemental-mediatailor-2af3d4.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-58c5a988205cd333.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/why-now-is-the-time-to-migrate-from-viz-pilot-news-to-viz-pilot-edge-eef036.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/turning-archives-into-intelligence-vizrt-and-deepva-introduce-ai-driven-metadata-362371.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/vizrt-launches-ai-powered-advances-for-speed-and-accuracy-in-media-management-48b93b.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-to-target-multiple-c33efc.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://www.micr.html</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-graphics-dissembargo-f1-2026-opening-titles-making-of-what-media-tech.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://motionog.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-google-project-zero-cuts-bug-disclosures-to-30-days-am.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://www.blee.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-recent-unrealircd-vulnerability-exploited-in-attacks-t.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://www.secu.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-hackers-probe-newly-disclosed-flaws-in-copeland-refrig.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://www.secu.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-uber-data-breach-impacts-150000-people-the-engineering.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://www.secu.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-anthropics-claude-fable-52-blocks-fewer-security-tasks.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-california-sues-openai-over-ai-agents-escaping-sandbox.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://www.blee.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-new-noisytcp-vulnerability-lets-attackers-crash-linux.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://www.blee.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-tor-updates-dos-defenses-again-as-relay-attacks-contin.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-trump-administration-moves-to-block-china-from-indirec.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://www.secu.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-microsoft-pushes-windows-emergency-updates-to-fix-acti.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-barracuda-links-cloud-breach-to-artex-ai-powered-cyber.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://www.blee.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-microsoft-rules-out-cyberattack-in-outage-warns-of-phi.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-ransomware-attacks-increase-behind-ai-but-payments-dec.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://www.dark.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-sleeper-agent-tactic-hides-payloads-in-open-weight-ai.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://www.dark.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-microsoft-says-months-old-bug-caused-global-microsoft.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://www.blee.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-china-nexus-actors-breach-10-organizations-in-ai-drive.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://www.dark.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-cursor-supply-chain-attack-started-at-fireworks-ai-the.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://www.secu.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-fandango-says-hackers-stole-payment-card-details-from.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://www.blee.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-google-project-zero-sets-course-for-30-day-disclosure.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://www.secu.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-barracuda-hacked-amid-surge-in-artex-powered-cyberatta.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://www.secu.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-7-tips-for-complying-with-cjis-password-and-mfa-requir.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://www.blee.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-google-warns-that-fully-automated-ai-attacks-are-comin.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://www.blee.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-infrastructure-microsoft-windows-server-2016-reaches-end-of-support-i.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://www.blee.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-newsroom-bridge-technologies-adds-apple-prores-support-to-vb440-probe.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-uwm6EZDzqFWJHXK8.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-newsroom-what-hexagon-introduces-camera-mounted-3d-capture-and-tracki.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-Mpi6Fez65XQo4Kzi.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-newsroom-monthly-streaming-costs-up-internet-fees-down-for-2026-what.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-YAFahQPJ6hfMf3nZ.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-newsroom-sdvi-names-marcy-lefkovitz-as-vp-of-strategic-accounts-what.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-7mjjaUcZPKhdWiNT.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-16-newsroom-why-fabric-insights-partners-with-fonn-group-on-enhancing-me.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-kFSDKhbadgWraSma.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-11-16-newsroom-apple-tv-adding-podcasts-what-media-technology-teams-should.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-2d5zJJjfA7JDpokc.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-11-16-newsroom-nbc-celebrates-centennial-what-media-technology-teams-should.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-G3ox7iTGEngvYUa7.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/why-now-is-the-time-to-migrate-from-viz-pilot-news-to-viz-pilot-edge-eef036.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/turning-archives-into-intelligence-vizrt-and-deepva-introduce-ai-driven-metadata-362371.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/vizrt-launches-ai-powered-advances-for-speed-and-accuracy-in-media-management-48b93b.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://routing..html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/7-tips-for-complying-with-cjis-password-and-mfa-requirements-09921b.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/gemini-ai-agents-repeatedly-bypassed-safeguards-to-attack-real-website-f680c3.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://www.blee.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/google-warns-that-fully-automated-ai-attacks-are-coming-soon-061dde.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://www.blee.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/microsoft-windows-server-2016-reaches-end-of-support-in-60-days-1327a3.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://www.blee.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/monthly-streaming-costs-up-internet-fees-down-for-2026-e556c8.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-YAFahQPJ6hfMf3nZ.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/sdvi-names-marcy-lefkovitz-as-vp-of-strategic-accounts-5200e3.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-7mjjaUcZPKhdWiNT.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/fabric-insights-partners-with-fonn-group-on-enhancing-media-workflows-8609a1.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-kFSDKhbadgWraSma.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-15-infrastructure-fbi-warns-artex-ai-hacking-tool-is-powering-global-cyb.html</loc><lastmod>2026-11-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://www.blee.html</loc><lastmod>2026-11-15</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-15-infrastructure-tsmc-employee-data-breach-linked-to-cloud-provider-the.html</loc><lastmod>2026-11-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://www.blee.html</loc><lastmod>2026-11-15</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-15-infrastructure-pentagon-renames-cdao-super-intelligence-office-the-en.html</loc><lastmod>2026-11-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://www.secu.html</loc><lastmod>2026-11-15</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/google-project-zero-slashes-bug-disclosure-deadlines-splitting-experts-487893.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://www.dark.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/behind-the-tools-and-techniques-used-to-craft-those-subtle-facial-enhancements-i-8d54df.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://beforesa.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/you-wont-believe-whats-real-or-cg-in-the-lost-bus-0c796e.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://beforesa.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/wcvb-boston-names-michael-murgia-director-of-engineering-f17844.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-BeMyknnVRcjBkA3d.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/sinclairs-bill-fanshawe-sets-retirement-5965a3.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-KCXNBp32Kt5CnYYS.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rebuilding-broadcast-on-air-inside-the-2026-smpte-media-technology-summit-f92219.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-USgex4hycHavRxSH.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/wbd-disney-sky-layoff-update-many-taking-voluntary-buyout-offers-more-disney-cut-ba2e05.html</loc><lastmod>2026-11-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://www.stre.html</loc><lastmod>2026-11-15</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/the-music-video-that-made-morphing-a-hit-876705.html</loc><lastmod>2026-11-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://beforesa.html</loc><lastmod>2026-11-15</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-14-infrastructure-meta-fined-887-million-in-italy-over-android-gallery-p.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://www.secu.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-14-infrastructure-cursor-confirms-security-breach-led-to-malicious-claud.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://www.blee.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-11-13-graphics-hp-studio-hp-limited-edition-scuderia-ferrari-ai-pc-the-real.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://motionog.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-13-ai-post-production-best-black-friday-post-production-deals-2026-what.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-https://jonnyelw.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-13-ai-post-production-the-best-studio-speakers-studio-monitors-for-an-ed.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-http://jonnyelwy.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-11-13-ai-post-production-the-making-of-the-end-of-oak-street-what-media-tec.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://beforesa.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-11-13-ai-post-production-disguise-to-be-acquired-by-yamaha-corporation-for.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
@@ -99,10 +121,6 @@
   <url><loc>https://www.thestreamic.in/articles/rss-pVhNMq7urw3AW9yH.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-11-13-newsroom-cruz-schedules-confirmation-vote-for-fcc-nominee-thumann-sev.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-Cyb3rLyQshXnDotV.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/best-black-friday-post-production-deals-2026-5da271.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://jonnyelw.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/the-best-studio-speakers-studio-monitors-for-an-edit-suite-058efa.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-http://jonnyelwy.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-11-12-graphics-reframe-david-sheldon-hicks-and-art-tindsley-open-a-new-podc.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://motionog.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-11-12-graphics-why-perfect-stranger-appoints-tony-kadillak-as-head-of-clien.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
@@ -133,26 +151,16 @@
   <url><loc>https://www.thestreamic.in/articles/rss-3Rrs2RfPSGJAaXKm.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-11-12-newsroom-hpa-retreat-to-explore-changing-shape-of-industry-what-media.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-FQfkqRQWKqcKnbw5.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-12-newsroom-samsung-ads-to-offer-3-new-interactive-formats-what-media-te.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-x5PUBYNBYEGWTYFv.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-12-newsroom-ieee-broadcast-technology-society-honors-dr-yiyan-wu-with-th.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-HVBfKtiEFgK2QkKt.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-12-newsroom-former-fcc-chair-tom-wheeler-to-advise-ai-startup-the-real-w.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-3jau6PS5g7Tvq4q2.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-12-newsroom-operative-names-brian-beirne-as-senior-vp-commercial-growth.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-nQswgbyt7ecPjYjQ.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-12-newsroom-jack-smith-joins-madhive-as-chief-product-and-technology-off.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-hgypADHBTBu9NaXK.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/how-falkon-is-redefining-5g-video-contribution-for-live-production-bd5717.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://haistage.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/implement-a-generative-ai-andon-cord-for-live-media-workflows-on-aws-daa7df.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-82155c95a568dd59.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/nfl-and-aws-introduce-next-gen-trends-e7e4a8.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-9c68ec57f7c8769b.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/2026-11-11-cloud-nfl-and-aws-big-data-bowl-will-bridge-the-gap-from-college-to-t.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.thestreamic.in/articles/rss-98c7c7f441a6a80f.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-11-11-ai-post-production-what-maxhub-unveils-two-solutions-for-simplifying.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://www.avin.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/nfl-and-aws-big-data-bowl-will-bridge-the-gap-from-college-to-the-pros-68bae7.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-98c7c7f441a6a80f.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-11-10-cloud-scaling-real-time-bidding-and-publisher-monetization-with-the-a.html</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-f758f3f380e34b83.html</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-11-10-graphics-lofsöng-and-the-language-that-outlives-us-what-media-technol.html</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
@@ -163,18 +171,12 @@
   <url><loc>https://www.thestreamic.in/articles/rss-https://motionog.html</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/broadband-intelligence-fabric-part-3-adoption-roadmap-7ac47f.html</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://www.harm.html</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-09-graphics-logitech-g3-power-up-campaign-laundry-the-real-workflow-ques.html</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://motionog.html</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-11-09-ai-post-production-mandos-miniatures-puppets-stop-motion-and-more-wha.html</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://beforesa.html</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-11-07-streaming-buyout-offers-from-wbd-and-others-will-put-a-lot-of-experie.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://www.stre.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-07-ai-post-production-behind-the-scenes-on-ramayana-what-media-technolog.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://beforesa.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/by-my-estimates-the-streaming-industry-is-in-the-midst-of-50000-job-cuts-with-mo-747b50.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://www.stre.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-11-05-ai-post-production-the-pedestrian-mutant-bryan-and-all-the-crazy-crea.html</loc><lastmod>2026-11-05</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-https://beforesa.html</loc><lastmod>2026-11-05</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-10-30-cloud-experience-the-future-of-media-and-entertainment-sports-and-adv.html</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-dd24840f8fda787e.html</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-10-29-cloud-unified-multimodal-search-across-live-events-and-vod-assets-on.html</loc><lastmod>2026-10-29</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
@@ -227,8 +229,6 @@
   <url><loc>https://www.thestreamic.in/articles/rss-a692c7ad634e145d.html</loc><lastmod>2026-09-21</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-09-17-streaming-new-updates-across-the-isr-portfolio-the-delivery-infrastru.html</loc><lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://www.haiv.html</loc><lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/2026-09-17-cloud-what-introducing-the-updated-aws-well-architected-streaming-med.html</loc><lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.thestreamic.in/articles/rss-8b9ee49183dae42b.html</loc><lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/2026-09-11-streaming-netflixs-exclusive-nfl-game-from-australia-shows-how-fruste.html</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.thestreamic.in/articles/rss-https://www.stre.html</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.thestreamic.in/articles/the-five-layers-of-broadband-network-defense-1976d7.html</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
